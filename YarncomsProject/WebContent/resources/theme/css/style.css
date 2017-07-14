@@ -1,0 +1,189 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.quote {
+  background: #41ADE5;
+  position: relative;
+  z-index: 1;
+}
+.quote:before, .quote:after {
+  background: inherit;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  -webkit-backface-visibility: hidden;
+}
+.quote:before {
+  top: 0;
+  -webkit-transform: skewY(3deg);
+          transform: skewY(3deg);
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+}
+.quote:after {
+  bottom: 0;
+  -webkit-transform: skewY(-4deg);
+          transform: skewY(-4deg);
+  -webkit-transform-origin: 100%;
+          transform-origin: 100%;
+}
+
+.quote {
+  color: #fff;
+  font-family: 'Fira Sans', sans-serif;
+  margin: 100px 0;
+  padding: 7% 20px;
+  text-align: center;
+}
+
+.input-group-addon {
+	background-color: #fff;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+	background-color: #46CB4F;
+    border-color: #46CB4F;
+}
+
+.text-danger {
+	color: red;
+}
+
+.navbar.navbar-blue {
+	margin-bottom: 0px;
+	background-color: rgba(55, 139, 190, 0.9);
+	position: absolute;
+    width: 100%;
+    z-index: 10;
+    border-color: rgba(55, 139, 190, 0.9);
+    border-radius: 0px;
+}
+
+.navbar-blue .navbar-brand, .navbar-blue .navbar-brand:hover, .navbar-inverse.navbar-fixed-side li a, .navbar-inverse.navbar-fixed-side li a:hover{
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar-inverse.navbar-fixed-side li.active a, .navbar-inverse.navbar-fixed-side li.active a:hover {
+	color: #9d9d9d;
+}
+
+.main-block {
+	margin-top: 52px;
+}
+
+.block-heading, .block-sub-heading {
+	background-color: #E0E4EF;
+	height: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid #b9bdca;
+    padding: 10px;
+}
+
+.block-sub-heading {
+	height: 45px;
+    font-size: 15px;
+}
+
+.subdivision-block {
+	border-right: 1px solid #b9bdca;
+    height: 92vh;
+}
+
+.navbar-inverse {
+    background-color: #32363F;
+    border-color: #32363F;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #32363F;
+}
+
+.search-block {
+	margin-top: 20px;
+}
+
+ .customer-details-block, .add-customer-details-block {
+ 	margin-top: 50px;
+ }
+
+.image-bordered {
+	border: 1px solid #8E8078;
+	border-radius: 100%;
+}
+
+.text-blue {
+	color: #378bbe;
+}
+
+.progress {
+	height: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.block-sub-heading .arrow {
+	border: 1px solid;
+    padding: 2px 10px;
+    border-color: #b9bdca;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#interiorDesignEnquiry, .block-sub-heading, #furnitureEnquiry {
+	display: none;
+}
+
+.alert-box {
+	padding-top: 50px;
+}
+
+.active-menu {
+	background-color: #2f2f2f;
+    color: #fff;
+}
+
+.list-group-item:first-child, .list-group-item:last-child {
+	border-radius: 0px;
+}
+
+.enquiry-details-block {
+	margin-top: 50px;
+}
+
+.table .text-blue {
+	text-align: center;
+}
+
+.modal {
+	top: 100px;
+}
+
+.modal .modal-content {
+	border-radius: 0px;
+}
+
+#requestQuotation .list-group {
+	max-height: 300px;
+	overflow-y: auto; 
+}
+
+li[data-supplier-isChecked] {
+	cursor: pointer;
+}
+
+.navbar-right {
+	margin-right: 30px;
+}
+
+.navbar-default .navbar-link {
+	color: #fff;
+}
+
+.seller {
+	display: none;
+}
