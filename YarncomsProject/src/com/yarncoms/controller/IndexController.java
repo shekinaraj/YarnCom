@@ -1,6 +1,5 @@
 package com.yarncoms.controller;
 
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yarncoms.model.UserDetails;
+import com.yarncoms.service.CustomerVisitService;
 import com.yarncoms.service.UserDetailsService;
 
 
@@ -19,6 +18,9 @@ public class IndexController {
 
 	@Autowired
 	private UserDetailsService userDetailsServiceImpl;
+	
+	@Autowired
+	private CustomerVisitService customerVisitServiceImpl;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(@RequestParam(defaultValue = "true", name = "loginstatus", required = false) boolean loginstatus, @RequestParam(defaultValue = "false", name = "sessionTimeout", required = false) boolean sessionTimeout, HttpServletRequest request) {

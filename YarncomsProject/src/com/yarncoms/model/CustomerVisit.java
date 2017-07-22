@@ -145,7 +145,5 @@ public class CustomerVisit {
 				+ mobileNumber + ", comments=" + comments + ", remarks="
 				+ remarks + "]";
 	}
-
-	
 		
 }

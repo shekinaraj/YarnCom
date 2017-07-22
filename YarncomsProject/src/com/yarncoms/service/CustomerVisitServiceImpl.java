@@ -2,11 +2,16 @@ package com.yarncoms.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.repository.CustomerVisitRepository;
 
-
+@Service
 public class CustomerVisitServiceImpl implements CustomerVisitService {
+	@Resource
 	private CustomerVisitRepository customerVisitRepository;
 	
 	@Override
@@ -15,9 +20,9 @@ public class CustomerVisitServiceImpl implements CustomerVisitService {
 	}
 	
 	@Override
-	public CustomerVisit findByCustomerId(Long customerId) {
+	public List<CustomerVisit> findByCustomerVisitId(Long customerId) {
 		// TODO Auto-generated method stub
-		return customerVisitRepository.findOne(customerId);
+		return customerVisitRepository.findByCustomerVisitId(customerId);
 	}
 
 	@Override

@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.yarncoms.model.CustomerVisit;
 
-
 public interface CustomerVisitService {
-	CustomerVisit findByCustomerId(Long customerVisitId);
+	
+	List<CustomerVisit> findByCustomerVisitId(Long customerVisitId);
 	
 	CustomerVisit save(CustomerVisit customer);
 
