@@ -29,6 +29,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		// TODO Auto-generated method stub
 		return userDetailsRepository.findAll();
 	}
+
+	@Override
+	public UserDetails editByUserName(UserDetails user) {
+		// TODO Auto-generated method stub
+		return userDetailsRepository.save(user);
+	}
+
+	@Override
+	public boolean delete(Long userId) {
+		System.out.println("service" +userId);
+		try {
+			UserDetails user = new UserDetails();
+			user.setUserId(userId);
+			userDetailsRepository.delete(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 	
 	
 }
