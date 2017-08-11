@@ -31,12 +31,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 
 	@Override
-	public UserDetails editByUserName(UserDetails user) {
-		// TODO Auto-generated method stub
-		return userDetailsRepository.save(user);
-	}
-
-	@Override
 	public boolean delete(Long userId) {
 		System.out.println("service" +userId);
 		try {

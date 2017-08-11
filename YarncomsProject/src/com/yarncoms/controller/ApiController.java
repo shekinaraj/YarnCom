@@ -93,12 +93,12 @@ public class ApiController {
 	public  @ResponseBody HashMap updateUserDetail(@PathVariable String userName,@RequestBody UserDetails user){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "UserList");
-		UserDetails userDetail = UserDetailsServiceImpl.editByUserName(user);
+		UserDetails userDetail = UserDetailsServiceImpl.save(user);
 		json.put("EditedUser", userDetail.getUserName());
 		return json;
 	}
 	
-	@RequestMapping(value="delete-UserDetail/{userId}", method=RequestMethod.DELETE)
+	@RequestMapping(value="delete-UserDetail/{userId}", method=RequestMethod.GET)
 	public  @ResponseBody HashMap deleteUserDetail(@PathVariable("userId") long id){
 		System.out.println(id);
 		LinkedHashMap json = new LinkedHashMap();

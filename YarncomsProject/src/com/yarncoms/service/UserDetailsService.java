@@ -12,7 +12,5 @@ public interface UserDetailsService {
 
 	List<UserDetails> findUserDetails();
 	
-	UserDetails editByUserName(UserDetails user);
-	
 	boolean delete(Long userId);
 }
