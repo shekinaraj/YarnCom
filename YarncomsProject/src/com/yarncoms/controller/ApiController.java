@@ -82,6 +82,8 @@ public class ApiController {
 	
 	@RequestMapping(value="save-UserDetail", method=RequestMethod.POST)
 	public  @ResponseBody HashMap saveUserDetail(@RequestBody UserDetails  user){
+		
+		System.out.println(user.getUserName());
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "UserList");
 		UserDetails userDetail = UserDetailsServiceImpl.save(user); 
@@ -89,8 +91,8 @@ public class ApiController {
 		return json;
 	}
 	
-	@RequestMapping(value="update-UserDetail/{userName}", method=RequestMethod.PUT)
-	public  @ResponseBody HashMap updateUserDetail(@PathVariable String userName,@RequestBody UserDetails user){
+	@RequestMapping(value="update-UserDetail/{userId}", method=RequestMethod.PUT)
+	public  @ResponseBody HashMap updateUserDetail(@PathVariable long userId,@RequestBody UserDetails user){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "UserList");
 		UserDetails userDetail = UserDetailsServiceImpl.save(user);
