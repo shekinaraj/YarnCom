@@ -13,4 +13,6 @@ public interface UserDetailsService {
 	List<UserDetails> findUserDetails();
 	
 	boolean delete(Long userId);
+	
+	UserDetails login(String userName, String password);
 }

@@ -116,6 +116,21 @@ public class ApiController {
 		return json;
 	}
 	
+
+	@RequestMapping(value="login", method=RequestMethod.POST)
+	public  @ResponseBody HashMap login(@RequestBody UserDetails  user){
+			
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "UserList");
+		UserDetails userDetail =(UserDetails) UserDetailsServiceImpl.login(user.getUserName(),user.getPassword());
+		System.out.println(userDetail.getEmailId());
+		json.put("Retrieved", userDetail);
+		return json;
+	
+	}
+
+	
+	
 	
 }
 

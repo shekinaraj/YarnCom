@@ -16,4 +16,8 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
     @Query("delete from UserDetails u where u.userId = ?1")
     boolean deleteByUserId(Long userId);
 	
+	@Transactional
+	@Query("SELECT u FROM UserDetails u where u.userName = ?1 AND u.password = ?2")
+	List<UserDetails> loginAuthenticate(String userName,String password);
+	
 }

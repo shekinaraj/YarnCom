@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yarncoms.model.UserDetails;
 import com.yarncoms.repository.UserDetailsRepository;
@@ -43,6 +44,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 		return true;
 	}
+
+	@Override
+    public UserDetails login(String userName, String password) {
+		
+		UserDetails logged = (UserDetails) userDetailsRepository.loginAuthenticate(userName, password);
+        
+        return logged;
+        }
 	
 	
 }
