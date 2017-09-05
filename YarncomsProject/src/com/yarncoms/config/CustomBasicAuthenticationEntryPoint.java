@@ -1,4 +1,4 @@
-/*package com.yarncoms.config;
+package com.yarncoms.config;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,4 +30,3 @@ public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntr
         super.afterPropertiesSet();
     }
 }
-*/
