@@ -8,11 +8,11 @@ public interface UserDetailsService {
 
 	List<UserDetails> findByUserId(Long userId);
 		
-	UserDetails save(UserDetails user);
+	boolean save(UserDetails user);
 
 	List<UserDetails> findUserDetails();
 	
 	boolean delete(Long userId);
 	
-	UserDetails login(String userName, String password);
+	List<UserDetails> login(String userName, String password);
 }

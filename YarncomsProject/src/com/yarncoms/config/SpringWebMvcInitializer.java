@@ -1,4 +1,4 @@
-package com.yarncoms.config;
+/*package com.yarncoms.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -21,4 +21,4 @@ public class SpringWebMvcInitializer extends AbstractAnnotationConfigDispatcherS
 	protected String[] getServletMappings() {
 		return null;//new String[] { "/" };
 	}
-}
+}*/

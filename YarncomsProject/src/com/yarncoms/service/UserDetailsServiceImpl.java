@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.yarncoms.model.UserDetails;
 import com.yarncoms.repository.UserDetailsRepository;
@@ -16,9 +15,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private UserDetailsRepository userDetailsRepository;
 	
 	@Override
-	public UserDetails save(UserDetails user) {
-		return userDetailsRepository.save(user);
-	}
+	public boolean save(UserDetails user) {
+		
+			
+			try {
+				userDetailsRepository.save(user);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+			return true;
+		}
 
 	@Override
 	public List<UserDetails> findByUserId(Long userId) {
@@ -46,12 +53,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 
 	@Override
-    public UserDetails login(String userName, String password) {
-		
-		UserDetails logged = (UserDetails) userDetailsRepository.loginAuthenticate(userName, password);
-        
+    public List<UserDetails> login(String userName, String password) {
+	
+		List<UserDetails> logged =  userDetailsRepository.loginAuthenticate(userName, password);
         return logged;
-        }
+     }
+
 	
 	
 }

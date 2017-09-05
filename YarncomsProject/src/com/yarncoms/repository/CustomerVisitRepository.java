@@ -8,5 +8,5 @@ import com.yarncoms.model.CustomerVisit;
 
 public interface CustomerVisitRepository extends JpaRepository<CustomerVisit, Long> {
 	
-	List<CustomerVisit> findByCustomerVisitId(Long customerId);
+	List<CustomerVisit> findByCustomerVisitId(Long customerVisitId);
 }
