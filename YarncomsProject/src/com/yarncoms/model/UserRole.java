@@ -19,16 +19,6 @@ public class UserRole {
 	private Long userid;
 	@Column(name = "role")
 	private String role;
-	
-	private User user;
-	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public String getRole() {
 		return role;

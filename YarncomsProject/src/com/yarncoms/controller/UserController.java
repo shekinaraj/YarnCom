@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.User;
+import com.yarncoms.model.UserRole;
+import com.yarncoms.service.CustomUserDetailsService;
 import com.yarncoms.service.UserService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -23,6 +25,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private CustomUserDetailsService customUserImpl;
+	
 	@RequestMapping(value="get-user-list", method=RequestMethod.GET)
 	public @ResponseBody HashMap getUserList() {
 		LinkedHashMap json = new LinkedHashMap();
@@ -31,7 +36,7 @@ public class UserController {
 		List<User> user = userService.list();
 		json.put("NumberOfUsers", user.size());
 		json.put("UserList", user);
-	
+		
 		return json;
 	}
 	
@@ -43,6 +48,12 @@ public class UserController {
 		json.put("enquiryType", "UserList");
 		User userDetail = userService.save(user); 
 		json.put("savedUser", userDetail.getUserName());
+		
+		UserRole role = new UserRole();
+		role.setRole(userDetail.getRole());
+		role.setUserid(userDetail.getUserId());
+		UserRole rol = customUserImpl.role(role);
+		json.put("SavedRole", rol);
 		return json;
 	}
 

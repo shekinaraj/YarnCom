@@ -1,4 +1,4 @@
-package com.yarncoms.config;
+/*package com.yarncoms.config;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new CustomBasicAuthenticationEntryPoint();
     }
     
-    /* To allow Pre-flight [OPTIONS] request from browser*/ 
+     To allow Pre-flight [OPTIONS] request from browser 
     @Override
     public void configure(WebSecurity web) throws Exception {
        // web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
@@ -61,4 +61,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordencoder(){
      return new BCryptPasswordEncoder();
     }
-}
+}*/

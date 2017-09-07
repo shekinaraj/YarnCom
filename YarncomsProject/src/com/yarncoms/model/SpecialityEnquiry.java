@@ -19,7 +19,7 @@ public class SpecialityEnquiry {
 	private int yarnEnquiryId;
 	
 	@Column(name = "yarnCountIn")
-	private long yarnCountIn;
+	private String yarnCountIn;
 	
 	@Column(name = "ply")
 	private String ply;
@@ -92,11 +92,12 @@ public class SpecialityEnquiry {
 		this.yarnEnquiryId = yarnEnquiryId;
 	}
 
-	public long getYarnCountIn() {
+	
+	public String getYarnCountIn() {
 		return yarnCountIn;
 	}
 
-	public void setYarnCountIn(long yarnCountIn) {
+	public void setYarnCountIn(String yarnCountIn) {
 		this.yarnCountIn = yarnCountIn;
 	}
 

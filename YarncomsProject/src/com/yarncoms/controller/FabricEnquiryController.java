@@ -13,17 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
+import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
 
-@CrossOrigin(origins = "http:\\localhost:4200" )
+@CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
 @RequestMapping("/rest")
 public class FabricEnquiryController {
-	
+
 	@Autowired
 	private FabricEnquiryService FabricEnquiryServiceImpl;
 	
+	@Autowired
+	private EnquiryTableService EnquiryTableServiceImpl;
+
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
 		HashMap json = new HashMap();
@@ -45,37 +50,47 @@ public class FabricEnquiryController {
 
 		return json;
 	}
-	
-	@RequestMapping(value = "save-fabricEnquiryDetails", method= RequestMethod.POST)
+
+	@RequestMapping(value = "save-fabricEnquiryDetails", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveFabricEnquiry(@RequestBody FabricEnquiry fabric) {
 		HashMap json = new HashMap();
-		
+
 		json.put("enquiryType", "BankDetails");
 		FabricEnquiry fabricDetails = FabricEnquiryServiceImpl.save(fabric);
-		json.put("savedFabricEnquiryDetails", fabricDetails.getFabricEnquiryId());
+		json.put("savedFabricEnquiryDetails", fabricDetails.getEnquiryId());
 		
-		return json;
-	}
-	
-	@RequestMapping(value = "update-fabricEnquiryDetails/{fabricEnquiryId}", method = RequestMethod.PUT)
-	public @ResponseBody HashMap updatFabricEnquiryDetail(@PathVariable("fabricEnquiryId") long id, @RequestBody FabricEnquiry fabric) {
-		LinkedHashMap json = new LinkedHashMap();
+		EnquiryTable enquiry = new EnquiryTable();
+		enquiry.setEnquiryId(fabricDetails.getEnquiryId());
+		enquiry.setCustomerName(fabricDetails.getCustomerName());
+		enquiry.setContactNo(fabricDetails.getContactNo());
+		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
 		
-		json.put("enquiryType", "FabricEnquiry");
-		FabricEnquiry fabricEnquiry = FabricEnquiryServiceImpl.save(fabric);
-		json.put("EditedEnquiry", fabricEnquiry.getFabricEnquiryId());
+		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		
+		json.put("SaveDataInEnquiryTable", enquiryTable);
+
 		return json;
 	}
 
-	
+	@RequestMapping(value = "update-fabricEnquiryDetails/{fabricEnquiryId}", method = RequestMethod.PUT)
+	public @ResponseBody HashMap updatFabricEnquiryDetail(@PathVariable("fabricEnquiryId") long id,
+			@RequestBody FabricEnquiry fabric) {
+		LinkedHashMap json = new LinkedHashMap();
+
+		json.put("enquiryType", "FabricEnquiry");
+		FabricEnquiry fabricEnquiry = FabricEnquiryServiceImpl.save(fabric);
+		json.put("EditedEnquiry", fabricEnquiry.getEnquiryId());
+
+		return json;
+	}
+
 	@RequestMapping(value = "delete-fabricEnquiryDetails/{fabricEnquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap deleteFabricEnquriyDetail(@PathVariable("fabricEnquiryId") long id) {
 		System.out.println(id);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "FabricEnquiry");
-		List<FabricEnquiry> fabricEnquiry= FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
-		
+		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
+
 		if (fabricEnquiry == null) {
 			json.put("CurrentEnquiry Not Found", fabricEnquiry.getClass());
 			return json;
@@ -84,6 +99,5 @@ public class FabricEnquiryController {
 		json.put("Id deleted", fabric);
 		return json;
 	}
-
 
 }

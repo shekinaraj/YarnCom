@@ -1,5 +1,8 @@
 package com.yarncoms.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +22,34 @@ public class YarnEnquiry {
 	
 	@Column(name = "enquiryId")
 	private Long enquiryId;
+
+	@Column(name = "enquirydate")
+	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
+
+	@Column(name = "enquiryFrom")
+	private String enquiryFrom;
+
+	@Column(name = "commission")
+	private String commission;
+
+	@Column(name = "customerName")
+	private String customerName;
+
+	@Column(name = "contactNo")
+	private long contactNo;
+
+	@Column(name = "agentName")
+	private String agentName;
+
+	@Column(name = "enquirysource")
+	private String enquirySource;
+
+	@Column(name = "enquiryreferredby")
+	private String enquiryReferredBy;
+
+	@Column(name = "priority")
+	private String priority;
+
 	
 	@Column(name = "purpose")
 	private String purpose;
@@ -53,6 +84,78 @@ public class YarnEnquiry {
 
 	public void setEnquiryId(Long enquiryId) {
 		this.enquiryId = enquiryId;
+	}
+
+	public String getEnquiryDate() {
+		return enquiryDate;
+	}
+
+	public void setEnquiryDate(String enquiryDate) {
+		this.enquiryDate = enquiryDate;
+	}
+
+	public String getEnquiryFrom() {
+		return enquiryFrom;
+	}
+
+	public void setEnquiryFrom(String enquiryFrom) {
+		this.enquiryFrom = enquiryFrom;
+	}
+
+	public String getCommission() {
+		return commission;
+	}
+
+	public void setCommission(String commission) {
+		this.commission = commission;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public long getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(long contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
+	}
+
+	public String getEnquirySource() {
+		return enquirySource;
+	}
+
+	public void setEnquirySource(String enquirySource) {
+		this.enquirySource = enquirySource;
+	}
+
+	public String getEnquiryReferredBy() {
+		return enquiryReferredBy;
+	}
+
+	public void setEnquiryReferredBy(String enquiryReferredBy) {
+		this.enquiryReferredBy = enquiryReferredBy;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
 	}
 
 	public int getCount() {
