@@ -61,7 +61,8 @@ public class FabricEnquiryController {
 		
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setEnquiryId(fabricDetails.getEnquiryId());
-		enquiry.setCustomerName(fabricDetails.getCustomerName());
+		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
+		enquiry.setName(fabricDetails.getName());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
 		

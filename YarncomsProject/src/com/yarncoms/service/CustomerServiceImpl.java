@@ -45,4 +45,11 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.findByCustomerType(customer);
 	}
 
+	@Override
+	public List<Customer> find(String type, String status) {
+		// TODO Auto-generated method stub
+		System.out.println(status);
+		return customerRepository.find(type, status);
+	}
+
 }

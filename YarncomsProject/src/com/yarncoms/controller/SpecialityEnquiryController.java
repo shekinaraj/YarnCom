@@ -43,7 +43,7 @@ public class SpecialityEnquiryController {
 			HashMap json = new HashMap();
 			//json.put("enquiryType", enquiryType);
 			
-			List<SpecialityEnquiry> specialityEnquiry = specialityEnquiryService.findBySpecialityEnquiryId(specialityEnquiryId);
+			List<SpecialityEnquiry> specialityEnquiry = specialityEnquiryService.findByEnquiryId(specialityEnquiryId);
 			json.put("entity", "SpecialityEnquiryDetailId");
 			json.put("SpecialityEnquiryDetailId", specialityEnquiry);
 			
@@ -55,7 +55,7 @@ public class SpecialityEnquiryController {
 			LinkedHashMap json = new LinkedHashMap();
 			json.put("enquiryType", "Saved-SpecialityEnquiry-Detail");
 			SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry); 
-			json.put("savedDetails", spclEnquiry.getSpecialityEnquiryId());
+			json.put("savedDetails", spclEnquiry.getEnquiryId());
 			return json;
 		}
 		
@@ -64,7 +64,7 @@ public class SpecialityEnquiryController {
 			LinkedHashMap json = new LinkedHashMap();
 			json.put("enquiryType", "Updated-SpecialityEnquiry-Detail");
 			SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry); 
-			json.put("savedDetails", spclEnquiry.getSpecialityEnquiryId());
+			json.put("savedDetails", spclEnquiry.getEnquiryId());
 			return json;
 		}
 		

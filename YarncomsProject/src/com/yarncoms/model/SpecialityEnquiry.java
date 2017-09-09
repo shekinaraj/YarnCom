@@ -1,5 +1,8 @@
 package com.yarncoms.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,87 +15,157 @@ import javax.persistence.Table;
 public class SpecialityEnquiry {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "specialityEnquiryId")
-	private long specialityEnquiryId;
-	
-	@Column(name = "yarnEnquiryId")
-	private int yarnEnquiryId;
-	
+	@Column(name = "enquiryId")
+	private long enquiryId;
+
+	@Column(name = "enquirydate")
+	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
+
+	@Column(name = "enquiryFrom")
+	private String enquiryFrom;
+
+	@Column(name = "commission")
+	private String commission;
+
+	@Column(name = "customerName")
+	private String customerName;
+
+	@Column(name = "contactNo")
+	private long contactNo;
+
+	@Column(name = "agentName")
+	private String agentName;
+
+	@Column(name = "enquirysource")
+	private String enquirySource;
+
+	@Column(name = "enquiryreferredby")
+	private String enquiryReferredBy;
+
+	@Column(name = "priority")
+	private String priority;
+
+	@Column(name = "purpose")
+	private String purpose;
+
 	@Column(name = "yarnCountIn")
 	private String yarnCountIn;
-	
+
 	@Column(name = "ply")
 	private String ply;
-	
+
 	@Column(name = "specifyPly")
 	private String specifyPly;
-	
+
 	@Column(name = "useFor")
 	private String useFor;
-	
+
 	@Column(name = "material")
 	private String material;
-	
+
 	@Column(name = "process")
 	private String process;
-	
+
 	@Column(name = "cottonType")
 	private String cottonType;
-	
+
 	@Column(name = "yarnType")
 	private String yarnType;
-	
-	@Column(name = "yarnSpecialityDenier")
-	private String yarnSpecialityDenier;
-	
-	@Column(name = "yarnSpecialityQuality")
-	private String yarnSpecialityQuality;
-	
-	@Column(name = "specialityBlendRatio")
-	private String specialityBlendRatio;
-	
-	@Column(name = "specialityBlendPercentageCotton")
-	private String specialityBlendPercentageCotton;
-	
-	@Column(name = "specialityBlendPercentagePolyster")
-	private String specialityBlendPercentagePolyster;
 
-	@Column(name = "specialityBlendPercentageViscose")
-	private String specialityBlendPercentageViscose;
-	
-	@Column(name = "specialityOtherMaterial")
-	private String specialityOtherMaterial;
-	
-	@Column(name = "specialityOtherMaterialPercentage")
-	private String specialityOtherMaterialPercentage;
-	
-	@Column(name = "specialityColour")
-	private String specialityColour;
-	
 	@Column(name = "filament")
 	private String filament;
-	
+
 	@Column(name = "remarks")
 	private String remarks;
 
-	
-	public long getSpecialityEnquiryId() {
-		return specialityEnquiryId;
+	public long getEnquiryId() {
+		return enquiryId;
 	}
 
-	public void setSpecialityEnquiryId(long specialityEnquiryId) {
-		this.specialityEnquiryId = specialityEnquiryId;
+	public void setEnquiryId(long enquiryId) {
+		this.enquiryId = enquiryId;
 	}
 
-	public int getYarnEnquiryId() {
-		return yarnEnquiryId;
+	public String getEnquiryDate() {
+		return enquiryDate;
 	}
 
-	public void setYarnEnquiryId(int yarnEnquiryId) {
-		this.yarnEnquiryId = yarnEnquiryId;
+	public void setEnquiryDate(String enquiryDate) {
+		this.enquiryDate = enquiryDate;
 	}
 
-	
+	public String getEnquiryFrom() {
+		return enquiryFrom;
+	}
+
+	public void setEnquiryFrom(String enquiryFrom) {
+		this.enquiryFrom = enquiryFrom;
+	}
+
+	public String getCommission() {
+		return commission;
+	}
+
+	public void setCommission(String commission) {
+		this.commission = commission;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public long getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(long contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
+	}
+
+	public String getEnquirySource() {
+		return enquirySource;
+	}
+
+	public void setEnquirySource(String enquirySource) {
+		this.enquirySource = enquirySource;
+	}
+
+	public String getEnquiryReferredBy() {
+		return enquiryReferredBy;
+	}
+
+	public void setEnquiryReferredBy(String enquiryReferredBy) {
+		this.enquiryReferredBy = enquiryReferredBy;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public String getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
 	public String getYarnCountIn() {
 		return yarnCountIn;
 	}
@@ -157,78 +230,6 @@ public class SpecialityEnquiry {
 		this.yarnType = yarnType;
 	}
 
-	public String getYarnSpecialityDenier() {
-		return yarnSpecialityDenier;
-	}
-
-	public void setYarnSpecialityDenier(String yarnSpecialityDenier) {
-		this.yarnSpecialityDenier = yarnSpecialityDenier;
-	}	
-
-	public String getYarnSpecialityQuality() {
-		return yarnSpecialityQuality;
-	}
-
-	public void setYarnSpecialityQuality(String yarnSpecialityQuality) {
-		this.yarnSpecialityQuality = yarnSpecialityQuality;
-	}
-
-	public String getSpecialityBlendRatio() {
-		return specialityBlendRatio;
-	}
-
-	public String getSpecialityBlendPercentageCotton() {
-		return specialityBlendPercentageCotton;
-	}
-
-	public void setSpecialityBlendPercentageCotton(String specialityBlendPercentageCotton) {
-		this.specialityBlendPercentageCotton = specialityBlendPercentageCotton;
-	}
-
-	public String getSpecialityBlendPercentagePolyster() {
-		return specialityBlendPercentagePolyster;
-	}
-
-	public void setSpecialityBlendPercentagePolyster(String specialityBlendPercentagePolyster) {
-		this.specialityBlendPercentagePolyster = specialityBlendPercentagePolyster;
-	}
-
-	public String getSpecialityBlendPercentageViscose() {
-		return specialityBlendPercentageViscose;
-	}
-
-	public void setSpecialityBlendPercentageViscose(String specialityBlendPercentageViscose) {
-		this.specialityBlendPercentageViscose = specialityBlendPercentageViscose;
-	}
-
-	public void setSpecialityBlendRatio(String specialityBlendRatio) {
-		this.specialityBlendRatio = specialityBlendRatio;
-	}
-
-	public String getSpecialityOtherMaterial() {
-		return specialityOtherMaterial;
-	}
-
-	public void setSpecialityOtherMaterial(String specialityOtherMaterial) {
-		this.specialityOtherMaterial = specialityOtherMaterial;
-	}
-
-	public String getSpecialityOtherMaterialPercentage() {
-		return specialityOtherMaterialPercentage;
-	}
-
-	public void setSpecialityOtherMaterialPercentage(String specialityOtherMaterialPercentage) {
-		this.specialityOtherMaterialPercentage = specialityOtherMaterialPercentage;
-	}
-
-	public String getSpecialityColour() {
-		return specialityColour;
-	}
-
-	public void setSpecialityColour(String specialityColour) {
-		this.specialityColour = specialityColour;
-	}
-
 	public String getFilament() {
 		return filament;
 	}
@@ -244,8 +245,5 @@ public class SpecialityEnquiry {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	
-	
-	
-	
+
 }

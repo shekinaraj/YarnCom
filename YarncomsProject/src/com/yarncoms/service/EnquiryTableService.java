@@ -13,5 +13,9 @@ public interface EnquiryTableService {
 	EnquiryTable save(EnquiryTable enquiryTable);
 
 	boolean delete(Long cvEnquiryId);
+	
+//	public boolean addEnquiry(String customerName, long contactNo, String date);
+	
+	
 
 }

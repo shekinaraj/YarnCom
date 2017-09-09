@@ -10,6 +10,8 @@ public interface CustomerService {
 
 	List<Customer> list();
 	
+	List<Customer> find(String type, String status);
+	
 	List<Customer> filter(String customer);
 
 	Customer save(Customer customer);

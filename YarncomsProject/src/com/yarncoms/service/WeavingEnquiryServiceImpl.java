@@ -15,9 +15,9 @@ public class WeavingEnquiryServiceImpl implements WeavingEnquiryService{
 	private WeavingEnquiryRepository weavingEnquiryRepository;
 
 	@Override
-	public List<WeavingEnquiry> findByWeavingEnquiryId(Long weavingEnquiryId) {
+	public List<WeavingEnquiry> findByEnquiryId(Long enquiryId) {
 		// TODO Auto-generated method stub
-		return weavingEnquiryRepository.findByWeavingEnquiryId(weavingEnquiryId);
+		return weavingEnquiryRepository.findByEnquiryId(enquiryId);
 	}
 
 	@Override
@@ -35,11 +35,11 @@ public class WeavingEnquiryServiceImpl implements WeavingEnquiryService{
 	}
 
 	@Override
-	public boolean delete(Long weavingEnquiryId) {
+	public boolean delete(Long enquiryId) {
 		// TODO Auto-generated method stub
 		try {
 			WeavingEnquiry weavingEnquiry = new WeavingEnquiry();
-			weavingEnquiry.setWeavingEnquiryId(weavingEnquiryId);
+			weavingEnquiry.setEnquiryId(enquiryId);
 			weavingEnquiryRepository.delete(weavingEnquiry);
 		} catch (Exception e) {
 			e.printStackTrace();

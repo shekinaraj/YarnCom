@@ -8,7 +8,7 @@ public interface SpecialityEnquiryService {
 	
 	List<SpecialityEnquiry> list();
 
-	List<SpecialityEnquiry> findBySpecialityEnquiryId(Long specialityEnquiryId);
+	List<SpecialityEnquiry> findByEnquiryId(Long enquiryId);
 
 	SpecialityEnquiry save(SpecialityEnquiry specialityEnquiry);
 	

@@ -1,5 +1,8 @@
 package com.yarncoms.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +16,38 @@ public class WeavingEnquiry {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "weavingEnquiryId")
-	private Long weavingEnquiryId;
+	@Column(name = "enquiryId")
+	private Long enquiryId;
 
-	@Column(name = "yarnEnquiryId")
-	private Long yarnEnquiryId;
+	@Column(name = "enquirydate")
+	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
+
+	@Column(name = "enquiryFrom")
+	private String enquiryFrom;
+
+	@Column(name = "commission")
+	private String commission;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "contactNo")
+	private long contactNo;
+
+	@Column(name = "enquirysource")
+	private String enquirySource;
+
+	@Column(name = "enquiryreferredby")
+	private String enquiryReferredBy;
+
+	@Column(name = "priority")
+	private String priority;
+	
+	@Column(name = "purpose")
+	private String purpose;
+
+	@Column(name = "waxed")
+	private String waxed;
 
 	@Column(name = "weavingCount")
 	private Long weavingCount;
@@ -102,7 +132,7 @@ public class WeavingEnquiry {
 
 	@Column(name = "weavingOtherMaterialPercentage")
 	private String weavingOtherMaterialPercentage;
-	
+
 	@Column(name = "countType")
 	private String countType;
 
@@ -133,20 +163,92 @@ public class WeavingEnquiry {
 	@Column(name = "remarks")
 	private String remarks;
 
-	public Long getWeavingEnquiryId() {
-		return weavingEnquiryId;
+	public Long getEnquiryId() {
+		return enquiryId;
 	}
 
-	public void setWeavingEnquiryId(Long weavingEnquiryId) {
-		this.weavingEnquiryId = weavingEnquiryId;
+	public void setEnquiryId(Long enquiryId) {
+		this.enquiryId = enquiryId;
 	}
 
-	public Long getYarnEnquiryId() {
-		return yarnEnquiryId;
+	public String getEnquiryDate() {
+		return enquiryDate;
 	}
 
-	public void setYarnEnquiryId(Long yarnEnquiryId) {
-		this.yarnEnquiryId = yarnEnquiryId;
+	public void setEnquiryDate(String enquiryDate) {
+		this.enquiryDate = enquiryDate;
+	}
+
+	public String getEnquiryFrom() {
+		return enquiryFrom;
+	}
+
+	public void setEnquiryFrom(String enquiryFrom) {
+		this.enquiryFrom = enquiryFrom;
+	}
+
+	public String getCommission() {
+		return commission;
+	}
+
+	public void setCommission(String commission) {
+		this.commission = commission;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public long getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(long contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public String getEnquirySource() {
+		return enquirySource;
+	}
+
+	public void setEnquirySource(String enquirySource) {
+		this.enquirySource = enquirySource;
+	}
+
+	public String getEnquiryReferredBy() {
+		return enquiryReferredBy;
+	}
+
+	public void setEnquiryReferredBy(String enquiryReferredBy) {
+		this.enquiryReferredBy = enquiryReferredBy;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public String getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
+	public String getWaxed() {
+		return waxed;
+	}
+
+	public void setWaxed(String waxed) {
+		this.waxed = waxed;
 	}
 
 	public Long getWeavingCount() {
@@ -372,7 +474,7 @@ public class WeavingEnquiry {
 	public void setWeavingOtherMaterialPercentage(String weavingOtherMaterialPercentage) {
 		this.weavingOtherMaterialPercentage = weavingOtherMaterialPercentage;
 	}
-	
+
 	public String getCountType() {
 		return countType;
 	}

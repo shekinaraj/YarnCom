@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.WeavingEnquiry;
-import com.yarncoms.model.YarnEnquiry;
+import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.WeavingEnquiryService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -24,6 +25,9 @@ public class WeavingEnquiryController {
 	
 	@Autowired
 	private WeavingEnquiryService weavingEnquiryService;
+	
+	@Autowired
+	private EnquiryTableService EnquiryTableServiceImpl;
 	
 	@RequestMapping(value="get-weavingEnquiryDetails-list", method=RequestMethod.GET)
 	public @ResponseBody HashMap getWeavingEnquiryDetails() {
@@ -38,13 +42,13 @@ public class WeavingEnquiryController {
 	}
 	
 	@RequestMapping(value="get-weavingEnquiryDetails/{weavingEnquiryId}", method=RequestMethod.GET)
-	public @ResponseBody HashMap getWeavingEnquiryById(@PathVariable Long weavingEnquiryId) {
+	public @ResponseBody HashMap getWeavingEnquiryById(@PathVariable Long enquiryId) {
 		HashMap json = new HashMap();
 		//json.put("enquiryType", enquiryType);
 		
-		List<WeavingEnquiry> weaving = weavingEnquiryService.findByWeavingEnquiryId(weavingEnquiryId);
-		json.put("entity", "WeavingEnquiryDetailId");
-		json.put("WeavingEnquiryById", weaving);
+		List<WeavingEnquiry> weaving = weavingEnquiryService.findByEnquiryId(enquiryId);
+		json.put("entity", "EnquiryDetailId");
+		json.put("EnquiryById", weaving);
 		
 		return json;	
 	}
@@ -52,25 +56,35 @@ public class WeavingEnquiryController {
 	@RequestMapping(value="save-WeavingEnquiryDetail", method=RequestMethod.POST)
 	public  @ResponseBody HashMap saveWeavingEnquirDetails(@RequestBody WeavingEnquiry weavingEnquiry){
 		LinkedHashMap json = new LinkedHashMap();
-		System.out.println(weavingEnquiry.getMaterial());
 		json.put("enquiryType", "Save-WeavingEnquiry-Detail");
 		WeavingEnquiry weaving = weavingEnquiryService.save(weavingEnquiry);
-		System.out.println(weaving.getWeavingEnquiryId());
-		json.put("savedDetails", weaving.getWeavingEnquiryId());
+		
+		
+		EnquiryTable enquiry = new EnquiryTable();
+		enquiry.setEnquiryId(weaving.getEnquiryId());
+		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
+		enquiry.setName(weaving.getName());
+		enquiry.setContactNo(weaving.getContactNo());
+		enquiry.setEnqDate(weaving.getEnquiryDate());
+		
+		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
+		
+		json.put("savedDetails", weaving.getEnquiryId());
+		
 		return json;
 	}
 	
-	@RequestMapping(value="update-WeavingEnquiryDetail/{weavingEnquiryId}", method=RequestMethod.PUT)
-	public  @ResponseBody HashMap updateYarnEnquiryDetail(@PathVariable long weavingEnquiryId,@RequestBody WeavingEnquiry  weavingEnquiry){
+	@RequestMapping(value="update-WeavingEnquiryDetail/{enquiryId}", method=RequestMethod.PUT)
+	public  @ResponseBody HashMap updateYarnEnquiryDetail(@PathVariable long enquiryId,@RequestBody WeavingEnquiry  weavingEnquiry){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-WeavingEnquiry-Detail");
 		WeavingEnquiry weave = weavingEnquiryService.save(weavingEnquiry); 
-		json.put("UpdatedDetails", weave.getWeavingEnquiryId());
+		json.put("UpdatedDetails", weave.getEnquiryId());
 		return json;
 	}
 	
-	@RequestMapping(value="delete-WeavingEnquiryDetail/{weavingEnquiryId}", method=RequestMethod.GET)
-	public  @ResponseBody HashMap deleteYarnEnquiryDetail(@PathVariable("weavingEnquiryId") long id){
+	@RequestMapping(value="delete-WeavingEnquiryDetail/{enquiryId}", method=RequestMethod.GET)
+	public  @ResponseBody HashMap deleteYarnEnquiryDetail(@PathVariable("enquiryId") long id){
 		System.out.println(id);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "WeavingEnquiryList");

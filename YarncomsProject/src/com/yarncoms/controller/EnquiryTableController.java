@@ -23,7 +23,7 @@ public class EnquiryTableController {
 	
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
-	
+
 	@RequestMapping(value = "get-EnquiryTable", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryTable() {
 		HashMap json = new HashMap();
@@ -36,7 +36,7 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-EnquiryTable/{EnquiryTableId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryId(@PathVariable("EnquiryTableId") long EnquiryTableId) {
 		HashMap json = new HashMap();
@@ -52,12 +52,9 @@ public class EnquiryTableController {
 	@RequestMapping(value = "save-EnquiryTable", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveEnquiryTableDetails(@RequestBody EnquiryTable grid) {
 		LinkedHashMap json = new LinkedHashMap();
-		
 		json.put("enquiryType", "EnquiryTable");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(grid);
 		json.put("savedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
-		
 		return json;
 	}
-
 }

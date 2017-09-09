@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.StoredProcedureQuery;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +21,11 @@ public class EnquiryTable {
 	@Column(name = "enquiryId")
 	private long enquiryId;
 
-	@Column(name = "customerName")
-	private String customerName;
+	@Column(name = "enquiryFrom")
+	private String enquiryFrom;
+
+	@Column(name = "name")
+	private String name;
 
 	@Column(name = "contactNo")
 	private long contactNo;
@@ -36,7 +40,7 @@ public class EnquiryTable {
 	private String enqStatus;
 
 	@Column(name = "enqLevel")
-	private String enqLevel;
+	private int enqLevel;
 
 	@Column(name = "reasonforClosing")
 	private String reasonforClosing;
@@ -60,6 +64,14 @@ public class EnquiryTable {
 		this.enquiryId = enquiryId;
 	}
 
+	public String getEnquiryFrom() {
+		return enquiryFrom;
+	}
+
+	public void setEnquiryFrom(String enquiryFrom) {
+		this.enquiryFrom = enquiryFrom;
+	}
+
 	public long getContactNo() {
 		return contactNo;
 	}
@@ -68,12 +80,12 @@ public class EnquiryTable {
 		this.contactNo = contactNo;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getTechnicalPerson() {
@@ -100,11 +112,11 @@ public class EnquiryTable {
 		this.enqStatus = enqStatus;
 	}
 
-	public String getEnqLevel() {
+	public int getEnqLevel() {
 		return enqLevel;
 	}
 
-	public void setEnqLevel(String enqLevel) {
+	public void setEnqLevel(int enqLevel) {
 		this.enqLevel = enqLevel;
 	}
 
@@ -122,6 +134,11 @@ public class EnquiryTable {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public StoredProcedureQuery createStoredProcedureQuery(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

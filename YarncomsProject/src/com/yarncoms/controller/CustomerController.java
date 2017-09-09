@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.Customer;
-import com.yarncoms.model.Enquiry;
-import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.CustomerService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -56,16 +54,27 @@ public class CustomerController {
 		return json;
 	}
 	
-	@RequestMapping(value="get/{customerType}", method=RequestMethod.GET)
-	public @ResponseBody HashMap getUser(@PathVariable String customerType) {
+	@RequestMapping(value="get/{customerType},{status}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getUser(@PathVariable String customerType, @PathVariable String status) {
+		
 		HashMap json = new HashMap();
 		//json.put("enquiryType", enquiryType);
 		json.put("entity", "Customer");
-		List<Customer> cust = customerService.filter(customerType);
+		List<Customer> cust = customerService.find(customerType, status);
 		json.put("Customer", cust);
 		json.put("No of Buyers", cust.size());
 		
 		return json;	
+	}
+	
+	@RequestMapping(value="close-customer/{customerId}", method=RequestMethod.PUT)
+	public  @ResponseBody HashMap updateStatus(@PathVariable int customerId,@RequestBody Customer  customer){
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "Update-customer-Detail");
+		customer.setStatus("Close");
+		Customer cust = customerService.save(customer); 
+		json.put("UpdatedDetailsFor",  cust.getCompanyName());
+		return json;
 	}
 
 

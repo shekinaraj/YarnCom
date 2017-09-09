@@ -6,12 +6,12 @@ import com.yarncoms.model.WeavingEnquiry;
 
 public interface WeavingEnquiryService {
 
-	List<WeavingEnquiry> findByWeavingEnquiryId(Long weavingEnquiryId);
+	List<WeavingEnquiry> findByEnquiryId(Long enquiryId);
 
 	WeavingEnquiry save(WeavingEnquiry weavingEnquiry);
 
 	List<WeavingEnquiry> findAllWeavingEnquiry();
 
-	boolean delete(Long weavingEnquiryId);
+	boolean delete(Long enquiryId);
 
 }

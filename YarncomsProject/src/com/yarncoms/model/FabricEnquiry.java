@@ -1,4 +1,4 @@
-package com.yarncoms.model;
+	package com.yarncoms.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,13 +12,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "FabricEnquiry")
-public class FabricEnquiry {
+public class FabricEnquiry{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-	@Column(name = "fabricEnquiryId")
-	private Long fabricEnquiryId;
 
 	@Column(name = "enquiryId")
 	private Long enquiryId;
@@ -32,15 +29,12 @@ public class FabricEnquiry {
 	@Column(name = "commission")
 	private String commission;
 
-	@Column(name = "customerName")
-	private String customerName;
-
+	@Column(name = "name")
+	private String name;
+	
 	@Column(name = "contactNo")
 	private long contactNo;
-
-	@Column(name = "agentName")
-	private String agentName;
-
+	
 	@Column(name = "enquirysource")
 	private String enquirySource;
 
@@ -127,20 +121,19 @@ public class FabricEnquiry {
 
 	@Column(name = "construction")
 	private String construction;
+	
+	@Column(name = "level")
+	private int level;
 
 	@Column(name = "remarks")
 	private String remarks;
 
-	public Long getFabricEnquiryId() {
-		return fabricEnquiryId;
-	}
-
-	public void setFabricEnquiryId(Long fabricEnquiryId) {
-		this.fabricEnquiryId = fabricEnquiryId;
-	}
-
 	public Long getEnquiryId() {
 		return enquiryId;
+	}
+
+	public void setEnquiryId(Long enquiryId) {
+		this.enquiryId = enquiryId;
 	}
 
 	public String getEnquiryDate() {
@@ -167,12 +160,12 @@ public class FabricEnquiry {
 		this.commission = commission;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getContactNo() {
@@ -181,14 +174,6 @@ public class FabricEnquiry {
 
 	public void setContactNo(long contactNo) {
 		this.contactNo = contactNo;
-	}
-
-	public String getAgentName() {
-		return agentName;
-	}
-
-	public void setAgentName(String agentName) {
-		this.agentName = agentName;
 	}
 
 	public String getEnquirySource() {
@@ -213,10 +198,6 @@ public class FabricEnquiry {
 
 	public void setPriority(String priority) {
 		this.priority = priority;
-	}
-
-	public void setEnquiryId(Long enquiryId) {
-		this.enquiryId = enquiryId;
 	}
 
 	public Long getWarpCount() {
@@ -427,6 +408,14 @@ public class FabricEnquiry {
 		this.construction = construction;
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public String getRemarks() {
 		return remarks;
 	}
@@ -434,7 +423,5 @@ public class FabricEnquiry {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-
-	
 
 }

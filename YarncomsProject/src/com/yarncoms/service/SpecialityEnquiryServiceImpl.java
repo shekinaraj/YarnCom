@@ -23,9 +23,9 @@ public class SpecialityEnquiryServiceImpl implements SpecialityEnquiryService{
 	}
 
 	@Override
-	public List<SpecialityEnquiry> findBySpecialityEnquiryId(Long specialityEnquiryId) {
+	public List<SpecialityEnquiry> findByEnquiryId(Long enquiryId) {
 		// TODO Auto-generated method stub
-		return specialityEnquiryRepository.findBySpecialityEnquiryId(specialityEnquiryId);
+		return specialityEnquiryRepository.findByEnquiryId(enquiryId);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class SpecialityEnquiryServiceImpl implements SpecialityEnquiryService{
 	public boolean delete(Long specialityEnquiryId) {
 		try {
 			SpecialityEnquiry specialityEnquiry = new SpecialityEnquiry();
-			specialityEnquiry.setSpecialityEnquiryId(specialityEnquiryId);
+			specialityEnquiry.setEnquiryId(specialityEnquiryId);
 			specialityEnquiryRepository.delete(specialityEnquiry);
 		} catch (Exception e) {
 			e.printStackTrace();

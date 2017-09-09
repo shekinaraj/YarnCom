@@ -8,5 +8,5 @@ import com.yarncoms.model.WeavingEnquiry;
 
 public interface WeavingEnquiryRepository extends JpaRepository<WeavingEnquiry, Long>{
 
-	List<WeavingEnquiry> findByWeavingEnquiryId(Long weavingEnquiryId);
+	List<WeavingEnquiry> findByEnquiryId(Long enquiryId);
 }

@@ -19,6 +19,9 @@ public class Customer {
 	@Column(name = "customerType")
 	private String customerType;
 
+	@Column(name = "status")
+	private String status;
+
 	@Column(name = "customerCategory")
 	private String customerCategory;
 
@@ -85,6 +88,14 @@ public class Customer {
 
 	public void setCustomerType(String customerType) {
 		this.customerType = customerType;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getCustomerCategory() {

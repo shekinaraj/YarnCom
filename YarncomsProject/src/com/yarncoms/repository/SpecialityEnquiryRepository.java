@@ -8,5 +8,5 @@ import com.yarncoms.model.SpecialityEnquiry;
 
 public interface SpecialityEnquiryRepository extends JpaRepository<SpecialityEnquiry, Long> {
 
-	List<SpecialityEnquiry> findBySpecialityEnquiryId(Long specialityEnquiryId);
+	List<SpecialityEnquiry> findByEnquiryId(Long enquiryId);
 }
