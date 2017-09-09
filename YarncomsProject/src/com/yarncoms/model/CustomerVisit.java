@@ -38,7 +38,7 @@ public class CustomerVisit {
 	private String emailId;
 	
 	@Column(name = "mobileNumber")
-	private String mobileNumber;
+	private long mobileNumber;
 
 	@Column(name = "comments")
 	private String comments;
@@ -110,11 +110,11 @@ public class CustomerVisit {
 		this.emailId = emailId;
 	}
 
-	public String getMobileNumber() {
+	public long getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
+	public void setMobileNumber(long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

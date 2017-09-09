@@ -48,6 +48,18 @@ public class EnquiryTableController {
 
 		return json;
 	}
+	
+	@RequestMapping(value="getEnquiry/{level},{status}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getEnqLevel(@PathVariable int level, @PathVariable String status) {
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		List<EnquiryTable> enq = EnquiryTableServiceImpl.findEnquiry(level, status);
+		json.put("No of Level 1 Enquiry", enq.size());
+		json.put("LevelEnquiry", enq);
+		
+		return json;	
+	}
 
 	@RequestMapping(value = "save-EnquiryTable", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveEnquiryTableDetails(@RequestBody EnquiryTable grid) {

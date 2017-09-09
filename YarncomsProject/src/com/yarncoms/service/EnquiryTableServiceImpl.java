@@ -4,16 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.repository.EnquiryTableRepository;
 
 @Service
-@Transactional
-@Repository
 public class EnquiryTableServiceImpl implements EnquiryTableService {
 
 	@Resource
@@ -22,7 +18,7 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 	@Override
 	public List<EnquiryTable> getByEnquiryGridId(Long cvEnquiryId) {
 		// TODO Auto-generated method stub
-		return enquiryTableRepository.getByCvEnquiryId(cvEnquiryId);
+		return enquiryTableRepository.findByCvEnquiryId(cvEnquiryId);
 	}
 
 	@Override
@@ -41,6 +37,12 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 	public boolean delete(Long cvEnquiryId) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<EnquiryTable> findEnquiry(int level, String status) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.findEnquiry(level, status);
 	}
 
 }
