@@ -65,6 +65,8 @@ public class FabricEnquiryController {
 		enquiry.setName(fabricDetails.getName());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
+		enquiry.setEnqLevel(2);
+		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
 		
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		

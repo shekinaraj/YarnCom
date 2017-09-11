@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yarncoms.model.Customer;
-import com.yarncoms.model.UserDetails;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	

@@ -29,8 +29,8 @@ public class BankDetails {
 	@Column(name = "bankName")
 	private String bankName;
 
-	@Column(name = "IFSCcode")
-	private String IFSCcode;
+	@Column(name = "ifscCode")
+	private String ifscCode;
 
 	@Column(name = "swiftCode")
 	private String swiftCode;
@@ -90,12 +90,12 @@ public class BankDetails {
 		this.bankName = bankName;
 	}
 
-	public String getIFSCcode() {
-		return IFSCcode;
+	public String getIfscCode() {
+		return ifscCode;
 	}
 
-	public void setIFSCcode(String iFSCcode) {
-		IFSCcode = iFSCcode;
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
 	}
 
 	public String getSwiftCode() {

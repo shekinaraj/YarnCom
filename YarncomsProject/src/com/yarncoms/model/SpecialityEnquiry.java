@@ -24,17 +24,17 @@ public class SpecialityEnquiry {
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;
 
+	@Column(name = "name")
+	private String name;
+
 	@Column(name = "commission")
 	private String commission;
 
-	@Column(name = "customerName")
-	private String customerName;
-
 	@Column(name = "contactNo")
 	private long contactNo;
-
-	@Column(name = "agentName")
-	private String agentName;
+	
+	@Column(name = "technicalPerson")
+	private String technicalPerson;
 
 	@Column(name = "enquirysource")
 	private String enquirySource;
@@ -102,20 +102,20 @@ public class SpecialityEnquiry {
 		this.enquiryFrom = enquiryFrom;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getCommission() {
 		return commission;
 	}
 
 	public void setCommission(String commission) {
 		this.commission = commission;
-	}
-
-	public String getCustomerName() {
-		return customerName;
-	}
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
 	}
 
 	public long getContactNo() {
@@ -126,12 +126,12 @@ public class SpecialityEnquiry {
 		this.contactNo = contactNo;
 	}
 
-	public String getAgentName() {
-		return agentName;
+	public String getTechnicalPerson() {
+		return technicalPerson;
 	}
 
-	public void setAgentName(String agentName) {
-		this.agentName = agentName;
+	public void setTechnicalPerson(String technicalPerson) {
+		this.technicalPerson = technicalPerson;
 	}
 
 	public String getEnquirySource() {

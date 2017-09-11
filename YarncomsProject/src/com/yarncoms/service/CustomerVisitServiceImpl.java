@@ -11,6 +11,7 @@ import com.yarncoms.repository.CustomerVisitRepository;
 
 @Service
 public class CustomerVisitServiceImpl implements CustomerVisitService {
+	
 	@Resource
 	private CustomerVisitRepository customerVisitRepository;
 	

@@ -15,4 +15,6 @@ public interface UserDetailsService {
 	boolean delete(Long userId);
 	
 	List<UserDetails> login(String userName, String password);
+	
+	List<UserDetails> findByRole(String role);
 }

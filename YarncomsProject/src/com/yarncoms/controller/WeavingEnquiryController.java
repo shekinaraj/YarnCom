@@ -66,6 +66,7 @@ public class WeavingEnquiryController {
 		enquiry.setName(weaving.getName());
 		enquiry.setContactNo(weaving.getContactNo());
 		enquiry.setEnqDate(weaving.getEnquiryDate());
+		enquiry.setTechnicalPerson(weaving.getTechnicalPerson());
 		
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		

@@ -20,4 +20,8 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
 	@Query("SELECT u FROM UserDetails u where u.userName = ?1 AND u.password = ?2")
 	List<UserDetails> loginAuthenticate(String userName,String password);
 	
+	@Transactional
+	@Query("SELECT u FROM UserDetails u where u.role = ?1")
+	List<UserDetails> findByRole(String role);
+	
 }

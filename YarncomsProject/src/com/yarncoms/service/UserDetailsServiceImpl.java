@@ -59,6 +59,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return logged;
      }
 
-	
-	
+	@Override
+	public List<UserDetails> findByRole(String role) {
+
+		return userDetailsRepository.findByRole(role);
+	}
+
 }

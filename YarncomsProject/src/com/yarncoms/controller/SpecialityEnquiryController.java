@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.SpecialityEnquiry;
+import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.SpecialityEnquiryService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -23,6 +25,9 @@ public class SpecialityEnquiryController {
 	
 	@Autowired
 	private SpecialityEnquiryService specialityEnquiryService;
+	
+	@Autowired
+	private EnquiryTableService EnquiryTableServiceImpl;
 	
 	// Controllers for Speciality_Enquiry
 
@@ -55,6 +60,17 @@ public class SpecialityEnquiryController {
 			LinkedHashMap json = new LinkedHashMap();
 			json.put("enquiryType", "Saved-SpecialityEnquiry-Detail");
 			SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry); 
+			
+			EnquiryTable enquiry = new EnquiryTable();
+			enquiry.setEnquiryId(spclEnquiry.getEnquiryId());
+			enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
+			enquiry.setName(spclEnquiry.getName());
+			enquiry.setContactNo(spclEnquiry.getContactNo());
+			enquiry.setEnqDate(spclEnquiry.getEnquiryDate());
+			enquiry.setEnqLevel(2);
+			enquiry.setTechnicalPerson(specialityEnquiry.getTechnicalPerson());
+			
+			EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 			json.put("savedDetails", spclEnquiry.getEnquiryId());
 			return json;
 		}

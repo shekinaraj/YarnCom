@@ -35,6 +35,9 @@ public class FabricEnquiry{
 	@Column(name = "contactNo")
 	private long contactNo;
 	
+	@Column(name = "technicalPerson")
+	private String technicalPerson;
+	
 	@Column(name = "enquirysource")
 	private String enquirySource;
 
@@ -174,6 +177,14 @@ public class FabricEnquiry{
 
 	public void setContactNo(long contactNo) {
 		this.contactNo = contactNo;
+	}
+
+	public String getTechnicalPerson() {
+		return technicalPerson;
+	}
+
+	public void setTechnicalPerson(String technicalPerson) {
+		this.technicalPerson = technicalPerson;
 	}
 
 	public String getEnquirySource() {
