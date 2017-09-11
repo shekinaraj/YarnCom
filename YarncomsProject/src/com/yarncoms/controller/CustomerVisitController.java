@@ -65,16 +65,18 @@ public class CustomerVisitController {
 	public  @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit  customervisit){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
+		
 		CustomerVisit cust = CustomerVisitServiceImpl.save(customervisit); 
 		json.put("savedDetails", cust.getCompanyName());
 		
 		EnquiryTable enquiry = new EnquiryTable();
-		enquiry.setEnquiryFrom(cust.getCompanyName());
+		enquiry.setEnquiryFrom("Customer");
 		enquiry.setName(cust.getContactPersonName());
 		enquiry.setContactNo(cust.getMobileNumber());
 		enquiry.setEnqDate(cust.getDateOfVisit());
 		enquiry.setEnqLevel(1);
 		enquiry.setEnqStatus("Open");
+		enquiry.setTechnicalPerson(cust.getTechnicalPerson());
 		
 		String enquiryDate = cust.getDateOfVisit();
 		String purpose = cust.getPurposeOfVisit();

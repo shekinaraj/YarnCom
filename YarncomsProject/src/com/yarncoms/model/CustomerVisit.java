@@ -19,6 +19,9 @@ public class CustomerVisit {
 	@Column(name = "companyName")
 	private String companyName;
 	
+	@Column(name = "technicalPerson")
+	private String technicalPerson;
+	
 	@Column(name = "dateOfVisit")
 	private String dateOfVisit;
 	
@@ -60,6 +63,14 @@ public class CustomerVisit {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public String getTechnicalPerson() {
+		return technicalPerson;
+	}
+
+	public void setTechnicalPerson(String technicalPerson) {
+		this.technicalPerson = technicalPerson;
 	}
 
 	public String getDateOfVisit() {
