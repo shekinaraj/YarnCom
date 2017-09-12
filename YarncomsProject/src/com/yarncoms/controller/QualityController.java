@@ -33,7 +33,7 @@ public class QualityController {
 		return json;
 	}
 	
-	@RequestMapping(value = "get-QualityDetails/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-Quality-details/{id}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getQualityId(@PathVariable("qualityId") Long id) {
 		HashMap json = new HashMap();
 
