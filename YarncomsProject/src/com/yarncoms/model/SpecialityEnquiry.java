@@ -17,6 +17,9 @@ public class SpecialityEnquiry {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "enquiryId")
 	private long enquiryId;
+	
+	@Column(name = "cvId")
+	private Long cvId;
 
 	@Column(name = "enquirydate")
 	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -84,6 +87,14 @@ public class SpecialityEnquiry {
 
 	public void setEnquiryId(long enquiryId) {
 		this.enquiryId = enquiryId;
+	}
+
+	public Long getCvId() {
+		return cvId;
+	}
+
+	public void setCvId(Long cvId) {
+		this.cvId = cvId;
 	}
 
 	public String getEnquiryDate() {

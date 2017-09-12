@@ -19,6 +19,9 @@ public class FabricEnquiry{
 
 	@Column(name = "enquiryId")
 	private Long enquiryId;
+	
+	@Column(name = "cvId")
+	private Long cvId;
 
 	@Column(name = "enquirydate")
 	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -92,14 +95,14 @@ public class FabricEnquiry{
 	@Column(name = "material")
 	private String material;
 
-	@Column(name = "EPI")
-	private Long EPI;
+	@Column(name = "epi")
+	private Long epi;
 
-	@Column(name = "PPI")
-	private Long PPI;
+	@Column(name = "ppi")
+	private Long ppi;
 
 	@Column(name = "pickInsertion")
-	private int pickInsertion;
+	private String pickInsertion;
 
 	@Column(name = "parallelValue")
 	private int parallelValue;
@@ -137,6 +140,14 @@ public class FabricEnquiry{
 
 	public void setEnquiryId(Long enquiryId) {
 		this.enquiryId = enquiryId;
+	}
+
+	public Long getCvId() {
+		return cvId;
+	}
+
+	public void setCvId(Long cvId) {
+		this.cvId = cvId;
 	}
 
 	public String getEnquiryDate() {
@@ -331,27 +342,27 @@ public class FabricEnquiry{
 		this.material = material;
 	}
 
-	public Long getEPI() {
-		return EPI;
+	public Long getEpi() {
+		return epi;
 	}
 
-	public void setEPI(Long ePI) {
-		EPI = ePI;
+	public void setEpi(Long epi) {
+		this.epi = epi;
 	}
 
-	public Long getPPI() {
-		return PPI;
+	public Long getPpi() {
+		return ppi;
 	}
 
-	public void setPPI(Long pPI) {
-		PPI = pPI;
+	public void setPpi(Long ppi) {
+		this.ppi = ppi;
 	}
 
-	public int getPickInsertion() {
+	public String getPickInsertion() {
 		return pickInsertion;
 	}
 
-	public void setPickInsertion(int pickInsertion) {
+	public void setPickInsertion(String pickInsertion) {
 		this.pickInsertion = pickInsertion;
 	}
 

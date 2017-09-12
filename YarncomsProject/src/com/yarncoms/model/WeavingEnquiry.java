@@ -18,6 +18,10 @@ public class WeavingEnquiry {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "enquiryId")
 	private Long enquiryId;
+	
+	@Column(name = "cvId")
+	private Long cvId;
+
 
 	@Column(name = "enquirydate")
 	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -172,6 +176,14 @@ public class WeavingEnquiry {
 
 	public void setEnquiryId(Long enquiryId) {
 		this.enquiryId = enquiryId;
+	}
+
+	public Long getCvId() {
+		return cvId;
+	}
+
+	public void setCvId(Long cvId) {
+		this.cvId = cvId;
 	}
 
 	public String getEnquiryDate() {

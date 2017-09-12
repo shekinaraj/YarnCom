@@ -61,12 +61,16 @@ public class WeavingEnquiryController {
 		
 		
 		EnquiryTable enquiry = new EnquiryTable();
+		enquiry.setCvEnquiryId(weaving.getCvId());
 		enquiry.setEnquiryId(weaving.getEnquiryId());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
 		enquiry.setName(weaving.getName());
 		enquiry.setContactNo(weaving.getContactNo());
 		enquiry.setEnqDate(weaving.getEnquiryDate());
 		enquiry.setTechnicalPerson(weaving.getTechnicalPerson());
+		enquiry.setEnqStatus("Open");
+		enquiry.setEnqLevel(2);
+		
 		
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		
@@ -77,6 +81,7 @@ public class WeavingEnquiryController {
 	
 	@RequestMapping(value="update-WeavingEnquiryDetail/{enquiryId}", method=RequestMethod.PUT)
 	public  @ResponseBody HashMap updateYarnEnquiryDetail(@PathVariable long enquiryId,@RequestBody WeavingEnquiry  weavingEnquiry){
+		
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-WeavingEnquiry-Detail");
 		WeavingEnquiry weave = weavingEnquiryService.save(weavingEnquiry); 

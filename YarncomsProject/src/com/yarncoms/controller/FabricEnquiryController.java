@@ -60,18 +60,20 @@ public class FabricEnquiryController {
 		json.put("savedFabricEnquiryDetails", fabricDetails.getEnquiryId());
 		
 		EnquiryTable enquiry = new EnquiryTable();
+		System.out.println(fabricDetails.getEnquiryId());
+		enquiry.setCvEnquiryId(fabricDetails.getCvId());
 		enquiry.setEnquiryId(fabricDetails.getEnquiryId());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
 		enquiry.setName(fabricDetails.getName());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
+		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
 		
-		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		
+		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		json.put("SaveDataInEnquiryTable", enquiryTable);
-
 		return json;
 	}
 

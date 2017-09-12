@@ -63,10 +63,12 @@ public class SpecialityEnquiryController {
 			
 			EnquiryTable enquiry = new EnquiryTable();
 			enquiry.setEnquiryId(spclEnquiry.getEnquiryId());
+			enquiry.setCvEnquiryId(spclEnquiry.getCvId());
 			enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
 			enquiry.setName(spclEnquiry.getName());
 			enquiry.setContactNo(spclEnquiry.getContactNo());
 			enquiry.setEnqDate(spclEnquiry.getEnquiryDate());
+			enquiry.setEnqStatus("Open");
 			enquiry.setEnqLevel(2);
 			enquiry.setTechnicalPerson(specialityEnquiry.getTechnicalPerson());
 			

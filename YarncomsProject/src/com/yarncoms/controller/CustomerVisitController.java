@@ -80,7 +80,9 @@ public class CustomerVisitController {
 		
 		String enquiryDate = cust.getDateOfVisit();
 		String purpose = cust.getPurposeOfVisit();
-		
+		System.out.println(enquiryDate);
+		System.out.println(purpose);
+		System.out.println(date);
 		if(enquiryDate.equals(date)&&purpose.equals("Enquiry")) {
 			System.out.println(enquiry);
 			EnquiryTable enq1 = EnquiryTableServiceImpl.save(enquiry);
