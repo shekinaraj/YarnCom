@@ -56,13 +56,15 @@ public class FabricEnquiryController {
 		HashMap json = new HashMap();
 
 		json.put("enquiryType", "BankDetails");
+		fabric.setPrefix(fabric.getPrefix());
 		FabricEnquiry fabricDetails = FabricEnquiryServiceImpl.save(fabric);
+		
 		json.put("savedFabricEnquiryDetails", fabricDetails.getEnquiryId());
 		
 		EnquiryTable enquiry = new EnquiryTable();
 		System.out.println(fabricDetails.getEnquiryId());
 		enquiry.setCvEnquiryId(fabricDetails.getCvId());
-		enquiry.setEnquiryId(fabricDetails.getEnquiryId());
+		enquiry.setEnquiryId(fabricDetails.getPrefix() +"-0000"+fabricDetails.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
 		enquiry.setName(fabricDetails.getName());
 		enquiry.setContactNo(fabricDetails.getContactNo());

@@ -19,7 +19,7 @@ public class EnquiryTable {
 	private long cvEnquiryId;
 
 	@Column(name = "enquiryId")
-	private long enquiryId;
+	private String enquiryId;
 
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;
@@ -56,11 +56,11 @@ public class EnquiryTable {
 		this.cvEnquiryId = cvEnquiryId;
 	}
 
-	public long getEnquiryId() {
+	public String getEnquiryId() {
 		return enquiryId;
 	}
 
-	public void setEnquiryId(long enquiryId) {
+	public void setEnquiryId(String enquiryId) {
 		this.enquiryId = enquiryId;
 	}
 

@@ -13,6 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "weavingenquiry")
 public class WeavingEnquiry {
+	
+	@Column(name = "prefix")
+	private String prefix = "Y";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -169,6 +172,14 @@ public class WeavingEnquiry {
 
 	@Column(name = "remarks")
 	private String remarks;
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
 
 	public Long getEnquiryId() {
 		return enquiryId;

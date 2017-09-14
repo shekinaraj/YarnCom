@@ -18,7 +18,10 @@ public class BankDetails {
 	private Long operationId;
 
 	@Column(name = "customerId")
-	private Long customerId;
+	private String customerId;
+	
+	@Column(name = "companyName")
+	private String companyName;
 
 	@Column(name = "accountHolderName")
 	private String accountHolderName;
@@ -50,6 +53,12 @@ public class BankDetails {
 	@Column(name = "city")
 	private String city;
 
+	@Column(name = "state")
+	private String state;
+	
+	@Column(name = "country")
+	private String country;
+
 	public Long getOperationId() {
 		return operationId;
 	}
@@ -58,12 +67,20 @@ public class BankDetails {
 		this.operationId = operationId;
 	}
 
-	public Long getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getAccountHolderName() {
@@ -144,6 +161,22 @@ public class BankDetails {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 }

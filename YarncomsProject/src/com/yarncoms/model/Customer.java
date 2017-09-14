@@ -11,10 +11,13 @@ import javax.persistence.Table;
 @Table(name="customer")
 public class Customer {
 	
+	@Column(name = "prefix")
+	private String prefix = "C";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customerId")
-	private int customerId;
+	private Long customerId;
 
 	@Column(name = "customerType")
 	private String customerType;
@@ -73,14 +76,21 @@ public class Customer {
 	@Column(name = "introBy")
 	private String introBy;
 
-	public int getCustomerId() {
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-
 
 	public String getCustomerType() {
 		return customerType;

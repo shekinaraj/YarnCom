@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.model.EnquiryTable;
+import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerVisitService;
 import com.yarncoms.service.EnquiryTableService;
 
@@ -33,6 +35,7 @@ public class CustomerVisitController {
 	
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
+	
 	
 	// Controllers for CustomerVisitDetails
 	
@@ -65,11 +68,12 @@ public class CustomerVisitController {
 	public  @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit  customervisit){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
-		
+		customervisit.setPrefix(customervisit.getPrefix());
 		CustomerVisit cust = CustomerVisitServiceImpl.save(customervisit); 
 		json.put("savedDetails", cust.getCompanyName());
 		
 		EnquiryTable enquiry = new EnquiryTable();
+		enquiry.setEnquiryId(cust.getPrefix() +"-0000"+cust.getCustomerVisitId().toString());
 		enquiry.setEnquiryFrom("Customer");
 		enquiry.setName(cust.getContactPersonName());
 		enquiry.setContactNo(cust.getMobileNumber());

@@ -13,6 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "FabricEnquiry")
 public class FabricEnquiry{
+	
+	@Column(name = "prefix")
+	private String prefix = "F";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -144,6 +147,14 @@ public class FabricEnquiry{
 
 	public Long getCvId() {
 		return cvId;
+	}
+	
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
 	}
 
 	public void setCvId(Long cvId) {

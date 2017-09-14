@@ -12,9 +12,11 @@ public interface UserDetailsService {
 
 	List<UserDetails> findUserDetails();
 	
-	boolean delete(Long userId);
+	boolean delete(String userId);
 	
 	List<UserDetails> login(String userName, String password);
 	
 	List<UserDetails> findByRole(String role);
+	
+	List<UserDetails> findByStatus(String status);
 }

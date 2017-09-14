@@ -10,11 +10,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CustomerVisit")
 public class CustomerVisit {
+	
+	@Column(name = "prefix")
+	private String prefix = "CV";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	@Column(name = "customerVisitId")
-	private Long customerVisitId;
+	private String customerVisitId;
 	
 	@Column(name = "companyName")
 	private String companyName;
@@ -49,11 +53,19 @@ public class CustomerVisit {
 	@Column(name = "remarks")
 	private String remarks;
 
-	public Long getCustomerVisitId() {
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+	public String getCustomerVisitId() {
 		return customerVisitId;
 	}
 
-	public void setCustomerVisitId(Long customerVisitId) {
+	public void setCustomerVisitId(String customerVisitId) {
 		this.customerVisitId = customerVisitId;
 	}
 

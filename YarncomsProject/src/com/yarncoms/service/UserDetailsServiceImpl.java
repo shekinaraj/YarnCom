@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 
 	@Override
-	public boolean delete(Long userId) {
+	public boolean delete(String userId) {
 		System.out.println("service" +userId);
 		try {
 			UserDetails user = new UserDetails();
@@ -63,6 +63,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public List<UserDetails> findByRole(String role) {
 
 		return userDetailsRepository.findByRole(role);
+	}
+
+	@Override
+	public List<UserDetails> findByStatus(String status) {
+		// TODO Auto-generated method stub
+		return userDetailsRepository.findByStatus(status);
 	}
 
 }

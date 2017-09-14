@@ -59,10 +59,11 @@ public class SpecialityEnquiryController {
 		public  @ResponseBody HashMap saveSpecialityEnquirDetails(@RequestBody SpecialityEnquiry specialityEnquiry){
 			LinkedHashMap json = new LinkedHashMap();
 			json.put("enquiryType", "Saved-SpecialityEnquiry-Detail");
+			specialityEnquiry.setPrefix(specialityEnquiry.getPrefix());
 			SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry); 
 			
 			EnquiryTable enquiry = new EnquiryTable();
-			enquiry.setEnquiryId(spclEnquiry.getEnquiryId());
+			enquiry.setEnquiryId(spclEnquiry.getPrefix()+"-0000"+spclEnquiry.getEnquiryId());
 			enquiry.setCvEnquiryId(spclEnquiry.getCvId());
 			enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
 			enquiry.setName(spclEnquiry.getName());

@@ -24,4 +24,7 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
 	@Query("SELECT u FROM UserDetails u where u.role = ?1")
 	List<UserDetails> findByRole(String role);
 	
+	@Query("SELECT u FROM UserDetails u where u.status = ?1")
+	List<UserDetails> findByStatus(String status);
+	
 }

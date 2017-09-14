@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
+import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -23,6 +25,10 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private BankDetailsService BankDetailsServiceImpl;
+	
 	
 	@RequestMapping(value="get-customer-list", method=RequestMethod.GET)
 	public @ResponseBody HashMap getAllCustomerDetails() {
@@ -40,8 +46,14 @@ public class CustomerController {
 	public  @ResponseBody HashMap saveCustomerDetails(@RequestBody Customer  customer){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
+		customer.setPrefix(customer.getPrefix());
 		Customer cust = customerService.save(customer); 
 		json.put("savedDetails", cust.getCompanyName());
+		
+		BankDetails bank =  new BankDetails();
+		bank.setCompanyName(cust.getCompanyName());
+		bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());
+		BankDetails bank1 =  BankDetailsServiceImpl.save(bank);
 		return json;
 	}
 	

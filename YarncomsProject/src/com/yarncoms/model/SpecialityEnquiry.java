@@ -13,6 +13,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "speciality_enquiry")
 public class SpecialityEnquiry {
+	
+	@Column(name = "prefix")
+	private String prefix = "Y";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "enquiryId")
@@ -80,6 +84,14 @@ public class SpecialityEnquiry {
 
 	@Column(name = "remarks")
 	private String remarks;
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
 
 	public long getEnquiryId() {
 		return enquiryId;

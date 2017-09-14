@@ -57,12 +57,13 @@ public class WeavingEnquiryController {
 	public  @ResponseBody HashMap saveWeavingEnquirDetails(@RequestBody WeavingEnquiry weavingEnquiry){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-WeavingEnquiry-Detail");
+		weavingEnquiry.setPrefix(weavingEnquiry.getPrefix());
 		WeavingEnquiry weaving = weavingEnquiryService.save(weavingEnquiry);
 		
 		
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setCvEnquiryId(weaving.getCvId());
-		enquiry.setEnquiryId(weaving.getEnquiryId());
+		enquiry.setEnquiryId(weaving.getPrefix()+"-0000"+weaving.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
 		enquiry.setName(weaving.getName());
 		enquiry.setContactNo(weaving.getContactNo());

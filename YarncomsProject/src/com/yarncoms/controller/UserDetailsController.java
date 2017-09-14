@@ -21,6 +21,8 @@ import com.yarncoms.service.UserDetailsService;
 @RequestMapping("/rest")
 public class UserDetailsController {
 
+	private static String user = "User";
+
 	@Autowired
 	private UserDetailsService UserDetailsServiceImpl;
 
@@ -49,7 +51,7 @@ public class UserDetailsController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-userDetails/{role}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getUserRole(@PathVariable("role") String role) {
 		HashMap json = new HashMap();
@@ -61,27 +63,49 @@ public class UserDetailsController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-UserOpenStatus/{status}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getUserStatus(@PathVariable("status") String status) {
+		HashMap json = new HashMap();
+		List<UserDetails> Status = UserDetailsServiceImpl.findByStatus(status);
+		json.put("entity", "User");
+		json.put("StatusOpen", Status);
 
-		@RequestMapping(value="save-UserDetail", method=RequestMethod.POST)
-		public  @ResponseBody HashMap saveUserDetail(@RequestBody UserDetails  user){
-			System.out.println(user.getUserName());
-			LinkedHashMap json = new LinkedHashMap();
-			boolean userDetail = UserDetailsServiceImpl.save(user); 
-			json.put("Saved-User", userDetail);
-			return json;
-		}
+		return json;
+	}
+	
+	@RequestMapping(value = "Change-Status/{userId}", method = RequestMethod.PUT)
+	public @ResponseBody HashMap changeStatus(@PathVariable long userId, @RequestBody UserDetails user) {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "UserList");
+		user.setStatus("InActive");
+		boolean userDetail = UserDetailsServiceImpl.save(user);
+		json.put("change", userDetail);
+		return json;
+	}
+
+
+	@RequestMapping(value = "save-UserDetail", method = RequestMethod.POST)
+	public @ResponseBody HashMap saveUserDetail(@RequestBody UserDetails user) {
+		System.out.println(user.getUserName());
+		LinkedHashMap json = new LinkedHashMap();
+		user.setStatus("Active");
+		boolean userDetail = UserDetailsServiceImpl.save(user);
+		json.put("Saved-User", userDetail);
+		return json;
+	}
 
 	@RequestMapping(value = "update-UserDetail/{userId}", method = RequestMethod.PUT)
 	public @ResponseBody HashMap updateUserDetail(@PathVariable long userId, @RequestBody UserDetails user) {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "UserList");
 		boolean userDetail = UserDetailsServiceImpl.save(user);
-			json.put("EditedUser", userDetail);
-			return json;
+		json.put("EditedUser", userDetail);
+		return json;
 	}
 
 	@RequestMapping(value = "delete-UserDetail/{userId}", method = RequestMethod.GET)
-	public @ResponseBody HashMap deleteUserDetail(@PathVariable("userId") long id) {
+	public @ResponseBody HashMap deleteUserDetail(@PathVariable("userId") String id) {
 		System.out.println(id);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "UserList");
@@ -93,10 +117,10 @@ public class UserDetailsController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public @ResponseBody HashMap login(@RequestBody UserDetails user) {
 		LinkedHashMap json = new LinkedHashMap();
-		List<UserDetails> userDetail = (List<UserDetails>) UserDetailsServiceImpl.login(user.getUserName(),user.getPassword());
+		List<UserDetails> userDetail = (List<UserDetails>) UserDetailsServiceImpl.login(user.getUserName(),
+				user.getPassword());
 		json.put("Retrieved", userDetail);
 		return json;
 	}
-
 
 }
