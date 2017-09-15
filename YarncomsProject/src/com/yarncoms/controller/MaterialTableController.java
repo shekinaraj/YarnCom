@@ -28,7 +28,7 @@ public class MaterialTableController {
 	
 	@RequestMapping(value = "get-All-Materials", method = RequestMethod.GET)
 	public @ResponseBody HashMap getMaterialDetailsList() {
-		HashMap json = new HashMap();
+		HashMap json = new HashMap(); 
 
 		List<MaterialTable> material = MaterialTableServiceImpl.list();
 		json.put("Entity", "Material");
