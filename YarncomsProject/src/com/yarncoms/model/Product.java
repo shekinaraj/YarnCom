@@ -75,8 +75,8 @@ public class Product {
 	@Column(name = "texturised_Quality")
 	private String texturised_Quality;
 
-	@Column(name = "doubling_Type")
-	private String doubling_Type;
+	@Column(name = "doublingType")
+	private String doublingType;
 
 	@Column(name = "processed")
 	private String processed;
@@ -260,13 +260,13 @@ public class Product {
 	public void setTexturised_Quality(String texturised_Quality) {
 		this.texturised_Quality = texturised_Quality;
 	}
-
-	public String getDoubling_Type() {
-		return doubling_Type;
+	
+	public String getDoublingType() {
+		return doublingType;
 	}
 
-	public void setDoubling_Type(String doubling_Type) {
-		this.doubling_Type = doubling_Type;
+	public void setDoublingType(String doublingType) {
+		this.doublingType = doublingType;
 	}
 
 	public String getProcessed() {

@@ -1,12 +1,14 @@
 package com.yarncoms.controller;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,6 +45,16 @@ public class MaterialTableController {
 		json.put("Material", material);
 
 		return json;
+	}
+	
+	@RequestMapping(value = "save-material", method = RequestMethod.POST)
+	public @ResponseBody HashMap saveMaterialTableDetails(@RequestBody MaterialTable material) {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("MaterialTable", "material");
+		MaterialTable tab = MaterialTableServiceImpl.save(material);
+		json.put("savedMaterialTableDetails", tab.getMaterialId());
+		return json;
+
 	}
 
 	

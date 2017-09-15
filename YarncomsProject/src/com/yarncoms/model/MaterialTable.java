@@ -31,14 +31,14 @@ public class MaterialTable {
 	@Column(name = "BlendRatio")
 	private String BlendRatio;
 
-	@Column(name = "BlendPercentageCotton")
-	private String BlendPercentageCotton;
+	@Column(name = "blendPercentageCotton")
+	private String blendPercentageCotton;
 
-	@Column(name = "BlendPrecentagePolyster")
-	private String BlendPrecentagePolyster;
+	@Column(name = "blendPrecentagePolyster")
+	private String blendPrecentagePolyster;
 
-	@Column(name = "BlendPrecentageViscose")
-	private String BlendPrecentageViscose;
+	@Column(name = "blendPrecentageViscose")
+	private String blendPrecentageViscose;
 
 	@Column(name = "process")
 	private String process;
@@ -93,29 +93,29 @@ public class MaterialTable {
 	public void setBlendRatio(String blendRatio) {
 		BlendRatio = blendRatio;
 	}
-
+	
 	public String getBlendPercentageCotton() {
-		return BlendPercentageCotton;
+		return blendPercentageCotton;
 	}
 
 	public void setBlendPercentageCotton(String blendPercentageCotton) {
-		BlendPercentageCotton = blendPercentageCotton;
+		this.blendPercentageCotton = blendPercentageCotton;
 	}
 
 	public String getBlendPrecentagePolyster() {
-		return BlendPrecentagePolyster;
+		return blendPrecentagePolyster;
 	}
 
 	public void setBlendPrecentagePolyster(String blendPrecentagePolyster) {
-		BlendPrecentagePolyster = blendPrecentagePolyster;
+		this.blendPrecentagePolyster = blendPrecentagePolyster;
 	}
 
 	public String getBlendPrecentageViscose() {
-		return BlendPrecentageViscose;
+		return blendPrecentageViscose;
 	}
 
 	public void setBlendPrecentageViscose(String blendPrecentageViscose) {
-		BlendPrecentageViscose = blendPrecentageViscose;
+		this.blendPrecentageViscose = blendPrecentageViscose;
 	}
 
 	public String getProcess() {
