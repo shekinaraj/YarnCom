@@ -36,6 +36,18 @@ public class EnquiryTableController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-yarn-fabric", method = RequestMethod.GET)
+	public @ResponseBody HashMap getYarnAndFabric() {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+		
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.findColumn();
+		json.put("ColumnSize", EnquiryTable.size());
+		json.put("EnquiryTable", EnquiryTable);
+
+		return json;
+	}
 
 	@RequestMapping(value = "get-EnquiryTable/{EnquiryTableId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryId(@PathVariable("EnquiryTableId") long EnquiryTableId) {
@@ -57,6 +69,16 @@ public class EnquiryTableController {
 		List<EnquiryTable> enq = EnquiryTableServiceImpl.findEnquiry(level, status);
 		json.put("No of Level 1 Enquiry", enq.size());
 		json.put("LevelEnquiry", enq);
+		
+		return json;	
+	}
+	
+	@RequestMapping(value="getByDate/{startDate}/{endDate}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getByDate(@PathVariable String startDate, @PathVariable String endDate) {
+		HashMap json = new HashMap();
+		json.put("entity", "Enquiry");
+		List<EnquiryTable> enq = EnquiryTableServiceImpl.getByDate(startDate, endDate);
+		json.put("AnalyzedDate", enq);
 		
 		return json;	
 	}

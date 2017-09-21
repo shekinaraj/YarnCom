@@ -26,7 +26,7 @@ public class SpecialityEnquiry {
 	private Long cvId;
 
 	@Column(name = "enquirydate")
-	private String enquiryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
+	private String enquiryDate = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;

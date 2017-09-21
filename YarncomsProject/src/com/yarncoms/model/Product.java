@@ -14,6 +14,12 @@ public class Product {
 	@GeneratedValue
 	@Column(name = "productId")
 	private Long productId;
+	
+	@Column(name = "customerId")
+	private String customerId;
+	
+	@Column(name = "companyName")
+	private String companyName;
 
 	@Column(name = "count")
 	private int count;
@@ -99,6 +105,22 @@ public class Product {
 
 	public void setProductId(Long productId) {
 		this.productId = productId;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public int getCount() {

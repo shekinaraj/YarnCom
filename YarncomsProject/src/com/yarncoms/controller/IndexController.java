@@ -1,5 +1,8 @@
 package com.yarncoms.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +21,6 @@ public class IndexController {
 
 	@Autowired
 	private UserDetailsService userDetailsServiceImpl;
-	
-	@Autowired
-	private CustomerVisitService customerVisitServiceImpl;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(@RequestParam(defaultValue = "true", name = "loginstatus", required = false) boolean loginstatus, @RequestParam(defaultValue = "false", name = "sessionTimeout", required = false) boolean sessionTimeout, HttpServletRequest request) {

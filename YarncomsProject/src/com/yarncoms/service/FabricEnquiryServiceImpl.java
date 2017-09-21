@@ -24,7 +24,7 @@ public class FabricEnquiryServiceImpl implements FabricEnquiryService {
 	}
 
 	@Override
-	public List<FabricEnquiry> getByFabricEnquiryId(Long fabricEnquiryId) {
+	public FabricEnquiry getByFabricEnquiryId(Long fabricEnquiryId) {
 		// TODO Auto-generated method stub
 		return fabricEnquiryRepository.getByEnquiryId(fabricEnquiryId);
 	}
@@ -48,6 +48,15 @@ public class FabricEnquiryServiceImpl implements FabricEnquiryService {
 		return true;
 
 	}
+
+	/*@Override
+	public List<FabricEnquiry> getByQuery(Long fabricEnquiryId) {
+		// TODO Auto-generated method stub
+		List<FabricEnquiry> fab =  fabricEnquiryRepository.getByQuery(fabricEnquiryId);
+		return fab;
+	}*/
+
+	
 
 
 }

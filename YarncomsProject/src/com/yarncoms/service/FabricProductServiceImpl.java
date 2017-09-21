@@ -18,7 +18,7 @@ public class FabricProductServiceImpl implements FabricProductService {
 	@Override
 	public List<FabricProduct> list() {
 
-		return fabricProductRepository.findAll();
+		return fabricProductRepository.getAll();
 	}
 
 	@Override

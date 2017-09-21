@@ -12,6 +12,9 @@ public interface FabricEnquiryRepository extends JpaRepository<FabricEnquiry, Lo
 	@Query(name = "EnquiryTable", nativeQuery = true)
 	List<FabricEnquiry> findByName(String name);
 
-	List<FabricEnquiry> getByEnquiryId(Long fabricEnquiryId);
+	FabricEnquiry getByEnquiryId(Long fabricEnquiryId);
+	
+	/*@Query("select fe from FabricEnquiry fe where fe.enquiryId=?1 UNION ( select fp from FabricProduct fp where fp.warpCount= fe.warpCount AND fp.weftCount= fe.weftCount AND fp.warpCoreDenier=fe.warpCoreDenier)")
+	List<FabricEnquiry> getByQuery(Long fabricEnquiryId);*/
 
 }

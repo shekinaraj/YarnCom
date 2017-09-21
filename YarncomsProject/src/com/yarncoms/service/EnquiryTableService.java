@@ -9,6 +9,10 @@ public interface EnquiryTableService {
 	List<EnquiryTable> getByEnquiryGridId(Long cvEnquiryId);
 	
 	List<EnquiryTable> findEnquiry(int level, String status);
+	
+	List<EnquiryTable> findColumn();
+	
+	List<EnquiryTable> getByDate(String startDate, String endDate);
 
 	List<EnquiryTable> list();
 

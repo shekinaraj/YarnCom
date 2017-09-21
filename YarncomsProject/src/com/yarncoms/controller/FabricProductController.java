@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.FabricEnquiry;
 import com.yarncoms.model.FabricProduct;
+import com.yarncoms.service.FabricEnquiryService;
 import com.yarncoms.service.FabricProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")

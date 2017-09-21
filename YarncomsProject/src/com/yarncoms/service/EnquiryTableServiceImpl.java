@@ -45,4 +45,16 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 		return enquiryTableRepository.findEnquiry(level, status);
 	}
 
+	@Override
+	public List<EnquiryTable> findColumn() {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.findColumn();
+	}
+
+	@Override
+	public List<EnquiryTable> getByDate(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.getByDate(startDate, endDate);
+	}
+
 }

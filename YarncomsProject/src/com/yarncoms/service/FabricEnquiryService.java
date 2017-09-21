@@ -8,8 +8,10 @@ public interface FabricEnquiryService {
 
 	List<FabricEnquiry> list();
 
-	List<FabricEnquiry> getByFabricEnquiryId(Long fabricEnquiryId);
+	FabricEnquiry getByFabricEnquiryId(Long fabricEnquiryId);
 
+	/*List<FabricEnquiry> getByQuery(Long fabricEnquiryId);*/
+	
 	FabricEnquiry save(FabricEnquiry fabric);
 
 	boolean delete(Long fabricEnquiryId);

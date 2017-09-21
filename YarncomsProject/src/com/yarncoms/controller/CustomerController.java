@@ -49,7 +49,7 @@ public class CustomerController {
 		customer.setPrefix(customer.getPrefix());
 		Customer cust = customerService.save(customer); 
 		json.put("savedDetails", cust.getCompanyName());
-		
+		System.out.println(cust.getContactPersonName());
 		BankDetails bank =  new BankDetails();
 		bank.setCompanyName(cust.getCompanyName());
 		bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());

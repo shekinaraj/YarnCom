@@ -3,6 +3,7 @@ package com.yarncoms.controller;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
+import com.yarncoms.model.FabricProduct;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
+import com.yarncoms.service.FabricProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
@@ -28,6 +31,9 @@ public class FabricEnquiryController {
 	
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
+	
+	@Autowired
+	private FabricProductService FabricProductServiceImpl;
 
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
@@ -41,12 +47,20 @@ public class FabricEnquiryController {
 	}
 
 	@RequestMapping(value = "get-fabricEnquiryDetail/{fabricEnquiryId}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getByFabricEnquiryId(@PathVariable("fabricEnquiryId") long id) {
+	public @ResponseBody HashMap getByFabricEnquiryId(@PathVariable("fabricEnquiryId") long id, Map<String, Object> map) {
 		HashMap json = new HashMap();
 
-		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
+		FabricEnquiry fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
 		json.put("Entity", "FabricEnquiry");
 		json.put("FabricEnquiry", fabricEnquiry);
+		
+		
+		
+		List<FabricProduct> fabricProduct = FabricProductServiceImpl.list();
+		json.put("Entity", "FabricProduct");
+		json.put("FabricProduct", fabricProduct);
+		
+		
 
 		return json;
 	}
@@ -96,7 +110,7 @@ public class FabricEnquiryController {
 		System.out.println(id);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "FabricEnquiry");
-		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
+		FabricEnquiry fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
 
 		if (fabricEnquiry == null) {
 			json.put("CurrentEnquiry Not Found", fabricEnquiry.getClass());
@@ -106,5 +120,17 @@ public class FabricEnquiryController {
 		json.put("Id deleted", fabric);
 		return json;
 	}
+	
+	/*@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") long id) {
+		HashMap json = new HashMap();
+
+		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(id);
+		json.put("Entity", "FabricEnquiry");
+		json.put("FabricEnquiry", fabricEnquiry);
+
+		return json;
+	}*/
+
 
 }
