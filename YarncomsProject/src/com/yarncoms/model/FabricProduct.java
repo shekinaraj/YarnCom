@@ -30,7 +30,7 @@ public class FabricProduct {
 	private String companyName;
 
 	@Column(name = "entrydate")
-	private String entryDate = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
+	private String entryDate = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
 
 	@Column(name = "warpCount")
 	private Long warpCount;

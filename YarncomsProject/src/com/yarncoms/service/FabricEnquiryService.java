@@ -10,7 +10,7 @@ public interface FabricEnquiryService {
 
 	FabricEnquiry getByFabricEnquiryId(Long fabricEnquiryId);
 
-	/*List<FabricEnquiry> getByQuery(Long fabricEnquiryId);*/
+	List<FabricEnquiry> getByQuery(Long fabricEnquiryId);
 	
 	FabricEnquiry save(FabricEnquiry fabric);
 

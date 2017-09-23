@@ -49,12 +49,12 @@ public class FabricEnquiryServiceImpl implements FabricEnquiryService {
 
 	}
 
-	/*@Override
+	@Override
 	public List<FabricEnquiry> getByQuery(Long fabricEnquiryId) {
 		// TODO Auto-generated method stub
 		List<FabricEnquiry> fab =  fabricEnquiryRepository.getByQuery(fabricEnquiryId);
 		return fab;
-	}*/
+	}
 
 	
 

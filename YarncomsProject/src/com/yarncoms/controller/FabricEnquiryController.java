@@ -121,7 +121,7 @@ public class FabricEnquiryController {
 		return json;
 	}
 	
-	/*@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") long id) {
 		HashMap json = new HashMap();
 
@@ -130,7 +130,7 @@ public class FabricEnquiryController {
 		json.put("FabricEnquiry", fabricEnquiry);
 
 		return json;
-	}*/
+	}
 
 
 }
