@@ -6,7 +6,7 @@ import com.yarncoms.model.Customer;
 
 public interface CustomerService {
 	
-	List<Customer> findByCustomerId(int customerId);
+	List<Customer> findByCustomerId(Long customerId);
 
 	List<Customer> list();
 	

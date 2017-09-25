@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
 import com.yarncoms.model.FabricProduct;
+import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
 import com.yarncoms.service.FabricProductService;
@@ -33,8 +35,9 @@ public class FabricEnquiryController {
 	private EnquiryTableService EnquiryTableServiceImpl;
 	
 	@Autowired
-	private FabricProductService FabricProductServiceImpl;
-
+	private CustomerService customerService;
+	
+	
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
 		HashMap json = new HashMap();
@@ -54,14 +57,6 @@ public class FabricEnquiryController {
 		json.put("Entity", "FabricEnquiry");
 		json.put("FabricEnquiry", fabricEnquiry);
 		
-		
-		
-		List<FabricProduct> fabricProduct = FabricProductServiceImpl.list();
-		json.put("Entity", "FabricProduct");
-		json.put("FabricProduct", fabricProduct);
-		
-		
-
 		return json;
 	}
 
@@ -127,8 +122,9 @@ public class FabricEnquiryController {
 
 		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(id);
 		json.put("Entity", "FabricEnquiry");
+		json.put("EntitySize", fabricEnquiry.size());
 		json.put("FabricEnquiry", fabricEnquiry);
-
+		
 		return json;
 	}
 

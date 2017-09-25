@@ -10,7 +10,7 @@ import com.yarncoms.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	
-	List<Customer> findByCustomerId(int customerId);
+	List<Customer> findByCustomerId(Long customerId);
 	
 	//@Transactional
 	//@Query("SELECT c FROM Customer c where c.customerType=?1")

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
+import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
 
@@ -28,6 +29,17 @@ public class CustomerController {
 	
 	@Autowired
 	private BankDetailsService BankDetailsServiceImpl;
+	
+	@RequestMapping(value = "get-customer/{customerId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getUser(@PathVariable Long customerId) {
+		HashMap json = new HashMap();
+
+		List<Customer> customer = customerService.findByCustomerId(customerId);
+		json.put("entity", "customer");
+		json.put("Customer", customer);
+
+		return json;
+	}
 	
 	
 	@RequestMapping(value="get-customer-list", method=RequestMethod.GET)

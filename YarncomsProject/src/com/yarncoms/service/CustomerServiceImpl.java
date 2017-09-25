@@ -16,7 +16,7 @@ public class CustomerServiceImpl implements CustomerService{
 	private CustomerRepository customerRepository; 
 
 	@Override
-	public List<Customer> findByCustomerId(int customerId) {
+	public List<Customer> findByCustomerId(Long customerId) {
 		// TODO Auto-generated method stub
 		return customerRepository.findByCustomerId(customerId);
 	}
