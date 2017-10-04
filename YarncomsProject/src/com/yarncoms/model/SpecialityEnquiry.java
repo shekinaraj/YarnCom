@@ -91,7 +91,7 @@ public class SpecialityEnquiry {
 	@Column(name = "yarnSpecialityDenier")
 	private String yarnSpecialityDenier;
 
-	@Column(name = "SpecialityPVACountInNE")
+	@Column(name = "specialityPVACountInNE")
 	private String SpecialityPVACountInNE;
 
 	@Column(name = "specialityBlendRatio")
@@ -106,6 +106,14 @@ public class SpecialityEnquiry {
 	@Column(name = "specialityBlendPercentageViscose")
 	private String specialityBlendPercentageViscose;
 	
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
 	@Column(name = "specialityOtherMaterial")
 	private String specialityOtherMaterial;
 	
