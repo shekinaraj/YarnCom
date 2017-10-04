@@ -1,4 +1,4 @@
-package com.yarncoms.repository;
+ package com.yarncoms.repository;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2")
 	List<EnquiryTable> findEnquiry(int level,String status);	
 
-	@Query("SELECT e.enquiryId FROM EnquiryTable e")
-	List<EnquiryTable> findColumn();
+	@Query("SELECT sd FROM SupplierData sd, EnquiryTable e where e.enquiryId=?1 and sd.enquiryId=e.enquiryId")
+	List<EnquiryTable> findColumn(String id);
 	
 	
 	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate>=?1 AND e.enqDate<=?2")

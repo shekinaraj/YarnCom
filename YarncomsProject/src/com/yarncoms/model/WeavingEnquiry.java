@@ -25,7 +25,6 @@ public class WeavingEnquiry {
 	@Column(name = "cvId")
 	private Long cvId;
 
-
 	@Column(name = "enquirydate")
 	private String enquiryDate = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 

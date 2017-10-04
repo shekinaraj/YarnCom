@@ -7,6 +7,8 @@ import com.yarncoms.model.SpecialityEnquiry;
 public interface SpecialityEnquiryService {
 	
 	List<SpecialityEnquiry> list();
+	
+	List<SpecialityEnquiry> getBySpeciality(long enquiryId);
 
 	List<SpecialityEnquiry> findByEnquiryId(Long enquiryId);
 

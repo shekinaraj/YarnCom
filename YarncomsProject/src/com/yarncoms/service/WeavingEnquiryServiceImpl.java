@@ -47,5 +47,10 @@ public class WeavingEnquiryServiceImpl implements WeavingEnquiryService{
 		}
 		return true;
 	}
+	
+	@Override
+	public List<WeavingEnquiry> getByWeaving(long enquiryId){
+		return weavingEnquiryRepository.getByWeaving(enquiryId);
+	}
 
 }

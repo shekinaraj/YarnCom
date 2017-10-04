@@ -99,5 +99,16 @@ public class WeavingEnquiryController {
 		json.put("Id deleted", weavingEnquiry);
 		return json;
 	}
+	
+	@RequestMapping(value = "get-weavingProduct-Name/{enqId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getByWeaving(@PathVariable("enqId") long id) {
+		HashMap json = new HashMap();
+
+		List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(id);
+		json.put("Entity", "WeavingEnquiry");
+		json.put("Enquiry", weaving);
+		
+		return json;
+	}
 
 }

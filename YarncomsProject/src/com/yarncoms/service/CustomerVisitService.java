@@ -11,4 +11,6 @@ public interface CustomerVisitService {
 	CustomerVisit save(CustomerVisit customer);
 
 	List<CustomerVisit> findCustomerVisit();
+	
+	List<CustomerVisit> getAllCompanyNames();
 }

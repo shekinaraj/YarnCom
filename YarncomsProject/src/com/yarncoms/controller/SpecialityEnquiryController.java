@@ -60,6 +60,8 @@ public class SpecialityEnquiryController {
 			LinkedHashMap json = new LinkedHashMap();
 			json.put("enquiryType", "Saved-SpecialityEnquiry-Detail");
 			specialityEnquiry.setPrefix(specialityEnquiry.getPrefix());
+			System.out.println(specialityEnquiry.getSpecialitySewingMaterial());
+			System.out.println(specialityEnquiry.getSpecialityBlendPercentageCotton());
 			SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry); 
 			
 			EnquiryTable enquiry = new EnquiryTable();
@@ -96,6 +98,19 @@ public class SpecialityEnquiryController {
 			json.put("Id deleted", specialityEnquiry);
 			return json;
 		}
+		
+		@RequestMapping(value = "get-Product-Name/{specialityEnquiryId}", method = RequestMethod.GET)
+		public @ResponseBody HashMap getBySpeciality(@PathVariable("specialityEnquiryId") long id) {
+			HashMap json = new HashMap();
+
+			List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(id);
+			json.put("Entity", "SpecialityEnquiry");
+			json.put("EntitySize", speciality.size());
+			json.put("Enquiry", speciality);
+			
+			return json;
+		}
+
 
 
 

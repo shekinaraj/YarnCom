@@ -37,12 +37,12 @@ public class EnquiryTableController {
 		return json;
 	}
 	
-	@RequestMapping(value = "get-yarn-fabric", method = RequestMethod.GET)
-	public @ResponseBody HashMap getYarnAndFabric() {
+	@RequestMapping(value = "get-yarn-fabric/{enquiryId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getYarnAndFabric(@PathVariable("enquiryId") String id) {
 		HashMap json = new HashMap();
 		// json.put("enquiryType", enquiryType);
 		
-		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.findColumn();
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.findColumn(id);
 		json.put("ColumnSize", EnquiryTable.size());
 		json.put("EnquiryTable", EnquiryTable);
 

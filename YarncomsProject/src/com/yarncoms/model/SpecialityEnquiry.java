@@ -58,8 +58,8 @@ public class SpecialityEnquiry {
 	@Column(name = "yarnCountIn")
 	private String yarnCountIn;
 
-	@Column(name = "ply")
-	private String ply;
+	@Column(name = "specialityPly")
+	private String specialityPly;
 
 	@Column(name = "specifyPly")
 	private String specifyPly;
@@ -67,8 +67,11 @@ public class SpecialityEnquiry {
 	@Column(name = "useFor")
 	private String useFor;
 
-	@Column(name = "material")
-	private String material;
+	@Column(name = "specialitySewingMaterial")
+	private String specialitySewingMaterial;
+	
+	@Column(name = "specialityEmbroideryMaterial")
+	private String specialityEmbroideryMaterial;
 
 	@Column(name = "process")
 	private String process;
@@ -82,9 +85,42 @@ public class SpecialityEnquiry {
 	@Column(name = "filament")
 	private String filament;
 
+	@Column(name = "yarnSpecialityQuality")
+	private String yarnSpecialityQuality;
+
+	@Column(name = "yarnSpecialityDenier")
+	private String yarnSpecialityDenier;
+
+	@Column(name = "SpecialityPVACountInNE")
+	private String SpecialityPVACountInNE;
+
+	@Column(name = "specialityBlendRatio")
+	private String specialityBlendRatio;
+
+	@Column(name = "specialityBlendPercentageCotton")
+	private String specialityBlendPercentageCotton;
+	
+	@Column(name = "specialityBlendPercentagePolyster")
+	private String specialityBlendPercentagePolyster;
+	
+	@Column(name = "specialityBlendPercentageViscose")
+	private String specialityBlendPercentageViscose;
+	
+	@Column(name = "specialityOtherMaterial")
+	private String specialityOtherMaterial;
+	
+	@Column(name = "specialityOtherMaterialPercentage")
+	private String specialityOtherMaterialPercentage;
+	
+	@Column(name = "specialityColour")
+	private String specialityColour;
+
+	@Column(name = "productDescription")
+	private String productDescription;
+	
 	@Column(name = "remarks")
 	private String remarks;
-
+	 
 	public String getPrefix() {
 		return prefix;
 	}
@@ -197,12 +233,12 @@ public class SpecialityEnquiry {
 		this.yarnCountIn = yarnCountIn;
 	}
 
-	public String getPly() {
-		return ply;
+	public String getSpecialityPly() {
+		return specialityPly;
 	}
 
-	public void setPly(String ply) {
-		this.ply = ply;
+	public void setSpecialityPly(String specialityPly) {
+		this.specialityPly = specialityPly;
 	}
 
 	public String getSpecifyPly() {
@@ -219,14 +255,6 @@ public class SpecialityEnquiry {
 
 	public void setUseFor(String useFor) {
 		this.useFor = useFor;
-	}
-
-	public String getMaterial() {
-		return material;
-	}
-
-	public void setMaterial(String material) {
-		this.material = material;
 	}
 
 	public String getProcess() {
@@ -259,6 +287,102 @@ public class SpecialityEnquiry {
 
 	public void setFilament(String filament) {
 		this.filament = filament;
+	}
+
+	public String getYarnSpecialityQuality() {
+		return yarnSpecialityQuality;
+	}
+
+	public void setYarnSpecialityQuality(String yarnSpecialityQuality) {
+		this.yarnSpecialityQuality = yarnSpecialityQuality;
+	}
+
+	public String getSpecialitySewingMaterial() {
+		return specialitySewingMaterial;
+	}
+
+	public void setSpecialitySewingMaterial(String specialitySewingMaterial) {
+		this.specialitySewingMaterial = specialitySewingMaterial;
+	}
+
+	public String getSpecialityEmbroideryMaterial() {
+		return specialityEmbroideryMaterial;
+	}
+
+	public void setSpecialityEmbroideryMaterial(String specialityEmbroideryMaterial) {
+		this.specialityEmbroideryMaterial = specialityEmbroideryMaterial;
+	}
+
+	public String getYarnSpecialityDenier() {
+		return yarnSpecialityDenier;
+	}
+
+	public void setYarnSpecialityDenier(String yarnSpecialityDenier) {
+		this.yarnSpecialityDenier = yarnSpecialityDenier;
+	}
+
+	public String getSpecialityPVACountInNE() {
+		return SpecialityPVACountInNE;
+	}
+
+	public void setSpecialityPVACountInNE(String specialityPVACountInNE) {
+		SpecialityPVACountInNE = specialityPVACountInNE;
+	}
+
+	public String getSpecialityBlendRatio() {
+		return specialityBlendRatio;
+	}
+
+	public void setSpecialityBlendRatio(String specialityBlendRatio) {
+		this.specialityBlendRatio = specialityBlendRatio;
+	}
+
+	public String getSpecialityBlendPercentageCotton() {
+		return specialityBlendPercentageCotton;
+	}
+
+	public void setSpecialityBlendPercentageCotton(String specialityBlendPercentageCotton) {
+		this.specialityBlendPercentageCotton = specialityBlendPercentageCotton;
+	}
+
+	public String getSpecialityBlendPercentagePolyster() {
+		return specialityBlendPercentagePolyster;
+	}
+
+	public void setSpecialityBlendPercentagePolyster(String specialityBlendPercentagePolyster) {
+		this.specialityBlendPercentagePolyster = specialityBlendPercentagePolyster;
+	}
+
+	public String getSpecialityBlendPercentageViscose() {
+		return specialityBlendPercentageViscose;
+	}
+
+	public void setSpecialityBlendPercentageViscose(String specialityBlendPercentageViscose) {
+		this.specialityBlendPercentageViscose = specialityBlendPercentageViscose;
+	}
+
+	public String getSpecialityOtherMaterial() {
+		return specialityOtherMaterial;
+	}
+
+	public void setSpecialityOtherMaterial(String specialityOtherMaterial) {
+		this.specialityOtherMaterial = specialityOtherMaterial;
+	}
+
+	public String getSpecialityOtherMaterialPercentage() {
+		return specialityOtherMaterialPercentage;
+	}
+
+	public void setSpecialityOtherMaterialPercentage(String specialityOtherMaterialPercentage) {
+		this.specialityOtherMaterialPercentage = specialityOtherMaterialPercentage;
+	}
+
+	public String getSpecialityColour() {
+		return specialityColour;
+	}
+
+	public void setSpecialityColour(String specialityColour) {
+		this.specialityColour = specialityColour;
 	}
 
 	public String getRemarks() {

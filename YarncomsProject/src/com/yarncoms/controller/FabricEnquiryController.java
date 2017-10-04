@@ -34,8 +34,8 @@ public class FabricEnquiryController {
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
 	
-	@Autowired
-	private CustomerService customerService;
+//	@Autowired
+//	private CustomerService customerService;
 	
 	
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
@@ -123,7 +123,7 @@ public class FabricEnquiryController {
 		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(id);
 		json.put("Entity", "FabricEnquiry");
 		json.put("EntitySize", fabricEnquiry.size());
-		json.put("FabricEnquiry", fabricEnquiry);
+		json.put("Enquiry", fabricEnquiry);
 		
 		return json;
 	}

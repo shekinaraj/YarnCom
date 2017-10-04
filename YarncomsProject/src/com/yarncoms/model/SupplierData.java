@@ -25,8 +25,20 @@ public class SupplierData {
 	@Column(name = "supplierName" )
 	private String supplierName;
 	
-	@Column(name = "customerCost")
-	private String customerCost;
+	@Column(name = "supplierQuote")
+	private String supplierQuote;
+	
+	@Column(name = "offerPrice")
+	private String offerPrice;
+	
+	@Column(name = "currency")
+	private String currency;
+	
+	@Column(name = "value")
+	private String value;
+	
+	@Column(name = "contactNo")
+	private String contactNo;
 	
 	@Column(name = "email")
 	private String email;
@@ -66,12 +78,44 @@ public class SupplierData {
 		this.supplierName = supplierName;
 	}
 
-	public String getCustomerCost() {
-		return customerCost;
+	public String getSupplierQuote() {
+		return supplierQuote;
 	}
 
-	public void setCustomerCost(String customerCost) {
-		this.customerCost = customerCost;
+	public void setSupplierQuote(String supplierQuote) {
+		this.supplierQuote = supplierQuote;
+	}
+
+	public String getOfferPrice() {
+		return offerPrice;
+	}
+
+	public void setOfferPrice(String offerPrice) {
+		this.offerPrice = offerPrice;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
 
 	public String getEmail() {

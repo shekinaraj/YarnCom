@@ -31,4 +31,10 @@ public class CustomerVisitServiceImpl implements CustomerVisitService {
 		// TODO Auto-generated method stub
 		return customerVisitRepository.findAll();
 	}
+
+	@Override
+	public List<CustomerVisit> getAllCompanyNames() {
+		// TODO Auto-generated method stub
+		return customerVisitRepository.getAllCompanyName();
+	}
 }

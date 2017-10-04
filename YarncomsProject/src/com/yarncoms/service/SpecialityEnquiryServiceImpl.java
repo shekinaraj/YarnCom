@@ -47,4 +47,10 @@ public class SpecialityEnquiryServiceImpl implements SpecialityEnquiryService{
 		return true;
 	}
 
+	@Override
+	public List<SpecialityEnquiry> getBySpeciality(long enquiryId) {
+		// TODO Auto-generated method stub
+		return specialityEnquiryRepository.getBySpeciality(enquiryId);
+	}
+
 }

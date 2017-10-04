@@ -64,6 +64,15 @@ public class CustomerVisitController {
 		return json;
 	}
 	
+	@RequestMapping(value="get-Company-Names", method=RequestMethod.GET)
+	public @ResponseBody HashMap getAllCompanyNames() {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "CustomerList");
+		List<CustomerVisit> customerVisit = CustomerVisitServiceImpl.getAllCompanyNames();
+		json.put("CustomerVisit", customerVisit);
+		return json;
+	}
+	
 	@RequestMapping(value = "save-customer-visit", method=RequestMethod.POST)
 	public  @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit  customervisit){
 		LinkedHashMap json = new LinkedHashMap();

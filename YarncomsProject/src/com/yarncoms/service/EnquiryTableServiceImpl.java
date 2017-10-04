@@ -46,9 +46,9 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 	}
 
 	@Override
-	public List<EnquiryTable> findColumn() {
+	public List<EnquiryTable> findColumn(String id) {
 		// TODO Auto-generated method stub
-		return enquiryTableRepository.findColumn();
+		return enquiryTableRepository.findColumn(id);
 	}
 
 	@Override

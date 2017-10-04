@@ -10,7 +10,7 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> findEnquiry(int level, String status);
 	
-	List<EnquiryTable> findColumn();
+	List<EnquiryTable> findColumn(String id);
 	
 	List<EnquiryTable> getByDate(String startDate, String endDate);
 
