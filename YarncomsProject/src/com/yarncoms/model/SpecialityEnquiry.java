@@ -51,7 +51,13 @@ public class SpecialityEnquiry {
 
 	@Column(name = "priority")
 	private String priority;
-
+	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
+	
+	@Column(name = "count")
+	private String count;
+	
 	@Column(name = "purpose")
 	private String purpose;
 
@@ -231,6 +237,22 @@ public class SpecialityEnquiry {
 
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
+	}
+	
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
+	}
+
+	public String getCount() {
+		return count;
+	}
+
+	public void setCount(String count) {
+		this.count = count;
 	}
 
 	public String getYarnCountIn() {

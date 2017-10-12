@@ -52,7 +52,10 @@ public class FabricEnquiry{
 
 	@Column(name = "priority")
 	private String priority;
-
+	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
+	
 	@Column(name = "warpCount")
 	private Long warpCount;
 
@@ -231,6 +234,14 @@ public class FabricEnquiry{
 
 	public void setPriority(String priority) {
 		this.priority = priority;
+	}
+
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
 	}
 
 	public Long getWarpCount() {

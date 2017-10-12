@@ -54,12 +54,15 @@ public class WeavingEnquiry {
 	
 	@Column(name = "purpose")
 	private String purpose;
-
+	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
+	
 	@Column(name = "waxed")
 	private String waxed;
 
-	@Column(name = "weavingCount")
-	private Long weavingCount;
+	@Column(name = "count")
+	private Long count;
 
 	@Column(name = "typeofYarn")
 	private String typeofYarn;
@@ -91,8 +94,14 @@ public class WeavingEnquiry {
 	@Column(name = "quality")
 	private String quality;
 
-	@Column(name = "material")
-	private String material;
+	@Column(name = "weavingVirginMaterial")
+	private String weavingVirginMaterial;
+	
+	@Column(name = "weavingRingSpunMaterial")
+	private String weavingRingSpunMaterial;
+	
+	@Column(name = "weavingRingSpunDoubleMaterial")
+	private String weavingRingSpunDoubleMaterial;
 
 	@Column(name = "weavingYarnCottonType")
 	private String weavingYarnCottonType;
@@ -153,6 +162,21 @@ public class WeavingEnquiry {
 
 	@Column(name = "noOfFilament")
 	private String noOfFilament;
+	
+	@Column(name = "filament")
+	private String filament;
+	
+	@Column(name = "corePercentage")
+	private String corePercentage;
+	
+	@Column(name = "fibreTypeCotton")
+	private String fibreTypeCotton;
+	
+	@Column(name = "fibreTypePolyster")
+	private String fibreTypePolyster;
+	
+	@Column(name = "fibreTypeViscose")
+	private String fibreTypeViscose;
 
 	@Column(name = "colour")
 	private String colour;
@@ -275,6 +299,14 @@ public class WeavingEnquiry {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
+	
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
+	}
 
 	public String getWaxed() {
 		return waxed;
@@ -283,13 +315,13 @@ public class WeavingEnquiry {
 	public void setWaxed(String waxed) {
 		this.waxed = waxed;
 	}
-
-	public Long getWeavingCount() {
-		return weavingCount;
+	
+	public Long getCount() {
+		return count;
 	}
 
-	public void setWeavingCount(Long weavingCount) {
-		this.weavingCount = weavingCount;
+	public void setCount(Long count) {
+		this.count = count;
 	}
 
 	public String getTypeofYarn() {
@@ -372,12 +404,28 @@ public class WeavingEnquiry {
 		this.quality = quality;
 	}
 
-	public String getMaterial() {
-		return material;
+	public String getWeavingVirginMaterial() {
+		return weavingVirginMaterial;
 	}
 
-	public void setMaterial(String material) {
-		this.material = material;
+	public void setWeavingVirginMaterial(String weavingVirginMaterial) {
+		this.weavingVirginMaterial = weavingVirginMaterial;
+	}
+
+	public String getWeavingRingSpunMaterial() {
+		return weavingRingSpunMaterial;
+	}
+
+	public void setWeavingRingSpunMaterial(String weavingRingSpunMaterial) {
+		this.weavingRingSpunMaterial = weavingRingSpunMaterial;
+	}
+
+	public String getWeavingRingSpunDoubleMaterial() {
+		return weavingRingSpunDoubleMaterial;
+	}
+
+	public void setWeavingRingSpunDoubleMaterial(String weavingRingSpunDoubleMaterial) {
+		this.weavingRingSpunDoubleMaterial = weavingRingSpunDoubleMaterial;
 	}
 
 	public String getWeavingYarnCottonType() {
@@ -546,6 +594,46 @@ public class WeavingEnquiry {
 
 	public void setNoOfFilament(String noOfFilament) {
 		this.noOfFilament = noOfFilament;
+	}
+
+	public String getFilament() {
+		return filament;
+	}
+
+	public void setFilament(String filament) {
+		this.filament = filament;
+	}
+
+	public String getCorePercentage() {
+		return corePercentage;
+	}
+
+	public void setCorePercentage(String corePercentage) {
+		this.corePercentage = corePercentage;
+	}
+
+	public String getFibreTypeCotton() {
+		return fibreTypeCotton;
+	}
+
+	public void setFibreTypeCotton(String fibreTypeCotton) {
+		this.fibreTypeCotton = fibreTypeCotton;
+	}
+
+	public String getFibreTypePolyster() {
+		return fibreTypePolyster;
+	}
+
+	public void setFibreTypePolyster(String fibreTypePolyster) {
+		this.fibreTypePolyster = fibreTypePolyster;
+	}
+
+	public String getFibreTypeViscose() {
+		return fibreTypeViscose;
+	}
+
+	public void setFibreTypeViscose(String fibreTypeViscose) {
+		this.fibreTypeViscose = fibreTypeViscose;
 	}
 
 	public String getColour() {

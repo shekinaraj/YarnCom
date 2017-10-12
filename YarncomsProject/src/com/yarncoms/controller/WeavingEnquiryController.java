@@ -41,14 +41,14 @@ public class WeavingEnquiryController {
 		return json;
 	}
 	
-	@RequestMapping(value="get-weavingEnquiryDetails/{weavingEnquiryId}", method=RequestMethod.GET)
-	public @ResponseBody HashMap getWeavingEnquiryById(@PathVariable Long enquiryId) {
+	@RequestMapping(value="get-weavingEnquiryDetails/{enquiryId}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getWeavingEnquiryById(@PathVariable("enquiryId") Long id) {
 		HashMap json = new HashMap();
 		//json.put("enquiryType", enquiryType);
 		
-		List<WeavingEnquiry> weaving = weavingEnquiryService.findByEnquiryId(enquiryId);
-		json.put("entity", "EnquiryDetailId");
-		json.put("EnquiryById", weaving);
+		List<WeavingEnquiry> weaving = weavingEnquiryService.findByEnquiryId(id);
+		json.put("entity", "WeavingEnquiry");
+		json.put("WeavingEnquiry", weaving);
 		
 		return json;	
 	}
@@ -63,7 +63,7 @@ public class WeavingEnquiryController {
 		
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setCvEnquiryId(weaving.getCvId());
-		enquiry.setEnquiryId(weaving.getPrefix()+"-0000"+weaving.getEnquiryId().toString());
+		enquiry.setEnquiryId(weaving.getPrefix()+"_0000"+weaving.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
 		enquiry.setName(weaving.getName());
 		enquiry.setContactNo(weaving.getContactNo());

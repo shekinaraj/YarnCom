@@ -8,6 +8,8 @@ public interface CustomerVisitService {
 	
 	List<CustomerVisit> findByCustomerVisitId(Long customerVisitId);
 	
+	List<CustomerVisit> findByCompanyName(String company);
+	
 	CustomerVisit save(CustomerVisit customer);
 
 	List<CustomerVisit> findCustomerVisit();
