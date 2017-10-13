@@ -71,6 +71,7 @@ public class WeavingEnquiryController {
 		enquiry.setTechnicalPerson(weaving.getTechnicalPerson());
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
+		enquiry.setProductDescription(weaving.getProductDescription());
 		
 		
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);

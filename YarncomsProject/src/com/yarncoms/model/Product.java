@@ -30,8 +30,8 @@ public class Product {
 	@Column(name = "countNo")
 	private int countNo;
 
-	@Column(name = "Ply")
-	private String Ply;
+	@Column(name = "ply")
+	private String ply;
 
 	@Column(name = "yarnQuality")
 	private String yarnQuality;
@@ -93,8 +93,8 @@ public class Product {
 	@Column(name = "quality")
 	private String quality;
 
-	@Column(name = "product_Description")
-	private String product_Descrption;
+	@Column(name = "productDescription")
+	private String productDescription;
 
 	@Column(name = "remarks")
 	private String remarks;
@@ -146,13 +146,13 @@ public class Product {
 	public void setCountNo(int countNo) {
 		this.countNo = countNo;
 	}
-
+	
 	public String getPly() {
-		return Ply;
+		return ply;
 	}
 
 	public void setPly(String ply) {
-		Ply = ply;
+		this.ply = ply;
 	}
 
 	public String getYarnQuality() {
@@ -315,12 +315,12 @@ public class Product {
 		this.quality = quality;
 	}
 
-	public String getProduct_Descrption() {
-		return product_Descrption;
+	public String getProductDescription() {
+		return productDescription;
 	}
 
-	public void setProduct_Descrption(String product_Descrption) {
-		this.product_Descrption = product_Descrption;
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 
 	public String getRemarks() {

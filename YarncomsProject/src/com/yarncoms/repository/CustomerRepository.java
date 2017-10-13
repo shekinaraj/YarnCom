@@ -19,4 +19,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	@Transactional
 	@Query("SELECT c FROM Customer c where c.customerType = ?1 AND c.status = ?2")
 	List<Customer> find(String type,String status);	
+	
+	/*@Query("SELECT p. FROM Customer c, Product p where c.customerId = ?1 AND c.customerId = p.customerId")
+	List<Customer> findYarnCount(Long customerId);	*/
 }

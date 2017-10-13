@@ -74,6 +74,7 @@ public class SpecialityEnquiryController {
 			enquiry.setEnqStatus("Open");
 			enquiry.setEnqLevel(2);
 			enquiry.setTechnicalPerson(specialityEnquiry.getTechnicalPerson());
+			enquiry.setProductDescription(spclEnquiry.getProductDescription());
 			
 			EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 			json.put("savedDetails", spclEnquiry.getEnquiryId());

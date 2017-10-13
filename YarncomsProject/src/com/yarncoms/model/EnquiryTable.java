@@ -44,6 +44,9 @@ public class EnquiryTable {
 
 	@Column(name = "reasonforClosing")
 	private String reasonforClosing;
+	
+	@Column(name = "productDescription")
+	private String productDescription;
 
 	@Column(name = "remarks")
 	private String remarks;
@@ -128,17 +131,20 @@ public class EnquiryTable {
 		this.reasonforClosing = reasonforClosing;
 	}
 
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
 	public String getRemarks() {
 		return remarks;
 	}
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
-	}
-
-	public StoredProcedureQuery createStoredProcedureQuery(String string) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

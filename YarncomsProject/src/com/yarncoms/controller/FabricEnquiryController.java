@@ -81,6 +81,7 @@ public class FabricEnquiryController {
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
+		enquiry.setProductDescription(fabricDetails.getConstruction());
 		
 		
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
