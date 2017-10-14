@@ -24,6 +24,9 @@ public class Customer {
 
 	@Column(name = "status")
 	private String status;
+	
+	@Column(name = "productCount")
+	private long productCount;
 
 	@Column(name = "customerCategory")
 	private String customerCategory;
@@ -106,6 +109,14 @@ public class Customer {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public long getProductCount() {
+		return productCount;
+	}
+
+	public void setProductCount(long productCount) {
+		this.productCount = productCount;
 	}
 
 	public String getCustomerCategory() {

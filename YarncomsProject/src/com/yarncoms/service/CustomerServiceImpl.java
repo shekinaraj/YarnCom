@@ -52,4 +52,10 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.find(type, status);
 	}
 
+	@Override
+	public Customer findCustomerId(Long customerId) {
+		// TODO Auto-generated method stub
+		return customerRepository.CustomerId(customerId);
+	}
+
 }

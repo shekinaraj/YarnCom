@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
-import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
 
@@ -100,6 +99,23 @@ public class CustomerController {
 		json.put("UpdatedDetailsFor",  cust.getCompanyName());
 		return json;
 	}
+	
+	/*@RequestMapping(value = "get-Product/{customerId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getProductDetails(@PathVariable Long customerId) {
+		HashMap json = new HashMap();
 
+		List<Customer> yarn = customerService.findYarnCount(customerId);
+		json.put("entity", "customerYarn");
+		json.put("customerYarn", yarn);
+		
+		List<Customer> fabric = customerService.findFabricCount(customerId);
+		json.put("entity", "customerFabric");
+		json.put("customerFabric", fabric);
+		
+		int count = yarn.size()+fabric.size();
+		json.put("FabricYarnCount", count);
+		return json;
+	}
+*/
 
 }

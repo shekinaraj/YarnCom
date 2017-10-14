@@ -46,4 +46,16 @@ public class FabricProductServiceImpl implements FabricProductService {
 		return true;
 	}
 
+	@Override
+	public List<FabricProduct> findYarnCount(Long customerId) {
+		// TODO Auto-generated method stub
+		return fabricProductRepository.findYarnCount(customerId);
+	}
+
+	@Override
+	public List<FabricProduct> findFabricCount(Long customerId) {
+		// TODO Auto-generated method stub
+		return fabricProductRepository.findFabricCount(customerId);
+	}
+
 }
