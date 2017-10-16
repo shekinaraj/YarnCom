@@ -27,9 +27,6 @@ public class Product {
 	@Column(name = "yarnCountIn")
 	private String yarnCountIn;
 
-	@Column(name = "countNo")
-	private int countNo;
-
 	@Column(name = "ply")
 	private String ply;
 
@@ -137,14 +134,6 @@ public class Product {
 
 	public void setYarnCountIn(String yarnCountIn) {
 		this.yarnCountIn = yarnCountIn;
-	}
-
-	public int getCountNo() {
-		return countNo;
-	}
-
-	public void setCountNo(int countNo) {
-		this.countNo = countNo;
 	}
 	
 	public String getPly() {

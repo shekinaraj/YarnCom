@@ -3,6 +3,7 @@ package com.yarncoms.controller;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -100,22 +101,19 @@ public class CustomerController {
 		return json;
 	}
 	
-	/*@RequestMapping(value = "get-Product/{customerId}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-Product/{customerId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductDetails(@PathVariable Long customerId) {
 		HashMap json = new HashMap();
 
-		List<Customer> yarn = customerService.findYarnCount(customerId);
-		json.put("entity", "customerYarn");
-		json.put("customerYarn", yarn);
-		
-		List<Customer> fabric = customerService.findFabricCount(customerId);
-		json.put("entity", "customerFabric");
-		json.put("customerFabric", fabric);
-		
-		int count = yarn.size()+fabric.size();
-		json.put("FabricYarnCount", count);
+		List<Customer> yarnFabric = customerService.findYarnFabricFormula(customerId);
+		Customer[] studentArray = new Customer[yarnFabric.size()];
+		for ( int i=0; i<yarnFabric.size(); i++) {
+			studentArray[i]=new Customer();
+			System.out.println(studentArray[i]);
+			}
+		json.put("entity", "Formula");
+		json.put("Formula", yarnFabric);
 		return json;
 	}
-*/
 
 }

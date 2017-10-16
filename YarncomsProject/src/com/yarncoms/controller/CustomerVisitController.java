@@ -102,6 +102,7 @@ public class CustomerVisitController {
 		enquiry.setEnqLevel(1);
 		enquiry.setEnqStatus("Open");
 		enquiry.setTechnicalPerson(cust.getTechnicalPerson());
+		enquiry.setProductDescription("From Customer Visit Data");
 		
 		String enquiryDate = cust.getDateOfVisit();
 		String purpose = cust.getPurposeOfVisit();

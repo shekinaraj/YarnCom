@@ -1,5 +1,6 @@
 package com.yarncoms.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -55,6 +56,12 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 	public List<EnquiryTable> getByDate(String startDate, String endDate) {
 		// TODO Auto-generated method stub
 		return enquiryTableRepository.getByDate(startDate, endDate);
+	}
+
+	@Override
+	public List<EnquiryTable> getDiff() {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.getDiff();
 	}
 
 }

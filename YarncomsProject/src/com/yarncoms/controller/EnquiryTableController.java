@@ -1,10 +1,15 @@
 package com.yarncoms.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +19,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.EnquiryTable;
+import com.yarncoms.model.FabricEnquiry;
+import com.yarncoms.model.SpecialityEnquiry;
+import com.yarncoms.model.WeavingEnquiry;
 import com.yarncoms.service.EnquiryTableService;
+import com.yarncoms.service.FabricEnquiryService;
+import com.yarncoms.service.SpecialityEnquiryService;
+import com.yarncoms.service.WeavingEnquiryService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
 @RequestMapping("/rest")
 public class EnquiryTableController {
 	
+	 private String date= new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+	
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
+	
+	@Autowired
+	private SpecialityEnquiryService specialityEnquiryService;
+	
+	@Autowired
+	private WeavingEnquiryService weavingEnquiryService;
+	
+	@Autowired
+	private FabricEnquiryService FabricEnquiryServiceImpl;
 
 	@RequestMapping(value = "get-EnquiryTable", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryTable() {
@@ -37,15 +59,56 @@ public class EnquiryTableController {
 		return json;
 	}
 	
+	@RequestMapping(value = "get-EnquiryDate", method = RequestMethod.GET)
+	public @ResponseBody HashMap getEnquiryDate() throws ParseException {
+		HashMap json = new HashMap();
+		Calendar now = Calendar.getInstance();
+		
+		    String dateStart = now.get(Calendar.YEAR)+ "-" + (now.get(Calendar.MONTH) + 1) + "-"+
+		now.get(Calendar.DATE);
+		    System.out.println("start date  " +  dateStart);
+		    /*now.add(Calendar.DATE, -14);
+			String dateStop = now.get(Calendar.YEAR)+ "-" + (now.get(Calendar.MONTH) + 1) + "-"+
+		now.get(Calendar.DATE);
+			System.out.println("stop date  " +  dateStop);
+		    System.out.println("thanks");*/
+		 
+		
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.getDiff();
+		json.put("entity", "EnquiryTable");
+		json.put("NumberOfEnquiryTableDetails", EnquiryTable.size());
+		json.put("EnquiryTable", EnquiryTable);
+
+		return json;
+	}
+	
 	@RequestMapping(value = "get-yarn-fabric/{enquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getYarnAndFabric(@PathVariable("enquiryId") String id) {
 		HashMap json = new HashMap();
 		// json.put("enquiryType", enquiryType);
-		
-		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.findColumn(id);
-		json.put("ColumnSize", EnquiryTable.size());
-		json.put("EnquiryTable", EnquiryTable);
-
+		System.out.println(id);
+		String parse = id.substring(id.length()-5);
+		System.out.println(parse);
+		long number = new Long(parse).longValue();
+		System.out.println(number);
+		if(id.charAt(0)=='Y') {
+			if(id.charAt(1)=='-') {
+				List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(number);
+				json.put("Entity", "SpecialityEnquiry");
+				json.put("SpecialityEnquiry", speciality);
+			}
+			else {
+				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
+				json.put("Entity", "WeavingEnquiry");
+				json.put("WeavingEnquiry", weaving);
+			}
+			
+		}
+		else {
+			List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
+			json.put("Entity", "FabricEnquiry");
+			json.put("Enquiry", fabricEnquiry);
+		}
 		return json;
 	}
 

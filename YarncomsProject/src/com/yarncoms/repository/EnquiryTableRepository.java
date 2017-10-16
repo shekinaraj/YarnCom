@@ -1,5 +1,6 @@
  package com.yarncoms.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,9 +18,10 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT sd FROM SupplierData sd, EnquiryTable e where e.enquiryId=?1 and sd.enquiryId=e.enquiryId")
 	List<EnquiryTable> findColumn(String id);
 	
-	
 	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate>=?1 AND e.enqDate<=?2")
 	List<EnquiryTable> getByDate(String startDate, String endDate);
 	
+	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate BETWEEN 'DATE_SUB(NOW(), INTERVAL 7 DAY)' AND 'NOW()'")
+	List<EnquiryTable> getDiff();
 
 }

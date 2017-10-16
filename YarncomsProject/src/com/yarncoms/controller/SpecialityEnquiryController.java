@@ -100,14 +100,13 @@ public class SpecialityEnquiryController {
 			return json;
 		}
 		
-		@RequestMapping(value = "get-Product-Name/{specialityEnquiryId}", method = RequestMethod.GET)
+		@RequestMapping(value = "get-SpecialityProduct-Name/{specialityEnquiryId}", method = RequestMethod.GET)
 		public @ResponseBody HashMap getBySpeciality(@PathVariable("specialityEnquiryId") long id) {
 			HashMap json = new HashMap();
 
 			List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(id);
 			json.put("Entity", "SpecialityEnquiry");
-			json.put("EntitySize", speciality.size());
-			json.put("Enquiry", speciality);
+			json.put("SpecialityEnquiry", speciality);
 			
 			return json;
 		}

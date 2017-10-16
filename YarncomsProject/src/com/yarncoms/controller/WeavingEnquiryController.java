@@ -107,7 +107,7 @@ public class WeavingEnquiryController {
 
 		List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(id);
 		json.put("Entity", "WeavingEnquiry");
-		json.put("Enquiry", weaving);
+		json.put("WeavingEnquiry", weaving);
 		
 		return json;
 	}
