@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yarncoms.model.MaterialTable;
 import com.yarncoms.model.Product;
-import com.yarncoms.model.Quality;
 import com.yarncoms.service.MaterialTableService;
 import com.yarncoms.service.ProductService;
-import com.yarncoms.service.QualityService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
@@ -31,11 +28,6 @@ public class ProductController {
 	@Autowired
 	private MaterialTableService MaterialTableServiceImpl;
 	
-	@Autowired
-	private QualityService QualityServiceImpl;
-	
-	
-
 	@RequestMapping(value = "get-ProductDetails", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductDetailsList() {
 		HashMap json = new HashMap();
@@ -50,11 +42,15 @@ public class ProductController {
 	@RequestMapping(value = "get-ProductDetails/{id}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductId(@PathVariable("productId") Long id) {
 		HashMap json = new HashMap();
-
+/*
 		List<Product> product = ProductServiceImpl.getById(id);
 		json.put("Entity", "Product");
 		json.put("Product", product);
-
+*/
+		List<Product> product = ProductServiceImpl.getProductDetails(id);
+		json.put("Entity", "Product");
+		json.put("Product", product);
+		
 		return json;
 	}
 
@@ -71,5 +67,5 @@ public class ProductController {
 		return json;
 
 	}
-
+	
 }

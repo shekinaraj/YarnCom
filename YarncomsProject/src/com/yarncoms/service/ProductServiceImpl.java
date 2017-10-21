@@ -47,5 +47,17 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return true;
 	}
+	
+	@Override
+	public List<Product> getProductDetails(Long productId){
+		List<Product> productDetails = null;
+		try{
+			productDetails= productRepository.getProductDetails(productId);
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return productDetails;
+	}
 
 }

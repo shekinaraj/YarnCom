@@ -7,13 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ProductTable")
+@Table(name = "Product")
 public class Product {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "productId")
 	private Long productId;
+	
+	@Column(name = "materialId")
+	private Long materialId;
 	
 	@Column(name = "customerId")
 	private String customerId;
@@ -95,15 +98,14 @@ public class Product {
 
 	@Column(name = "remarks")
 	private String remarks;
-
+	
 	public Long getProductId() {
 		return productId;
 	}
-
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-
+	
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -112,6 +114,12 @@ public class Product {
 		this.customerId = customerId;
 	}
 
+	public Long getMaterialId() {
+		return materialId;
+	}
+	public void setMaterialId(Long materialId) {
+		this.materialId = materialId;
+	}
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -319,5 +327,4 @@ public class Product {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-
 }

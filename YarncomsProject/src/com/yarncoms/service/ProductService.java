@@ -13,5 +13,7 @@ public interface ProductService {
 	Product save(Product product);
 	
 	boolean delete(Long productId);
+	
+	List<Product> getProductDetails(Long productId);
 
 }

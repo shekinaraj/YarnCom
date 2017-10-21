@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yarncoms.model.MaterialTable;
 import com.yarncoms.model.Product;
 import com.yarncoms.service.MaterialTableService;
-import com.yarncoms.service.ProductServiceImpl;
+import com.yarncoms.service.ProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
@@ -25,6 +25,9 @@ public class MaterialTableController {
 
 	@Autowired
 	private MaterialTableService MaterialTableServiceImpl;
+	
+	@Autowired
+	private ProductService ProductServiceImpl;
 	
 	@RequestMapping(value = "get-All-Materials", method = RequestMethod.GET)
 	public @ResponseBody HashMap getMaterialDetailsList() {
