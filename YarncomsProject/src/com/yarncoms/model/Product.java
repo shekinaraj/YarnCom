@@ -106,6 +106,7 @@ public class Product {
 		this.productId = productId;
 	}
 	
+	
 	public String getCustomerId() {
 		return customerId;
 	}
