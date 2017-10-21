@@ -61,20 +61,10 @@ public class FabricProductController {
 		json.put("savedFabricProductDetails", fabricProduct.getCustomerId());
 		
 		Customer customer = new Customer();
-		long count=0;
 		customer.setCustomerId(Long.parseLong(fabricProduct.getCustomerId()));
 		System.out.println(customer.getCustomerId());
 		Customer custProd = customerService.findCustomerId(customer.getCustomerId());
-		System.out.println(customer.getProductCount());
-		if(customer.getProductCount()==0) {
-			count = 0;
-			custProd.setProductCount(count);
-		}
-		else {
-			count = customer.getProductCount() + 1;
-			custProd.setProductCount(count);
-		}
-		System.out.println(custProd.getProductCount());
+		
 		/*customer.setCity(customer.getCity());
 		customer.setCompanyName(customer.getCompanyName());
 		customer.setContactPersonEmail(customer.getContactPersonEmail());

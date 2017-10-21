@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yarncoms.model.MaterialTable;
-import com.yarncoms.model.Product;
 import com.yarncoms.repository.MaterialTableRepository;
 
 @Service

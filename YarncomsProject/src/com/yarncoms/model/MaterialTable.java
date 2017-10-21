@@ -1,12 +1,10 @@
 package com.yarncoms.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +12,7 @@ import javax.persistence.Table;
 public class MaterialTable {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "materialId")
 	private Long materialId;
 	
@@ -95,10 +93,7 @@ public class MaterialTable {
 		this.productId = productId;
 	}
 */	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "productId")
-	private Product product;
-
+	
 	public Long getMaterialId() {
 		return materialId;
 	}
@@ -265,14 +260,6 @@ public class MaterialTable {
 
 	public void setBlendYarnQuality(String blendYarnQuality) {
 		this.blendYarnQuality = blendYarnQuality;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 }
