@@ -58,10 +58,4 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.CustomerId(customerId);
 	}
 
-	@Override
-	public List<Customer> findYarnFabricFormula(Long customerId) {
-		// TODO Auto-generated method stub
-		return customerRepository.findYarnFabricFormula(customerId);
-	}
-
 }

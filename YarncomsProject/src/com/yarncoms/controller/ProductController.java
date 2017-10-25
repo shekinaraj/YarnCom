@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.CustomerProduct;
 import com.yarncoms.model.Product;
+import com.yarncoms.service.CustomerProductService;
 import com.yarncoms.service.MaterialTableService;
 import com.yarncoms.service.ProductService;
 
@@ -24,6 +26,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService ProductServiceImpl;
+	
+	@Autowired
+	private CustomerProductService customerProductServiceImpl;
 	
 	@Autowired
 	private MaterialTableService MaterialTableServiceImpl;
@@ -60,9 +65,16 @@ public class ProductController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("ProductType", "Product");
 		System.out.println(grid.getYarnType());
-		/*System.out.println(quality.getQualityName());
-		System.out.println(material.getCottonType());*/
 		Product product = ProductServiceImpl.save(grid);
+		
+		CustomerProduct Cproduct = new CustomerProduct();
+		Cproduct.setYarnProductId(product.getProductId());
+		Cproduct.setConstruction(product.getProductDescription());
+		Cproduct.setCustomerId(product.getCustomerId());
+		CustomerProduct customerProduct = customerProductServiceImpl.save(Cproduct);
+	
+		json.put("CustomerProduct", customerProduct.getYarnProductId());
+	
 		json.put("savedProductTableDetails", product.getProductId());
 		return json;
 

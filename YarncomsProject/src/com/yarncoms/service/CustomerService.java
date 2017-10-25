@@ -9,8 +9,6 @@ public interface CustomerService {
 	List<Customer> findByCustomerId(Long customerId);
 	
 	Customer findCustomerId(Long customerId);
-	
-	List<Customer> findYarnFabricFormula(Long customerId);
 
 	List<Customer> list();
 	

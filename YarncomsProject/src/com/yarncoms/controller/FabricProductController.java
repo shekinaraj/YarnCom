@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yarncoms.model.Customer;
+import com.yarncoms.model.CustomerProduct;
 import com.yarncoms.model.FabricProduct;
-import com.yarncoms.service.CustomerService;
+import com.yarncoms.service.CustomerProductService;
 import com.yarncoms.service.FabricProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
@@ -27,7 +27,8 @@ public class FabricProductController {
 	private FabricProductService FabricProductServiceImpl;
 	
 	@Autowired
-	private CustomerService customerService;
+	private CustomerProductService customerProductServiceImpl;
+
 	
 	@RequestMapping(value = "get-FabricProductDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricProductList() {
@@ -58,33 +59,16 @@ public class FabricProductController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "FabricProduct");
 		FabricProduct fabricProduct = FabricProductServiceImpl.save(grid);
+		
+		CustomerProduct product = new CustomerProduct();
+		product.setFabricProductId(fabricProduct.getProductId());
+		product.setConstruction(fabricProduct.getConstruction());
+		product.setCustomerId(fabricProduct.getCustomerId());
+		CustomerProduct customerProduct = customerProductServiceImpl.save(product);
+	
+		json.put("CustomerProduct", customerProduct.getFabricProductId());
+	
 		json.put("savedFabricProductDetails", fabricProduct.getCustomerId());
-		
-		Customer customer = new Customer();
-		customer.setCustomerId(Long.parseLong(fabricProduct.getCustomerId()));
-		System.out.println(customer.getCustomerId());
-		Customer custProd = customerService.findCustomerId(customer.getCustomerId());
-		
-		/*customer.setCity(customer.getCity());
-		customer.setCompanyName(customer.getCompanyName());
-		customer.setContactPersonEmail(customer.getContactPersonEmail());
-		customer.setContactPersonName(customer.getContactPersonName());
-		customer.setCountry(customer.getCountry());
-		customer.setCustomerCategory(customer.getCustomerCategory());
-		customer.setCustomerType(customer.getCustomerType());
-		customer.setFaxNo(customer.getFaxNo());
-		customer.setIntroBy(customer.getIntroBy());
-		customer.setMobileNo(customer.getMobileNo());
-		customer.setOfficeNo(customer.getOfficeNo());
-		customer.setPincode(customer.getPincode());
-		customer.setPrefix(customer.getPrefix());
-		customer.setRating(customer.getRating());
-		customer.setState(customer.getState());
-		customer.setStatus(customer.getStatus());
-		customer.setStreet(customer.getStreet());*/
-		
-		Customer cust = customerService.save(custProd);
-		json.put("saved ProductCount",cust);
 		return json;
 	}
 	
@@ -95,7 +79,7 @@ public class FabricProductController {
 		List<FabricProduct> fabricProduct = FabricProductServiceImpl.getByProductId(id);
 
 		if (fabricProduct == null) {
-			json.put("Current Product Not Found", fabricProduct.getClass());
+			json.put("Product Not Found", fabricProduct.getClass());
 			return json;
 		}
 		boolean fabric = FabricProductServiceImpl.delete(id);
