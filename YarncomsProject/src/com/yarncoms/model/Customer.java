@@ -32,7 +32,7 @@ public class Customer {
 	private String companyName;
 
 	@Column(name = "rating")
-	private int rating;
+	private String rating;
 
 	@Column(name = "website")
 	private String website;
@@ -124,11 +124,11 @@ public class Customer {
 		this.companyName = companyName;
 	}
 
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 
