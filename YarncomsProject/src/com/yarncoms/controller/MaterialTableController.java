@@ -39,7 +39,7 @@ public class MaterialTableController {
 		return json;
 	}
 
-	@RequestMapping(value = "get-materialDetails/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-materialDetails/{materialId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getMaterialId(@PathVariable("materialId") Long id) {
 		HashMap json = new HashMap();
 
@@ -53,9 +53,9 @@ public class MaterialTableController {
 	@RequestMapping(value = "save-material", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveMaterialTableDetails(@RequestBody MaterialTable material) {
 		LinkedHashMap json = new LinkedHashMap();
-		json.put("MaterialTable", "material");
 		MaterialTable tab = MaterialTableServiceImpl.save(material);
-		json.put("savedMaterialTableDetails", tab.getMaterialId());
+		json.put("Entity", "MaterialTable");
+		json.put("MaterialTable", tab.getMaterialId());
 		return json;
 
 	}

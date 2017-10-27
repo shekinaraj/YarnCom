@@ -28,6 +28,9 @@ public class FabricProduct {
 	
 	@Column(name = "companyName")
 	private String companyName;
+	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
 
 	@Column(name = "entrydate")
 	private String entryDate = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
@@ -146,6 +149,14 @@ public class FabricProduct {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
 	}
 
 	public String getEntryDate() {

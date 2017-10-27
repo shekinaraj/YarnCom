@@ -44,7 +44,7 @@ public class ProductController {
 		return json;
 	}
 
-	@RequestMapping(value = "get-ProductDetails/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-ProductDetails/{productId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductId(@PathVariable("productId") Long id) {
 		HashMap json = new HashMap();
 /*

@@ -24,6 +24,9 @@ public class Product {
 	
 	@Column(name = "companyName")
 	private String companyName;
+	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
 
 	@Column(name = "count")
 	private int count;
@@ -73,8 +76,8 @@ public class Product {
 	@Column(name = "denier")
 	private int denier;
 
-	@Column(name = "no_Of_Filament")
-	private int no_Of_Filament;
+	@Column(name = "noOfFilament")
+	private int noOfFilament;
 
 	@Column(name = "colour")
 	private String colour;
@@ -130,6 +133,12 @@ public class Product {
 		this.companyName = companyName;
 	}
 
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
+	}
 	public int getCount() {
 		return count;
 	}
@@ -258,14 +267,12 @@ public class Product {
 		this.denier = denier;
 	}
 
-	public int getNo_Of_Filament() {
-		return no_Of_Filament;
+	public int getNoOfFilament() {
+		return noOfFilament;
 	}
-
-	public void setNo_Of_Filament(int no_Of_Filament) {
-		this.no_Of_Filament = no_Of_Filament;
+	public void setNoOfFilament(int noOfFilament) {
+		this.noOfFilament = noOfFilament;
 	}
-
 	public String getColour() {
 		return colour;
 	}

@@ -134,6 +134,12 @@ public class SpecialityEnquiry {
 	
 	@Column(name = "remarks")
 	private String remarks;
+	
+	@Column(name = "doublingType")
+	private String doublingType;
+
+	@Column(name = "usagee")
+	private String usagee;
 	 
 	public String getPrefix() {
 		return prefix;
@@ -421,6 +427,22 @@ public class SpecialityEnquiry {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public String getDoublingType() {
+		return doublingType;
+	}
+
+	public void setDoublingType(String doublingType) {
+		this.doublingType = doublingType;
+	}
+
+	public String getUsagee() {
+		return usagee;
+	}
+
+	public void setUsagee(String usagee) {
+		this.usagee = usagee;
 	}
 
 }

@@ -1,21 +1,32 @@
-<p-growl [(value)]="msgs" [immutable]="false" [life]="3000"></p-growl>
-<div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row bg-title">
-			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-				<h4 class="page-title">View Product</h4>
-			</div>
-			<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-				<ol class="breadcrumb">
-					<li>Customers</li>
-					<li><a href="javascript:void(0)"
-						routerLink='/clerk/customers/view-sellers' skipLocationChange>Sellers</a></li>
-					<li class="active">View Product</li>
-				</ol>
-			</div>
-			<!-- /.col-lg-12 -->
-		</div>
-		<!-- .row .Buyer details-->
-		
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CAS</title>
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+
+	<div class="col-md-6 col-md-offset-3">
+	<div class="panel panel-login">
+      <form class="form-signin" action="getUserDetails" method="post">
+        <h2 class="text-center form-signin-heading">Yarncoms</h2>
+        <label for="userId" class="sr-only">userId</label>
+        <input type="text" id="userId" name="userId" class="form-control" placeholder="User Id" required autofocus>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div>
+    </div>
+    
+</div> 
+</body>
+</html>
