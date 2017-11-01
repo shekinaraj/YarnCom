@@ -34,11 +34,11 @@ public class MaterialTable {
 	@Column(name = "blendPercentageCotton")
 	private String blendPercentageCotton;
 
-	@Column(name = "blendPrecentagePolyster")
-	private String blendPrecentagePolyster;
+	@Column(name = "blendPercentagePolyster")
+	private String blendPercentagePolyster;
 
-	@Column(name = "blendPrecentageViscose")
-	private String blendPrecentageViscose;
+	@Column(name = "blendPercentageViscose")
+	private String blendPercentageViscose;
 
 	@Column(name = "process")
 	private String process;
@@ -63,6 +63,12 @@ public class MaterialTable {
 
 	@Column(name = "wasteTypeViscose")
 	private String wasteTypeViscose;
+	
+	@Column(name = "weavingOtherMaterial")
+	private String weavingOtherMaterial;
+
+	@Column(name = "weavingOtherMaterialPercentage")
+	private String weavingOtherMaterialPercentage;
 
 	@Column(name = "virginTypeCotton")
 	private String virginTypeCotton;
@@ -150,20 +156,20 @@ public class MaterialTable {
 		this.blendPercentageCotton = blendPercentageCotton;
 	}
 
-	public String getBlendPrecentagePolyster() {
-		return blendPrecentagePolyster;
+	public String getBlendPercentagePolyster() {
+		return blendPercentagePolyster;
 	}
 
-	public void setBlendPrecentagePolyster(String blendPrecentagePolyster) {
-		this.blendPrecentagePolyster = blendPrecentagePolyster;
+	public void setBlendPercentagePolyster(String blendPercentagePolyster) {
+		this.blendPercentagePolyster = blendPercentagePolyster;
 	}
 
-	public String getBlendPrecentageViscose() {
-		return blendPrecentageViscose;
+	public String getBlendPercentageViscose() {
+		return blendPercentageViscose;
 	}
 
-	public void setBlendPrecentageViscose(String blendPrecentageViscose) {
-		this.blendPrecentageViscose = blendPrecentageViscose;
+	public void setBlendPercentageViscose(String blendPercentageViscose) {
+		this.blendPercentageViscose = blendPercentageViscose;
 	}
 
 	public String getProcess() {
@@ -228,6 +234,22 @@ public class MaterialTable {
 
 	public void setWasteTypeViscose(String wasteTypeViscose) {
 		this.wasteTypeViscose = wasteTypeViscose;
+	}
+
+	public String getWeavingOtherMaterial() {
+		return weavingOtherMaterial;
+	}
+
+	public void setWeavingOtherMaterial(String weavingOtherMaterial) {
+		this.weavingOtherMaterial = weavingOtherMaterial;
+	}
+
+	public String getWeavingOtherMaterialPercentage() {
+		return weavingOtherMaterialPercentage;
+	}
+
+	public void setWeavingOtherMaterialPercentage(String weavingOtherMaterialPercentage) {
+		this.weavingOtherMaterialPercentage = weavingOtherMaterialPercentage;
 	}
 
 	public String getVirginTypeCotton() {

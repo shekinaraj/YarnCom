@@ -64,7 +64,7 @@ public class ProductController {
 		System.out.println(grid);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("ProductType", "Product");
-		System.out.println(grid.getYarnType());
+		
 		Product product = ProductServiceImpl.save(grid);
 		
 		CustomerProduct Cproduct = new CustomerProduct();

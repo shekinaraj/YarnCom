@@ -15,21 +15,27 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "productId")
 	private Long productId;
-	
+
 	@Column(name = "materialId")
 	private Long materialId;
-	
+
 	@Column(name = "customerId")
 	private String customerId;
-	
+
 	@Column(name = "companyName")
 	private String companyName;
-	
+
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 
 	@Column(name = "count")
 	private int count;
+
+	@Column(name = "countType")
+	private String countType;
+
+	@Column(name = "weavingYarnCountIn")
+	private String weavingYarnCountIn;
 
 	@Column(name = "yarnCountIn")
 	private String yarnCountIn;
@@ -102,15 +108,15 @@ public class Product {
 
 	@Column(name = "remarks")
 	private String remarks;
-	
+
 	public Long getProductId() {
 		return productId;
 	}
+
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-	
-	
+
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -122,9 +128,11 @@ public class Product {
 	public Long getMaterialId() {
 		return materialId;
 	}
+
 	public void setMaterialId(Long materialId) {
 		this.materialId = materialId;
 	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -136,15 +144,33 @@ public class Product {
 	public String getEnquiryFor() {
 		return enquiryFor;
 	}
+
 	public void setEnquiryFor(String enquiryFor) {
 		this.enquiryFor = enquiryFor;
 	}
+
 	public int getCount() {
 		return count;
 	}
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public String getCountType() {
+		return countType;
+	}
+
+	public void setCountType(String countType) {
+		this.countType = countType;
+	}
+
+	public String getWeavingYarnCountIn() {
+		return weavingYarnCountIn;
+	}
+
+	public void setWeavingYarnCountIn(String weavingYarnCountIn) {
+		this.weavingYarnCountIn = weavingYarnCountIn;
 	}
 
 	public String getYarnCountIn() {
@@ -154,7 +180,7 @@ public class Product {
 	public void setYarnCountIn(String yarnCountIn) {
 		this.yarnCountIn = yarnCountIn;
 	}
-	
+
 	public String getPly() {
 		return ply;
 	}
@@ -270,9 +296,11 @@ public class Product {
 	public int getNoOfFilament() {
 		return noOfFilament;
 	}
+
 	public void setNoOfFilament(int noOfFilament) {
 		this.noOfFilament = noOfFilament;
 	}
+
 	public String getColour() {
 		return colour;
 	}
@@ -288,7 +316,7 @@ public class Product {
 	public void setTexturised_Quality(String texturised_Quality) {
 		this.texturised_Quality = texturised_Quality;
 	}
-	
+
 	public String getDoublingType() {
 		return doublingType;
 	}
