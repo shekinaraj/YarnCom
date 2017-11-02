@@ -90,7 +90,7 @@ public class FabricProduct {
 	private String pickInsertion;
 
 	@Column(name = "parallelValue")
-	private int parallelValue;
+	private String parallelValue;
 
 	@Column(name = "width")
 	private int width;
@@ -311,11 +311,11 @@ public class FabricProduct {
 		this.pickInsertion = pickInsertion;
 	}
 
-	public int getParallelValue() {
+	public String getParallelValue() {
 		return parallelValue;
 	}
 
-	public void setParallelValue(int parallelValue) {
+	public void setParallelValue(String parallelValue) {
 		this.parallelValue = parallelValue;
 	}
 

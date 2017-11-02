@@ -107,7 +107,6 @@ public class SpecialityEnquiryController {
 			List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(id);
 			json.put("Entity", "SpecialityEnquiry");
 			json.put("SpecialityEnquiry", speciality);
-			
 			return json;
 		}
 

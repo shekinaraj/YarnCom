@@ -69,6 +69,12 @@ public class MaterialTable {
 
 	@Column(name = "weavingOtherMaterialPercentage")
 	private String weavingOtherMaterialPercentage;
+	
+	@Column(name = "specialityOtherMaterial")
+	private String specialityOtherMaterial;
+	
+	@Column(name = "specialityOtherMaterialPercentage")
+	private String specialityOtherMaterialPercentage;
 
 	@Column(name = "virginTypeCotton")
 	private String virginTypeCotton;
@@ -250,6 +256,22 @@ public class MaterialTable {
 
 	public void setWeavingOtherMaterialPercentage(String weavingOtherMaterialPercentage) {
 		this.weavingOtherMaterialPercentage = weavingOtherMaterialPercentage;
+	}
+
+	public String getSpecialityOtherMaterial() {
+		return specialityOtherMaterial;
+	}
+
+	public void setSpecialityOtherMaterial(String specialityOtherMaterial) {
+		this.specialityOtherMaterial = specialityOtherMaterial;
+	}
+
+	public String getSpecialityOtherMaterialPercentage() {
+		return specialityOtherMaterialPercentage;
+	}
+
+	public void setSpecialityOtherMaterialPercentage(String specialityOtherMaterialPercentage) {
+		this.specialityOtherMaterialPercentage = specialityOtherMaterialPercentage;
 	}
 
 	public String getVirginTypeCotton() {
