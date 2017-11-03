@@ -30,6 +30,12 @@ public class Product {
 
 	@Column(name = "count")
 	private int count;
+	
+	@Column(name = "yarnPackage")
+	private String yarnPackage;
+	
+	@Column(name = "hankType")
+	private String hankType;
 
 	@Column(name = "countType")
 	private String countType;
@@ -155,6 +161,22 @@ public class Product {
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public String getYarnPackage() {
+		return yarnPackage;
+	}
+
+	public void setYarnPackage(String yarnPackage) {
+		this.yarnPackage = yarnPackage;
+	}
+
+	public String getHankType() {
+		return hankType;
+	}
+
+	public void setHankType(String hankType) {
+		this.hankType = hankType;
 	}
 
 	public String getCountType() {

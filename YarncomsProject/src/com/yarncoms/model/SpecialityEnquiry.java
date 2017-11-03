@@ -58,6 +58,12 @@ public class SpecialityEnquiry {
 	@Column(name = "count")
 	private String count;
 	
+	@Column(name = "yarnPackage")
+	private String yarnPackage;
+	
+	@Column(name = "hankType")
+	private String hankType;
+	
 	@Column(name = "purpose")
 	private String purpose;
 
@@ -259,6 +265,22 @@ public class SpecialityEnquiry {
 
 	public void setCount(String count) {
 		this.count = count;
+	}
+
+	public String getYarnPackage() {
+		return yarnPackage;
+	}
+
+	public void setYarnPackage(String yarnPackage) {
+		this.yarnPackage = yarnPackage;
+	}
+
+	public String getHankType() {
+		return hankType;
+	}
+
+	public void setHankType(String hankType) {
+		this.hankType = hankType;
 	}
 
 	public String getYarnCountIn() {

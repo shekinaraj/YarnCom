@@ -63,6 +63,12 @@ public class WeavingEnquiry {
 
 	@Column(name = "count")
 	private Long count;
+	
+	@Column(name = "yarnPackage")
+	private String yarnPackage;
+	
+	@Column(name = "hankType")
+	private String hankType;
 
 	@Column(name = "typeofYarn")
 	private String typeofYarn;
@@ -322,6 +328,22 @@ public class WeavingEnquiry {
 
 	public void setCount(Long count) {
 		this.count = count;
+	}
+
+	public String getYarnPackage() {
+		return yarnPackage;
+	}
+
+	public void setYarnPackage(String yarnPackage) {
+		this.yarnPackage = yarnPackage;
+	}
+
+	public String getHankType() {
+		return hankType;
+	}
+
+	public void setHankType(String hankType) {
+		this.hankType = hankType;
 	}
 
 	public String getTypeofYarn() {
