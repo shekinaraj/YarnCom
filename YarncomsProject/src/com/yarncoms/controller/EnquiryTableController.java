@@ -3,13 +3,11 @@ package com.yarncoms.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -152,6 +150,17 @@ public class EnquiryTableController {
 		json.put("enquiryType", "EnquiryTable");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(grid);
 		json.put("savedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
+		return json;
+	}
+	
+	@RequestMapping(value="update-EnquiryTable/{EnquiryTableId}", method=RequestMethod.PUT)
+	public  @ResponseBody HashMap updateEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,@RequestBody EnquiryTable  enqTable){
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "Update-EnquiryTable-Detail");
+//		enqTable.setEnqLevel(0);
+//		enqTable.setEnqStatus("Close");
+		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
+		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
 		return json;
 	}
 }
