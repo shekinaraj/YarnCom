@@ -48,4 +48,10 @@ public class MaterialTableServiceImpl implements MaterialTableService {
 		return true;
 	}
 
+	@Override
+	public List<MaterialTable> getAllMaterial() {
+		// TODO Auto-generated method stub
+		return materialTableRepository.findAll();
+	}
+
 }

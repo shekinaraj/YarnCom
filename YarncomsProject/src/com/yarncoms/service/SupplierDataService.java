@@ -9,8 +9,8 @@ public interface SupplierDataService {
 	List<SupplierData> list();
 
 	List<SupplierData> getById(Long id);
-
-	SupplierData save(SupplierData supplier);
+	
+	SupplierData saveSupplier(SupplierData supplier);
 
 	boolean delete(Long id);
 

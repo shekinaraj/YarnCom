@@ -2,7 +2,7 @@ package com.yarncoms.controller;
 
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.model.EnquiryTable;
-import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerVisitService;
 import com.yarncoms.service.EnquiryTableService;
 
@@ -28,7 +26,12 @@ import com.yarncoms.service.EnquiryTableService;
 @RequestMapping("/rest")
 public class CustomerVisitController {
 	
-	private String date= new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+	Date curDate = new Date();
+	private SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
+	String date = format.format(curDate);
+	
+
+	
 	
 	@Autowired
 	private CustomerVisitService CustomerVisitServiceImpl;

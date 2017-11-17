@@ -21,6 +21,9 @@ public class Customer {
 
 	@Column(name = "customerType")
 	private String customerType;
+	
+	@Column(name = "count")
+	private int count;
 
 	@Column(name = "status")
 	private String status;
@@ -98,6 +101,14 @@ public class Customer {
 
 	public void setCustomerType(String customerType) {
 		this.customerType = customerType;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	public String getStatus() {

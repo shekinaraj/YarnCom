@@ -8,6 +8,8 @@ public interface MaterialTableService {
 	
 	List<MaterialTable> list();
 	
+	List<MaterialTable> getAllMaterial();
+	
 	List<MaterialTable> getByMaterialId(Long id);
 	
 	MaterialTable save(MaterialTable materialTable);

@@ -49,22 +49,31 @@ public class supplierDataController {
 	
 	@RequestMapping(value = "save-Supplier", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveSupplierTableDetails(@RequestBody SupplierData supplierData) {
-		System.out.println(supplierData);
 		LinkedHashMap json = new LinkedHashMap();
-		supplierData.setPrefix(supplierData.getPrefix());
-		SupplierData supplier = SupplierDataServiceImpl.save(supplierData);
-		json.put("SavedSupplierDetails", supplier.getEmail());
-		return json;
+			System.out.println(supplierData.getContactNo());
+			SupplierData data = new SupplierData();
+			data.setSupplierName(supplierData.getSupplierName());
+			data.setEnquiryId(supplierData.getEnquiryId());
+			data.setEmail(supplierData.getEmail());
+			data.setContactNo(supplierData.getContactNo());
+			data.setStatus("level4");
+			data.setPrefix(supplierData.getPrefix());
+			
+			SupplierData supplier =SupplierDataServiceImpl.saveSupplier(data);
+			json.put("Entity", "SavedSupplier");
+			json.put("SavedSupplier", supplier);
+			return json;
+		}
 
-	}
+	
 	
 	@RequestMapping(value = "update-Supplier/{SupplierId}", method = RequestMethod.PUT)
 	public @ResponseBody HashMap updateSupplierTableDetails(@PathVariable("SupplierId") Long id, @RequestBody SupplierData supplierData) {
 		System.out.println(supplierData);
 		LinkedHashMap json = new LinkedHashMap();
 		supplierData.setPrefix(supplierData.getPrefix());
-		SupplierData supplier = SupplierDataServiceImpl.save(supplierData);
-		json.put("UpdatedSupplierDetails", supplier.getEmail());
+		SupplierData supplier = SupplierDataServiceImpl.saveSupplier(supplierData);
+		json.put("UpdatedSupplierDetails", supplier);
 		return json;
 
 	}

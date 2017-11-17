@@ -27,17 +27,17 @@ public class SupplierDataServiceImpl implements SupplierDataService{
 		// TODO Auto-generated method stub
 		return supplierDataRepository.findById(id);
 	}
-
-	@Override
-	public SupplierData save(SupplierData supplier) {
-		// TODO Auto-generated method stub
-		return supplierDataRepository.save(supplier);
-	}
-
+	
 	@Override
 	public boolean delete(Long id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public SupplierData saveSupplier(SupplierData supplier) {
+		// TODO Auto-generated method stub
+		return supplierDataRepository.save(supplier);
 	}
 
 }
