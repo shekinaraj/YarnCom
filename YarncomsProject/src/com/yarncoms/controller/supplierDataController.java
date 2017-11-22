@@ -57,6 +57,7 @@ public class supplierDataController {
 			data.setEmail(supplierData.getEmail());
 			data.setContactNo(supplierData.getContactNo());
 			data.setStatus("level4");
+			data.setSupplierQuote("Quote Not Received");
 			data.setPrefix(supplierData.getPrefix());
 			
 			SupplierData supplier =SupplierDataServiceImpl.saveSupplier(data);
@@ -71,9 +72,8 @@ public class supplierDataController {
 	public @ResponseBody HashMap updateSupplierTableDetails(@PathVariable("SupplierId") Long id, @RequestBody SupplierData supplierData) {
 		System.out.println(supplierData);
 		LinkedHashMap json = new LinkedHashMap();
-		supplierData.setPrefix(supplierData.getPrefix());
 		SupplierData supplier = SupplierDataServiceImpl.saveSupplier(supplierData);
-		json.put("UpdatedSupplierDetails", supplier);
+		json.put("UpdatedSupplierDetails", supplier.getId());
 		return json;
 
 	}

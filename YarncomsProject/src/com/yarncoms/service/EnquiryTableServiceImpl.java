@@ -46,11 +46,6 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 		return enquiryTableRepository.findEnquiry(level, status);
 	}
 
-	@Override
-	public List<EnquiryTable> findColumn(String id) {
-		// TODO Auto-generated method stub
-		return enquiryTableRepository.findColumn(id);
-	}
 
 	@Override
 	public List<EnquiryTable> getByDate(String startDate, String endDate) {
@@ -62,6 +57,24 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 	public List<EnquiryTable> getDiff() {
 		// TODO Auto-generated method stub
 		return enquiryTableRepository.getDiff();
+	}
+
+	@Override
+	public List<EnquiryTable> getByEnquiryIdToSupplierData(String cvEnquiryId) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.getByEnquiryIdToSupplierData(cvEnquiryId);
+	}
+
+	@Override
+	public List<EnquiryTable> getByEnquiryIdToManageSupplierData(String cvEnquiryId) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.getByEnquiryIdToManageSupplierData(cvEnquiryId);
+	}
+
+	@Override
+	public List<EnquiryTable> getByEnquiryId(String enquiryId) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.findLevel(enquiryId);
 	}
 
 }

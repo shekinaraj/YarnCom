@@ -1,6 +1,5 @@
  package com.yarncoms.repository;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,10 +12,16 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	List<EnquiryTable> findByCvEnquiryId(Long cvEnquiryId);
 	
 	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2")
-	List<EnquiryTable> findEnquiry(int level,String status);	
-
-	@Query("SELECT sd FROM SupplierData sd, EnquiryTable e where e.enquiryId=?1 and sd.enquiryId=e.enquiryId")
-	List<EnquiryTable> findColumn(String id);
+	List<EnquiryTable> findEnquiry(int level,String status);
+	
+	@Query("SELECT e FROM EnquiryTable e where e.enquiryId = ?1")
+	List<EnquiryTable> findLevel(String enquiryId);
+	
+	@Query("SELECT sd FROM SupplierData sd, EnquiryTable e where e.enquiryId=?1 and e.enquiryId= sd.enquiryId and sd.supplierQuote='Quote Not Received'")
+	List<EnquiryTable> getByEnquiryIdToSupplierData(String cvEnquiryId);
+	
+	@Query("SELECT sd FROM SupplierData sd, EnquiryTable e where e.enquiryId=?1 and e.enquiryId= sd.enquiryId and sd.supplierQuote!='Quote Not Received'")
+	List<EnquiryTable> getByEnquiryIdToManageSupplierData(String cvEnquiryId);
 	
 	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate>=?1 AND e.enqDate<=?2")
 	List<EnquiryTable> getByDate(String startDate, String endDate);

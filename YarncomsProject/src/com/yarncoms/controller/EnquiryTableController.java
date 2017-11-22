@@ -122,6 +122,18 @@ public class EnquiryTableController {
 		return json;
 	}
 	
+	@RequestMapping(value = "get-EnquiryTableEnqID/{enquiryId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getEnquiryTableId(@PathVariable("enquiryId") String id) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.getByEnquiryId(id);
+		json.put("entity", "EnquiryTable");
+		json.put("EnquiryTable", EnquiryTable);
+
+		return json;
+	}
+	
 	@RequestMapping(value="getEnquiry/{level},{status}", method=RequestMethod.GET)
 	public @ResponseBody HashMap getEnqLevel(@PathVariable int level, @PathVariable String status) {
 		HashMap json = new HashMap();
@@ -161,6 +173,28 @@ public class EnquiryTableController {
 //		enqTable.setEnqStatus("Close");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
 		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
+		return json;
+	}
+	
+	@RequestMapping(value = "get-SupplierData/{EnquiryTableId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getSupplierData(@PathVariable("EnquiryTableId") String EnquiryTableId) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<EnquiryTable> SupplierData = EnquiryTableServiceImpl.getByEnquiryIdToSupplierData(EnquiryTableId);
+		json.put("EnquiryTable", SupplierData);
+
+		return json;
+	}
+	
+	@RequestMapping(value = "get-ManageQuoteSupplierData/{EnquiryTableId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getManageSupplierData(@PathVariable("EnquiryTableId") String id) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<EnquiryTable> SupplierData = EnquiryTableServiceImpl.getByEnquiryIdToManageSupplierData(id);
+		json.put("EnquiryTable", SupplierData);
+
 		return json;
 	}
 }

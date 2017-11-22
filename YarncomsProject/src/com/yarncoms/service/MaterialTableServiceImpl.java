@@ -54,4 +54,21 @@ public class MaterialTableServiceImpl implements MaterialTableService {
 		return materialTableRepository.findAll();
 	}
 
+	@Override
+	public Long getAllMaterialsID(String MaterialName,String IsQualityMaterial,String CottonType,String YarnQuality,String BlendRatio,String BlendPercentageCotton,String BlendPercentagePolyster,String BlendPercentageViscose,
+			String Process,String Colour,String QualityName,String FibreBlend,String Dyed,String WasteTypeCotton,
+			String WasteTypePolyster,String WasteTypeViscose,String WeavingOtherMaterial,String WeavingOtherMaterialPercentage,
+			String SpecialityOtherMaterial,String SpecialityOtherMaterialPercentage,String VirginTypeCotton,String VirginTypePolyster,
+			String VirginTypeViscose,String BlendYarnQuality) {
+		
+		System.out.println("Impl "+MaterialName);
+		return materialTableRepository.getAllMaterialsMaterialId(MaterialName, IsQualityMaterial, CottonType,
+				YarnQuality,BlendRatio,BlendPercentageCotton,BlendPercentagePolyster,BlendPercentageViscose,
+				Process,Colour,QualityName,FibreBlend,Dyed,WasteTypeCotton,
+				WasteTypePolyster,WasteTypeViscose,WeavingOtherMaterial,WeavingOtherMaterialPercentage,
+				SpecialityOtherMaterial,SpecialityOtherMaterialPercentage,VirginTypeCotton,VirginTypePolyster,
+				VirginTypeViscose,BlendYarnQuality);
+	}
+
+	
 }

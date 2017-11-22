@@ -1,6 +1,5 @@
 package com.yarncoms.service;
 
-import java.util.Date;
 import java.util.List;
 
 import com.yarncoms.model.EnquiryTable;
@@ -9,9 +8,13 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> getByEnquiryGridId(Long cvEnquiryId);
 	
-	List<EnquiryTable> findEnquiry(int level, String status);
+	List<EnquiryTable> getByEnquiryId(String enquiryId);
 	
-	List<EnquiryTable> findColumn(String id);
+	List<EnquiryTable> getByEnquiryIdToSupplierData(String cvEnquiryId);
+	
+	List<EnquiryTable> getByEnquiryIdToManageSupplierData(String cvEnquiryId);
+	
+	List<EnquiryTable> findEnquiry(int level, String status);
 	
 	List<EnquiryTable> getByDate(String endDate,String startDate);
 
