@@ -99,7 +99,7 @@ public class Customer {
 	public void setCustomerType(String customerType) {
 		this.customerType = customerType;
 	}
-
+ 
 	public String getStatus() {
 		return status;
 	}
