@@ -92,13 +92,13 @@ public class EnquiryTableController {
 		if(id.charAt(0)=='Y') {
 			if(id.charAt(1)=='-') {
 				List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(number);
-				json.put("Entity", "SpecialityEnquiry");
-				json.put("SpecialityEnquiry", speciality);
+				json.put("Entity", "Enquiry");
+				json.put("Enquiry", speciality);
 			}
 			else {
 				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
-				json.put("Entity", "WeavingEnquiry");
-				json.put("WeavingEnquiry", weaving);
+				json.put("Entity", "Enquiry");
+				json.put("Enquiry", weaving);
 			}
 			
 		}
