@@ -38,7 +38,7 @@ public class SpecialityEnquiry {
 	private String commission;
 
 	@Column(name = "contactNo")
-	private long contactNo;
+	private String contactNo;
 	
 	@Column(name = "technicalPerson")
 	private String technicalPerson;
@@ -203,11 +203,11 @@ public class SpecialityEnquiry {
 		this.commission = commission;
 	}
 
-	public long getContactNo() {
+	public String getContactNo() {
 		return contactNo;
 	}
 
-	public void setContactNo(long contactNo) {
+	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
 

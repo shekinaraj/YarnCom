@@ -38,7 +38,7 @@ public class WeavingEnquiry {
 	private String name;
 
 	@Column(name = "contactNo")
-	private long contactNo;
+	private String contactNo;
 	
 	@Column(name = "technicalPerson")
 	private String technicalPerson;
@@ -258,11 +258,11 @@ public class WeavingEnquiry {
 		this.name = name;
 	}
 
-	public long getContactNo() {
+	public String getContactNo() {
 		return contactNo;
 	}
 
-	public void setContactNo(long contactNo) {
+	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
 

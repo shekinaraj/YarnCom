@@ -17,7 +17,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customerId")
-	private Long customerId;
+	private String customerId;
 
 	@Column(name = "customerType")
 	private String customerType;
@@ -87,11 +87,11 @@ public class Customer {
 		this.prefix = prefix;
 	}
 
-	public Long getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 

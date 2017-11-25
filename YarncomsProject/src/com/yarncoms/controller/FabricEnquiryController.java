@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
 import com.yarncoms.model.FabricProduct;
+import com.yarncoms.model.Product;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
@@ -34,9 +36,8 @@ public class FabricEnquiryController {
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
 	
-//	@Autowired
-//	private CustomerService customerService;
-	
+	@Autowired
+	private CustomerService customerService;	
 	
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
@@ -122,9 +123,17 @@ public class FabricEnquiryController {
 		HashMap json = new HashMap();
 
 		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(id);
-		json.put("Entity", "FabricEnquiry");
-		json.put("EntitySize", fabricEnquiry.size());
-		json.put("Enquiry", fabricEnquiry);
+		Stack st = new Stack();
+		for(int i = 0;i<fabricEnquiry.size();i++) {
+			Object product = (Object) fabricEnquiry.get(i);
+			Product pro = (Product) product;
+			System.out.println(pro);
+			System.out.println(pro.getCustomerId());
+			List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
+			json.put("CustomerSize", customer.size());
+			 st.push(customer);
+		}
+		json.put("CustomerDetails", st);
 		
 		return json;
 	}

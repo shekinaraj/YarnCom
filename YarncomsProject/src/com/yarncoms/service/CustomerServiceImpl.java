@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yarncoms.model.Customer;
+import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.repository.CustomerRepository;
 
 @Service
@@ -56,6 +57,18 @@ public class CustomerServiceImpl implements CustomerService{
 	public Customer findCustomerId(Long customerId) {
 		// TODO Auto-generated method stub
 		return customerRepository.CustomerId(customerId);
+	}
+	
+	@Override
+	public List<Customer> checkForEmailMobile(String email, String mobile) {
+		// TODO Auto-generated method stub
+		return customerRepository.checkForEmailMobile(email, mobile);
+	}
+
+	@Override
+	public List<Customer> productToCustomerDetails(String customerId) {
+		// TODO Auto-generated method stub
+		return customerRepository.productToCustomerDetails(customerId);
 	}
 
 }

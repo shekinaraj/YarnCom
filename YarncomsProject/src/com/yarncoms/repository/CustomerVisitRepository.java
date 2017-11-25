@@ -16,4 +16,6 @@ public interface CustomerVisitRepository extends JpaRepository<CustomerVisit, Lo
 	
 	@Query("select c from CustomerVisit c where c.companyName=?1")
 	List<CustomerVisit> getByCompanyName(String company);
+	
+	
 }
