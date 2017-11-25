@@ -16,5 +16,5 @@ public interface FabricEnquiryRepository extends JpaRepository<FabricEnquiry, Lo
 	
 	@Query("select fp from FabricProduct fp, FabricEnquiry fe where fe.enquiryId=?1 and fe.warpPly=fp.warpPly and fe.warpCount=fp.warpCount and fe.weftCount=fp.weftCount and fe.epi=fp.epi and fe.ppi=fp.ppi and fe.width=fp.width and fe.weaveType=fp.weaveType and fe.selvedge=fp.selvedge and fe.material=fp.material and fe.construction=fp.construction")
 	List<FabricEnquiry> getByQuery(Long fabricEnquiryId);
-
+ 
 }
