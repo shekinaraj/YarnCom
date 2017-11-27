@@ -11,6 +11,6 @@ public interface WeavingEnquiryRepository extends JpaRepository<WeavingEnquiry, 
 
 	List<WeavingEnquiry> findByEnquiryId(Long enquiryId);
 	
-	@Query("select pt.productId,pt.companyName,pt.customerId from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId=?1 and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription")
+	@Query("select pt from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId=?1 and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription")
 	List<WeavingEnquiry> getByWeaving(long enquiryId);
 }

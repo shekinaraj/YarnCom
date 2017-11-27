@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
+import com.yarncoms.model.Product;
 import com.yarncoms.model.SpecialityEnquiry;
 import com.yarncoms.model.WeavingEnquiry;
+import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
+import com.yarncoms.service.ProductService;
 import com.yarncoms.service.SpecialityEnquiryService;
 import com.yarncoms.service.WeavingEnquiryService;
 
@@ -43,6 +48,9 @@ public class EnquiryTableController {
 	
 	@Autowired
 	private FabricEnquiryService FabricEnquiryServiceImpl;
+	
+	@Autowired
+	private CustomerService customerService;
 
 	@RequestMapping(value = "get-EnquiryTable", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryTable() {
@@ -92,13 +100,32 @@ public class EnquiryTableController {
 		if(id.charAt(0)=='Y') {
 			if(id.charAt(1)=='-') {
 				List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(number);
-				json.put("Entity", "SpecialityEnquiry");
-				json.put("SpecialityEnquiry", speciality);
+				Stack st = new Stack();
+				for(int i = 0;i<speciality.size();i++) {
+					Object product = (Object) speciality.get(i);
+					Product pro = (Product) product;
+					System.out.println(pro);
+					System.out.println(pro.getCustomerId());
+					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
+					json.put("CustomerSize", customer.size());
+					 st.push(customer);
+				}
+				json.put("CustomerDetails", st);	
+				
 			}
 			else {
 				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
-				json.put("Entity", "WeavingEnquiry");
-				json.put("WeavingEnquiry", weaving);
+				Stack st = new Stack();
+				for(int i = 0;i<weaving.size();i++) {
+					Object product = (Object) weaving.get(i);
+					Product pro = (Product) product;
+					System.out.println(pro);
+					System.out.println(pro.getCustomerId());
+					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
+					json.put("CustomerSize", customer.size());
+					 st.push(customer);
+				}
+				json.put("CustomerDetails", st);
 			}
 			
 		}

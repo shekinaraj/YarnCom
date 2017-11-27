@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.CustomerProduct;
 import com.yarncoms.repository.CustomerProductRepository;
 

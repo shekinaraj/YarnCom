@@ -43,4 +43,5 @@ public class CustomerVisitServiceImpl implements CustomerVisitService {
 		// TODO Auto-generated method stub
 		return customerVisitRepository.getByCompanyName(company);
 	}
+
 }

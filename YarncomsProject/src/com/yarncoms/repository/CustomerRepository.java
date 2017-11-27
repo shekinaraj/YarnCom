@@ -22,4 +22,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	@Query("SELECT c FROM Customer c where c.customerType = ?1 AND c.status = ?2")
 	List<Customer> find(String type,String status);
 	
+	@Query("select c.customerId from Customer c where c.contactPersonEmail=?1 and c.mobileNo=?2")
+	List<Customer> checkForEmailMobile(String email, String mobile);
+	
+	@Query("select c from Customer c where c.customerId=?1")
+	List<Customer> productToCustomerDetails(String customerId);
+	
 }

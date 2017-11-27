@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.Customer;
 import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.model.EnquiryTable;
+import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.CustomerVisitService;
 import com.yarncoms.service.EnquiryTableService;
 
@@ -31,7 +33,8 @@ public class CustomerVisitController {
 	String date = format.format(curDate);
 	
 
-	
+	@Autowired
+	private CustomerService customerService;
 	
 	@Autowired
 	private CustomerVisitService CustomerVisitServiceImpl;
@@ -121,10 +124,27 @@ public class CustomerVisitController {
 			System.out.println("Cant save in Enquiry");
 		}
 		
-		return json;
-	}
-
+		Customer customer = new Customer();
+		List<Customer> allCustomer = customerService.checkForEmailMobile(cust.getEmailId(), cust.getMobileNumber());
+		//customer.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerVisitId().toString());
+		if(allCustomer.size()>0) {
+			System.out.println("existing Customer");
+			json.put("Enquiry", "Values Already Exist");
+		}
+		else {
+			System.out.println("New Customer");
+		customer.setCompanyName(cust.getCompanyName());
+		customer.setContactPersonEmail(cust.getEmailId());
+		customer.setContactPersonName(cust.getContactPersonName());
+		customer.setMobileNo(cust.getMobileNumber());
+		customer.setCustomerType("Buyer");
+		customer.setStatus("Open");
+		Customer cus = customerService.save(customer);
+		json.put("Enquiry", cus);
 		
+	}
+	
+		return json;
 	/*@RequestMapping(value="change-password/{pass}", method=RequestMethod.PUT)
 	public  @ResponseBody HashMap updateUserDetail(@PathVariable String pass,@RequestBody UserDetails user){
 		LinkedHashMap json = new LinkedHashMap();
@@ -137,6 +157,6 @@ public class CustomerVisitController {
 	
 		
 		
-		
+	}		
 }
 

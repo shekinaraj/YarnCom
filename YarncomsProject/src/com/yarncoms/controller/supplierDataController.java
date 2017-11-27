@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yarncoms.model.Product;
 import com.yarncoms.model.SupplierData;
 import com.yarncoms.service.SupplierDataService;
 

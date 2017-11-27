@@ -15,13 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.BankDetails;
-import com.yarncoms.model.CustomerVisit;
-import com.yarncoms.model.FabricEnquiry;
-import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.BankDetailsService;
-import com.yarncoms.service.CustomerVisitService;
-import com.yarncoms.service.FabricEnquiryService;
-import com.yarncoms.service.UserDetailsService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
 @Controller
