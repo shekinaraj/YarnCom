@@ -58,6 +58,7 @@ public class CustomerController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
 		customer.setPrefix(customer.getPrefix());
+		customer.setFlag("N");
 		Customer cust = customerService.save(customer); 
 		json.put("savedDetails", cust.getCompanyName());
 		System.out.println(cust.getContactPersonName());
