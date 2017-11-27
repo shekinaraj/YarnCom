@@ -172,6 +172,18 @@ public class EnquiryTableController {
 		return json;	
 	}
 	
+	@RequestMapping(value="getEnquiryWithDate/{level},{status}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getEnqLevelWithDate(@PathVariable int level, @PathVariable String status) {
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		List<EnquiryTable> enq = EnquiryTableServiceImpl.findEnquiryWithDate(level, status, date);
+		json.put("No of Level 1 Enquiry", enq.size());
+		json.put("LevelEnquiryOnCurrentDate", enq);
+		
+		return json;	
+	}
+	
 	@RequestMapping(value="getByDate/{startDate}/{endDate}", method=RequestMethod.GET)
 	public @ResponseBody HashMap getByDate(@PathVariable String startDate, @PathVariable String endDate) {
 		HashMap json = new HashMap();

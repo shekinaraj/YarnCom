@@ -16,6 +16,8 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> findEnquiry(int level, String status);
 	
+	List<EnquiryTable> findEnquiryWithDate(int level,String status,String date);
+	
 	List<EnquiryTable> getByDate(String endDate,String startDate);
 
 	List<EnquiryTable> list();

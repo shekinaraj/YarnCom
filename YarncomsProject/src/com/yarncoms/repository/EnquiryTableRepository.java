@@ -14,6 +14,9 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2")
 	List<EnquiryTable> findEnquiry(int level,String status);
 	
+	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2 AND e.enqDate=?3")
+	List<EnquiryTable> findEnquiryWithDate(int level,String status,String date);
+	
 	@Query("SELECT e FROM EnquiryTable e where e.enquiryId = ?1")
 	List<EnquiryTable> findLevel(String enquiryId);
 	

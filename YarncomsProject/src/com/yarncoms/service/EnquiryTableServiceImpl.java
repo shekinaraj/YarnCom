@@ -76,4 +76,10 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 		return enquiryTableRepository.findLevel(enquiryId);
 	}
 
+	@Override
+	public List<EnquiryTable> findEnquiryWithDate(int level, String status, String date) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.findEnquiryWithDate(level, status, date);
+	}
+
 }

@@ -78,6 +78,9 @@ public class Customer {
 
 	@Column(name = "introBy")
 	private String introBy;
+	
+	@Column(name = "flag")
+	private String flag;
 
 	public String getPrefix() {
 		return prefix;
@@ -253,6 +256,15 @@ public class Customer {
 
 	public void setIntroBy(String introBy) {
 		this.introBy = introBy;
+	}
+
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 		
 

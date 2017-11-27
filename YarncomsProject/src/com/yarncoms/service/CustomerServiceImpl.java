@@ -70,4 +70,10 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.productToCustomerDetails(customerId);
 	}
 
+	@Override
+	public Customer findBySellerCustomerId(String customerId) {
+		// TODO Auto-generated method stub
+		return customerRepository.findBySellerCustomerId(customerId);
+	}
+
 }

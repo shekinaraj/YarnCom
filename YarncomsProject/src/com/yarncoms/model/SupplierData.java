@@ -43,8 +43,14 @@ public class SupplierData {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "customerId")
+	private String customerId;
+	
 	@Column(name = "status")
 	private String status;
+	
+	@Column(name = "flag")
+	private String flag;
 
 	public String getPrefix() {
 		return prefix;
@@ -126,12 +132,28 @@ public class SupplierData {
 		this.email = email;
 	}
 
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
 	public String getStatus() {
 		return status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 	
 	

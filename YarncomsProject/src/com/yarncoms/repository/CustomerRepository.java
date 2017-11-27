@@ -14,6 +14,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	
 	Customer CustomerId(Long customerId);
 	
+	@Query("select c from Customer c where c.customerId=?1")
+	Customer findBySellerCustomerId(String customerId);
+	
 	//@Transactional
 	//@Query("SELECT c FROM Customer c where c.customerType=?1")
 	List<Customer> findByCustomerType(String customer);
