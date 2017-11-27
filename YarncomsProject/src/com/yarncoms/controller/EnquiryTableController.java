@@ -26,7 +26,6 @@ import com.yarncoms.model.WeavingEnquiry;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
-import com.yarncoms.service.ProductService;
 import com.yarncoms.service.SpecialityEnquiryService;
 import com.yarncoms.service.WeavingEnquiryService;
 
