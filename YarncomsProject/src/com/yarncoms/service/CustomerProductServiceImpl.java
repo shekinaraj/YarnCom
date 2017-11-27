@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.CustomerProduct;
 import com.yarncoms.repository.CustomerProductRepository;
 
@@ -37,6 +38,20 @@ public class CustomerProductServiceImpl implements CustomerProductService {
 	public CustomerProduct save(CustomerProduct customer) {
 		// TODO Auto-generated method stub
 		return customerProductRepository.save(customer);
+	}
+
+	@Override
+	public boolean delete(Long customerProductId) {
+		try {
+			CustomerProduct custPro = new CustomerProduct();
+			custPro.setCustomerProductId(customerProductId);
+			customerProductRepository.delete(custPro);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
 	}
 
 }

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.CustomerProduct;
-import com.yarncoms.model.FabricProduct;
 import com.yarncoms.service.CustomerProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
@@ -51,6 +50,22 @@ public class CustomerProductController {
 		List<CustomerProduct> yarnFabric = customerProductServiceImpl.findByCustomerId(customerId);		
 		json.put("entity", "Formula");
 		json.put("Formula", yarnFabric);
+		return json;
+	}
+	
+	@RequestMapping(value = "delete-CustomerProduct/{customerProductId}", method = RequestMethod.GET)
+	public @ResponseBody HashMap deleteBankDetail(@PathVariable("customerProductId") long customerProductId) {
+		System.out.println(customerProductId);
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "BankDetailsList");
+		List<CustomerProduct> custPro = customerProductServiceImpl.findByCustomerProductId(customerProductId);
+		
+		if (custPro == null) {
+			json.put("CurrentBank Not Found", custPro.getClass());
+			return json;
+		}
+		boolean bankDetail = customerProductServiceImpl.delete(customerProductId);
+		json.put("Id deleted", custPro);
 		return json;
 	}
 

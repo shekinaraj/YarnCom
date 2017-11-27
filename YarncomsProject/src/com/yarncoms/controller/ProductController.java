@@ -40,6 +40,7 @@ public class ProductController {
 		List<Product> product = ProductServiceImpl.list();
 		json.put("Entity", "Product");
 		json.put("Product", product);
+		json.put("ProductSize", product.size());
 
 		return json;
 	}

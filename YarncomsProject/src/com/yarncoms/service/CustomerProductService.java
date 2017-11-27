@@ -14,4 +14,6 @@ public interface CustomerProductService {
 	
 	List<CustomerProduct> findByCustomerId(String customerId);
 	
+	public boolean delete(Long customerProductId);
+	
 }
