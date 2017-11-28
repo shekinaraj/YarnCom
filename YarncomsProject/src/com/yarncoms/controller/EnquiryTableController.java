@@ -202,7 +202,7 @@ public class EnquiryTableController {
 	}
 	
 	@RequestMapping(value="update-EnquiryTable/{EnquiryTableId}", method=RequestMethod.PUT)
-	public  @ResponseBody  HashMap updateEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,@RequestBody EnquiryTable  enqTable){
+	public  @ResponseBody HashMap updateEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,@RequestBody EnquiryTable  enqTable){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-EnquiryTable-Detail");
 //		enqTable.setEnqLevel(0);
