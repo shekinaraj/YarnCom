@@ -135,8 +135,8 @@ public class FabricEnquiryController {
 			List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
 			st.push(customer);
 		}
-		json.put("CustomerDetails", st);
-		json.put("CustomerSize", st.size());
+		 json.put("CustomerDetails", st);
+		 json.put("CustomerSize", st.size());
 
 		return json;
 	}
