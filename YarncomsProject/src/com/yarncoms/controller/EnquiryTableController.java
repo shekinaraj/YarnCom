@@ -106,10 +106,10 @@ public class EnquiryTableController {
 					System.out.println(pro);
 					System.out.println(pro.getCustomerId());
 					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-					json.put("CustomerSize", customer.size());
 					 st.push(customer);
 				}
 				json.put("CustomerDetails", st);	
+				json.put("CustomerSize", st.size());
 				
 			}
 			else {
@@ -127,11 +127,6 @@ public class EnquiryTableController {
 				json.put("CustomerDetails", st);
 			}
 			
-		}
-		else {
-			List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
-			json.put("Entity", "FabricEnquiry");
-			json.put("Enquiry", fabricEnquiry);
 		}
 		return json;
 	}
