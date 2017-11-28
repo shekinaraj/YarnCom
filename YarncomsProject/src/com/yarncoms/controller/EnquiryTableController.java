@@ -33,21 +33,21 @@ import com.yarncoms.service.WeavingEnquiryService;
 @Controller
 @RequestMapping("/rest")
 public class EnquiryTableController {
-	
-	 private String date= new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
-	
+
+	private String date = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
-	
+
 	@Autowired
 	private SpecialityEnquiryService specialityEnquiryService;
-	
+
 	@Autowired
 	private WeavingEnquiryService weavingEnquiryService;
-	
+
 	@Autowired
 	private FabricEnquiryService FabricEnquiryServiceImpl;
-	
+
 	@Autowired
 	private CustomerService customerService;
 
@@ -63,22 +63,20 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-EnquiryDate", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryDate() throws ParseException {
 		HashMap json = new HashMap();
 		Calendar now = Calendar.getInstance();
-		
-		    String dateStart = now.get(Calendar.YEAR)+ "-" + (now.get(Calendar.MONTH) + 1) + "-"+
-		now.get(Calendar.DATE);
-		    System.out.println("start date  " +  dateStart);
-		    /*now.add(Calendar.DATE, -14);
-			String dateStop = now.get(Calendar.YEAR)+ "-" + (now.get(Calendar.MONTH) + 1) + "-"+
-		now.get(Calendar.DATE);
-			System.out.println("stop date  " +  dateStop);
-		    System.out.println("thanks");*/
-		 
-		
+
+		String dateStart = now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DATE);
+		System.out.println("start date  " + dateStart);
+		/*
+		 * now.add(Calendar.DATE, -14); String dateStop = now.get(Calendar.YEAR)+ "-" +
+		 * (now.get(Calendar.MONTH) + 1) + "-"+ now.get(Calendar.DATE);
+		 * System.out.println("stop date  " + dateStop); System.out.println("thanks");
+		 */
+
 		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.getDiff();
 		json.put("entity", "EnquiryTable");
 		json.put("NumberOfEnquiryTableDetails", EnquiryTable.size());
@@ -86,21 +84,21 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-yarn-fabric/{enquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getYarnAndFabric(@PathVariable("enquiryId") String id) {
 		HashMap json = new HashMap();
 		// json.put("enquiryType", enquiryType);
 		System.out.println(id);
-		String parse = id.substring(id.length()-5);
+		String parse = id.substring(id.length() - 5);
 		System.out.println(parse);
 		long number = new Long(parse).longValue();
 		System.out.println(number);
-		if(id.charAt(0)=='Y') {
-			if(id.charAt(1)=='-') {
+		if (id.charAt(0) == 'Y') {
+			if (id.charAt(1) == '-') {
 				List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(number);
 				Stack st = new Stack();
-				for(int i = 0;i<speciality.size();i++) {
+				for (int i = 0; i < speciality.size(); i++) {
 					Object product = (Object) speciality.get(i);
 					Product pro = (Product) product;
 					System.out.println(pro);
@@ -110,27 +108,28 @@ public class EnquiryTableController {
 				}
 				json.put("CustomerDetails", st);
 				json.put("CustomerSize", st.size());
-				
-			}
-			else {
-				String query = "select pt from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId="+number+" and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription";
-				System.out.println( "*************"+query);
+
+			} else {
+				String query = "select pt from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId="
+						+ number
+						+ " and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription";
+				System.out.println("*************" + query);
 				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
 				Stack st = new Stack();
-				for(int i = 0;i<weaving.size();i++) {
+				for (int i = 0; i < weaving.size(); i++) {
 					Object product = (Object) weaving.get(i);
 					Product pro = (Product) product;
 					System.out.println(pro);
 					System.out.println(pro.getCustomerId());
 					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
 					json.put("CustomerSize", customer.size());
-					 st.push(customer);
+					st.push(customer);
 				}
 				json.put("CustomerDetails", st);
 			}
-			
+
 		}
-		
+
 		return json;
 	}
 
@@ -145,7 +144,7 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-EnquiryTableEnqID/{enquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnquiryTableId(@PathVariable("enquiryId") String id) {
 		HashMap json = new HashMap();
@@ -157,39 +156,39 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
-	@RequestMapping(value="getEnquiry/{level},{status}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "getEnquiry/{level},{status}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnqLevel(@PathVariable int level, @PathVariable String status) {
 		HashMap json = new HashMap();
-		//json.put("enquiryType", enquiryType);
+		// json.put("enquiryType", enquiryType);
 		json.put("entity", "Customer");
 		List<EnquiryTable> enq = EnquiryTableServiceImpl.findEnquiry(level, status);
 		json.put("No of Level 1 Enquiry", enq.size());
 		json.put("LevelEnquiry", enq);
-		
-		return json;	
+
+		return json;
 	}
-	
-	@RequestMapping(value="getEnquiryWithDate/{level},{status}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "getEnquiryWithDate/{level},{status}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnqLevelWithDate(@PathVariable int level, @PathVariable String status) {
 		HashMap json = new HashMap();
-		//json.put("enquiryType", enquiryType);
+		// json.put("enquiryType", enquiryType);
 		json.put("entity", "Customer");
 		List<EnquiryTable> enq = EnquiryTableServiceImpl.findEnquiryWithDate(level, status, date);
 		json.put("No of Level 1 Enquiry", enq.size());
 		json.put("LevelEnquiryOnCurrentDate", enq);
-		
-		return json;	
+
+		return json;
 	}
-	
-	@RequestMapping(value="getByDate/{startDate}/{endDate}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "getByDate/{startDate}/{endDate}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getByDate(@PathVariable String startDate, @PathVariable String endDate) {
 		HashMap json = new HashMap();
 		json.put("entity", "Enquiry");
 		List<EnquiryTable> enq = EnquiryTableServiceImpl.getByDate(startDate, endDate);
 		json.put("AnalyzedDate", enq);
-		
-		return json;	
+
+		return json;
 	}
 
 	@RequestMapping(value = "save-EnquiryTable", method = RequestMethod.POST)
@@ -200,18 +199,19 @@ public class EnquiryTableController {
 		json.put("savedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
 		return json;
 	}
-	
-	@RequestMapping(value="update-EnquiryTable/{EnquiryTableId}", method=RequestMethod.PUT)
-	public  @ResponseBody HashMap updateEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,@RequestBody EnquiryTable  enqTable){
+
+	@RequestMapping(value = "update-EnquiryTable/{EnquiryTableId}", method = RequestMethod.PUT)
+	public @ResponseBody HashMap updateEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,
+			@RequestBody EnquiryTable enqTable) {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-EnquiryTable-Detail");
-//		enqTable.setEnqLevel(0);
+		// enqTable.setEnqLevel(0);
 		enqTable.setEnqStatus("Close");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
 		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-SupplierData/{EnquiryTableId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getSupplierData(@PathVariable("EnquiryTableId") String EnquiryTableId) {
 		HashMap json = new HashMap();
@@ -222,7 +222,7 @@ public class EnquiryTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-ManageQuoteSupplierData/{EnquiryTableId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getManageSupplierData(@PathVariable("EnquiryTableId") String id) {
 		HashMap json = new HashMap();

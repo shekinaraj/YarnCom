@@ -22,18 +22,17 @@ import com.yarncoms.service.FabricProductService;
 @Controller
 @RequestMapping("/rest")
 public class FabricProductController {
-	
+
 	@Autowired
 	private FabricProductService FabricProductServiceImpl;
-	
+
 	@Autowired
 	private CustomerProductService customerProductServiceImpl;
 
-	
 	@RequestMapping(value = "get-FabricProductDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricProductList() {
 		HashMap json = new HashMap();
-		
+
 		List<FabricProduct> fabricProduct = FabricProductServiceImpl.list();
 		json.put("NumberOfProducts", fabricProduct.size());
 		json.put("Entity", "FabricProduct");
@@ -41,7 +40,7 @@ public class FabricProductController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-FabricProductDetail/{productId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricProductId(@PathVariable("productId") long id) {
 		HashMap json = new HashMap();
@@ -53,25 +52,25 @@ public class FabricProductController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "save-FabricProductDetail", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveFabricProductDetails(@RequestBody FabricProduct grid) {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "FabricProduct");
 		FabricProduct fabricProduct = FabricProductServiceImpl.save(grid);
-		
+
 		CustomerProduct product = new CustomerProduct();
 		product.setFabricProductId(fabricProduct.getProductId());
 		product.setConstruction(fabricProduct.getConstruction());
 		product.setCustomerId(fabricProduct.getCustomerId());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(product);
-	
+
 		json.put("CustomerProduct", customerProduct.getFabricProductId());
-	
+
 		json.put("savedFabricProductDetails", fabricProduct.getCustomerId());
 		return json;
 	}
-	
+
 	@RequestMapping(value = "delete-fabricProductDetails/{fabriproductIdcEnquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap deleteFabricProductDetail(@PathVariable("productId") long id) {
 		LinkedHashMap json = new LinkedHashMap();
