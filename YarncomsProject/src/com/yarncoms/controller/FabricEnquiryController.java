@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
+import com.yarncoms.model.FabricProduct;
 import com.yarncoms.model.Product;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
@@ -117,21 +118,25 @@ public class FabricEnquiryController {
 	}
 	
 	@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") long id) {
+	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") String id) {
 		HashMap json = new HashMap();
-
-		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(id);
+		System.out.println(id);
+		String parse = id.substring(id.length()-5);
+		System.out.println(parse);
+		long number = new Long(parse).longValue();
+		System.out.println(number);
+		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
 		Stack st = new Stack();
 		for(int i = 0;i<fabricEnquiry.size();i++) {
 			Object product = (Object) fabricEnquiry.get(i);
-			Product pro = (Product) product;
+			FabricProduct pro = (FabricProduct) product;
 			System.out.println(pro);
 			System.out.println(pro.getCustomerId());
 			List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-			json.put("CustomerSize", customer.size());
 			 st.push(customer);
 		}
 		json.put("CustomerDetails", st);
+		json.put("CustomerSize", st.size());
 		
 		return json;
 	}

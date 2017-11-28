@@ -106,13 +106,15 @@ public class EnquiryTableController {
 					System.out.println(pro);
 					System.out.println(pro.getCustomerId());
 					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-					json.put("CustomerSize", customer.size());
-					 st.push(customer);
+					st.push(customer);
 				}
-				json.put("CustomerDetails", st);	
+				json.put("CustomerDetails", st);
+				json.put("CustomerSize", st.size());
 				
 			}
 			else {
+				String query = "select pt from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId="+number+" and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription";
+				System.out.println( "*************"+query);
 				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
 				Stack st = new Stack();
 				for(int i = 0;i<weaving.size();i++) {
@@ -128,11 +130,7 @@ public class EnquiryTableController {
 			}
 			
 		}
-		else {
-			List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
-			json.put("Entity", "FabricEnquiry");
-			json.put("Enquiry", fabricEnquiry);
-		}
+		
 		return json;
 	}
 
@@ -208,7 +206,7 @@ public class EnquiryTableController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-EnquiryTable-Detail");
 //		enqTable.setEnqLevel(0);
-//		enqTable.setEnqStatus("Close");
+		enqTable.setEnqStatus("Close");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
 		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
 		return json;
