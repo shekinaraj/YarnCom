@@ -47,11 +47,9 @@ public class EnquiryTableController {
 	private WeavingEnquiryService weavingEnquiryService;
 
 	@Autowired
-
 	private SupplierDataService SupplierDataServiceImpl;
 
-	private FabricEnquiryService FabricEnquiryServiceImpl;
-
+	
 	@Autowired
 	private CustomerService customerService;
 
@@ -117,7 +115,6 @@ public class EnquiryTableController {
 						specialityData.setContactNo(customer.get(0).getMobileNo());
 						specialityData.setStatus("level3");
 						specialityData.setFlag("N");
-						specialityData.setSupplierQuote("Quote Not Received");
 						specialityData.setPrefix(specialityData.getPrefix());
 						
 						List<SupplierData> list = SupplierDataServiceImpl.list();
@@ -130,7 +127,7 @@ public class EnquiryTableController {
 
 						else if(list.size()>0){
 										System.out.println("Else If Part Printed");
-										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(specialityData.getEnquiryId(),specialityData.getSupplierName(),specialityData.getSupplierQuote(),specialityData.getContactNo(),specialityData.getEmail(),specialityData.getCustomerId());
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(specialityData.getEnquiryId(),specialityData.getSupplierName(),specialityData.getContactNo(),specialityData.getEmail(),specialityData.getCustomerId());
 										if(supplierData.size()>0) {
 											for(int k=0;k<supplierData.size();k++) {
 												st.push(supplierData.get(k));
@@ -145,9 +142,6 @@ public class EnquiryTableController {
 										}
 										
 									}
-
-
-					st.push(customer);
 
 				}
 
@@ -178,7 +172,6 @@ public class EnquiryTableController {
 						weavingData.setContactNo(customer.get(0).getMobileNo());
 						weavingData.setStatus("level3");
 						weavingData.setFlag("N");
-						weavingData.setSupplierQuote("Quote Not Received");
 						weavingData.setPrefix(weavingData.getPrefix());
 						
 						List<SupplierData> list = SupplierDataServiceImpl.list();
@@ -191,7 +184,7 @@ public class EnquiryTableController {
 
 										if(list.size()>0){
 										System.out.println("Else If Part Printed");
-										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(weavingData.getEnquiryId(),weavingData.getSupplierName(),weavingData.getSupplierQuote(),weavingData.getContactNo(),weavingData.getEmail(),weavingData.getCustomerId());
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(weavingData.getEnquiryId(),weavingData.getSupplierName(),weavingData.getContactNo(),weavingData.getEmail(),weavingData.getCustomerId());
 										if(supplierData.size()>0) {
 											for(int k=0;k<supplierData.size();k++) {
 												st.push(supplierData.get(k));
@@ -207,7 +200,6 @@ public class EnquiryTableController {
 		
 									}
 						
-					st.push(customer);
 				}
 				json.put("CustomerDetails", st);
 				json.put("CustomerSize", st.size());
@@ -293,6 +285,18 @@ public class EnquiryTableController {
 		json.put("enquiryType", "Update-EnquiryTable-Detail");
 		// enqTable.setEnqLevel(0);
 		enqTable.setEnqStatus("Close");
+		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
+		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
+		return json;
+	}
+	
+	@RequestMapping(value = "close-level-Enquiry/{EnquiryTableId}", method = RequestMethod.PUT)
+	public @ResponseBody HashMap closeEnquiryDetail(@PathVariable("EnquiryTableId") long enqId,
+			@RequestBody EnquiryTable enqTable) {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "Update-EnquiryTable-Detail");
+		// enqTable.setEnqLevel(0);
+		//enqTable.setEnqStatus("Close");
 		EnquiryTable EnquiryTable = EnquiryTableServiceImpl.save(enqTable);
 		json.put("UpdatedEnquiryTableDetails", EnquiryTable.getCvEnquiryId());
 		return json;

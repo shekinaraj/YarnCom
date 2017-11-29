@@ -81,7 +81,7 @@ public class supplierDataController {
 		HashMap json = new HashMap();
 		// json.put("enquiryType", enquiryType);
 
-		List<SupplierData> supplier = SupplierDataServiceImpl.getByTableData(data.getEnquiryId(),data.getSupplierName(),data.getSupplierQuote(),data.getContactNo(),data.getEmail(),data.getCustomerId());
+		List<SupplierData> supplier = SupplierDataServiceImpl.getByTableData(data.getEnquiryId(),data.getSupplierName(),data.getContactNo(),data.getEmail(),data.getCustomerId());
 		json.put("entity", "SupplierCheckValue");
 		json.put("SupplierCheckValue", supplier);
 

@@ -146,7 +146,6 @@ public class FabricEnquiryController {
 			fabricData.setContactNo(customer.get(0).getMobileNo());
 			fabricData.setStatus("level3");
 			fabricData.setFlag("N");
-			fabricData.setSupplierQuote("Quote Not Received");
 			fabricData.setPrefix(fabricData.getPrefix());
 
 			List<SupplierData> list = SupplierDataServiceImpl.list();
@@ -160,7 +159,7 @@ public class FabricEnquiryController {
 			if (list.size() > 0) {
 				System.out.println("Else If Part Printed");
 				List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(fabricData.getEnquiryId(),
-						fabricData.getSupplierName(), fabricData.getSupplierQuote(), fabricData.getContactNo(),
+						fabricData.getSupplierName(), fabricData.getContactNo(),
 						fabricData.getEmail(), fabricData.getCustomerId());
 				if (supplierData.size() > 0) {
 					for (int k = 0; k < supplierData.size(); k++) {
@@ -175,7 +174,6 @@ public class FabricEnquiryController {
 				}
 
 			}
-			st.push(customer);
 		}
 
 		json.put("CustomerDetails", st);

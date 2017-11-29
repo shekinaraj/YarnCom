@@ -41,10 +41,10 @@ public class SupplierDataServiceImpl implements SupplierDataService{
 	}
 
 	@Override
-	public List<SupplierData> getByTableData(String enquiryId, String supplierName, String supplierQuote,
+	public List<SupplierData> getByTableData(String enquiryId, String supplierName,
 			String contactNo, String email, String customerId) {
 		// TODO Auto-generated method stub
-		return supplierDataRepository.getByTableData(enquiryId, supplierName, supplierQuote, contactNo, email, customerId);
+		return supplierDataRepository.getByTableData(enquiryId, supplierName, contactNo, email, customerId);
 	}
 
 }
