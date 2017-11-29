@@ -23,13 +23,13 @@ import com.yarncoms.service.SupplierDataService;
 @Controller
 @RequestMapping("/rest")
 public class supplierDataController {
-	
+
 	@Autowired
 	private SupplierDataService SupplierDataServiceImpl;
-	
+
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@RequestMapping(value = "get-supplierData", method = RequestMethod.GET)
 	public @ResponseBody HashMap getSupplierDetailsList() {
 		HashMap json = new HashMap();
@@ -40,7 +40,7 @@ public class supplierDataController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-Supplier-Details/{id}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getSupplierId(@PathVariable("id") Long id) {
 		HashMap json = new HashMap();
@@ -51,7 +51,7 @@ public class supplierDataController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "save-Supplier", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveSupplierTableDetails(@RequestBody SupplierData supplierData) {
 		LinkedHashMap json = new LinkedHashMap();
@@ -64,10 +64,10 @@ public class supplierDataController {
 			return json;
 		}
 
-	
-	
+		
 	@RequestMapping(value = "update-Supplier/{SupplierId}", method = RequestMethod.PUT)
-	public @ResponseBody HashMap updateSupplierTableDetails(@PathVariable("SupplierId") Long id, @RequestBody SupplierData supplierData) {
+	public @ResponseBody HashMap updateSupplierTableDetails(@PathVariable("SupplierId") Long id,
+			@RequestBody SupplierData supplierData) {
 		System.out.println(supplierData);
 		LinkedHashMap json = new LinkedHashMap();
 		SupplierData supplier = SupplierDataServiceImpl.saveSupplier(supplierData);
@@ -87,8 +87,5 @@ public class supplierDataController {
 
 		return json;
 	}
-
-
-
 
 }

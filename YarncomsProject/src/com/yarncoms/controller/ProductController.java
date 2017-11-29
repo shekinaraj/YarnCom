@@ -26,13 +26,13 @@ public class ProductController {
 
 	@Autowired
 	private ProductService ProductServiceImpl;
-	
+
 	@Autowired
 	private CustomerProductService customerProductServiceImpl;
-	
+
 	@Autowired
 	private MaterialTableService MaterialTableServiceImpl;
-	
+
 	@RequestMapping(value = "get-ProductDetails", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductDetailsList() {
 		HashMap json = new HashMap();
@@ -48,15 +48,10 @@ public class ProductController {
 	@RequestMapping(value = "get-ProductDetails/{productId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductId(@PathVariable("productId") Long id) {
 		HashMap json = new HashMap();
-/*
-		List<Product> product = ProductServiceImpl.getById(id);
-		json.put("Entity", "Product");
-		json.put("Product", product);
-*/
 		List<Product> product = ProductServiceImpl.getProductDetails(id);
 		json.put("Entity", "Product");
 		json.put("Product", product);
-		
+
 		return json;
 	}
 
@@ -65,20 +60,20 @@ public class ProductController {
 		System.out.println(grid);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("ProductType", "Product");
-		
+
 		Product product = ProductServiceImpl.save(grid);
-		
+
 		CustomerProduct Cproduct = new CustomerProduct();
 		Cproduct.setYarnProductId(product.getProductId());
 		Cproduct.setConstruction(product.getProductDescription());
 		Cproduct.setCustomerId(product.getCustomerId());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(Cproduct);
-	
+
 		json.put("CustomerProduct", customerProduct.getYarnProductId());
-	
+
 		json.put("savedProductTableDetails", product.getProductId());
 		return json;
 
 	}
-	
+
 }

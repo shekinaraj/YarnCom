@@ -11,6 +11,7 @@ public interface WeavingEnquiryRepository extends JpaRepository<WeavingEnquiry, 
 
 	List<WeavingEnquiry> findByEnquiryId(Long enquiryId);
 	
-	@Query("select pt from Product pt, WeavingEnquiry we where we.enquiryId=?1 and we.productDescription=pt.productDescription")
+
+	@Query("select pt from Product pt,WeavingEnquiry we where we.enquiryId=?1 and we.productDescription=pt.productDescription")
 	List<WeavingEnquiry> getByWeaving(long enquiryId);
 }

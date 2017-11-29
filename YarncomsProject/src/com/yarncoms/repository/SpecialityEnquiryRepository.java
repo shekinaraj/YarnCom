@@ -11,6 +11,6 @@ public interface SpecialityEnquiryRepository extends JpaRepository<SpecialityEnq
 
 	List<SpecialityEnquiry> findByEnquiryId(Long enquiryId);
 	
-	@Query("select pt from Product pt, SpecialityEnquiry se where se.enquiryId=?1 AND se.productDescription=pt.productDescription")
+	@Query("select pt from Product pt, SpecialityEnquiry se where se.enquiryId=?1 and se.productDescription=pt.productDescription")
 	List<SpecialityEnquiry> getBySpeciality(long enquiryId);
 }

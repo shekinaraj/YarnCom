@@ -24,13 +24,13 @@ public class MaterialTableController {
 
 	@Autowired
 	private MaterialTableService MaterialTableServiceImpl;
-	
+
 	@Autowired
 	private ProductService ProductServiceImpl;
-	
+
 	@RequestMapping(value = "get-All-Materials", method = RequestMethod.GET)
 	public @ResponseBody HashMap getMaterialDetailsList() {
-		HashMap json = new HashMap(); 
+		HashMap json = new HashMap();
 
 		List<MaterialTable> material = MaterialTableServiceImpl.list();
 		json.put("Entity", "Material");
@@ -48,45 +48,49 @@ public class MaterialTableController {
 
 		return json;
 	}
-	
+
 	@RequestMapping(value = "save-material", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveMaterialTableDetails(@RequestBody MaterialTable material) {
 		LinkedHashMap json = new LinkedHashMap();
-		
+
 		List<MaterialTable> mater = MaterialTableServiceImpl.list();
-		
+
 		System.out.println(mater.size());
-		
-			if(mater.size()==0) {
-				System.out.println("If condition Part Printed");
-				MaterialTable tab = MaterialTableServiceImpl.save(material);
-				json.put("Entity", "MaterialTable");
-				json.put("MaterialTable", tab.getMaterialId());
-			}
-			if(mater.size()>0){
-				System.out.println("Else If Part Printed");
-				Long mat = MaterialTableServiceImpl.getAllMaterialsID(material.getMaterialName(),material.getIsQualityMaterial(),material.getCottonType(),material.getYarnQuality(),material.getBlendRatio(),material.getBlendPercentageCotton(),material.getBlendPercentagePolyster(),material.getBlendPercentageViscose(),material.getProcess(),material.getColour(),material.getQualityName(),material.getFibreBlend(),material.getDyed(),material.getWasteTypeCotton(),material.getWasteTypePolyster(),material.getWasteTypeViscose(),material.getWeavingOtherMaterial(),material.getWeavingOtherMaterialPercentage(),material.getSpecialityOtherMaterial(),material.getSpecialityOtherMaterialPercentage(),material.getVirginTypeCotton(),material.getVirginTypePolyster(),material.getVirginTypeViscose(),material.getBlendYarnQuality()		);
-				json.put("MaterialTable", mat);
-				System.out.println("Existing Material Id "+mat);
-				try {
-				if(mat==null) {
+
+		if (mater.size() == 0) {
+			System.out.println("If condition Part Printed");
+			MaterialTable tab = MaterialTableServiceImpl.save(material);
+			json.put("Entity", "MaterialTable");
+			json.put("MaterialTable", tab.getMaterialId());
+		}
+		if (mater.size() > 0) {
+			System.out.println("Else If Part Printed");
+			Long mat = MaterialTableServiceImpl.getAllMaterialsID(material.getMaterialName(),
+					material.getIsQualityMaterial(), material.getCottonType(), material.getYarnQuality(),
+					material.getBlendRatio(), material.getBlendPercentageCotton(),
+					material.getBlendPercentagePolyster(), material.getBlendPercentageViscose(), material.getProcess(),
+					material.getColour(), material.getQualityName(), material.getFibreBlend(), material.getDyed(),
+					material.getWasteTypeCotton(), material.getWasteTypePolyster(), material.getWasteTypeViscose(),
+					material.getWeavingOtherMaterial(), material.getWeavingOtherMaterialPercentage(),
+					material.getSpecialityOtherMaterial(), material.getSpecialityOtherMaterialPercentage(),
+					material.getVirginTypeCotton(), material.getVirginTypePolyster(), material.getVirginTypeViscose(),
+					material.getBlendYarnQuality());
+			json.put("MaterialTable", mat);
+			System.out.println("Existing Material Id " + mat);
+			try {
+				if (mat == null) {
 					System.out.println("Else If Else condition Part Printed");
 					MaterialTable tab1 = MaterialTableServiceImpl.save(material);
 					json.put("Entity", "MaterialTable");
 					json.put("MaterialTable", tab1.getMaterialId());
 				}
-				}
-				catch(Exception e) {
-					e.printStackTrace();
-				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			
-		
-		
-
+		}
 
 		return json;
 
 	}
-	
+
 }

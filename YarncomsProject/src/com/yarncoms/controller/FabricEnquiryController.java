@@ -32,16 +32,16 @@ public class FabricEnquiryController {
 
 	@Autowired
 	private FabricEnquiryService FabricEnquiryServiceImpl;
-	
+
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
-	
+
 	@Autowired
-	private CustomerService customerService;	
-	
+	private CustomerService customerService;
+
 	@Autowired
 	private SupplierDataService SupplierDataServiceImpl;
-	
+
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
 		HashMap json = new HashMap();
@@ -54,13 +54,14 @@ public class FabricEnquiryController {
 	}
 
 	@RequestMapping(value = "get-fabricEnquiryDetail/{fabricEnquiryId}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getByFabricEnquiryId(@PathVariable("fabricEnquiryId") long id, Map<String, Object> map) {
+	public @ResponseBody HashMap getByFabricEnquiryId(@PathVariable("fabricEnquiryId") long id,
+			Map<String, Object> map) {
 		HashMap json = new HashMap();
 
 		FabricEnquiry fabricEnquiry = FabricEnquiryServiceImpl.getByFabricEnquiryId(id);
 		json.put("Entity", "FabricEnquiry");
 		json.put("FabricEnquiry", fabricEnquiry);
-		
+
 		return json;
 	}
 
@@ -71,13 +72,13 @@ public class FabricEnquiryController {
 		json.put("enquiryType", "BankDetails");
 		fabric.setPrefix(fabric.getPrefix());
 		FabricEnquiry fabricDetails = FabricEnquiryServiceImpl.save(fabric);
-		
+
 		json.put("savedFabricEnquiryDetails", fabricDetails.getEnquiryId());
-		
+
 		EnquiryTable enquiry = new EnquiryTable();
 		System.out.println(fabricDetails.getEnquiryId());
 		enquiry.setCvEnquiryId(fabricDetails.getCvId());
-		enquiry.setEnquiryId(fabricDetails.getPrefix() +"-0000"+fabricDetails.getEnquiryId().toString());
+		enquiry.setEnquiryId(fabricDetails.getPrefix() + "-0000" + fabricDetails.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
 		enquiry.setName(fabricDetails.getName());
 		enquiry.setContactNo(fabricDetails.getContactNo());
@@ -86,8 +87,7 @@ public class FabricEnquiryController {
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
 		enquiry.setProductDescription(fabricDetails.getConstruction());
-		
-		
+
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
 		json.put("SaveDataInEnquiryTable", enquiryTable);
 		return json;
@@ -120,67 +120,68 @@ public class FabricEnquiryController {
 		json.put("Id deleted", fabric);
 		return json;
 	}
-	
+
 	@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") String id) {
 		HashMap json = new HashMap();
 		System.out.println(id);
-		String parse = id.substring(id.length()-5);
+		String parse = id.substring(id.length() - 5);
 		System.out.println(parse);
 		long number = new Long(parse).longValue();
 		System.out.println(number);
 		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
 		Stack st = new Stack();
-		for(int i = 0;i<fabricEnquiry.size();i++) {
+		for (int i = 0; i < fabricEnquiry.size(); i++) {
 			Object product = (Object) fabricEnquiry.get(i);
 			FabricProduct pro = (FabricProduct) product;
 			System.out.println(pro);
 			System.out.println(pro.getCustomerId());
 			List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-			 SupplierData fabricData = new SupplierData();
-				fabricData.setSupplierName(customer.get(0).getCompanyName());
-				fabricData.setEnquiryId(id);
-				fabricData.setEmail(customer.get(0).getContactPersonEmail());
-				fabricData.setCustomerId(customer.get(0).getCustomerId());
-				fabricData.setContactNo(customer.get(0).getMobileNo());
-				fabricData.setStatus("level3");
-				fabricData.setFlag("N");
-				fabricData.setSupplierQuote("Quote Not Received");
-				fabricData.setPrefix(fabricData.getPrefix());
-				
-				List<SupplierData> list = SupplierDataServiceImpl.list();
-				System.out.println(list.size());
-				if(list.size()==0) {
-								System.out.println("If condition Part Printed");
-								SupplierData supplier =SupplierDataServiceImpl.saveSupplier(fabricData);
-								st.push(supplier);
-								}
 
-								if(list.size()>0){
-								System.out.println("Else If Part Printed");
-								List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(fabricData.getEnquiryId(),fabricData.getSupplierName(),fabricData.getSupplierQuote(),fabricData.getContactNo(),fabricData.getEmail(),fabricData.getCustomerId());
-								if(supplierData.size()>0) {
-									for(int k=0;k<supplierData.size();k++) {
-										st.push(supplierData.get(k));
-									}
-								}
-								
-								
-								if(supplierData.size()==0) {
-									System.out.println("Else If Else condition Part Printed");
-									SupplierData supplierData1 =SupplierDataServiceImpl.saveSupplier(fabricData);
-									st.push(supplierData1);
-								}
+			SupplierData fabricData = new SupplierData();
+			fabricData.setSupplierName(customer.get(0).getCompanyName());
+			fabricData.setEnquiryId(id);
+			fabricData.setEmail(customer.get(0).getContactPersonEmail());
+			fabricData.setCustomerId(customer.get(0).getCustomerId());
+			fabricData.setContactNo(customer.get(0).getMobileNo());
+			fabricData.setStatus("level3");
+			fabricData.setFlag("N");
+			fabricData.setSupplierQuote("Quote Not Received");
+			fabricData.setPrefix(fabricData.getPrefix());
 
-							}
-				
+			List<SupplierData> list = SupplierDataServiceImpl.list();
+			System.out.println(list.size());
+			if (list.size() == 0) {
+				System.out.println("If condition Part Printed");
+				SupplierData supplier = SupplierDataServiceImpl.saveSupplier(fabricData);
+				st.push(supplier);
+			}
+
+			if (list.size() > 0) {
+				System.out.println("Else If Part Printed");
+				List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(fabricData.getEnquiryId(),
+						fabricData.getSupplierName(), fabricData.getSupplierQuote(), fabricData.getContactNo(),
+						fabricData.getEmail(), fabricData.getCustomerId());
+				if (supplierData.size() > 0) {
+					for (int k = 0; k < supplierData.size(); k++) {
+						st.push(supplierData.get(k));
+					}
+				}
+
+				if (supplierData.size() == 0) {
+					System.out.println("Else If Else condition Part Printed");
+					SupplierData supplierData1 = SupplierDataServiceImpl.saveSupplier(fabricData);
+					st.push(supplierData1);
+				}
+
+			}
+			st.push(customer);
 		}
 
 		json.put("CustomerDetails", st);
 		json.put("CustomerSize", st.size());
-		 
+
 		return json;
 	}
-
 
 }
