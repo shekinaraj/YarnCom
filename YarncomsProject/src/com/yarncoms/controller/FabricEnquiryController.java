@@ -19,9 +19,11 @@ import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.FabricEnquiry;
 import com.yarncoms.model.FabricProduct;
+import com.yarncoms.model.SupplierData;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
+import com.yarncoms.service.SupplierDataService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
@@ -36,6 +38,9 @@ public class FabricEnquiryController {
 	
 	@Autowired
 	private CustomerService customerService;	
+	
+	@Autowired
+	private SupplierDataService SupplierDataServiceImpl;
 	
 	@RequestMapping(value = "get-FabricEnquiryDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricEnquiryList() {
@@ -132,8 +137,45 @@ public class FabricEnquiryController {
 			System.out.println(pro);
 			System.out.println(pro.getCustomerId());
 			List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-			 st.push(customer);
+			 SupplierData fabricData = new SupplierData();
+				fabricData.setSupplierName(customer.get(0).getCompanyName());
+				fabricData.setEnquiryId(id);
+				fabricData.setEmail(customer.get(0).getContactPersonEmail());
+				fabricData.setCustomerId(customer.get(0).getCustomerId());
+				fabricData.setContactNo(customer.get(0).getMobileNo());
+				fabricData.setStatus("level3");
+				fabricData.setFlag("N");
+				fabricData.setSupplierQuote("Quote Not Received");
+				fabricData.setPrefix(fabricData.getPrefix());
+				
+				List<SupplierData> list = SupplierDataServiceImpl.list();
+				System.out.println(list.size());
+				if(list.size()==0) {
+								System.out.println("If condition Part Printed");
+								SupplierData supplier =SupplierDataServiceImpl.saveSupplier(fabricData);
+								st.push(supplier);
+								}
+
+								if(list.size()>0){
+								System.out.println("Else If Part Printed");
+								List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(fabricData.getEnquiryId(),fabricData.getSupplierName(),fabricData.getSupplierQuote(),fabricData.getContactNo(),fabricData.getEmail(),fabricData.getCustomerId());
+								if(supplierData.size()>0) {
+									for(int k=0;k<supplierData.size();k++) {
+										st.push(supplierData.get(k));
+									}
+								}
+								
+								
+								if(supplierData.size()==0) {
+									System.out.println("Else If Else condition Part Printed");
+									SupplierData supplierData1 =SupplierDataServiceImpl.saveSupplier(fabricData);
+									st.push(supplierData1);
+								}
+
+							}
+				
 		}
+
 		json.put("CustomerDetails", st);
 		json.put("CustomerSize", st.size());
 		 

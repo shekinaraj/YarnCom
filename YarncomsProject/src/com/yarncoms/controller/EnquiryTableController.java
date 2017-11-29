@@ -19,14 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.Customer;
 import com.yarncoms.model.EnquiryTable;
-import com.yarncoms.model.FabricEnquiry;
 import com.yarncoms.model.Product;
 import com.yarncoms.model.SpecialityEnquiry;
+import com.yarncoms.model.SupplierData;
 import com.yarncoms.model.WeavingEnquiry;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 import com.yarncoms.service.FabricEnquiryService;
 import com.yarncoms.service.SpecialityEnquiryService;
+import com.yarncoms.service.SupplierDataService;
 import com.yarncoms.service.WeavingEnquiryService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
@@ -46,7 +47,7 @@ public class EnquiryTableController {
 	private WeavingEnquiryService weavingEnquiryService;
 	
 	@Autowired
-	private FabricEnquiryService FabricEnquiryServiceImpl;
+	private SupplierDataService SupplierDataServiceImpl;
 	
 	@Autowired
 	private CustomerService customerService;
@@ -106,7 +107,43 @@ public class EnquiryTableController {
 					System.out.println(pro);
 					System.out.println(pro.getCustomerId());
 					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
-					 st.push(customer);
+					 SupplierData specialityData = new SupplierData();
+					 specialityData.setSupplierName(customer.get(0).getCompanyName());
+					 specialityData.setEnquiryId(id);
+						specialityData.setEmail(customer.get(0).getContactPersonEmail());
+						specialityData.setCustomerId(customer.get(0).getCustomerId());
+						specialityData.setContactNo(customer.get(0).getMobileNo());
+						specialityData.setStatus("level3");
+						specialityData.setFlag("N");
+						specialityData.setSupplierQuote("Quote Not Received");
+						specialityData.setPrefix(specialityData.getPrefix());
+						
+						List<SupplierData> list = SupplierDataServiceImpl.list();
+						System.out.println(list.size());
+						if(list.size()==0) {
+										System.out.println("If condition Part Printed");
+										SupplierData supplier =SupplierDataServiceImpl.saveSupplier(specialityData);
+										st.push(supplier);
+										}
+
+						else if(list.size()>0){
+										System.out.println("Else If Part Printed");
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(specialityData.getEnquiryId(),specialityData.getSupplierName(),specialityData.getSupplierQuote(),specialityData.getContactNo(),specialityData.getEmail(),specialityData.getCustomerId());
+										if(supplierData.size()>0) {
+											for(int k=0;k<supplierData.size();k++) {
+												st.push(supplierData.get(k));
+											}
+										}
+										
+										
+										if(supplierData.size()==0) {
+											System.out.println("Else If Else condition Part Printed");
+											SupplierData supplierData1 =SupplierDataServiceImpl.saveSupplier(specialityData);
+											st.push(supplierData1);
+										}
+										
+									}
+
 				}
 				json.put("CustomerDetails", st);	
 				json.put("CustomerSize", st.size());
@@ -122,9 +159,47 @@ public class EnquiryTableController {
 					System.out.println(pro.getCustomerId());
 					List<Customer> customer = customerService.productToCustomerDetails(pro.getCustomerId());
 					json.put("CustomerSize", customer.size());
-					 st.push(customer);
+					 
+					 SupplierData weavingData = new SupplierData();
+						weavingData.setSupplierName(customer.get(0).getCompanyName());
+						weavingData.setEnquiryId(id);
+						weavingData.setEmail(customer.get(0).getContactPersonEmail());
+						weavingData.setCustomerId(customer.get(0).getCustomerId());
+						weavingData.setContactNo(customer.get(0).getMobileNo());
+						weavingData.setStatus("level3");
+						weavingData.setFlag("N");
+						weavingData.setSupplierQuote("Quote Not Received");
+						weavingData.setPrefix(weavingData.getPrefix());
+						
+						List<SupplierData> list = SupplierDataServiceImpl.list();
+						System.out.println(list.size());
+						if(list.size()==0) {
+										System.out.println("If condition Part Printed");
+										SupplierData supplier =SupplierDataServiceImpl.saveSupplier(weavingData);
+										st.push(supplier);
+										}
+
+										if(list.size()>0){
+										System.out.println("Else If Part Printed");
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(weavingData.getEnquiryId(),weavingData.getSupplierName(),weavingData.getSupplierQuote(),weavingData.getContactNo(),weavingData.getEmail(),weavingData.getCustomerId());
+										if(supplierData.size()>0) {
+											for(int k=0;k<supplierData.size();k++) {
+												st.push(supplierData.get(k));
+											}
+										}
+										
+										
+										if(supplierData.size()==0) {
+											System.out.println("Else If Else condition Part Printed");
+											SupplierData supplierData1 =SupplierDataServiceImpl.saveSupplier(weavingData);
+											st.push(supplierData1);
+										}
+		
+									}
+						
 				}
 				json.put("CustomerDetails", st);
+				json.put("CustomerSize", st.size());
 			}
 			
 		}
