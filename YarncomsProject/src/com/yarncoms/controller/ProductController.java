@@ -3,6 +3,7 @@ package com.yarncoms.controller;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,22 @@ public class ProductController {
 		json.put("Entity", "Product");
 		json.put("Product", product);
 		json.put("ProductSize", product.size());
+
+		return json;
+	}
+	
+	@RequestMapping(value = "get-Product-Material", method = RequestMethod.GET)
+	public @ResponseBody HashMap getProductMaterialList() {
+		HashMap json = new HashMap();
+
+		List<Product> product = ProductServiceImpl.list();
+		Stack st = new Stack();
+		for(Product prod:product) {
+			Object pro = (Object) ProductServiceImpl.getProductDetails(prod.getProductId());
+			st.push(pro);
+		}
+		json.put("Product", st);
+		json.put("ProductSize", st.size());
 
 		return json;
 	}
