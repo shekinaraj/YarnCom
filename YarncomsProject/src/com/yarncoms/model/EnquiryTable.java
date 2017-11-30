@@ -25,6 +25,9 @@ public class EnquiryTable {
 
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "countryCode")
+	private String countryCode;
 
 	@Column(name = "contactNo")
 	private String contactNo;
@@ -72,6 +75,14 @@ public class EnquiryTable {
 
 	public void setEnquiryFrom(String enquiryFrom) {
 		this.enquiryFrom = enquiryFrom;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getContactNo() {

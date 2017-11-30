@@ -36,6 +36,9 @@ public class SpecialityEnquiry {
 
 	@Column(name = "commission")
 	private String commission;
+	
+	@Column(name = "countryCode")
+	private String countryCode;
 
 	@Column(name = "contactNo")
 	private String contactNo;
@@ -201,6 +204,14 @@ public class SpecialityEnquiry {
 
 	public void setCommission(String commission) {
 		this.commission = commission;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getContactNo() {

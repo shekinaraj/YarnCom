@@ -36,6 +36,9 @@ public class WeavingEnquiry {
 
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "countryCode")
+	private String countryCode;
 
 	@Column(name = "contactNo")
 	private String contactNo;
@@ -256,6 +259,14 @@ public class WeavingEnquiry {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getContactNo() {

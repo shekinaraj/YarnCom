@@ -100,6 +100,7 @@ public class CustomerVisitController {
 		enquiry.setEnquiryId(cust.getPrefix() + "-0000" + cust.getCustomerVisitId().toString());
 		enquiry.setEnquiryFrom("Customer");
 		enquiry.setName(cust.getContactPersonName());
+		enquiry.setCountryCode	(cust.getCountryCode());
 		enquiry.setContactNo(cust.getMobileNumber());
 		enquiry.setEnqDate(cust.getDateOfVisit());
 		enquiry.setEnqLevel(1);
@@ -116,8 +117,11 @@ public class CustomerVisitController {
 		System.out.println(enquiryDate);
 		System.out.println(purpose);
 		System.out.println(date);
+		System.out.println(date1);
+		System.out.println(date2);
 		System.out.println(date1.compareTo(date2));
-		if (date1.compareTo(date2) >= 1 && purpose.equals("Enquiry")) {
+		System.out.println(enquiryDate.equals(date)+"   "+date1.compareTo(date2));
+		if ((enquiryDate.equals(date))||(date1.compareTo(date2) == 1) && purpose.equals("Enquiry")) {
 			System.out.println(enquiry);
 			EnquiryTable enq1 = EnquiryTableServiceImpl.save(enquiry);
 			json.put("Enquiry", enq1);
@@ -137,6 +141,7 @@ public class CustomerVisitController {
 			customer.setCompanyName(cust.getCompanyName());
 			customer.setContactPersonEmail(cust.getEmailId());
 			customer.setContactPersonName(cust.getContactPersonName());
+			customer.setCountryCode(cust.getCountryCode());
 			customer.setMobileNo(cust.getMobileNumber());
 			customer.setCustomerType("Buyer");
 			customer.setStatus("Open");

@@ -27,6 +27,9 @@ public class UserDetails {
 	@Column(name = "Role")
 	private String role;
 	
+	@Column(name = "countryCode")
+	private String countryCode;
+	
 	@Column(name="PhoneNumber")
 	private String phoneNumber;
 
@@ -77,6 +80,14 @@ public class UserDetails {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getPhoneNumber() {

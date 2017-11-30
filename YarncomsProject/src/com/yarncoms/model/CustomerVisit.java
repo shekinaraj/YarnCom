@@ -44,6 +44,9 @@ public class CustomerVisit {
 	@Column(name = "emailId")
 	private String emailId;
 	
+	@Column(name = "countryCode")
+	private String countryCode;
+	
 	@Column(name = "mobileNumber")
 	private String mobileNumber;
 
@@ -131,6 +134,14 @@ public class CustomerVisit {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getMobileNumber() {
