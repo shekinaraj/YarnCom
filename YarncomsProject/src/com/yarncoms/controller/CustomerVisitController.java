@@ -1,5 +1,6 @@
 package com.yarncoms.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -88,7 +89,7 @@ public class CustomerVisitController {
 	}
 
 	@RequestMapping(value = "save-customer-visit", method = RequestMethod.POST)
-	public @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit customervisit) {
+	public @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit customervisit) throws ParseException {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
 		customervisit.setPrefix(customervisit.getPrefix());
@@ -107,11 +108,16 @@ public class CustomerVisitController {
 		enquiry.setProductDescription("From Customer Visit Data");
 
 		String enquiryDate = cust.getDateOfVisit();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date1 = format.parse(enquiryDate);
+		Date date2 = format.parse(date);
+		
 		String purpose = cust.getPurposeOfVisit();
 		System.out.println(enquiryDate);
 		System.out.println(purpose);
 		System.out.println(date);
-		if (enquiryDate.equals(date) && purpose.equals("Enquiry")) {
+		System.out.println(date1.compareTo(date2));
+		if (date1.compareTo(date2) >= 1 && purpose.equals("Enquiry")) {
 			System.out.println(enquiry);
 			EnquiryTable enq1 = EnquiryTableServiceImpl.save(enquiry);
 			json.put("Enquiry", enq1);
