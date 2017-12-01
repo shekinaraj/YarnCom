@@ -66,6 +66,7 @@ public class WeavingEnquiryController {
 		enquiry.setEnquiryId(weaving.getPrefix()+"_0000"+weaving.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
 		enquiry.setName(weaving.getName());
+		enquiry.setCountryCode(weaving.getCountryCode());
 		enquiry.setContactNo(weaving.getContactNo());
 		enquiry.setEnqDate(weaving.getEnquiryDate());
 		enquiry.setTechnicalPerson(weaving.getTechnicalPerson());

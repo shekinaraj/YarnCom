@@ -69,6 +69,7 @@ public class SpecialityEnquiryController {
 		enquiry.setCvEnquiryId(spclEnquiry.getCvId());
 		enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
 		enquiry.setName(spclEnquiry.getName());
+		enquiry.setCountryCode(spclEnquiry.getCountryCode());
 		enquiry.setContactNo(spclEnquiry.getContactNo());
 		enquiry.setEnqDate(spclEnquiry.getEnquiryDate());
 		enquiry.setEnqStatus("Open");

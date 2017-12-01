@@ -81,6 +81,7 @@ public class FabricEnquiryController {
 		enquiry.setEnquiryId(fabricDetails.getPrefix() + "-0000" + fabricDetails.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
 		enquiry.setName(fabricDetails.getName());
+		enquiry.setCountryCode(fabricDetails.getCountryCode());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
 		enquiry.setEnqStatus("Open");
