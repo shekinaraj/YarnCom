@@ -37,6 +37,9 @@ public class SupplierData {
 	@Column(name = "value")
 	private String value;
 	
+	@Column(name = "countryCode")
+	private String countryCode;
+	
 	@Column(name = "contactNo")
 	private String contactNo;
 	
@@ -114,6 +117,14 @@ public class SupplierData {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getContactNo() {

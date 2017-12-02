@@ -131,6 +131,8 @@ public class FabricEnquiryController {
 		long number = new Long(parse).longValue();
 		System.out.println(number);
 		List<FabricEnquiry> fabricEnquiry = FabricEnquiryServiceImpl.getByQuery(number);
+		//System.out.println(fabricEnquiry.get(0).getCountryCode());
+		System.out.println(fabricEnquiry.size());
 		Stack st = new Stack();
 		for (int i = 0; i < fabricEnquiry.size(); i++) {
 			Object product = (Object) fabricEnquiry.get(i);
@@ -144,6 +146,7 @@ public class FabricEnquiryController {
 			fabricData.setEnquiryId(id);
 			fabricData.setEmail(customer.get(0).getContactPersonEmail());
 			fabricData.setCustomerId(customer.get(0).getCustomerId());
+			fabricData.setCountryCode(customer.get(0).getCountryCode());
 			fabricData.setContactNo(customer.get(0).getMobileNo());
 			fabricData.setStatus("level3");
 			fabricData.setFlag("N");
@@ -161,7 +164,7 @@ public class FabricEnquiryController {
 				System.out.println("Else If Part Printed");
 				List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(fabricData.getEnquiryId(),
 						fabricData.getSupplierName(), fabricData.getContactNo(),
-						fabricData.getEmail(), fabricData.getCustomerId());
+						fabricData.getEmail(), fabricData.getCustomerId(), fabricData.getCountryCode());
 				if (supplierData.size() > 0) {
 					for (int k = 0; k < supplierData.size(); k++) {
 						st.push(supplierData.get(k));

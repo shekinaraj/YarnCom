@@ -10,7 +10,7 @@ public interface SupplierDataService {
 
 	List<SupplierData> getById(Long id);
 	
-	List<SupplierData> getByTableData(String enquiryId,String supplierName,String contactNo,String email,String customerId);
+	List<SupplierData> getByTableData(String enquiryId,String supplierName,String contactNo,String email,String customerId,String countryCode);
 	
 	SupplierData saveSupplier(SupplierData supplier);
 

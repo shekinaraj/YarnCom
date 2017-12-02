@@ -42,9 +42,9 @@ public class SupplierDataServiceImpl implements SupplierDataService{
 
 	@Override
 	public List<SupplierData> getByTableData(String enquiryId, String supplierName,
-			String contactNo, String email, String customerId) {
+			String contactNo, String email, String customerId,String countryCode) {
 		// TODO Auto-generated method stub
-		return supplierDataRepository.getByTableData(enquiryId, supplierName, contactNo, email, customerId);
+		return supplierDataRepository.getByTableData(enquiryId, supplierName, contactNo, email, customerId, countryCode);
 	}
 
 }

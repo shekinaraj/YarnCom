@@ -65,7 +65,7 @@ public class WeavingEnquiry {
 	private String waxed;
 
 	@Column(name = "count")
-	private Long count;
+	private String count;
 	
 	@Column(name = "yarnPackage")
 	private String yarnPackage;
@@ -332,12 +332,12 @@ public class WeavingEnquiry {
 	public void setWaxed(String waxed) {
 		this.waxed = waxed;
 	}
-	
-	public Long getCount() {
+
+	public String getCount() {
 		return count;
 	}
 
-	public void setCount(Long count) {
+	public void setCount(String count) {
 		this.count = count;
 	}
 

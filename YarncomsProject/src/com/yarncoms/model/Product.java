@@ -29,7 +29,7 @@ public class Product {
 	private String enquiryFor;
 
 	@Column(name = "count")
-	private int count;
+	private String count;
 	
 	@Column(name = "yarnPackage")
 	private String yarnPackage;
@@ -155,11 +155,11 @@ public class Product {
 		this.enquiryFor = enquiryFor;
 	}
 
-	public int getCount() {
+	public String getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(String count) {
 		this.count = count;
 	}
 

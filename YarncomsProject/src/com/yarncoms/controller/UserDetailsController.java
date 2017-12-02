@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -115,10 +117,12 @@ public class UserDetailsController {
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public @ResponseBody HashMap login(@RequestBody UserDetails user) {
+	public @ResponseBody HashMap login(HttpServletRequest request,@RequestBody UserDetails user) {
 		LinkedHashMap json = new LinkedHashMap();
 		List<UserDetails> userDetail = (List<UserDetails>) UserDetailsServiceImpl.login(user.getUserName(),
 				user.getPassword());
+		String ipAddress = request.getHeader("Remote_Addr"); 
+		System.out.println(" ip Address "+ipAddress);
 		json.put("Retrieved", userDetail);
 		return json;
 	}

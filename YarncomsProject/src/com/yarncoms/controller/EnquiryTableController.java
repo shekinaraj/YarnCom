@@ -112,6 +112,7 @@ public class EnquiryTableController {
 					 specialityData.setEnquiryId(id);
 						specialityData.setEmail(customer.get(0).getContactPersonEmail());
 						specialityData.setCustomerId(customer.get(0).getCustomerId());
+						specialityData.setCountryCode(customer.get(0).getCountryCode());
 						specialityData.setContactNo(customer.get(0).getMobileNo());
 						specialityData.setStatus("level3");
 						specialityData.setFlag("N");
@@ -127,7 +128,7 @@ public class EnquiryTableController {
 
 						else if(list.size()>0){
 										System.out.println("Else If Part Printed");
-										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(specialityData.getEnquiryId(),specialityData.getSupplierName(),specialityData.getContactNo(),specialityData.getEmail(),specialityData.getCustomerId());
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(specialityData.getEnquiryId(),specialityData.getSupplierName(),specialityData.getContactNo(),specialityData.getEmail(),specialityData.getCustomerId(),specialityData.getCountryCode());
 										if(supplierData.size()>0) {
 											for(int k=0;k<supplierData.size();k++) {
 												st.push(supplierData.get(k));
@@ -170,6 +171,7 @@ public class EnquiryTableController {
 						weavingData.setEmail(customer.get(0).getContactPersonEmail());
 						weavingData.setCustomerId(customer.get(0).getCustomerId());
 						weavingData.setContactNo(customer.get(0).getMobileNo());
+						weavingData.setCountryCode(customer.get(0).getCountryCode());
 						weavingData.setStatus("level3");
 						weavingData.setFlag("N");
 						weavingData.setPrefix(weavingData.getPrefix());
@@ -184,7 +186,7 @@ public class EnquiryTableController {
 
 										if(list.size()>0){
 										System.out.println("Else If Part Printed");
-										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(weavingData.getEnquiryId(),weavingData.getSupplierName(),weavingData.getContactNo(),weavingData.getEmail(),weavingData.getCustomerId());
+										List<SupplierData> supplierData = SupplierDataServiceImpl.getByTableData(weavingData.getEnquiryId(),weavingData.getSupplierName(),weavingData.getContactNo(),weavingData.getEmail(),weavingData.getCustomerId(),weavingData.getCountryCode());
 										if(supplierData.size()>0) {
 											for(int k=0;k<supplierData.size();k++) {
 												st.push(supplierData.get(k));
