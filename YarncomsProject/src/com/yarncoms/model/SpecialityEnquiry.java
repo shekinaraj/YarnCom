@@ -149,6 +149,34 @@ public class SpecialityEnquiry {
 
 	@Column(name = "usagee")
 	private String usagee;
+	
+	@Column(name = "countType")
+	private String countType;
+
+	@Column(name = "weavingType")
+	private String weavingType;
+	
+	@Column(name = "weavingDenier")
+	private String weavingDenier;
+
+	@Column(name = "noOfFilament")
+	private String noOfFilament;
+	
+	@Column(name = "texColour")
+	private String texColour;
+	
+	@Column(name = "quality")
+	private String quality;
+	
+	@Column(name = "weavingYarnType")
+	private String weavingYarnType;
+	
+	@Column(name = "weavingCoreDenier")
+	private String weavingCoreDenier;
+	
+	@Column(name = "weavingVirginMaterial")
+	private String weavingVirginMaterial;
+	
 	 
 	public String getPrefix() {
 		return prefix;
@@ -476,6 +504,78 @@ public class SpecialityEnquiry {
 
 	public void setUsagee(String usagee) {
 		this.usagee = usagee;
+	}
+
+	public String getCountType() {
+		return countType;
+	}
+
+	public void setCountType(String countType) {
+		this.countType = countType;
+	}
+
+	public String getWeavingType() {
+		return weavingType;
+	}
+
+	public void setWeavingType(String weavingType) {
+		this.weavingType = weavingType;
+	}
+
+	public String getWeavingDenier() {
+		return weavingDenier;
+	}
+
+	public void setWeavingDenier(String weavingDenier) {
+		this.weavingDenier = weavingDenier;
+	}
+
+	public String getNoOfFilament() {
+		return noOfFilament;
+	}
+
+	public void setNoOfFilament(String noOfFilament) {
+		this.noOfFilament = noOfFilament;
+	}
+
+	public String getTexColour() {
+		return texColour;
+	}
+
+	public void setTexColour(String texColour) {
+		this.texColour = texColour;
+	}
+
+	public String getQuality() {
+		return quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
+
+	public String getWeavingYarnType() {
+		return weavingYarnType;
+	}
+
+	public void setWeavingYarnType(String weavingYarnType) {
+		this.weavingYarnType = weavingYarnType;
+	}
+
+	public String getWeavingCoreDenier() {
+		return weavingCoreDenier;
+	}
+
+	public void setWeavingCoreDenier(String weavingCoreDenier) {
+		this.weavingCoreDenier = weavingCoreDenier;
+	}
+
+	public String getWeavingVirginMaterial() {
+		return weavingVirginMaterial;
+	}
+
+	public void setWeavingVirginMaterial(String weavingVirginMaterial) {
+		this.weavingVirginMaterial = weavingVirginMaterial;
 	}
 
 }
