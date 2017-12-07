@@ -16,11 +16,14 @@ public class MaterialTable {
 	@Column(name = "materialId")
 	private Long materialId;
 	
-	@Column(name = "materialName")
-	private String materialName;
-
-	@Column(name = "isQualityMaterial")
+	@Column(name = "material")
+	private String material;
+	
+	@Column(name="isQualityMaterial")
 	private String isQualityMaterial;
+
+	@Column(name = "quality")
+	private String quality;
 
 	@Column(name = "cottonType")
 	private String cottonType;
@@ -28,8 +31,8 @@ public class MaterialTable {
 	@Column(name = "yarnQuality")
 	private String yarnQuality;
 
-	@Column(name = "BlendRatio")
-	private String BlendRatio;
+	@Column(name = "blendRatio")
+	private String blendRatio;
 
 	@Column(name = "blendPercentageCotton")
 	private String blendPercentageCotton;
@@ -45,9 +48,6 @@ public class MaterialTable {
 
 	@Column(name = "colour")
 	private String colour;
-	
-	@Column(name = "qualityName")
-	private String qualityName;
 
 	@Column(name = "fibreBlend")
 	private String fibreBlend;
@@ -64,48 +64,12 @@ public class MaterialTable {
 	@Column(name = "wasteTypeViscose")
 	private String wasteTypeViscose;
 	
-	@Column(name = "weavingOtherMaterial")
-	private String weavingOtherMaterial;
+	@Column(name = "otherMaterial")
+	private String otherMaterial;
 
-	@Column(name = "weavingOtherMaterialPercentage")
-	private String weavingOtherMaterialPercentage;
-	
-	@Column(name = "specialityOtherMaterial")
-	private String specialityOtherMaterial;
-	
-	@Column(name = "specialityOtherMaterialPercentage")
-	private String specialityOtherMaterialPercentage;
+	@Column(name = "otherMaterialPercentage")
+	private String otherMaterialPercentage;
 
-	@Column(name = "virginTypeCotton")
-	private String virginTypeCotton;
-
-	@Column(name = "virginTypePolyster")
-	private String virginTypePolyster;
-
-	@Column(name = "virginTypeViscose")
-	private String virginTypeViscose;
-
-	@Column(name = "blendYarnQuality")
-	private String blendYarnQuality;
-	
-	/*
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Long getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
-*/	
-	
 	public Long getMaterialId() {
 		return materialId;
 	}
@@ -114,12 +78,12 @@ public class MaterialTable {
 		this.materialId = materialId;
 	}
 
-	public String getMaterialName() {
-		return materialName;
+	public String getMaterial() {
+		return material;
 	}
 
-	public void setMaterialName(String materialName) {
-		this.materialName = materialName;
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 
 	public String getIsQualityMaterial() {
@@ -128,6 +92,14 @@ public class MaterialTable {
 
 	public void setIsQualityMaterial(String isQualityMaterial) {
 		this.isQualityMaterial = isQualityMaterial;
+	}
+
+	public String getQuality() {
+		return quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
 	}
 
 	public String getCottonType() {
@@ -147,13 +119,13 @@ public class MaterialTable {
 	}
 
 	public String getBlendRatio() {
-		return BlendRatio;
+		return blendRatio;
 	}
 
 	public void setBlendRatio(String blendRatio) {
-		BlendRatio = blendRatio;
+		this.blendRatio = blendRatio;
 	}
-	
+
 	public String getBlendPercentageCotton() {
 		return blendPercentageCotton;
 	}
@@ -192,14 +164,6 @@ public class MaterialTable {
 
 	public void setColour(String colour) {
 		this.colour = colour;
-	}
-
-	public String getQualityName() {
-		return qualityName;
-	}
-
-	public void setQualityName(String qualityName) {
-		this.qualityName = qualityName;
 	}
 
 	public String getFibreBlend() {
@@ -242,68 +206,21 @@ public class MaterialTable {
 		this.wasteTypeViscose = wasteTypeViscose;
 	}
 
-	public String getWeavingOtherMaterial() {
-		return weavingOtherMaterial;
+	public String getOtherMaterial() {
+		return otherMaterial;
 	}
 
-	public void setWeavingOtherMaterial(String weavingOtherMaterial) {
-		this.weavingOtherMaterial = weavingOtherMaterial;
+	public void setOtherMaterial(String otherMaterial) {
+		this.otherMaterial = otherMaterial;
 	}
 
-	public String getWeavingOtherMaterialPercentage() {
-		return weavingOtherMaterialPercentage;
+	public String getOtherMaterialPercentage() {
+		return otherMaterialPercentage;
 	}
 
-	public void setWeavingOtherMaterialPercentage(String weavingOtherMaterialPercentage) {
-		this.weavingOtherMaterialPercentage = weavingOtherMaterialPercentage;
+	public void setOtherMaterialPercentage(String otherMaterialPercentage) {
+		this.otherMaterialPercentage = otherMaterialPercentage;
 	}
-
-	public String getSpecialityOtherMaterial() {
-		return specialityOtherMaterial;
-	}
-
-	public void setSpecialityOtherMaterial(String specialityOtherMaterial) {
-		this.specialityOtherMaterial = specialityOtherMaterial;
-	}
-
-	public String getSpecialityOtherMaterialPercentage() {
-		return specialityOtherMaterialPercentage;
-	}
-
-	public void setSpecialityOtherMaterialPercentage(String specialityOtherMaterialPercentage) {
-		this.specialityOtherMaterialPercentage = specialityOtherMaterialPercentage;
-	}
-
-	public String getVirginTypeCotton() {
-		return virginTypeCotton;
-	}
-
-	public void setVirginTypeCotton(String virginTypeCotton) {
-		this.virginTypeCotton = virginTypeCotton;
-	}
-
-	public String getVirginTypePolyster() {
-		return virginTypePolyster;
-	}
-
-	public void setVirginTypePolyster(String virginTypePolyster) {
-		this.virginTypePolyster = virginTypePolyster;
-	}
-
-	public String getVirginTypeViscose() {
-		return virginTypeViscose;
-	}
-
-	public void setVirginTypeViscose(String virginTypeViscose) {
-		this.virginTypeViscose = virginTypeViscose;
-	}
-
-	public String getBlendYarnQuality() {
-		return blendYarnQuality;
-	}
-
-	public void setBlendYarnQuality(String blendYarnQuality) {
-		this.blendYarnQuality = blendYarnQuality;
-	}
+	
 
 }

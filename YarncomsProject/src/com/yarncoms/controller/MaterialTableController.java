@@ -65,16 +65,24 @@ public class MaterialTableController {
 		}
 		if (mater.size() > 0) {
 			System.out.println("Else If Part Printed");
-			Long mat = MaterialTableServiceImpl.getAllMaterialsID(material.getMaterialName(),
-					material.getIsQualityMaterial(), material.getCottonType(), material.getYarnQuality(),
-					material.getBlendRatio(), material.getBlendPercentageCotton(),
-					material.getBlendPercentagePolyster(), material.getBlendPercentageViscose(), material.getProcess(),
-					material.getColour(), material.getQualityName(), material.getFibreBlend(), material.getDyed(),
-					material.getWasteTypeCotton(), material.getWasteTypePolyster(), material.getWasteTypeViscose(),
-					material.getWeavingOtherMaterial(), material.getWeavingOtherMaterialPercentage(),
-					material.getSpecialityOtherMaterial(), material.getSpecialityOtherMaterialPercentage(),
-					material.getVirginTypeCotton(), material.getVirginTypePolyster(), material.getVirginTypeViscose(),
-					material.getBlendYarnQuality());
+			Long mat = MaterialTableServiceImpl.getAllMaterialsID(material.getMaterial(),
+					material.getIsQualityMaterial(),	
+					material.getYarnQuality(),
+					material.getQuality(),
+					material.getCottonType(),
+					material.getBlendRatio(), 
+					material.getBlendPercentageCotton(),
+					material.getBlendPercentagePolyster(), 
+					material.getBlendPercentageViscose(), 
+					material.getProcess(),
+					material.getColour(), 
+					material.getFibreBlend(), 
+					material.getDyed(),
+					material.getWasteTypeCotton(), 
+					material.getWasteTypePolyster(), 
+					material.getWasteTypeViscose(),
+					material.getOtherMaterial(), 
+					material.getOtherMaterialPercentage());
 			json.put("MaterialTable", mat);
 			System.out.println("Existing Material Id " + mat);
 			try {

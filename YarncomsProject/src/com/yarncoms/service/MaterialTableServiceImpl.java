@@ -55,20 +55,18 @@ public class MaterialTableServiceImpl implements MaterialTableService {
 	}
 
 	@Override
-	public Long getAllMaterialsID(String MaterialName,String IsQualityMaterial,String CottonType,String YarnQuality,String BlendRatio,String BlendPercentageCotton,String BlendPercentagePolyster,String BlendPercentageViscose,
-			String Process,String Colour,String QualityName,String FibreBlend,String Dyed,String WasteTypeCotton,
-			String WasteTypePolyster,String WasteTypeViscose,String WeavingOtherMaterial,String WeavingOtherMaterialPercentage,
-			String SpecialityOtherMaterial,String SpecialityOtherMaterialPercentage,String VirginTypeCotton,String VirginTypePolyster,
-			String VirginTypeViscose,String BlendYarnQuality) {
-		
-		System.out.println("Impl "+MaterialName);
-		return materialTableRepository.getAllMaterialsMaterialId(MaterialName, IsQualityMaterial, CottonType,
-				YarnQuality,BlendRatio,BlendPercentageCotton,BlendPercentagePolyster,BlendPercentageViscose,
-				Process,Colour,QualityName,FibreBlend,Dyed,WasteTypeCotton,
-				WasteTypePolyster,WasteTypeViscose,WeavingOtherMaterial,WeavingOtherMaterialPercentage,
-				SpecialityOtherMaterial,SpecialityOtherMaterialPercentage,VirginTypeCotton,VirginTypePolyster,
-				VirginTypeViscose,BlendYarnQuality);
+	public Long getAllMaterialsID(String material, String isQualityMaterial, String yarnQuality, String quality,
+			String cottonType, String blendRatio, String blendPercentageCotton, String blendPercentagePolyster,
+			String blendPercentageViscose, String process, String colour, String fibreBlend, String dyed,
+			String wasteTypeCotton, String wasteTypePolyster, String wasteTypeViscose, String otherMaterial,
+			String otherMaterialPercentage) {
+		// TODO Auto-generated method stub
+		return materialTableRepository.getAllMaterialsMaterialId(material, isQualityMaterial, cottonType,
+				yarnQuality,blendRatio,blendPercentageCotton,blendPercentagePolyster,blendPercentageViscose,
+				process,colour,quality,fibreBlend,dyed,wasteTypeCotton,
+				wasteTypePolyster,wasteTypeViscose, otherMaterialPercentage, otherMaterialPercentage);
 	}
 
+	
 	
 }

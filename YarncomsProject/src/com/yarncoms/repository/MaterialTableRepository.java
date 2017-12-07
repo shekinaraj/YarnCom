@@ -14,12 +14,10 @@ public interface MaterialTableRepository extends JpaRepository<MaterialTable, Lo
 	@Query("select m from MaterialTable m")
 	List<MaterialTable> getAllMaterial();
 
-	@Query("SELECT m.materialId FROM MaterialTable m where m.materialName=?1 and m.isQualityMaterial=?2 and m.cottonType=?3 and m.yarnQuality=?4 and m.BlendRatio=?5 and m.blendPercentageCotton=?6 and m.blendPercentagePolyster=?7 and m.blendPercentageViscose=?8 and m.process=?9 and m.colour=?10 and m.qualityName=?11 and m.fibreBlend=?12 and m.dyed=?13 and m.wasteTypeCotton=?14 and m.wasteTypePolyster=?15 and m.wasteTypeViscose=?16 and m.weavingOtherMaterial=?17 and m.weavingOtherMaterialPercentage=?18 and m.specialityOtherMaterial=?19 and m.specialityOtherMaterialPercentage=?20 and m.virginTypeCotton=?21 and m.virginTypePolyster=?22 and m.virginTypeViscose=?23 and m.blendYarnQuality=?24")
-	Long getAllMaterialsMaterialId(String MaterialName, String IsQualityMaterial, String CottonType, String YarnQuality,
-			String BlendRatio, String BlendPercentageCotton, String BlendPercentagePolyster,
-			String BlendPercentageViscose, String Process, String Colour, String QualityName, String FibreBlend,
-			String Dyed, String WasteTypeCotton, String WasteTypePolyster, String WasteTypeViscose,
-			String WeavingOtherMaterial, String WeavingOtherMaterialPercentage, String SpecialityOtherMaterial,
-			String SpecialityOtherMaterialPercentage, String VirginTypeCotton, String VirginTypePolyster,
-			String VirginTypeViscose, String BlendYarnQuality);
+	@Query("SELECT m.materialId FROM MaterialTable m where m.material=?1 and m.isQualityMaterial=?2 and m.cottonType=?3 and m.yarnQuality=?4 and m.blendRatio=?5 and m.blendPercentageCotton=?6 and m.blendPercentagePolyster=?7 and m.blendPercentageViscose=?8 and m.process=?9 and m.colour=?10 and m.quality=?11 and m.fibreBlend=?12 and m.dyed=?13 and m.wasteTypeCotton=?14 and m.wasteTypePolyster=?15 and m.wasteTypeViscose=?16 and m.otherMaterial=?17 and m.otherMaterialPercentage=?18")
+	Long getAllMaterialsMaterialId(String material, String isQualityMaterial, String yarnQuality, String quality,
+			String cottonType, String blendRatio, String blendPercentageCotton, String blendPercentagePolyster,
+			String blendPercentageViscose, String process, String colour, String fibreBlend, String dyed,
+			String wasteTypeCotton, String wasteTypePolyster, String wasteTypeViscose, String otherMaterial,
+			String otherMaterialPercentage);
 }
