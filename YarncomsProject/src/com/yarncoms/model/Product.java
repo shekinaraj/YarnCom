@@ -40,9 +40,6 @@ public class Product {
 	@Column(name = "countType")
 	private String countType;
 
-	@Column(name = "weavingYarnCountIn")
-	private String weavingYarnCountIn;
-
 	@Column(name = "yarnCountIn")
 	private String yarnCountIn;
 
@@ -67,8 +64,8 @@ public class Product {
 	@Column(name = "coreDenier")
 	private int coreDenier;
 
-	@Column(name = "PVACountInNE")
-	private int PVACountInNE;
+	@Column(name = "pVACountInNE")
+	private int pVACountInNE;
 
 	@Column(name = "purpose")
 	private String purpose;
@@ -82,20 +79,14 @@ public class Product {
 	@Column(name = "waxed")
 	private String waxed;
 
-	@Column(name = "texturisedType")
-	private String texturisedType;
+	@Column(name = "materialType")
+	private String materialType;
 
-	@Column(name = "denier")
-	private int denier;
-
-	@Column(name = "noOfFilament")
-	private int noOfFilament;
+	@Column(name = "texDenier")
+	private String texDenier;
 
 	@Column(name = "colour")
 	private String colour;
-
-	@Column(name = "texturised_Quality")
-	private String texturised_Quality;
 
 	@Column(name = "doublingType")
 	private String doublingType;
@@ -111,9 +102,41 @@ public class Product {
 
 	@Column(name = "productDescription")
 	private String productDescription;
+	
+	@Column(name = "subject")
+	private String subject;
 
 	@Column(name = "remarks")
 	private String remarks;
+
+	
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getQuality() {
+		return quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	public Long getProductId() {
 		return productId;
@@ -123,20 +146,20 @@ public class Product {
 		this.productId = productId;
 	}
 
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
-
 	public Long getMaterialId() {
 		return materialId;
 	}
 
 	public void setMaterialId(Long materialId) {
 		this.materialId = materialId;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getCompanyName() {
@@ -185,14 +208,6 @@ public class Product {
 
 	public void setCountType(String countType) {
 		this.countType = countType;
-	}
-
-	public String getWeavingYarnCountIn() {
-		return weavingYarnCountIn;
-	}
-
-	public void setWeavingYarnCountIn(String weavingYarnCountIn) {
-		this.weavingYarnCountIn = weavingYarnCountIn;
 	}
 
 	public String getYarnCountIn() {
@@ -259,12 +274,12 @@ public class Product {
 		this.coreDenier = coreDenier;
 	}
 
-	public int getPVACountInNE() {
-		return PVACountInNE;
+	public int getpVACountInNE() {
+		return pVACountInNE;
 	}
 
-	public void setPVACountInNE(int pVACountInNE) {
-		PVACountInNE = pVACountInNE;
+	public void setpVACountInNE(int pVACountInNE) {
+		this.pVACountInNE = pVACountInNE;
 	}
 
 	public String getPurpose() {
@@ -299,28 +314,20 @@ public class Product {
 		this.waxed = waxed;
 	}
 
-	public String getTexturisedType() {
-		return texturisedType;
+	public String getMaterialType() {
+		return materialType;
 	}
 
-	public void setTexturisedType(String texturisedType) {
-		this.texturisedType = texturisedType;
+	public void setMaterialType(String materialType) {
+		this.materialType = materialType;
 	}
 
-	public int getDenier() {
-		return denier;
+	public String getTexDenier() {
+		return texDenier;
 	}
 
-	public void setDenier(int denier) {
-		this.denier = denier;
-	}
-
-	public int getNoOfFilament() {
-		return noOfFilament;
-	}
-
-	public void setNoOfFilament(int noOfFilament) {
-		this.noOfFilament = noOfFilament;
+	public void setTexDenier(String texDenier) {
+		this.texDenier = texDenier;
 	}
 
 	public String getColour() {
@@ -329,14 +336,6 @@ public class Product {
 
 	public void setColour(String colour) {
 		this.colour = colour;
-	}
-
-	public String getTexturised_Quality() {
-		return texturised_Quality;
-	}
-
-	public void setTexturised_Quality(String texturised_Quality) {
-		this.texturised_Quality = texturised_Quality;
 	}
 
 	public String getDoublingType() {
@@ -355,35 +354,15 @@ public class Product {
 		this.processed = processed;
 	}
 
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
 	public String getMaterial() {
 		return material;
-	}
-
-	public void setMaterial(String material) {
-		this.material = material;
-	}
-
-	public String getQuality() {
-		return quality;
-	}
-
-	public void setQuality(String quality) {
-		this.quality = quality;
-	}
-
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
 	}
 }

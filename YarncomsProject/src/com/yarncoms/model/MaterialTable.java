@@ -34,17 +34,17 @@ public class MaterialTable {
 	@Column(name = "blendRatio")
 	private String blendRatio;
 
-	@Column(name = "blendPercentageCotton")
-	private String blendPercentageCotton;
+	@Column(name = "blendCotton")
+	private String blendCotton;
 
-	@Column(name = "blendPercentagePolyster")
-	private String blendPercentagePolyster;
+	@Column(name = "blendPolyester")
+	private String blendPolyester;
 
-	@Column(name = "blendPercentageViscose")
-	private String blendPercentageViscose;
+	@Column(name = "blendViscose")
+	private String blendViscose;
 
-	@Column(name = "process")
-	private String process;
+	@Column(name = "processed")
+	private String processed;
 
 	@Column(name = "colour")
 	private String colour;
@@ -58,8 +58,8 @@ public class MaterialTable {
 	@Column(name = "wasteTypeCotton")
 	private String wasteTypeCotton;
 
-	@Column(name = "wasteTypePolyster")
-	private String wasteTypePolyster;
+	@Column(name = "wasteTypePolyester")
+	private String wasteTypePolyester;
 
 	@Column(name = "wasteTypeViscose")
 	private String wasteTypeViscose;
@@ -126,36 +126,36 @@ public class MaterialTable {
 		this.blendRatio = blendRatio;
 	}
 
-	public String getBlendPercentageCotton() {
-		return blendPercentageCotton;
+	public String getBlendCotton() {
+		return blendCotton;
 	}
 
-	public void setBlendPercentageCotton(String blendPercentageCotton) {
-		this.blendPercentageCotton = blendPercentageCotton;
+	public void setBlendCotton(String blendCotton) {
+		this.blendCotton = blendCotton;
 	}
 
-	public String getBlendPercentagePolyster() {
-		return blendPercentagePolyster;
+	public String getBlendPolyester() {
+		return blendPolyester;
 	}
 
-	public void setBlendPercentagePolyster(String blendPercentagePolyster) {
-		this.blendPercentagePolyster = blendPercentagePolyster;
+	public void setBlendPolyester(String blendPolyester) {
+		this.blendPolyester = blendPolyester;
 	}
 
-	public String getBlendPercentageViscose() {
-		return blendPercentageViscose;
+	public String getBlendViscose() {
+		return blendViscose;
 	}
 
-	public void setBlendPercentageViscose(String blendPercentageViscose) {
-		this.blendPercentageViscose = blendPercentageViscose;
+	public void setBlendViscose(String blendViscose) {
+		this.blendViscose = blendViscose;
 	}
 
-	public String getProcess() {
-		return process;
+	public String getProcessed() {
+		return processed;
 	}
 
-	public void setProcess(String process) {
-		this.process = process;
+	public void setProcessed(String processed) {
+		this.processed = processed;
 	}
 
 	public String getColour() {
@@ -190,12 +190,12 @@ public class MaterialTable {
 		this.wasteTypeCotton = wasteTypeCotton;
 	}
 
-	public String getWasteTypePolyster() {
-		return wasteTypePolyster;
+	public String getWasteTypePolyester() {
+		return wasteTypePolyester;
 	}
 
-	public void setWasteTypePolyster(String wasteTypePolyster) {
-		this.wasteTypePolyster = wasteTypePolyster;
+	public void setWasteTypePolyester(String wasteTypePolyester) {
+		this.wasteTypePolyester = wasteTypePolyester;
 	}
 
 	public String getWasteTypeViscose() {
@@ -221,6 +221,6 @@ public class MaterialTable {
 	public void setOtherMaterialPercentage(String otherMaterialPercentage) {
 		this.otherMaterialPercentage = otherMaterialPercentage;
 	}
-	
 
+	
 }
