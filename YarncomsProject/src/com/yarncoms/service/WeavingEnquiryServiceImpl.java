@@ -23,7 +23,7 @@ public class WeavingEnquiryServiceImpl implements WeavingEnquiryService{
 	@Override
 	public WeavingEnquiry save(WeavingEnquiry weavingEnquiry) {
 		// TODO Auto-generated method stub
-		System.out.println(weavingEnquiry.getBlendPercentageCotton());
+		System.out.println(weavingEnquiry.getBlendCotton());
 		return weavingEnquiryRepository.save(weavingEnquiry);
 		
 	}

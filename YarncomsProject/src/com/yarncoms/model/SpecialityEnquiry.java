@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "speciality_enquiry")
+@Table(name = "specialityEnquiry")
 public class SpecialityEnquiry {
 	
 	@Column(name = "prefix")
@@ -58,126 +58,108 @@ public class SpecialityEnquiry {
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 	
+	@Column(name = "purpose")
+	private String purpose;
+	
+	@Column(name = "specialityType")
+	private String specialityType;
+
+	@Column(name = "yarnCountIn")
+	private String yarnCountIn;
+	
 	@Column(name = "count")
 	private String count;
 	
+	@Column(name = "ply")
+	private String ply;
+	
+	@Column(name = "specifyPly")
+	private String specifyPly;
+	
+	@Column(name = "doublingType")
+	private String doublingType;
+	
+	@Column(name = "usagee")
+	private String usagee;
+	
+	@Column(name = "yarnType")
+	private String yarnType;
+
+	@Column(name = "coreDenier")
+	private String coreDenier;
+
+	@Column(name = "pVACountInNE")
+	private String pVACountInNE;
+
+	@Column(name = "yarnQuality")
+	private String yarnQuality;
+
+	@Column(name = "useFor")
+	private String useFor;
+
+	@Column(name = "material")
+	private String material;
+
+	@Column(name = "cottonType")
+	private String cottonType;
+
+	@Column(name = "filament")
+	private String filament;
+
+	@Column(name = "colour")
+	private String colour;
+
+	@Column(name = "blendRatio")
+	private String blendRatio;
+
+	@Column(name = "blendCotton")
+	private String blendCotton;
+
+	@Column(name = "blendPolyester")
+	private String blendPolyester;
+
+	@Column(name = "blendViscose")
+	private String blendViscose;
+
+	@Column(name = "otherMaterial")
+	private String otherMaterial;
+
+	@Column(name = "otherMaterialPercentage")
+	private String otherMaterialPercentage;
+
+	@Column(name = "countType")
+	private String countType;
+
+	@Column(name = "materialType")
+	private String materialType;
+
+	@Column(name = "texDenier")
+	private String texDenier;
+
+	@Column(name = "quality")
+	private String quality;
+
+	@Column(name = "processed")
+	private String processed;
+
+	@Column(name = "processingType")
+	private String processingType;
+
 	@Column(name = "yarnPackage")
 	private String yarnPackage;
 	
 	@Column(name = "hankType")
 	private String hankType;
 	
-	@Column(name = "purpose")
-	private String purpose;
-
-	@Column(name = "yarnCountIn")
-	private String yarnCountIn;
-
-	@Column(name = "specialityPly")
-	private String specialityPly;
-
-	@Column(name = "specifyPly")
-	private String specifyPly;
-
-	@Column(name = "useFor")
-	private String useFor;
-
-	@Column(name = "specialitySewingMaterial")
-	private String specialitySewingMaterial;
+	@Column(name = "subject")
+	private String subject;
 	
-	@Column(name = "specialityEmbroideryMaterial")
-	private String specialityEmbroideryMaterial;
-
-	@Column(name = "process")
-	private String process;
-
-	@Column(name = "cottonType")
-	private String cottonType;
-
-	@Column(name = "yarnType")
-	private String yarnType;
-
-	@Column(name = "filament")
-	private String filament;
-
-	@Column(name = "yarnSpecialityQuality")
-	private String yarnSpecialityQuality;
-
-	@Column(name = "yarnSpecialityDenier")
-	private String yarnSpecialityDenier;
-
-	@Column(name = "specialityPVACountInNE")
-	private String SpecialityPVACountInNE;
-
-	@Column(name = "specialityBlendRatio")
-	private String specialityBlendRatio;
-
-	@Column(name = "specialityBlendPercentageCotton")
-	private String specialityBlendPercentageCotton;
-	
-	@Column(name = "specialityBlendPercentagePolyster")
-	private String specialityBlendPercentagePolyster;
-	
-	@Column(name = "specialityBlendPercentageViscose")
-	private String specialityBlendPercentageViscose;
-	
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-
-	@Column(name = "specialityOtherMaterial")
-	private String specialityOtherMaterial;
-	
-	@Column(name = "specialityOtherMaterialPercentage")
-	private String specialityOtherMaterialPercentage;
-	
-	@Column(name = "specialityColour")
-	private String specialityColour;
-
 	@Column(name = "productDescription")
 	private String productDescription;
 	
 	@Column(name = "remarks")
 	private String remarks;
-	
-	@Column(name = "doublingType")
-	private String doublingType;
 
-	@Column(name = "usagee")
-	private String usagee;
-	
-	@Column(name = "countType")
-	private String countType;
-
-	@Column(name = "weavingType")
-	private String weavingType;
-	
-	@Column(name = "weavingDenier")
-	private String weavingDenier;
-
-	@Column(name = "noOfFilament")
-	private String noOfFilament;
-	
-	@Column(name = "texColour")
-	private String texColour;
-	
-	@Column(name = "quality")
-	private String quality;
-	
-	@Column(name = "weavingYarnType")
-	private String weavingYarnType;
-	
-	@Column(name = "weavingCoreDenier")
-	private String weavingCoreDenier;
-	
-	@Column(name = "weavingVirginMaterial")
-	private String weavingVirginMaterial;
-	
-	 
 	public String getPrefix() {
 		return prefix;
 	}
@@ -282,14 +264,6 @@ public class SpecialityEnquiry {
 		this.priority = priority;
 	}
 
-	public String getPurpose() {
-		return purpose;
-	}
-
-	public void setPurpose(String purpose) {
-		this.purpose = purpose;
-	}
-	
 	public String getEnquiryFor() {
 		return enquiryFor;
 	}
@@ -298,28 +272,20 @@ public class SpecialityEnquiry {
 		this.enquiryFor = enquiryFor;
 	}
 
-	public String getCount() {
-		return count;
+	public String getPurpose() {
+		return purpose;
 	}
 
-	public void setCount(String count) {
-		this.count = count;
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
-	public String getYarnPackage() {
-		return yarnPackage;
+	public String getSpecialityType() {
+		return specialityType;
 	}
 
-	public void setYarnPackage(String yarnPackage) {
-		this.yarnPackage = yarnPackage;
-	}
-
-	public String getHankType() {
-		return hankType;
-	}
-
-	public void setHankType(String hankType) {
-		this.hankType = hankType;
+	public void setSpecialityType(String specialityType) {
+		this.specialityType = specialityType;
 	}
 
 	public String getYarnCountIn() {
@@ -330,12 +296,20 @@ public class SpecialityEnquiry {
 		this.yarnCountIn = yarnCountIn;
 	}
 
-	public String getSpecialityPly() {
-		return specialityPly;
+	public String getCount() {
+		return count;
 	}
 
-	public void setSpecialityPly(String specialityPly) {
-		this.specialityPly = specialityPly;
+	public void setCount(String count) {
+		this.count = count;
+	}
+
+	public String getPly() {
+		return ply;
+	}
+
+	public void setPly(String ply) {
+		this.ply = ply;
 	}
 
 	public String getSpecifyPly() {
@@ -344,150 +318,6 @@ public class SpecialityEnquiry {
 
 	public void setSpecifyPly(String specifyPly) {
 		this.specifyPly = specifyPly;
-	}
-
-	public String getUseFor() {
-		return useFor;
-	}
-
-	public void setUseFor(String useFor) {
-		this.useFor = useFor;
-	}
-
-	public String getProcess() {
-		return process;
-	}
-
-	public void setProcess(String process) {
-		this.process = process;
-	}
-
-	public String getCottonType() {
-		return cottonType;
-	}
-
-	public void setCottonType(String cottonType) {
-		this.cottonType = cottonType;
-	}
-
-	public String getYarnType() {
-		return yarnType;
-	}
-
-	public void setYarnType(String yarnType) {
-		this.yarnType = yarnType;
-	}
-
-	public String getFilament() {
-		return filament;
-	}
-
-	public void setFilament(String filament) {
-		this.filament = filament;
-	}
-
-	public String getYarnSpecialityQuality() {
-		return yarnSpecialityQuality;
-	}
-
-	public void setYarnSpecialityQuality(String yarnSpecialityQuality) {
-		this.yarnSpecialityQuality = yarnSpecialityQuality;
-	}
-
-	public String getSpecialitySewingMaterial() {
-		return specialitySewingMaterial;
-	}
-
-	public void setSpecialitySewingMaterial(String specialitySewingMaterial) {
-		this.specialitySewingMaterial = specialitySewingMaterial;
-	}
-
-	public String getSpecialityEmbroideryMaterial() {
-		return specialityEmbroideryMaterial;
-	}
-
-	public void setSpecialityEmbroideryMaterial(String specialityEmbroideryMaterial) {
-		this.specialityEmbroideryMaterial = specialityEmbroideryMaterial;
-	}
-
-	public String getYarnSpecialityDenier() {
-		return yarnSpecialityDenier;
-	}
-
-	public void setYarnSpecialityDenier(String yarnSpecialityDenier) {
-		this.yarnSpecialityDenier = yarnSpecialityDenier;
-	}
-
-	public String getSpecialityPVACountInNE() {
-		return SpecialityPVACountInNE;
-	}
-
-	public void setSpecialityPVACountInNE(String specialityPVACountInNE) {
-		SpecialityPVACountInNE = specialityPVACountInNE;
-	}
-
-	public String getSpecialityBlendRatio() {
-		return specialityBlendRatio;
-	}
-
-	public void setSpecialityBlendRatio(String specialityBlendRatio) {
-		this.specialityBlendRatio = specialityBlendRatio;
-	}
-
-	public String getSpecialityBlendPercentageCotton() {
-		return specialityBlendPercentageCotton;
-	}
-
-	public void setSpecialityBlendPercentageCotton(String specialityBlendPercentageCotton) {
-		this.specialityBlendPercentageCotton = specialityBlendPercentageCotton;
-	}
-
-	public String getSpecialityBlendPercentagePolyster() {
-		return specialityBlendPercentagePolyster;
-	}
-
-	public void setSpecialityBlendPercentagePolyster(String specialityBlendPercentagePolyster) {
-		this.specialityBlendPercentagePolyster = specialityBlendPercentagePolyster;
-	}
-
-	public String getSpecialityBlendPercentageViscose() {
-		return specialityBlendPercentageViscose;
-	}
-
-	public void setSpecialityBlendPercentageViscose(String specialityBlendPercentageViscose) {
-		this.specialityBlendPercentageViscose = specialityBlendPercentageViscose;
-	}
-
-	public String getSpecialityOtherMaterial() {
-		return specialityOtherMaterial;
-	}
-
-	public void setSpecialityOtherMaterial(String specialityOtherMaterial) {
-		this.specialityOtherMaterial = specialityOtherMaterial;
-	}
-
-	public String getSpecialityOtherMaterialPercentage() {
-		return specialityOtherMaterialPercentage;
-	}
-
-	public void setSpecialityOtherMaterialPercentage(String specialityOtherMaterialPercentage) {
-		this.specialityOtherMaterialPercentage = specialityOtherMaterialPercentage;
-	}
-
-	public String getSpecialityColour() {
-		return specialityColour;
-	}
-
-	public void setSpecialityColour(String specialityColour) {
-		this.specialityColour = specialityColour;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
 	}
 
 	public String getDoublingType() {
@@ -506,6 +336,126 @@ public class SpecialityEnquiry {
 		this.usagee = usagee;
 	}
 
+	public String getYarnType() {
+		return yarnType;
+	}
+
+	public void setYarnType(String yarnType) {
+		this.yarnType = yarnType;
+	}
+
+	public String getCoreDenier() {
+		return coreDenier;
+	}
+
+	public void setCoreDenier(String coreDenier) {
+		this.coreDenier = coreDenier;
+	}
+
+	public String getpVACountInNE() {
+		return pVACountInNE;
+	}
+
+	public void setpVACountInNE(String pVACountInNE) {
+		this.pVACountInNE = pVACountInNE;
+	}
+
+	public String getYarnQuality() {
+		return yarnQuality;
+	}
+
+	public void setYarnQuality(String yarnQuality) {
+		this.yarnQuality = yarnQuality;
+	}
+
+	public String getUseFor() {
+		return useFor;
+	}
+
+	public void setUseFor(String useFor) {
+		this.useFor = useFor;
+	}
+
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getCottonType() {
+		return cottonType;
+	}
+
+	public void setCottonType(String cottonType) {
+		this.cottonType = cottonType;
+	}
+
+	public String getFilament() {
+		return filament;
+	}
+
+	public void setFilament(String filament) {
+		this.filament = filament;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+	public String getBlendRatio() {
+		return blendRatio;
+	}
+
+	public void setBlendRatio(String blendRatio) {
+		this.blendRatio = blendRatio;
+	}
+
+	public String getBlendCotton() {
+		return blendCotton;
+	}
+
+	public void setBlendCotton(String blendCotton) {
+		this.blendCotton = blendCotton;
+	}
+
+	public String getBlendPolyester() {
+		return blendPolyester;
+	}
+
+	public void setBlendPolyester(String blendPolyester) {
+		this.blendPolyester = blendPolyester;
+	}
+
+	public String getBlendViscose() {
+		return blendViscose;
+	}
+
+	public void setBlendViscose(String blendViscose) {
+		this.blendViscose = blendViscose;
+	}
+
+	public String getOtherMaterial() {
+		return otherMaterial;
+	}
+
+	public void setOtherMaterial(String otherMaterial) {
+		this.otherMaterial = otherMaterial;
+	}
+
+	public String getOtherMaterialPercentage() {
+		return otherMaterialPercentage;
+	}
+
+	public void setOtherMaterialPercentage(String otherMaterialPercentage) {
+		this.otherMaterialPercentage = otherMaterialPercentage;
+	}
+
 	public String getCountType() {
 		return countType;
 	}
@@ -514,36 +464,20 @@ public class SpecialityEnquiry {
 		this.countType = countType;
 	}
 
-	public String getWeavingType() {
-		return weavingType;
+	public String getMaterialType() {
+		return materialType;
 	}
 
-	public void setWeavingType(String weavingType) {
-		this.weavingType = weavingType;
+	public void setMaterialType(String materialType) {
+		this.materialType = materialType;
 	}
 
-	public String getWeavingDenier() {
-		return weavingDenier;
+	public String getTexDenier() {
+		return texDenier;
 	}
 
-	public void setWeavingDenier(String weavingDenier) {
-		this.weavingDenier = weavingDenier;
-	}
-
-	public String getNoOfFilament() {
-		return noOfFilament;
-	}
-
-	public void setNoOfFilament(String noOfFilament) {
-		this.noOfFilament = noOfFilament;
-	}
-
-	public String getTexColour() {
-		return texColour;
-	}
-
-	public void setTexColour(String texColour) {
-		this.texColour = texColour;
+	public void setTexDenier(String texDenier) {
+		this.texDenier = texDenier;
 	}
 
 	public String getQuality() {
@@ -554,28 +488,63 @@ public class SpecialityEnquiry {
 		this.quality = quality;
 	}
 
-	public String getWeavingYarnType() {
-		return weavingYarnType;
+	public String getProcessed() {
+		return processed;
 	}
 
-	public void setWeavingYarnType(String weavingYarnType) {
-		this.weavingYarnType = weavingYarnType;
+	public void setProcessed(String processed) {
+		this.processed = processed;
 	}
 
-	public String getWeavingCoreDenier() {
-		return weavingCoreDenier;
+	public String getProcessingType() {
+		return processingType;
 	}
 
-	public void setWeavingCoreDenier(String weavingCoreDenier) {
-		this.weavingCoreDenier = weavingCoreDenier;
+	public void setProcessingType(String processingType) {
+		this.processingType = processingType;
 	}
 
-	public String getWeavingVirginMaterial() {
-		return weavingVirginMaterial;
+	public String getYarnPackage() {
+		return yarnPackage;
 	}
 
-	public void setWeavingVirginMaterial(String weavingVirginMaterial) {
-		this.weavingVirginMaterial = weavingVirginMaterial;
+	public void setYarnPackage(String yarnPackage) {
+		this.yarnPackage = yarnPackage;
 	}
 
+	public String getHankType() {
+		return hankType;
+	}
+
+	public void setHankType(String hankType) {
+		this.hankType = hankType;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	
+	
+	
+	
 }

@@ -60,8 +60,8 @@ public class SpecialityEnquiryController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Saved-SpecialityEnquiry-Detail");
 		specialityEnquiry.setPrefix(specialityEnquiry.getPrefix());
-		System.out.println(specialityEnquiry.getSpecialitySewingMaterial());
-		System.out.println(specialityEnquiry.getSpecialityBlendPercentageCotton());
+		System.out.println(specialityEnquiry.getMaterial());
+		System.out.println(specialityEnquiry.getBlendCotton());
 		SpecialityEnquiry spclEnquiry = specialityEnquiryService.save(specialityEnquiry);
 
 		EnquiryTable enquiry = new EnquiryTable();
