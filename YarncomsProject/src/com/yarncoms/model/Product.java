@@ -82,6 +82,9 @@ public class Product {
 	@Column(name = "materialType")
 	private String materialType;
 
+	@Column(name = "specialityType")
+	private String specialityType;
+
 	@Column(name = "texDenier")
 	private String texDenier;
 
@@ -320,6 +323,14 @@ public class Product {
 
 	public void setMaterialType(String materialType) {
 		this.materialType = materialType;
+	}
+
+	public String getSpecialityType() {
+		return specialityType;
+	}
+
+	public void setSpecialityType(String specialityType) {
+		this.specialityType = specialityType;
 	}
 
 	public String getTexDenier() {
