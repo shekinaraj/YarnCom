@@ -67,17 +67,6 @@ public class CustomerVisitController {
 		return json;
 	}
 
-	@RequestMapping(value = "get-customervisitlist", method = RequestMethod.GET)
-	public @ResponseBody HashMap getCustomerList() {
-		LinkedHashMap json = new LinkedHashMap();
-		json.put("enquiryType", "CustomerList");
-
-		List<CustomerVisit> customerVisit = CustomerVisitServiceImpl.findCustomerVisit();
-		json.put("NumberOfCustomer", customerVisit.size());
-		json.put("CustomerVisit", customerVisit);
-
-		return json;
-	}
 
 	@RequestMapping(value = "get-Company-Names", method = RequestMethod.GET)
 	public @ResponseBody HashMap getAllCompanyNames() {
@@ -143,7 +132,7 @@ public class CustomerVisitController {
 			customer.setContactPersonName(cust.getContactPersonName());
 			customer.setCountryCode(cust.getCountryCode());
 			customer.setMobileNo(cust.getMobileNumber());
-			customer.setCustomerType("Buyer");
+			customer.setCustomerType(cust.getCustomerType());
 			customer.setStatus("Open");
 			Customer cus = customerService.save(customer);
 			json.put("Enquiry", cus);

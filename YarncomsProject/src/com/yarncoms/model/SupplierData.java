@@ -28,8 +28,17 @@ public class SupplierData {
 	@Column(name = "supplierQuote")
 	private String supplierQuote;
 	
+	@Column(name = "supplierCurrency")
+	private String supplierCurrency;
+	
 	@Column(name = "offerPrice")
 	private String offerPrice;
+	
+	@Column(name = "finalPrice")
+	private String finalPrice;
+	
+	@Column(name = "otherPrice")
+	private int otherPrice;
 	
 	@Column(name = "currency")
 	private String currency;
@@ -95,12 +104,36 @@ public class SupplierData {
 		this.supplierQuote = supplierQuote;
 	}
 
+	public String getSupplierCurrency() {
+		return supplierCurrency;
+	}
+
+	public void setSupplierCurrency(String supplierCurrency) {
+		this.supplierCurrency = supplierCurrency;
+	}
+
 	public String getOfferPrice() {
 		return offerPrice;
 	}
 
 	public void setOfferPrice(String offerPrice) {
 		this.offerPrice = offerPrice;
+	}
+
+	public int getOtherPrice() {
+		return otherPrice;
+	}
+
+	public void setOtherPrice(int otherPrice) {
+		this.otherPrice = otherPrice;
+	}
+
+	public String getFinalPrice() {
+		return finalPrice;
+	}
+
+	public void setFinalPrice(String finalPrice) {
+		this.finalPrice = finalPrice;
 	}
 
 	public String getCurrency() {

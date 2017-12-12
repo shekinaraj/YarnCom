@@ -20,6 +20,9 @@ public class CustomerVisit {
 	@Column(name = "customerVisitId")
 	private String customerVisitId;
 	
+	@Column(name = "customerType")
+	private String customerType;
+	
 	@Column(name = "companyName")
 	private String companyName;
 	
@@ -70,6 +73,14 @@ public class CustomerVisit {
 
 	public void setCustomerVisitId(String customerVisitId) {
 		this.customerVisitId = customerVisitId;
+	}
+
+	public String getCustomerType() {
+		return customerType;
+	}
+
+	public void setCustomerType(String customerType) {
+		this.customerType = customerType;
 	}
 
 	public String getCompanyName() {

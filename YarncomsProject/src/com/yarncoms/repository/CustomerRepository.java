@@ -31,4 +31,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	@Query("select c from Customer c where c.customerId=?1")
 	List<Customer> productToCustomerDetails(String customerId);
 	
+	@Query("select c from Customer c where c.customerType=?1 and c.companyName=?2 and c.status=?3")
+	Customer findCustomerTypeAndCompanyName(String customerType,String companyName,String status);
+	
 }

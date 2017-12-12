@@ -14,6 +14,8 @@ public interface CustomerService {
 	
 	Customer findCustomerId(Long customerId);
 
+	Customer findCustomerTypeAndCompanyName(String customerType,String companyName, String status);
+	
 	List<Customer> list();
 	
 	List<Customer> checkForEmailMobile(String email, String mobile);
