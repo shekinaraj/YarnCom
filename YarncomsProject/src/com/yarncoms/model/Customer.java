@@ -50,16 +50,16 @@ public class Customer {
 	private String mobileNo;
 
 	@Column(name = "whatsApp")
-	private long whatsApp;
+	private String whatsApp;
 
 	@Column(name = "viberNo")
-	private long viberNo;
+	private String viberNo;
 
 	@Column(name = "officeNo")
-	private long officeNo;
+	private String officeNo;
 
 	@Column(name = "faxNo")
-	private long faxNo;
+	private String faxNo;
 
 	@Column(name = "street")
 	private String street;
@@ -178,35 +178,35 @@ public class Customer {
 		this.mobileNo = mobileNo;
 	}
 
-	public long getWhatsApp() {
+	public String getWhatsApp() {
 		return whatsApp;
 	}
 
-	public void setWhatsApp(long whatsApp) {
+	public void setWhatsApp(String whatsApp) {
 		this.whatsApp = whatsApp;
 	}
 
-	public long getViberNo() {
+	public String getViberNo() {
 		return viberNo;
 	}
 
-	public void setViberNo(long viberNo) {
+	public void setViberNo(String viberNo) {
 		this.viberNo = viberNo;
 	}
 
-	public long getOfficeNo() {
+	public String getOfficeNo() {
 		return officeNo;
 	}
 
-	public void setOfficeNo(long officeNo) {
+	public void setOfficeNo(String officeNo) {
 		this.officeNo = officeNo;
 	}
 
-	public long getFaxNo() {
+	public String getFaxNo() {
 		return faxNo;
 	}
 
-	public void setFaxNo(long faxNo) {
+	public void setFaxNo(String faxNo) {
 		this.faxNo = faxNo;
 	}
 
