@@ -6,18 +6,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
-import com.yarncoms.model.CustomerVisit;
+import com.yarncoms.model.Product;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
+
+import ch.qos.logback.core.util.FileUtil;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
 @Controller
@@ -52,7 +58,6 @@ public class CustomerController {
 		return json;
 	}
 	
-	
 	@RequestMapping(value="get-customer-list", method=RequestMethod.GET)
 	public @ResponseBody HashMap getAllCustomerDetails() {
 		LinkedHashMap json = new LinkedHashMap();
@@ -71,9 +76,7 @@ public class CustomerController {
 		json.put("enquiryType", "Save-Customer-Detail");
 		customer.setPrefix(customer.getPrefix());
 		customer.setFlag("N");
-		Customer cust = customerService.save(customer); 
-		json.put("savedDetails", cust.getCompanyName());
-		System.out.println(cust.getContactPersonName());
+		Customer cust = customerService.save(customer);
 		BankDetails bank =  new BankDetails();
 		bank.setCompanyName(cust.getCompanyName());
 		bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());
