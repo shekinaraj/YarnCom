@@ -236,6 +236,18 @@ public class EnquiryTableController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-EnquiryUsingStatus/{status}", method = RequestMethod.GET)
+	public @ResponseBody HashMap findUsingStatus(@PathVariable("status") String status) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.findUsingStatus(status);
+		json.put("entity", "EnquiryTable");
+		json.put("EnquiryTable", EnquiryTable);
+
+		return json;
+	}
 
 	@RequestMapping(value = "getEnquiry/{level},{status}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getEnqLevel(@PathVariable int level, @PathVariable String status) {

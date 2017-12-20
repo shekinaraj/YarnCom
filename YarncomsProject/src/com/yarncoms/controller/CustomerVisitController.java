@@ -78,6 +78,18 @@ public class CustomerVisitController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-purposeOf-customerVisit/{purpose}", method = RequestMethod.GET)
+	public @ResponseBody HashMap findUsingPurposeOfVisit(@PathVariable String purpose) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<CustomerVisit> customer = CustomerVisitServiceImpl.findUsingPurposeOfVisit(purpose);
+		json.put("entity", "CustomerVisit");
+		json.put("CustomerVisit", customer);
+
+		return json;
+	}
 
 
 	@RequestMapping(value = "get-Company-Names", method = RequestMethod.GET)

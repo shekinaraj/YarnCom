@@ -15,4 +15,6 @@ public interface CustomerVisitService {
 	List<CustomerVisit> findCustomerVisit();
 	
 	List<CustomerVisit> getAllCompanyNames();
+	
+	List<CustomerVisit> findUsingPurposeOfVisit(String purpose);
 }
