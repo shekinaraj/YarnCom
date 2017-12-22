@@ -92,5 +92,25 @@ public class ProductController {
 		return json;
 
 	}
+	
+	@RequestMapping(value = "get-Product-via-CompanyName/{name}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getProductViaCompanyName(@PathVariable("name") String name) {
+		HashMap json = new HashMap();
+		List<Product> product = ProductServiceImpl.getProductViaCompanyName(name);
+		json.put("Entity", "Product");
+		json.put("Product", product);
+
+		return json;
+	}
+	
+	@RequestMapping(value = "get-Product-via-ProductDetails/{detail}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getProductViaProductDetails(@PathVariable("detail") String detail) {
+		HashMap json = new HashMap();
+		List<Product> product = ProductServiceImpl.getProductViaProductDetails(detail);
+		json.put("Entity", "Product");
+		json.put("Product", product);
+
+		return json;
+	}
 
 }

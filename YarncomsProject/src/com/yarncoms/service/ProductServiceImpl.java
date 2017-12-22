@@ -60,4 +60,16 @@ public class ProductServiceImpl implements ProductService {
 		return productDetails;
 	}
 
+	@Override
+	public List<Product> getProductViaCompanyName(String companyName) {
+		// TODO Auto-generated method stub
+		return productRepository.getProductViaCompanyName(companyName);
+	}
+
+	@Override
+	public List<Product> getProductViaProductDetails(String details) {
+		// TODO Auto-generated method stub
+		return productRepository.getProductViaProductDetails(details);
+	}
+
 }

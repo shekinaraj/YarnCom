@@ -17,4 +17,9 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> getProductDetails(Long productId);
 //select v.vendorName, c.customerName from Vendor v Left Join v.children c	
 	
+	@Query("select p from Product p where p.companyName =?1")
+	List<Product> getProductViaCompanyName(String companyName);
+	
+	@Query("select p from Product p where p.productDescription =?1")
+	List<Product> getProductViaProductDetails(String details);
 }
