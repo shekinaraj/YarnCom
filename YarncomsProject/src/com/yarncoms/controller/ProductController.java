@@ -61,6 +61,16 @@ public class ProductController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-Product-CompanyNames", method = RequestMethod.GET)
+	public @ResponseBody HashMap getAllCompanyNamesInProduct() {
+		HashMap json = new HashMap();
+		List<Product> product = ProductServiceImpl.getAllCompanyNames();
+		json.put("Entity", "Product");
+		json.put("Product", product);
+
+		return json;
+	}
 
 	@RequestMapping(value = "get-ProductDetails/{productId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductId(@PathVariable("productId") Long id) {
@@ -103,10 +113,12 @@ public class ProductController {
 		return json;
 	}
 	
-	@RequestMapping(value = "get-Product-via-ProductDetails/{detail}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getProductViaProductDetails(@PathVariable("detail") String details) {
+	@RequestMapping(value = "get-Product-via-Details/{detail}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getProductViaProductDetails(@PathVariable("detail") String detail) {
 		HashMap json = new HashMap();
-		List<Product> product = ProductServiceImpl.getProductViaProductDetails(details);
+		System.out.println(detail);
+		String det = detail;
+		List<Product> product = ProductServiceImpl.getProductViaProductDetails(det);
 		json.put("Entity", "Product");
 		json.put("Product", product);
 

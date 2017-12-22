@@ -12,12 +12,14 @@ public interface ProductService {
 	
 	Product save(Product product);
 	
+	List<Product> getAllCompanyNames();
+	
 	boolean delete(Long productId);
 	
 	List<Product> getProductDetails(Long productId);
 	
 	List<Product> getProductViaCompanyName(String companyName);
 	
-	List<Product> getProductViaProductDetails(String details);
+	List<Product> getProductViaProductDetails(String detail);
 
 }

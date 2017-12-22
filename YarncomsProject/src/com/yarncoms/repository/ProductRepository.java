@@ -21,5 +21,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> getProductViaCompanyName(String companyName);
 	
 	@Query("select p from Product p where p.productDescription =?1")
-	List<Product> getProductViaProductDetails(String details);
+	List<Product> getProductViaProductDetails(String detail);
+	
+	@Query("select p.companyName from Product p")
+	List<Product> getAllCompanyNames();
 }
