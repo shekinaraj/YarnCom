@@ -104,9 +104,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "get-Product-via-ProductDetails/{detail}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getProductViaProductDetails(@PathVariable("detail") String detail) {
+	public @ResponseBody HashMap getProductViaProductDetails(@PathVariable("detail") String details) {
 		HashMap json = new HashMap();
-		List<Product> product = ProductServiceImpl.getProductViaProductDetails(detail);
+		List<Product> product = ProductServiceImpl.getProductViaProductDetails(details);
 		json.put("Entity", "Product");
 		json.put("Product", product);
 
