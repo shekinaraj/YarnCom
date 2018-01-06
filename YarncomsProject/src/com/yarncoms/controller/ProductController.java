@@ -5,13 +5,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Stack;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.CustomerProduct;
@@ -103,7 +107,7 @@ public class ProductController {
 
 	}
 	
-	@RequestMapping(value = "get-Product-via-CompanyName/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-Product-via-CompanyName/{name}", method = RequestMethod.POST)
 	public @ResponseBody HashMap getProductViaCompanyName(@PathVariable("name") String name) {
 		HashMap json = new HashMap();
 		List<Product> product = ProductServiceImpl.getProductViaCompanyName(name);
@@ -122,6 +126,14 @@ public class ProductController {
 		json.put("Entity", "Product");
 		json.put("Product", product);
 
+		return json;
+	}
+	
+	@RequestMapping(value = "getCompanyName", method = RequestMethod.POST)
+	public @ResponseBody HashMap getCompanyProduct(@ModelAttribute Product product) {
+		HashMap json = new HashMap();
+//		List<Product> produc = ProductServiceImpl.getProductViaCompanyName(product.getCompanyName());
+		json.put("Retrieved", product.getCompanyName());
 		return json;
 	}
 
