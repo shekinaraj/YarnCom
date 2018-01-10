@@ -68,7 +68,8 @@ public class SpecialityEnquiryController {
 		enquiry.setEnquiryId(spclEnquiry.getPrefix() + "-0000" + spclEnquiry.getEnquiryId());
 		enquiry.setCvEnquiryId(spclEnquiry.getCvId());
 		enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
-		enquiry.setName(spclEnquiry.getName());
+		enquiry.setCompanyName(spclEnquiry.getCompanyName());
+		enquiry.setContactPersonName(specialityEnquiry.getContactPersonName());
 		enquiry.setCountryCode(spclEnquiry.getCountryCode());
 		enquiry.setContactNo(spclEnquiry.getContactNo());
 		enquiry.setEnqDate(spclEnquiry.getEnquiryDate());

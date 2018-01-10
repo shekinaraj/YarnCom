@@ -112,7 +112,8 @@ public class CustomerVisitController {
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setEnquiryId(cust.getPrefix() + "-0000" + cust.getCustomerVisitId().toString());
 		enquiry.setEnquiryFrom("Customer");
-		enquiry.setName(cust.getContactPersonName());
+		enquiry.setCompanyName(cust.getCompanyName());
+		enquiry.setContactPersonName(cust.getContactPersonName());
 		enquiry.setCountryCode	(cust.getCountryCode());
 		enquiry.setContactNo(cust.getMobileNumber());
 		enquiry.setEnqDate(cust.getDateOfVisit());

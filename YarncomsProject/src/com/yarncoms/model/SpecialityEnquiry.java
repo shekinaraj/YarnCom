@@ -31,8 +31,11 @@ public class SpecialityEnquiry {
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "companyName")
+	private String companyName;
+
+	@Column(name = "contactPersonName")
+	private String contactPersonName;
 
 	@Column(name = "commission")
 	private String commission;
@@ -200,12 +203,20 @@ public class SpecialityEnquiry {
 		this.enquiryFrom = enquiryFrom;
 	}
 
-	public String getName() {
-		return name;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getContactPersonName() {
+		return contactPersonName;
+	}
+
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
 
 	public String getCommission() {

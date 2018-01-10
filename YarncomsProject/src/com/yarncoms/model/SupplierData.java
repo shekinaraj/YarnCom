@@ -58,6 +58,12 @@ public class SupplierData {
 	@Column(name = "customerId")
 	private String customerId;
 	
+	@Column(name = "companyName")
+	private String companyName;
+
+	@Column(name = "contactPersonName")
+	private String contactPersonName;
+	
 	@Column(name = "status")
 	private String status;
 	
@@ -182,6 +188,22 @@ public class SupplierData {
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getContactPersonName() {
+		return contactPersonName;
+	}
+
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
 
 	public String getStatus() {

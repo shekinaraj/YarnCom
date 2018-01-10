@@ -9,8 +9,8 @@ import com.yarncoms.model.FabricEnquiry;
 
 public interface FabricEnquiryRepository extends JpaRepository<FabricEnquiry, Long> {
 
-	@Query(name = "EnquiryTable", nativeQuery = true)
-	List<FabricEnquiry> findByName(String name);
+//	@Query(name = "EnquiryTable", nativeQuery = true)
+//	List<FabricEnquiry> findByName(String name);
 
 	FabricEnquiry getByEnquiryId(Long fabricEnquiryId);
 

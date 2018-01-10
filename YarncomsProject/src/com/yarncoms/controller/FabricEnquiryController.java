@@ -80,7 +80,8 @@ public class FabricEnquiryController {
 		enquiry.setCvEnquiryId(fabricDetails.getCvId());
 		enquiry.setEnquiryId(fabricDetails.getPrefix() + "-0000" + fabricDetails.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
-		enquiry.setName(fabricDetails.getName());
+		enquiry.setCompanyName(fabricDetails.getCompanyName());
+		enquiry.setContactPersonName(fabricDetails.getContactPersonName());
 		enquiry.setCountryCode(fabricDetails.getCountryCode());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
@@ -146,6 +147,8 @@ public class FabricEnquiryController {
 			fabricData.setEnquiryId(id);
 			fabricData.setEmail(customer.get(0).getContactPersonEmail());
 			fabricData.setCustomerId(customer.get(0).getCustomerId());
+			fabricData.setCompanyName(customer.get(0).getCompanyName());
+			fabricData.setContactPersonName(customer.get(0).getContactPersonName());
 			fabricData.setCountryCode(customer.get(0).getCountryCode());
 			fabricData.setContactNo(customer.get(0).getMobileNo());
 			fabricData.setStatus("level3");

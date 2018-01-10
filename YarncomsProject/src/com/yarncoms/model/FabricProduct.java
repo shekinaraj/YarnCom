@@ -29,6 +29,9 @@ public class FabricProduct {
 	@Column(name = "companyName")
 	private String companyName;
 	
+	@Column(name = "contactPersonName")
+	private String contactPersonName;
+	
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 
@@ -149,6 +152,14 @@ public class FabricProduct {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public String getContactPersonName() {
+		return contactPersonName;
+	}
+
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
 
 	public String getEnquiryFor() {

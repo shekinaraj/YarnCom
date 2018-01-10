@@ -112,6 +112,8 @@ public class EnquiryTableController {
 					 specialityData.setEnquiryId(id);
 						specialityData.setEmail(customer.get(0).getContactPersonEmail());
 						specialityData.setCustomerId(customer.get(0).getCustomerId());
+						specialityData.setCompanyName(customer.get(0).getCompanyName());
+						specialityData.setContactPersonName(customer.get(0).getContactPersonName());
 						specialityData.setCountryCode(customer.get(0).getCountryCode());
 						specialityData.setContactNo(customer.get(0).getMobileNo());
 						specialityData.setStatus("level3");
@@ -170,6 +172,8 @@ public class EnquiryTableController {
 						weavingData.setEnquiryId(id);
 						weavingData.setEmail(customer.get(0).getContactPersonEmail());
 						weavingData.setCustomerId(customer.get(0).getCustomerId());
+						weavingData.setCompanyName(customer.get(0).getCompanyName());
+						weavingData.setContactPersonName(customer.get(0).getContactPersonName());
 						weavingData.setContactNo(customer.get(0).getMobileNo());
 						weavingData.setCountryCode(customer.get(0).getCountryCode());
 						weavingData.setStatus("level3");

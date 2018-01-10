@@ -22,9 +22,12 @@ public class EnquiryTable {
 
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;
+	
+	@Column(name = "companyName")
+	private String companyName;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "contactPersonName")
+	private String contactPersonName;
 	
 	@Column(name = "countryCode")
 	private String countryCode;
@@ -93,12 +96,20 @@ public class EnquiryTable {
 		this.contactNo = contactNo;
 	}
 
-	public String getName() {
-		return name;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getContactPersonName() {
+		return contactPersonName;
+	}
+
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
 
 	public String getTechnicalPerson() {
