@@ -63,6 +63,8 @@ public class FabricProductController {
 		product.setFabricProductId(fabricProduct.getProductId());
 		product.setConstruction(fabricProduct.getConstruction());
 		product.setCustomerId(fabricProduct.getCustomerId());
+		product.setCompanyName(fabricProduct.getCompanyName());
+		product.setCustomerName(fabricProduct.getContactPersonName());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(product);
 
 		json.put("CustomerProduct", customerProduct.getFabricProductId());
