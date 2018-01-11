@@ -27,6 +27,9 @@ public class Product {
 	
 	@Column(name = "contactPersonName")
 	private String contactPersonName;
+	
+	@Column(name = "supplierRating")
+	private String supplierRating;
 
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
@@ -182,6 +185,14 @@ public class Product {
 
 	public void setContactPersonName(String contactPersonName) {
 		this.contactPersonName = contactPersonName;
+	}
+
+	public String getSupplierRating() {
+		return supplierRating;
+	}
+
+	public void setSupplierRating(String supplierRating) {
+		this.supplierRating = supplierRating;
 	}
 
 	public String getEnquiryFor() {

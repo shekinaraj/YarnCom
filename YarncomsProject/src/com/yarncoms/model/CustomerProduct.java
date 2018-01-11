@@ -31,8 +31,11 @@ public class CustomerProduct {
 	@Column(name = "customerId")
 	private String customerId;
 	
-	/*@Column(name = "customerName")
-	private String customerName;*/
+	@Column(name = "customerName")
+	private String customerName;
+	
+	@Column(name = "companyName")
+	private String companyName;
 
 	public Long getCustomerProductId() {
 		return customerProductId;
@@ -82,14 +85,20 @@ public class CustomerProduct {
 		this.customerId = customerId;
 	}
 
-	/*public String getCustomerName() {
+	public String getCustomerName() {
 		return customerName;
 	}
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
-	}*/
-	
-	
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 
 }

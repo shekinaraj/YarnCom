@@ -126,6 +126,7 @@ public class FabricEnquiryController {
 	@RequestMapping(value = "get-SellerName/{fabricEnquiryId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getByQuery(@PathVariable("fabricEnquiryId") String id) {
 		HashMap json = new HashMap();
+		List<EnquiryTable> EnquiryTable = EnquiryTableServiceImpl.getByEnquiryId(id);
 		System.out.println(id);
 		String parse = id.substring(id.length() - 5);
 		System.out.println(parse);
@@ -144,11 +145,12 @@ public class FabricEnquiryController {
 
 			SupplierData fabricData = new SupplierData();
 			fabricData.setSupplierName(customer.get(0).getCompanyName());
+			fabricData.setSupplierRating(customer.get(0).getRating());
 			fabricData.setEnquiryId(id);
 			fabricData.setEmail(customer.get(0).getContactPersonEmail());
 			fabricData.setCustomerId(customer.get(0).getCustomerId());
-			fabricData.setCompanyName(customer.get(0).getCompanyName());
-			fabricData.setContactPersonName(customer.get(0).getContactPersonName());
+			fabricData.setCompanyName(EnquiryTable.get(0).getCompanyName());
+			fabricData.setContactPersonName(EnquiryTable.get(0).getContactPersonName());
 			fabricData.setCountryCode(customer.get(0).getCountryCode());
 			fabricData.setContactNo(customer.get(0).getMobileNo());
 			fabricData.setStatus("level3");

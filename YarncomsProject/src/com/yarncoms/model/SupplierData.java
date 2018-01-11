@@ -25,6 +25,9 @@ public class SupplierData {
 	@Column(name = "supplierName" )
 	private String supplierName;
 	
+	@Column(name = "supplierRating")
+	private String supplierRating;
+	
 	@Column(name = "supplierQuote")
 	private String supplierQuote;
 	
@@ -100,6 +103,14 @@ public class SupplierData {
 
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
+	}
+
+	public String getSupplierRating() {
+		return supplierRating;
+	}
+
+	public void setSupplierRating(String supplierRating) {
+		this.supplierRating = supplierRating;
 	}
 
 	public String getSupplierQuote() {

@@ -98,6 +98,8 @@ public class ProductController {
 		Cproduct.setYarnProductId(product.getProductId());
 		Cproduct.setConstruction(product.getProductDescription());
 		Cproduct.setCustomerId(product.getCustomerId());
+		Cproduct.setCustomerName(product.getContactPersonName());
+		Cproduct.setCompanyName(product.getCompanyName());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(Cproduct);
 
 		json.put("CustomerProduct", customerProduct.getYarnProductId());
