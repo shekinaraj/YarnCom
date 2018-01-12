@@ -4,6 +4,7 @@ package com.yarncoms.controller;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,8 +41,8 @@ public class BankDetailController {
 	}
 
 	@RequestMapping(value = "get-bankDetail/{customerId}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getBankDetails(@PathVariable("customerId") long customerId) {
-		HashMap json = new HashMap();
+	public @ResponseBody Map getBankDetails(@PathVariable("customerId") long customerId) {
+		Map<String, Object> json = new HashMap<String,Object>();
 		// json.put("enquiryType", enquiryType);
 
 		List<BankDetails> bankdetails = BankDetailsServiceImpl.findByCustomerId(Long.valueOf(customerId));
