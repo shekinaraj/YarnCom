@@ -151,6 +151,7 @@ public class FabricEnquiryController {
 			fabricData.setCustomerId(customer.get(0).getCustomerId());
 			fabricData.setCompanyName(EnquiryTable.get(0).getCompanyName());
 			fabricData.setContactPersonName(EnquiryTable.get(0).getContactPersonName());
+			fabricData.setProductDescription(EnquiryTable.get(0).getProductDescription());
 			fabricData.setCountryCode(customer.get(0).getCountryCode());
 			fabricData.setContactNo(customer.get(0).getMobileNo());
 			fabricData.setStatus("level3");

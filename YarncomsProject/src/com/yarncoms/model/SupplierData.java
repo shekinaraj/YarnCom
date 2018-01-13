@@ -67,6 +67,9 @@ public class SupplierData {
 	@Column(name = "contactPersonName")
 	private String contactPersonName;
 	
+	@Column(name = "productDescription")
+	private String productDescription;
+	
 	@Column(name = "status")
 	private String status;
 	
@@ -215,6 +218,14 @@ public class SupplierData {
 
 	public void setContactPersonName(String contactPersonName) {
 		this.contactPersonName = contactPersonName;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 
 	public String getStatus() {
