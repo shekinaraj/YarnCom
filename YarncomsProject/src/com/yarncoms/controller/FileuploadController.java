@@ -24,7 +24,7 @@ import com.yarncoms.model.FileInfo;
 @RequestMapping("/rest")
 public class FileuploadController {
  @Autowired
- ServletContext context;
+ ServletContext context; 
 
  @RequestMapping(value = "/fileupload", headers=("content-type=multipart/*"), method = RequestMethod.POST)
  public ResponseEntity<FileInfo> upload(@RequestParam("file") MultipartFile inputFile) {
