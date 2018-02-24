@@ -1,6 +1,8 @@
 package com.yarncoms.controller;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.FileUpload;
 import com.yarncoms.service.FileUploadService;
 
@@ -59,6 +63,18 @@ public class FileController {
         return new ResponseEntity<>(fileUpload.getFile(), headers, HttpStatus.OK);
     }
     
+    @RequestMapping(value = "get-All-FilesUploaded", method = RequestMethod.GET)
+	public @ResponseBody HashMap getBankDetails() {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<FileUpload> file = fileUploadService.findAllFiles();
+		json.put("entity", "UploadedFiles");
+		json.put("UploadedFiles", file);
+
+		return json;
+	}
+    
     @RequestMapping(
             value = "/upload",
             method = RequestMethod.POST
@@ -81,9 +97,9 @@ public class FileController {
                 }
             }
             catch (Exception e) {
-                return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<>("{could not upload file exceeding 5Mb}", HttpStatus.INTERNAL_SERVER_ERROR);
             }
 
-            return new ResponseEntity<>("{}", HttpStatus.OK);
+            return new ResponseEntity<>("{File has been uploaded successfully}", HttpStatus.OK);
         }
 }
