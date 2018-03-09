@@ -28,6 +28,18 @@ public class FabricProductController {
 
 	@Autowired
 	private CustomerProductService customerProductServiceImpl;
+	
+	@RequestMapping(value = "get-All-FabricProduct", method = RequestMethod.GET)
+	public @ResponseBody HashMap getFabricProductsList() {
+		HashMap json = new HashMap();
+
+		List<FabricProduct> fabricProducts = FabricProductServiceImpl.getAllFabricProduct();
+		json.put("NumberOfProducts", fabricProducts.size());
+		json.put("Entity", "FabricProduct");
+		json.put("FabricProduct", fabricProducts);
+
+		return json;
+	}
 
 	@RequestMapping(value = "get-FabricProductDetail", method = RequestMethod.GET)
 	public @ResponseBody HashMap getFabricProductList() {

@@ -108,7 +108,7 @@ public class CustomerVisitController {
 		customervisit.setPrefix(customervisit.getPrefix());
 		CustomerVisit cust = CustomerVisitServiceImpl.save(customervisit);
 		json.put("savedDetails", cust.getCompanyName());
-
+		
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setEnquiryId(cust.getPrefix() + "-0000" + cust.getCustomerVisitId().toString());
 		enquiry.setEnquiryFrom("Customer");
@@ -135,12 +135,13 @@ public class CustomerVisitController {
 		System.out.println(date2);
 		System.out.println(date1.compareTo(date2));
 		System.out.println(enquiryDate.equals(date)+"   "+date1.compareTo(date2));
-		if ((enquiryDate.equals(date))||(date1.compareTo(date2) == 1) && purpose.equals("Enquiry")) {
-			System.out.println(enquiry);
+		if((enquiryDate.equals(date))||(date1.compareTo(date2) == 1)){
+		if (purpose.equals("Enquiry")) {
 			EnquiryTable enq1 = EnquiryTableServiceImpl.save(enquiry);
 			json.put("Enquiry", enq1);
 		} else {
 			System.out.println("Cant save in Enquiry");
+		}
 		}
 
 		Customer customer = new Customer();

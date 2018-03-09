@@ -13,6 +13,9 @@ public interface FabricProductRepository extends JpaRepository<FabricProduct, Lo
 
 	@Query("SELECT f.warpCount,f.warpPly,f.weftCount,f.weftPly FROM FabricProduct f")
 	List<FabricProduct> getAll();
+	
+	@Query("SELECT f FROM FabricProduct f")
+	List<FabricProduct> getAllFabricProduct();
 
 	@Query("SELECT p.productDescription FROM Customer c, Product p where c.customerId = ?1 AND c.customerId = p.customerId")
 	List<FabricProduct> findYarnCount(Long customerId);

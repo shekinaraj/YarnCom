@@ -20,6 +20,12 @@ public class FabricProductServiceImpl implements FabricProductService {
 
 		return fabricProductRepository.getAll();
 	}
+	
+	@Override
+	public List<FabricProduct> getAllFabricProduct() {
+
+		return fabricProductRepository.getAllFabricProduct();
+	}
 
 	@Override
 	public List<FabricProduct> getByProductId(long productId) {

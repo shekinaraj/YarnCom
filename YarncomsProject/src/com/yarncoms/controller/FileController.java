@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.FileUpload;
+import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.FileUploadService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
@@ -89,9 +92,14 @@ public class FileController {
                     MultipartFile file = request.getFile(uploadedFile);
                     String mimeType = file.getContentType();
                     String filename = file.getOriginalFilename();
+                   // String companyName = upload.getCompanyName();
+                    String filenameWithoutSpace = filename.replaceAll("\\s+", "_");
+                    System.out.println(filename+"as"+filenameWithoutSpace);
+//                    String companyName = model.getCompanyName();
+//                    System.out.println(companyName);
                     byte[] bytes = file.getBytes();
 
-                    FileUpload newFile = new FileUpload(filename, bytes, mimeType);
+                    FileUpload newFile = new FileUpload(filenameWithoutSpace, bytes, mimeType);
 
                     fileUploadService.uploadFile(newFile);
                 }

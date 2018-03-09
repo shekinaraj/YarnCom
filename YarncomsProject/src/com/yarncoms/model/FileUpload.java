@@ -14,6 +14,7 @@ public class FileUpload {
         this.file = file;
         this.filename = filename;
         this.mimeType = mimeType;
+        //this.companyName = companyName;
     }
 
     public FileUpload() {
@@ -27,6 +28,8 @@ public class FileUpload {
     private byte[] file;
 
     private String mimeType;
+    
+   // private String companyName;	
 
 
     public String getFilename() {
@@ -52,4 +55,12 @@ public class FileUpload {
     public void setMimeType(String mimeType) {
         this.mimeType = mimeType;
     }
-}
+
+/*	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+*/}

@@ -156,11 +156,9 @@ public class EnquiryTableController {
 				
 			}
 			 else {
-				String query = "select pt from Product pt, MaterialTable m, WeavingEnquiry we where we.enquiryId="
-						+ number
-						+ " and we.weavingYarnCountIn=pt.weavingYarnCountIn and we.count=pt.count and we.weavingPly=pt.ply and we.weavingYarnQuality=pt.yarnQuality and we.weavingVirginMaterial=m.materialName OR we.weavingRingSpunMaterial=m.materialName OR we.weavingRingSpunDoubleMaterial=m.materialName and we.purpose=pt.purpose and we.enquiryFor=pt.enquiryFor and we.productDescription=pt.productDescription";
-				System.out.println("*************" + query);
+				
 				List<WeavingEnquiry> weaving = weavingEnquiryService.getByWeaving(number);
+				System.out.println();
 				Stack st = new Stack();
 				for (int i = 0; i < weaving.size(); i++) {
 					Object product = (Object) weaving.get(i);

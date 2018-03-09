@@ -7,6 +7,8 @@ import com.yarncoms.model.FabricProduct;
 public interface FabricProductService {
 
 	List<FabricProduct> list();
+	
+	List<FabricProduct> getAllFabricProduct();
 
 	List<FabricProduct> findYarnCount(Long customerId);
 
