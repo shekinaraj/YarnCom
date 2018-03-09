@@ -20,6 +20,8 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> findEnquiryWithDate(int level,String status,String date);
 	
+	List<EnquiryTable> findEnquiryWithTech(int level,String status,String date, String tech);
+	
 	List<EnquiryTable> getByDate(String endDate,String startDate);
 
 	List<EnquiryTable> list();

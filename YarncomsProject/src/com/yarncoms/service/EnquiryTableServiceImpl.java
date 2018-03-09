@@ -88,4 +88,10 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 		return enquiryTableRepository.findUsingStatus(status);
 	}
 
+	@Override
+	public List<EnquiryTable> findEnquiryWithTech(int level, String status, String date, String tech) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.findEnquiryWithTech(level, status, date, tech);
+	}
+
 }

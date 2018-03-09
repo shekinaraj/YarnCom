@@ -17,6 +17,9 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2 AND e.enqDate<=?3")
 	List<EnquiryTable> findEnquiryWithDate(int level,String status,String date);
 	
+	@Query("SELECT e FROM EnquiryTable e where e.enqLevel = ?1 AND e.enqStatus = ?2 AND e.enqDate<=?3 AND e.technicalPerson = ?4")
+	List<EnquiryTable> findEnquiryWithTech(int level,String status,String date, String tech);
+	
 	@Query("SELECT e FROM EnquiryTable e where e.enquiryId = ?1")
 	List<EnquiryTable> findLevel(String enquiryId);
 	
@@ -32,7 +35,7 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate>=?1 AND e.enqDate<=?2")
 	List<EnquiryTable> getByDate(String startDate, String endDate);
 	
-	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate BETWEEN 'DATE_SUB(NOW(), INTERVAL 7 DAY)' AND 'NOW()'")
+	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate BETWEEN '2018-03-03' AND '2018-03-10'")
 	List<EnquiryTable> getDiff();
   
 }
