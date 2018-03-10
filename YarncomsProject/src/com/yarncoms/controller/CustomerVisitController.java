@@ -66,6 +66,18 @@ public class CustomerVisitController {
 
 		return json;
 	}
+	
+	@RequestMapping(value = "get-detailsOn-techie/{tech}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getCustomerByTech(@PathVariable("tech") String tech) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<CustomerVisit> customer = CustomerVisitServiceImpl.getByTechieName(tech);
+		json.put("entity", "CustomerVisit");
+		json.put("CustomerVisit", customer);
+
+		return json;
+	}
 
 	@RequestMapping(value = "get-detailsOn-company/{companyName}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getCustomerOnCompany(@PathVariable String companyName) {

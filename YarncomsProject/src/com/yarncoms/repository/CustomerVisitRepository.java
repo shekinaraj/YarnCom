@@ -18,6 +18,9 @@ public interface CustomerVisitRepository extends JpaRepository<CustomerVisit, Lo
 	@Query("select c from CustomerVisit c where c.companyName=?1")
 	List<CustomerVisit> getByCompanyName(String company);
 	
+	@Query("select c from CustomerVisit c where c.technicalPerson=?1")
+	List<CustomerVisit> getByTechieName(String technicalPerson);
+	
 	@Query("SELECT c from CustomerVisit c where c.purposeOfVisit = ?1")
 	List<CustomerVisit> findUsingPurposeOfVisit(String purpose);
 	

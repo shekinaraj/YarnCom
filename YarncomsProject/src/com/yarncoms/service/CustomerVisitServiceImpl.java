@@ -43,11 +43,18 @@ public class CustomerVisitServiceImpl implements CustomerVisitService {
 		// TODO Auto-generated method stub
 		return customerVisitRepository.getByCompanyName(company);
 	}
-
+	
+	
 	@Override
 	public List<CustomerVisit> findUsingPurposeOfVisit(String purpose) {
 		// TODO Auto-generated method stub
 		return customerVisitRepository.findUsingPurposeOfVisit(purpose);
+	}
+
+	@Override
+	public List<CustomerVisit> getByTechieName(String technicalPerson) {
+		// TODO Auto-generated method stub
+		return customerVisitRepository.getByTechieName(technicalPerson);
 	}
 
 }

@@ -10,7 +10,7 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> getByEnquiryId(String enquiryId);
 	
-	List<EnquiryTable> findUsingStatus(String status);
+	List<EnquiryTable> findUsingStatus(String status,String technical);
 	
 	List<EnquiryTable> getByEnquiryIdToSupplierData(String cvEnquiryId);
 	

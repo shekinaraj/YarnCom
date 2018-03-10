@@ -10,6 +10,8 @@ public interface CustomerVisitService {
 	
 	List<CustomerVisit> findByCompanyName(String company);
 	
+	List<CustomerVisit> getByTechieName(String technicalPerson);
+	
 	CustomerVisit save(CustomerVisit customer);
 
 	List<CustomerVisit> findCustomerVisit();
