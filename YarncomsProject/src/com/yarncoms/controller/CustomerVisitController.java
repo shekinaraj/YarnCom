@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
 import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.model.EnquiryTable;
+import com.yarncoms.model.Inspection;
 import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.CustomerVisitService;
 import com.yarncoms.service.EnquiryTableService;
+import com.yarncoms.service.InspectionDetailsService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
 @Controller
@@ -40,6 +43,9 @@ public class CustomerVisitController {
 
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
+	
+	@Autowired
+	private InspectionDetailsService inspectionDetailsServiceImpl;
 
 	// Controllers for CustomerVisitDetails
 
@@ -115,12 +121,14 @@ public class CustomerVisitController {
 
 	@RequestMapping(value = "save-customer-visit", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveCustomerDetails(@RequestBody CustomerVisit customervisit) throws ParseException {
+		
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Save-Customer-Detail");
 		customervisit.setPrefix(customervisit.getPrefix());
 		CustomerVisit cust = CustomerVisitServiceImpl.save(customervisit);
 		json.put("savedDetails", cust.getCompanyName());
 		
+		//Enquiry Controller.............
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setEnquiryId(cust.getPrefix() + "-0000" + cust.getCustomerVisitId().toString());
 		enquiry.setEnquiryFrom("Customer");
@@ -155,15 +163,17 @@ public class CustomerVisitController {
 			System.out.println("Cant save in Enquiry");
 		}
 		}
-
+		
+		
+		
 		Customer customer = new Customer();
-		List<Customer> allCustomer = customerService.checkForEmailMobile(cust.getEmailId(), cust.getMobileNumber());
-		// customer.setCustomerId(cust.getPrefix()
-		// +"-0000"+cust.getCustomerVisitId().toString());
-		if (allCustomer.size() > 0) {
-			System.out.println("existing Customer");
+		String Statuss = "Open";
+		List<Customer> allCustomer = customerService.getBuyerOrSeller(cust.getCompanyName(), Statuss);
+		
+		try {
+			if(allCustomer.size()==0) {
+			System.out.println("111111111111");
 			json.put("Enquiry", "Values Already Exist");
-		} else {
 			System.out.println("New Customer");
 			customer.setCompanyName(cust.getCompanyName());
 			customer.setContactPersonEmail(cust.getEmailId());
@@ -174,8 +184,86 @@ public class CustomerVisitController {
 			customer.setStatus("Open");
 			Customer cus = customerService.save(customer);
 			json.put("Enquiry", cus);
-
+			
+		} else if(allCustomer.size() > 0) {
+			
+			if(allCustomer.get(0).getCustomerType().equals(customervisit.getCustomerType())) {
+				System.out.println("2222222222");
+				json.put("enquiryType", "Save-Customer-Detail");
+				customer.setPrefix(customer.getPrefix());
+				customer.setCustomerId(allCustomer.get(0).getCustomerId());
+				customer.setCompanyName(cust.getCompanyName());
+				customer.setContactPersonEmail(cust.getEmailId());
+				customer.setContactPersonName(cust.getContactPersonName());
+				customer.setCountryCode(cust.getCountryCode());
+				customer.setMobileNo(cust.getMobileNumber());
+				customer.setCustomerType(allCustomer.get(0).getCustomerType());
+				customer.setStatus("Open");
+				Customer cus = customerService.save(customer);
+				json.put("Enquiry", cus);	
+			}
+		
+		
+		else {
+			System.out.println(!allCustomer.get(0).getCustomerType().equals(customervisit.getCustomerType())+"Compared Output");
+			if(!allCustomer.get(0).getCustomerType().equals(customervisit.getCustomerType())) {
+				System.out.println("33333333");
+				json.put("enquiryType", "Save-Customer-Detail");
+				customer.setPrefix(customer.getPrefix());
+				customer.setCustomerId(allCustomer.get(0).getCustomerId());
+				customer.setCustomerType("Both");
+				customer.setCompanyName(cust.getCompanyName());
+				customer.setContactPersonEmail(cust.getEmailId());
+				customer.setContactPersonName(cust.getContactPersonName());
+				customer.setCountryCode(cust.getCountryCode());
+				customer.setMobileNo(cust.getMobileNumber());
+				customer.setStatus("Open");
+				Customer cus = customerService.save(customer);
+				json.put("Enquiry", cus);
+			}
 		}
+		}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+
+	
+		
+		//InspectionController.........
+				Inspection inspection = new Inspection();
+				inspection.setCvInspectionId(cust.getPrefix() + "-0000" + cust.getCustomerVisitId().toString());
+				inspection.setCompanyName(cust.getCompanyName());
+				inspection.setContactPersonName(cust.getContactPersonName());
+				inspection.setCountryCode(cust.getCountryCode());
+				inspection.setCustomerType("Seller");
+				inspection.setStatus("Open");
+				inspection.setDesignation(cust.getDesignation());
+				inspection.setEmailId(cust.getEmailId());
+				inspection.setInspectionDate(cust.getDateOfVisit());
+				inspection.setMobileNumber(cust.getMobileNumber());
+				inspection.setTechnicalPerson(cust.getTechnicalPerson());
+				inspection.setTypeOfIndustry(cust.getTypeOfIndustry());
+				
+				String purposeForInspection = cust.getPurposeOfVisit();
+				System.out.println(enquiryDate);
+				System.out.println(purpose);
+				System.out.println(date);
+				System.out.println(date1);
+				System.out.println(date2);
+				System.out.println(date1.compareTo(date2));
+				System.out.println(enquiryDate.equals(date)+"   "+date1.compareTo(date2));
+				if((enquiryDate.equals(date))||(date1.compareTo(date2) == 1)){
+				if (purposeForInspection.equals("Inspection")) {
+					Inspection ins = inspectionDetailsServiceImpl.save(inspection);
+					json.put("Inspection", ins);
+				} else {
+					System.out.println("Cant save in Inspection");
+				}
+				}
+				
+				
 
 		return json;
 		/*

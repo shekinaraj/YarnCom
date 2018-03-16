@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
+import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
 
@@ -40,14 +41,23 @@ public class CustomerController {
 		return json;
 	}
 	
-	@RequestMapping(value = "get-customervisit-list/{CustomerType}/{CompanyName}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getCustomerList(@PathVariable String CustomerType, @PathVariable String CompanyName) {
+	@RequestMapping(value = "get-customervisit-list/{CompanyName}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getCustomerList(@PathVariable String CompanyName) {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "CustomerList");
 		String status = "Open";
-		Customer cust = customerService.findCustomerTypeAndCompanyName(CustomerType, CompanyName, status);
+		Customer cust = customerService.findCustomerTypeAndCompanyName(CompanyName, status);
 		json.put("CustomerList", cust);
 
+		return json;
+	}
+	
+	@RequestMapping(value = "get-Companies-Name", method = RequestMethod.GET)
+	public @ResponseBody HashMap getAllCompanyNames() {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "CustomerList");
+		List<Customer> customer = customerService.getByCompaniesName();
+		json.put("CustomerComapany", customer);
 		return json;
 	}
 	
@@ -66,17 +76,76 @@ public class CustomerController {
 	@RequestMapping(value = "save-customer", method=RequestMethod.POST)
 	public  @ResponseBody HashMap saveCustomerDetails(@RequestBody Customer  customer){
 		LinkedHashMap json = new LinkedHashMap();
+		
+		List<Customer> cus = customerService.getBuyerOrSeller(customer.getCompanyName(), customer.getStatus());
+		try {
+		System.out.println(cus);
+		System.out.println(cus.get(0));
+		System.out.println(cus.get(0).getCustomerType());
+		System.out.println(customer.getCustomerType());
+		if(cus.size() == 0) {
+			System.out.println("11111111");
 		json.put("enquiryType", "Save-Customer-Detail");
 		customer.setPrefix(customer.getPrefix());
 		customer.setFlag("N");
 		Customer cust = customerService.save(customer);
+		json.put("SavedCustomer",cust);
 		BankDetails bank =  new BankDetails();
 		bank.setCompanyName(cust.getCompanyName());
 		bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());
 		BankDetails bank1 =  BankDetailsServiceImpl.save(bank);
+		json.put("SavedBankCustomer",bank1);
+		
+		}
+		
+		else if(cus.size() > 0) {
+			
+			if(cus.get(0).getCustomerType().equals(customer.getCustomerType())) {
+				System.out.println("2222222222");
+				json.put("enquiryType", "Save-Customer-Detail");
+				customer.setPrefix(customer.getPrefix());
+				customer.setCustomerId(cus.get(0).getCustomerId());
+				customer.setFlag("N");
+				Customer cust = customerService.save(customer);
+				json.put("SavedCustomer",cust);
+				BankDetails bank =  new BankDetails();
+				bank.setCompanyName(cust.getCompanyName());
+				bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());
+				BankDetails bank1 =  BankDetailsServiceImpl.save(bank);
+				json.put("SavedBankCustomer",bank1);	
+			}
+		
+		
+		else {
+			System.out.println(!cus.get(0).getCustomerType().equals(customer.getCustomerType())+"Compared Output");
+			if(!cus.get(0).getCustomerType().equals(customer.getCustomerType())) {
+				System.out.println("33333333");
+				json.put("enquiryType", "Save-Customer-Detail");
+				customer.setPrefix(customer.getPrefix());
+				customer.setCustomerId(cus.get(0).getCustomerId());
+				customer.setFlag("N");
+				customer.setCustomerType("Both");
+				Customer cust = customerService.save(customer);
+				json.put("SavedCustomer",cust);
+				BankDetails bank =  new BankDetails();
+				bank.setCompanyName(cust.getCompanyName());
+				bank.setCustomerId(cust.getPrefix() +"-0000"+cust.getCustomerId().toString());
+				BankDetails bank1 =  BankDetailsServiceImpl.save(bank);
+				json.put("SavedBankCustomer",bank1);
+			}
+		}
+		}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+	
+	
+	
+	
 		return json;
 	}
-	
 	@RequestMapping(value="update-customer/{customerId}", method=RequestMethod.PUT)
 	public  @ResponseBody HashMap updateEnquiryDetail(@PathVariable int customerId,@RequestBody Customer  customer){
 		LinkedHashMap json = new LinkedHashMap();

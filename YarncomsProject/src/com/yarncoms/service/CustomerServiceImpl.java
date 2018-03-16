@@ -77,9 +77,21 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer findCustomerTypeAndCompanyName(String customerType, String companyName, String status) {
+	public Customer findCustomerTypeAndCompanyName(String companyName, String status) {
 		// TODO Auto-generated method stub
-		return customerRepository.findCustomerTypeAndCompanyName(customerType, companyName, status);
+		return customerRepository.findCustomerTypeAndCompanyName(companyName, status);
+	}
+	
+	@Override
+	public List<Customer> getByCompaniesName(){
+		// TODO Auto-generated method stub
+		return customerRepository.getByCompaniesName();
+	}
+	
+	@Override
+	public List<Customer> getBuyerOrSeller(String companyName, String status){
+		// TODO Auto-generated method stub
+				return customerRepository.getBuyerOrSeller(companyName, status);
 	}
 
 }

@@ -35,7 +35,7 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate>=?1 AND e.enqDate<=?2")
 	List<EnquiryTable> getByDate(String startDate, String endDate);
 	
-	@Query("SELECT e FROM EnquiryTable e WHERE e.enqDate BETWEEN '2018-03-03' AND '2018-03-10'")
+	@Query("SELECT e FROM EnquiryTable e")
 	List<EnquiryTable> getDiff();
   
 }

@@ -13,8 +13,12 @@ public interface CustomerService {
 	List<Customer> productToCustomerDetails(String customerId);
 	
 	Customer findCustomerId(Long customerId);
+	
+	List<Customer> getBuyerOrSeller(String companyName, String status);
 
-	Customer findCustomerTypeAndCompanyName(String customerType,String companyName, String status);
+	Customer findCustomerTypeAndCompanyName(String companyName, String status);
+	
+	List<Customer> getByCompaniesName();
 	
 	List<Customer> list();
 	
