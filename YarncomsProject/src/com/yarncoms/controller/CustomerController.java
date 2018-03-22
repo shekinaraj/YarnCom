@@ -148,7 +148,7 @@ public class CustomerController {
 		Customer cust = customerService.save(customer); 
 		json.put("UpdatedDetailsFor",  cust.getCompanyName());
 		return json;
-	}
+	} 
 	
 	@RequestMapping(value="get/{customerType},{status}", method=RequestMethod.GET)
 	public @ResponseBody HashMap getUser(@PathVariable String customerType, @PathVariable String status) {
