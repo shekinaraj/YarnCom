@@ -139,11 +139,6 @@ public class CustomerController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	
-	
-	
-	
-	
 		return json;
 	}
 	@RequestMapping(value="update-customer/{customerId}", method=RequestMethod.PUT)
@@ -169,12 +164,12 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="close-customer/{customerId}", method=RequestMethod.PUT)
-	public  @ResponseBody HashMap updateStatus(@PathVariable int customerId,@RequestBody Customer  customer){
+	public  @ResponseBody HashMap updateStatus(@PathVariable String customerId,@RequestBody Customer  customer){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-customer-Detail");
 		customer.setStatus("Close");
-		Customer cust = customerService.save(customer); 
-		json.put("UpdatedDetailsFor",  cust.getCompanyName());
+		boolean cust = customerService.delete(customerId); 
+		json.put("UpdatedDetailsFor", cust);
 		return json;
 	}
 	

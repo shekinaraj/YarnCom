@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yarncoms.model.Customer;
+import com.yarncoms.model.UserDetails;
 import com.yarncoms.repository.CustomerRepository;
 
 @Service
@@ -34,9 +35,16 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public boolean delete(int customerId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(String customerId) {
+		try {
+			Customer customer = new Customer();
+			customer.setCustomerId(customerId);;
+			customerRepository.delete(customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	@Override
