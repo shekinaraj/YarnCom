@@ -168,7 +168,7 @@ public class CustomerController {
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-customer-Detail");
 		customer.setStatus("Close");
-		boolean cust = customerService.delete(customerId); 
+		Customer cust = customerService.save(customer); 
 		json.put("UpdatedDetailsFor", cust);
 		return json;
 	}
