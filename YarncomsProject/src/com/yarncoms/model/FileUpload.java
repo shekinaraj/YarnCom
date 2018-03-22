@@ -9,12 +9,12 @@ import javax.persistence.Table;
 @Table(name = "fileupload")
 public class FileUpload {
 
-    public FileUpload(String filename, byte[] file, String mimeType) {
+    public FileUpload(String filename, byte[] file, String mimeType, String companyName) {
 
         this.file = file;
         this.filename = filename;
         this.mimeType = mimeType;
-        //this.companyName = companyName;
+        this.companyName = companyName;
     }
 
     public FileUpload() {
@@ -29,7 +29,7 @@ public class FileUpload {
 
     private String mimeType;
     
-   // private String companyName;	
+    private String companyName;	
 
 
     public String getFilename() {
@@ -56,11 +56,11 @@ public class FileUpload {
         this.mimeType = mimeType;
     }
 
-/*	public String getCompanyName() {
+	public String getCompanyName() {
 		return companyName;
 	}
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-*/}
+}

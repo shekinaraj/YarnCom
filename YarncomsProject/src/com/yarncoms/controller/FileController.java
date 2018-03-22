@@ -2,6 +2,7 @@ package com.yarncoms.controller;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,19 +11,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.core.SpringVersion;
 
-import com.yarncoms.model.BankDetails;
+import com.yarncoms.model.Customer;
 import com.yarncoms.model.FileUpload;
-import com.yarncoms.model.UserDetails;
 import com.yarncoms.service.FileUploadService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
@@ -78,28 +78,38 @@ public class FileController {
 		return json;
 	}
     
+    @RequestMapping(value = "get-fileFor-Company/{CompanyName}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getCustomerList(@PathVariable String CompanyName) {
+		LinkedHashMap json = new LinkedHashMap();
+		List<FileUpload> file = fileUploadService.findByCompanyName(CompanyName);
+		json.put("companyFile", file);
+
+		return json;
+	}
+    
     @RequestMapping(
             value = "/upload",
             method = RequestMethod.POST
         )
         public ResponseEntity uploadFile(MultipartHttpServletRequest request) {
 
+    	 System.out.println(request.toString());
             try {
                 Iterator<String> itr = request.getFileNames();
+                System.out.println("company"+request.getParameter("companyname"));
 
                 while (itr.hasNext()) {
                     String uploadedFile = itr.next();
                     MultipartFile file = request.getFile(uploadedFile);
                     String mimeType = file.getContentType();
                     String filename = file.getOriginalFilename();
-                   // String companyName = upload.getCompanyName();
-                    String filenameWithoutSpace = filename.replaceAll("\\s+", "_");
-                    System.out.println(filename+"as"+filenameWithoutSpace);
-//                    String companyName = model.getCompanyName();
-//                    System.out.println(companyName);
+                    
+                    String filenameWithoutSpace = filename.replaceAll("\\s+", "_");      
+                  
+                    String companyName = request.getParameter("companyname");
+                    System.out.println("version: " + SpringVersion.getVersion());
                     byte[] bytes = file.getBytes();
-
-                    FileUpload newFile = new FileUpload(filenameWithoutSpace, bytes, mimeType);
+                    FileUpload newFile = new FileUpload(filenameWithoutSpace, bytes, mimeType, companyName);
 
                     fileUploadService.uploadFile(newFile);
                 }
