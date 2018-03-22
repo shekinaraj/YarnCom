@@ -65,7 +65,7 @@ public class FileController {
 
         return new ResponseEntity<>(fileUpload.getFile(), headers, HttpStatus.OK);
     }
-    
+     
     @RequestMapping(value = "get-All-FilesUploaded", method = RequestMethod.GET)
 	public @ResponseBody HashMap getBankDetails() {
 		HashMap json = new HashMap();
