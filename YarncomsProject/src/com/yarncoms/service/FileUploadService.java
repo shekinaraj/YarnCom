@@ -27,4 +27,8 @@ public class FileUploadService {
     public void uploadFile(FileUpload doc) {
         fileUploadRepository.saveAndFlush(doc);
     }
+    
+    public List<FileUpload> findByCompanyName(String company){
+    	return fileUploadRepository.findByCompanyName(company);
+    }
 }
