@@ -72,6 +72,9 @@ public class Customer {
 
 	@Column(name = "country")
 	private String country;
+	
+	@Column(name = "otherCountry")
+	private String otherCountry;
 
 	@Column(name = "state")
 	private String state;
@@ -265,6 +268,14 @@ public class Customer {
 
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	public String getOtherCountry() {
+		return otherCountry;
+	}
+
+	public void setOtherCountry(String otherCountry) {
+		this.otherCountry = otherCountry;
 	}
 		
 

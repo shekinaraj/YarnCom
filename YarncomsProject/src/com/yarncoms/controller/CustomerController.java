@@ -79,10 +79,6 @@ public class CustomerController {
 		
 		List<Customer> cus = customerService.getBuyerOrSeller(customer.getCompanyName(), customer.getStatus());
 		try {
-		System.out.println(cus);
-		System.out.println(cus.get(0));
-		System.out.println(cus.get(0).getCustomerType());
-		System.out.println(customer.getCustomerType());
 		if(cus.size() == 0) {
 			System.out.println("11111111");
 		json.put("enquiryType", "Save-Customer-Detail");
@@ -139,11 +135,6 @@ public class CustomerController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	
-	
-	
-	
-	
 		return json;
 	}
 	@RequestMapping(value="update-customer/{customerId}", method=RequestMethod.PUT)
@@ -169,12 +160,12 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="close-customer/{customerId}", method=RequestMethod.PUT)
-	public  @ResponseBody HashMap updateStatus(@PathVariable int customerId,@RequestBody Customer  customer){
+	public  @ResponseBody HashMap updateStatus(@PathVariable String customerId,@RequestBody Customer  customer){
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "Update-customer-Detail");
 		customer.setStatus("Close");
-		Customer cust = customerService.save(customer); 
-		json.put("UpdatedDetailsFor",  cust.getCompanyName());
+		boolean cust = customerService.delete(customerId); 
+		json.put("UpdatedDetailsFor", cust);
 		return json;
 	}
 	
