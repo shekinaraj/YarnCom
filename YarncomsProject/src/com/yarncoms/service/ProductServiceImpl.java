@@ -79,9 +79,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProductIfExist(String customer, String detail) {
+	public List<Product> getProductIfExist(String customerId, String companyName, String enquiryFor, String count,
+			String yarnPackage, String hankType, String yarnCountIn, String ply, String yarnQuality, String typeofYarn,
+			String yarnType, String material, String purpose, String productDescription) {
 		// TODO Auto-generated method stub
-		return productRepository.getProductIfExist(customer, detail);
+		return productRepository.getProductIfExist(customerId, companyName, enquiryFor, count, yarnPackage, hankType, yarnCountIn, ply, yarnQuality, typeofYarn, yarnType, material, purpose, productDescription);
 	}
+
+	
 
 }

@@ -22,6 +22,6 @@ public interface ProductService {
 	
 	List<Product> getProductViaProductDetails(String detail);
 	
-	List<Product> getProductIfExist(String customer,String detail);
+	List<Product> getProductIfExist(String customerId,String companyName,String enquiryFor,String count,String yarnPackage,String hankType,String yarnCountIn,String ply,String yarnQuality,String typeofYarn,String yarnType,String material,String purpose,String productDescription);
 
 }

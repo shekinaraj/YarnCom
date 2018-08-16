@@ -85,14 +85,14 @@ public class ProductController {
 
 	@RequestMapping(value = "save-ProductTable", method = RequestMethod.POST)
 	public @ResponseBody HashMap saveEnquiryTableDetails(@RequestBody Product grid) {
-		System.out.println(grid);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("ProductType", "Product");
 		
 		System.out.println(grid.getProductDescription());
-		List<Product> product1 = ProductServiceImpl.getProductIfExist(grid.getCustomerId(), grid.getProductDescription());
+		
+		List<Product> product1 = ProductServiceImpl.getProductIfExist(grid.getCustomerId(),grid.getCompanyName(),grid.getEnquiryFor(),grid.getCount(),grid.getYarnPackage(),grid.getHankType(),grid.getYarnCountIn(),grid.getPly(),grid.getYarnQuality(),grid.getTypeofYarn(),grid.getYarnType(),grid.getMaterial(),grid.getPurpose(), grid.getProductDescription());
 		if(product1.size()!=0) {
-			json.put("ProductExists", "ProductExists");
+			json.put("ProductExists", "ProductExisted");
 		}
 		else {
 			

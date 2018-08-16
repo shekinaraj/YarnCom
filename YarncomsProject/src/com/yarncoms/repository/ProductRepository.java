@@ -22,8 +22,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	@Query("select p from Product p where p.productDescription =?1")
 	List<Product> getProductViaProductDetails(String detail);
 	
-	@Query("select p from Product p where p.customerId=?1 and p.productDescription =?2")
-	List<Product> getProductIfExist(String customer,String detail);
+	@Query("select p from Product p where p.customerId=?1 and p.companyName=?2 and enquiryFor=?3 and p.count=?4 and p.yarnPackage=?5 and p.hankType=?6 and p.yarnCountIn=?7 and p.ply=?8 and p.yarnQuality=?9 and p.typeofYarn=?10 and p.yarnType=?11 and p.material=?12 and p.purpose=?13 and p.productDescription =?14")
+	List<Product> getProductIfExist(String customerId,String companyName,String enquiryFor,String count,String yarnPackage,String hankType,String yarnCountIn,String ply,String yarnQuality,String typeofYarn,String yarnType,String material,String purpose,String productDescription);
 	
 	@Query("select p.companyName from Product p")
 	List<Product> getAllCompanyNames();
