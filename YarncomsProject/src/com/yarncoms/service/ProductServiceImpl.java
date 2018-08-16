@@ -78,4 +78,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.getAllCompanyNames();
 	}
 
+	@Override
+	public List<Product> getProductIfExist(String customer, String detail) {
+		// TODO Auto-generated method stub
+		return productRepository.getProductIfExist(customer, detail);
+	}
+
 }

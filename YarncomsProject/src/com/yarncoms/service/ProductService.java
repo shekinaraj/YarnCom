@@ -21,5 +21,7 @@ public interface ProductService {
 	List<Product> getProductViaCompanyName(String companyName);
 	
 	List<Product> getProductViaProductDetails(String detail);
+	
+	List<Product> getProductIfExist(String customer,String detail);
 
 }

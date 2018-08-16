@@ -5,8 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Stack;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.CustomerProduct;
@@ -91,7 +88,14 @@ public class ProductController {
 		System.out.println(grid);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("ProductType", "Product");
-
+		
+		System.out.println(grid.getProductDescription());
+		List<Product> product1 = ProductServiceImpl.getProductIfExist(grid.getCustomerId(), grid.getProductDescription());
+		if(product1.size()!=0) {
+			json.put("ProductExists", "ProductExists");
+		}
+		else {
+			
 		Product product = ProductServiceImpl.save(grid);
 
 		CustomerProduct Cproduct = new CustomerProduct();
@@ -105,6 +109,7 @@ public class ProductController {
 		json.put("CustomerProduct", customerProduct.getYarnProductId());
 
 		json.put("savedProductTableDetails", product.getProductId());
+		}
 		return json;
 
 	}
