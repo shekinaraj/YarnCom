@@ -32,4 +32,8 @@ public interface CustomerService {
 
 	boolean delete(String customerId);
 	
+	List<Customer> getByCountryWiseCustomer(String cust,String otherCountry);
+	
+	List<Object> getAllCountry();
+	
 }

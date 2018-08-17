@@ -3,6 +3,7 @@ package com.yarncoms.controller;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
-import com.yarncoms.model.CustomerVisit;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
+
+import antlr.collections.Stack;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
 @Controller
@@ -155,6 +157,39 @@ public class CustomerController {
 		List<Customer> cust = customerService.find(customerType, status);
 		json.put("Customer", cust);
 		json.put("No of Buyers", cust.size());
+		
+		return json;	
+	}
+	
+	@RequestMapping(value="getCountryWiseCustomer/{customerType},{Country}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getByCountryWiseCustomer(@PathVariable String customerType, @PathVariable String Country) {
+		
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		List<Customer> cust = customerService.getByCountryWiseCustomer(customerType, Country);
+		json.put("CountryWiseCustomer", cust);
+		json.put("No of Customer", cust.size());
+		
+		return json;	
+	}
+	
+	@RequestMapping(value="get-All-Country", method=RequestMethod.GET)
+	public @ResponseBody HashMap getAllCountry() {
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		
+		
+		List<Object> list = customerService.getAllCountry();
+		list.add("India");
+		list.add("Sri Lanka");
+		list.add("China");
+		list.add("Pakistan");
+		list.add("Nepal");
+		List<Object> country = list.stream().distinct().collect(Collectors.toList());
+		json.put("AllCountry", country);
+		json.put("No of Country", country.size());
 		
 		return json;	
 	}

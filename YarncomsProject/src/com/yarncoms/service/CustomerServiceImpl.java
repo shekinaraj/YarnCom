@@ -102,4 +102,16 @@ public class CustomerServiceImpl implements CustomerService{
 				return customerRepository.getBuyerOrSeller(companyName, status);
 	}
 
+	@Override
+	public List<Customer> getByCountryWiseCustomer(String cust,String otherCountry) {
+		// TODO Auto-generated method stub
+		return customerRepository.getByCountryWiseCustomer(cust,otherCountry);
+	}
+
+	@Override
+	public List<Object> getAllCountry() {
+		// TODO Auto-generated method stub
+		return customerRepository.getAllCountry();
+	}
+
 }
