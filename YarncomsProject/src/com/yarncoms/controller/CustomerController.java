@@ -62,6 +62,33 @@ public class CustomerController {
 		return json;
 	}
 	
+	@RequestMapping(value = "get-activeList", method = RequestMethod.GET)
+	public @ResponseBody HashMap activeList() {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "CustomerList");
+		List<Customer> customer = customerService.activeList();
+		json.put("ActiveCustomer", customer);
+		return json;
+	}
+	
+	@RequestMapping(value = "get-dormantList", method = RequestMethod.GET)
+	public @ResponseBody HashMap dormantList() {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "CustomerList");
+		List<Customer> customer = customerService.dormantList();
+		json.put("DormantCustomer", customer);
+		return json;
+	}
+	
+	@RequestMapping(value = "get-customerStatusType/{status},{type}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getCustomerByStatusAndType(String status,String type) {
+		LinkedHashMap json = new LinkedHashMap();
+		json.put("enquiryType", "CustomerList");
+		List<Customer> customer = customerService.getCustomerByStatusAndType(status, type);
+		json.put("CustomerStatusType", customer);
+		return json;
+	}
+	
 	@RequestMapping(value="get-customer-list", method=RequestMethod.GET)
 	public @ResponseBody HashMap getAllCustomerDetails() {
 		LinkedHashMap json = new LinkedHashMap();

@@ -36,4 +36,10 @@ public interface CustomerService {
 	
 	List<Object> getAllCountry();
 	
+	List<Customer> activeList();
+	
+	List<Customer> dormantList();
+	
+	List<Customer> getCustomerByStatusAndType(String status,String type);
+	
 }

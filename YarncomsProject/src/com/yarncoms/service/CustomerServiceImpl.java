@@ -114,4 +114,22 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.getAllCountry();
 	}
 
+	@Override
+	public List<Customer> activeList() {
+		// TODO Auto-generated method stub
+		return customerRepository.activeList();
+	}
+
+	@Override
+	public List<Customer> dormantList() {
+		// TODO Auto-generated method stub
+		return customerRepository.dormantList();
+	}
+
+	@Override
+	public List<Customer> getCustomerByStatusAndType(String status, String type) {
+		// TODO Auto-generated method stub
+		return customerRepository.getCustomerByStatusAndType(status, type);
+	}
+
 }
