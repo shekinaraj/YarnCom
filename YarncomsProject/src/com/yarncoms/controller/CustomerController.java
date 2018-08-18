@@ -1,5 +1,6 @@
 package com.yarncoms.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,8 +19,6 @@ import com.yarncoms.model.BankDetails;
 import com.yarncoms.model.Customer;
 import com.yarncoms.service.BankDetailsService;
 import com.yarncoms.service.CustomerService;
-
-import antlr.collections.Stack;
 
 @CrossOrigin(origins = "http:\\localhost:4200" )
 @Controller
@@ -188,8 +187,17 @@ public class CustomerController {
 		list.add("Pakistan");
 		list.add("Nepal");
 		List<Object> country = list.stream().distinct().collect(Collectors.toList());
-		json.put("AllCountry", country);
-		json.put("No of Country", country.size());
+		
+		List<Object> countrylist = new ArrayList<>(); 
+		
+		for(Object i : country) {
+			if(i != null) {
+				countrylist.add(i);
+			}
+		}
+		
+		json.put("AllCountry", countrylist);
+		json.put("No of Country", countrylist.size());
 		
 		return json;	
 	}
