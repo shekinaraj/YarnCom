@@ -36,8 +36,11 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	@Query("select c from Customer c where c.customerType=?1 and c.otherCountry=?2 and c.status='Open' OR c.customerType=?1 and c.country=?2 and c.status='Open'")
 	List<Customer> getByCountryWiseCustomer(String cust,String otherCountry);
 	
-	@Query("select c.otherCountry from Customer c where c.status='Open'")
-	List<Object> getAllCountry();
+	@Query("select c.country from Customer c where c.customerType=?1 and c.status='Open'")
+	List<Object> getAllCountry(String type);
+	
+	@Query("select c.otherCountry from Customer c where c.customerType=?1 and c.status='Open'")
+	List<Object> getAllCountryOtherCountry(String type);
 	
 	@Query("SELECT c FROM Customer c where c.companyName = ?1 AND c.status = ?2")
 	List<Customer> getBuyerOrSeller(String companyName, String status);

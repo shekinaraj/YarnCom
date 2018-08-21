@@ -62,6 +62,9 @@ public class FabricEnquiry{
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 	
+	@Column(name = "brand")
+	private String brand;
+	
 	@Column(name = "warpCount")
 	private Long warpCount;
 
@@ -264,6 +267,14 @@ public class FabricEnquiry{
 
 	public void setEnquiryFor(String enquiryFor) {
 		this.enquiryFor = enquiryFor;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public Long getWarpCount() {

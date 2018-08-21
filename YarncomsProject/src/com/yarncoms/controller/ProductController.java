@@ -100,6 +100,7 @@ public class ProductController {
 
 		CustomerProduct Cproduct = new CustomerProduct();
 		Cproduct.setYarnProductId(product.getProductId());
+		product.setBrand(product.getBrand());
 		Cproduct.setConstruction(product.getProductDescription());
 		Cproduct.setCustomerId(product.getCustomerId());
 		Cproduct.setCustomerName(product.getContactPersonName());

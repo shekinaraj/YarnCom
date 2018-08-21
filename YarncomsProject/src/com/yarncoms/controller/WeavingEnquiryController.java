@@ -65,6 +65,7 @@ public class WeavingEnquiryController {
 		enquiry.setCvEnquiryId(weaving.getCvId());
 		enquiry.setEnquiryId(weaving.getPrefix()+"_0000"+weaving.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
+		enquiry.setEnquiryFor(weaving.getEnquiryFor());
 		enquiry.setCompanyName(weaving.getCompanyName());
 		enquiry.setContactPersonName(weaving.getContactPersonName());
 		enquiry.setCountryCode(weaving.getCountryCode());
@@ -73,6 +74,7 @@ public class WeavingEnquiryController {
 		enquiry.setTechnicalPerson(weaving.getTechnicalPerson());
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
+		enquiry.setBrand(weaving.getBrand());
 		enquiry.setProductDescription(weaving.getProductDescription());
 		
 		

@@ -94,4 +94,10 @@ public class EnquiryTableServiceImpl implements EnquiryTableService {
 		return enquiryTableRepository.findEnquiryWithTech(level, status, date, tech);
 	}
 
+	@Override
+	public List<EnquiryTable> getYarnOrFabric(String enquiryFor) {
+		// TODO Auto-generated method stub
+		return enquiryTableRepository.getYarnOrFabric(enquiryFor);
+	}
+
 }

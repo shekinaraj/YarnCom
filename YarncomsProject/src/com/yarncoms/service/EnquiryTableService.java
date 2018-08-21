@@ -32,6 +32,8 @@ public interface EnquiryTableService {
 	
 	List<EnquiryTable> getDiff();
 	
+	List<EnquiryTable> getYarnOrFabric(String enquiryFor);
+	
 //	public boolean addEnquiry(String customerName, long contactNo, String date);
 	
 	

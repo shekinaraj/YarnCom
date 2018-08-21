@@ -23,6 +23,12 @@ public class EnquiryTable {
 	@Column(name = "enquiryFrom")
 	private String enquiryFrom;
 	
+	@Column(name = "enquiryFor")
+	private String enquiryFor;
+	
+	@Column(name = "brand")
+	private String brand;
+	
 	@Column(name = "companyName")
 	private String companyName;
 
@@ -78,6 +84,22 @@ public class EnquiryTable {
 
 	public void setEnquiryFrom(String enquiryFrom) {
 		this.enquiryFrom = enquiryFrom;
+	}
+
+	public String getEnquiryFor() {
+		return enquiryFor;
+	}
+
+	public void setEnquiryFor(String enquiryFor) {
+		this.enquiryFor = enquiryFor;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public String getCountryCode() {

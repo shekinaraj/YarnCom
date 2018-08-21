@@ -33,6 +33,9 @@ public class Product {
 
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
+	
+	@Column(name = "brand")
+	private String brand;
 
 	@Column(name = "count")
 	private String count;
@@ -201,6 +204,14 @@ public class Product {
 
 	public void setEnquiryFor(String enquiryFor) {
 		this.enquiryFor = enquiryFor;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public String getCount() {

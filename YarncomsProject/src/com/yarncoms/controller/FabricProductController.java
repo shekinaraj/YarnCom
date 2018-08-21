@@ -73,6 +73,7 @@ public class FabricProductController {
 
 		CustomerProduct product = new CustomerProduct();
 		product.setFabricProductId(fabricProduct.getProductId());
+		product.setBrand(fabricProduct.getBrand());
 		product.setConstruction(fabricProduct.getConstruction());
 		product.setCustomerId(fabricProduct.getCustomerId());
 		product.setCompanyName(fabricProduct.getCompanyName());

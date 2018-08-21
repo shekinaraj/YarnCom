@@ -109,9 +109,9 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Object> getAllCountry() {
+	public List<Object> getAllCountry(String type) {
 		// TODO Auto-generated method stub
-		return customerRepository.getAllCountry();
+		return customerRepository.getAllCountry( type);
 	}
 
 	@Override
@@ -128,8 +128,15 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public List<Customer> getCustomerByStatusAndType(String status, String type) {
+		System.out.println(status+"        "+ type);
 		// TODO Auto-generated method stub
 		return customerRepository.getCustomerByStatusAndType(status, type);
+	}
+
+	@Override
+	public List<Object> getAllCountryOtherCountry(String type) {
+		// TODO Auto-generated method stub
+		return customerRepository.getAllCountryOtherCountry( type);
 	}
 
 }

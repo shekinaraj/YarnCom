@@ -80,6 +80,7 @@ public class FabricEnquiryController {
 		enquiry.setCvEnquiryId(fabricDetails.getCvId());
 		enquiry.setEnquiryId(fabricDetails.getPrefix() + "-0000" + fabricDetails.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(fabricDetails.getEnquiryFrom());
+		enquiry.setEnquiryFor(fabricDetails.getEnquiryFor());
 		enquiry.setCompanyName(fabricDetails.getCompanyName());
 		enquiry.setContactPersonName(fabricDetails.getContactPersonName());
 		enquiry.setCountryCode(fabricDetails.getCountryCode());
@@ -88,6 +89,7 @@ public class FabricEnquiryController {
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
+		enquiry.setBrand(fabric.getBrand());
 		enquiry.setProductDescription(fabricDetails.getConstruction());
 
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);

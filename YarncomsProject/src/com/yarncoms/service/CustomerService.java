@@ -34,7 +34,9 @@ public interface CustomerService {
 	
 	List<Customer> getByCountryWiseCustomer(String cust,String otherCountry);
 	
-	List<Object> getAllCountry();
+	List<Object> getAllCountry(String type);
+	
+	List<Object> getAllCountryOtherCountry(String type);
 	
 	List<Customer> activeList();
 	

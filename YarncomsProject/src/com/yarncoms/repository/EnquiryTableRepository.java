@@ -36,6 +36,9 @@ public interface EnquiryTableRepository extends JpaRepository<EnquiryTable, Long
 	List<EnquiryTable> getByDate(String startDate, String endDate);
 	
 	@Query("SELECT e FROM EnquiryTable e")
-	List<EnquiryTable> getDiff(); 
+	List<EnquiryTable> getDiff();
+	
+	@Query("SELECT e FROM EnquiryTable e where e.enquiryFor=?1")
+	List<EnquiryTable> getYarnOrFabric(String enquiryFor);
   
 }

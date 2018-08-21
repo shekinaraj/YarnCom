@@ -61,6 +61,9 @@ public class SpecialityEnquiry {
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 	
+	@Column(name = "brand")
+	private String brand;
+	
 	@Column(name = "purpose")
 	private String purpose;
 	
@@ -281,6 +284,14 @@ public class SpecialityEnquiry {
 
 	public void setEnquiryFor(String enquiryFor) {
 		this.enquiryFor = enquiryFor;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public String getPurpose() {

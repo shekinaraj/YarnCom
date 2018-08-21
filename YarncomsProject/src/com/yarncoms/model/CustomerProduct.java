@@ -25,6 +25,9 @@ public class CustomerProduct {
 	/*@Column(name = "description")
 	private String description;*/
 	
+	@Column(name = "brand")
+	private String brand;
+	
 	@Column(name = "construction")
 	private String construction;
 	
@@ -71,6 +74,14 @@ public class CustomerProduct {
 
 	public String getConstruction() {
 		return construction;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public void setConstruction(String construction) {

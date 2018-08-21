@@ -1,6 +1,8 @@
 package com.yarncoms.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -81,7 +83,8 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = "get-customerStatusType/{status},{type}", method = RequestMethod.GET)
-	public @ResponseBody HashMap getCustomerByStatusAndType(String status,String type) {
+	public @ResponseBody HashMap getCustomerByStatusAndType(@PathVariable String status,@PathVariable String type) {
+		System.out.println(status+"    controller    "+ type);
 		LinkedHashMap json = new LinkedHashMap();
 		json.put("enquiryType", "CustomerList");
 		List<Customer> customer = customerService.getCustomerByStatusAndType(status, type);
@@ -200,31 +203,88 @@ public class CustomerController {
 		return json;	
 	}
 	
-	@RequestMapping(value="get-All-Country", method=RequestMethod.GET)
-	public @ResponseBody HashMap getAllCountry() {
+//	@RequestMapping(value="get-All-Country", method=RequestMethod.GET)
+//	public @ResponseBody HashMap getAllCountry() {
+//		HashMap json = new HashMap();
+//		//json.put("enquiryType", enquiryType);
+//		json.put("entity", "Customer");
+//		
+//		
+//		List<Object> list = customerService.getAllCountry();
+//		list.add("India");
+//		list.add("Sri Lanka");
+//		list.add("China");
+//		list.add("Pakistan");
+//		list.add("Nepal");
+//		List<Object> country = list.stream().distinct().collect(Collectors.toList());
+//		
+//		List<Object> countrylist = new ArrayList<>(); 
+//		
+//		for(Object i : country) {
+//			if(i != null) {
+//				countrylist.add(i);
+//			}
+//		}
+//		
+//		json.put("AllCountry", countrylist);
+//		json.put("No of Country", countrylist.size());
+//		
+//		return json;	
+//	}
+	
+	@RequestMapping(value="get-All-Country-CustomerType/{type}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getAllCountryWithCustomerType(@PathVariable String type) {
 		HashMap json = new HashMap();
 		//json.put("enquiryType", enquiryType);
 		json.put("entity", "Customer");
 		
 		
-		List<Object> list = customerService.getAllCountry();
-		list.add("India");
-		list.add("Sri Lanka");
-		list.add("China");
-		list.add("Pakistan");
-		list.add("Nepal");
-		List<Object> country = list.stream().distinct().collect(Collectors.toList());
+		List<Object> country = customerService.getAllCountry(type);
 		
-		List<Object> countrylist = new ArrayList<>(); 
+		List<Object> countryList = country.stream().distinct().collect(Collectors.toList());
 		
-		for(Object i : country) {
+		List<Object> allCountrylist = new ArrayList<>();
+		
+		
+		for(Object i : countryList) {
 			if(i != null) {
-				countrylist.add(i);
+				System.out.println(i);
+				allCountrylist.add(i);
+				
 			}
 		}
 		
-		json.put("AllCountry", countrylist);
-		json.put("No of Country", countrylist.size());
+
+		
+		json.put("allCountrylist", allCountrylist);
+
+		
+		List<Object> otherCountry = customerService.getAllCountryOtherCountry(type);
+		
+		List<Object> otherCountryList = otherCountry.stream().distinct().collect(Collectors.toList());
+		
+		List<Object> allOtherCountryList = new ArrayList<>();
+		
+		for(Object i : otherCountryList) {
+			if(i != null) {
+				allOtherCountryList.add(i);
+			}
+		}
+		
+		json.put("allOtherCountryList", allOtherCountryList);
+		
+		List<Object> list =  new ArrayList<>();
+		
+		
+		Collections.addAll(list, allCountrylist.toArray(new String[0]));
+		Collections.addAll(list, allOtherCountryList.toArray(new String[0]));
+		
+		
+		
+	      
+	      
+		json.put("AllCountry", list);
+		//json.put("No of Country", allCountries.size());
 		
 		return json;	
 	}

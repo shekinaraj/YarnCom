@@ -68,6 +68,7 @@ public class SpecialityEnquiryController {
 		enquiry.setEnquiryId(spclEnquiry.getPrefix() + "-0000" + spclEnquiry.getEnquiryId());
 		enquiry.setCvEnquiryId(spclEnquiry.getCvId());
 		enquiry.setEnquiryFrom(spclEnquiry.getEnquiryFrom());
+		enquiry.setEnquiryFor(spclEnquiry.getEnquiryFor());
 		enquiry.setCompanyName(spclEnquiry.getCompanyName());
 		enquiry.setContactPersonName(specialityEnquiry.getContactPersonName());
 		enquiry.setCountryCode(spclEnquiry.getCountryCode());
@@ -76,6 +77,7 @@ public class SpecialityEnquiryController {
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(specialityEnquiry.getTechnicalPerson());
+		enquiry.setBrand(specialityEnquiry.getBrand());
 		enquiry.setProductDescription(spclEnquiry.getProductDescription());
 
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);
