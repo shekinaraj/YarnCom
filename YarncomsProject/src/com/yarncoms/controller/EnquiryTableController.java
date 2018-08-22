@@ -115,6 +115,7 @@ public class EnquiryTableController {
 						specialityData.setCustomerId(customer.get(0).getCustomerId());
 						specialityData.setCompanyName(EnquiryTable.get(0).getCompanyName());
 						specialityData.setContactPersonName(EnquiryTable.get(0).getContactPersonName());
+						specialityData.setBrand(EnquiryTable.get(0).getBrand());
 						specialityData.setProductDescription(EnquiryTable.get(0).getProductDescription());
 						specialityData.setCountryCode(customer.get(0).getCountryCode());
 						specialityData.setContactNo(customer.get(0).getMobileNo());
@@ -175,6 +176,7 @@ public class EnquiryTableController {
 						weavingData.setCustomerId(customer.get(0).getCustomerId());
 						weavingData.setCompanyName(EnquiryTable.get(0).getCompanyName());
 						weavingData.setContactPersonName(EnquiryTable.get(0).getContactPersonName());
+						weavingData.setBrand(EnquiryTable.get(0).getBrand());
 						weavingData.setProductDescription(EnquiryTable.get(0).getProductDescription());
 						weavingData.setContactNo(customer.get(0).getMobileNo());
 						weavingData.setCountryCode(customer.get(0).getCountryCode());

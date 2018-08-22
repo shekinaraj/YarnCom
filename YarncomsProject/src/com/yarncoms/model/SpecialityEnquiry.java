@@ -36,6 +36,9 @@ public class SpecialityEnquiry {
 
 	@Column(name = "contactPersonName")
 	private String contactPersonName;
+	
+	@Column(name = "contactPersonEmail")
+	private String contactPersonEmail;
 
 	@Column(name = "commission")
 	private String commission;
@@ -220,6 +223,14 @@ public class SpecialityEnquiry {
 
 	public void setContactPersonName(String contactPersonName) {
 		this.contactPersonName = contactPersonName;
+	}
+
+	public String getContactPersonEmail() {
+		return contactPersonEmail;
+	}
+
+	public void setContactPersonEmail(String contactPersonEmail) {
+		this.contactPersonEmail = contactPersonEmail;
 	}
 
 	public String getCommission() {

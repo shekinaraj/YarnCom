@@ -83,6 +83,7 @@ public class FabricEnquiryController {
 		enquiry.setEnquiryFor(fabricDetails.getEnquiryFor());
 		enquiry.setCompanyName(fabricDetails.getCompanyName());
 		enquiry.setContactPersonName(fabricDetails.getContactPersonName());
+		enquiry.setContactPersonEmail(fabricDetails.getContactPersonEmail());
 		enquiry.setCountryCode(fabricDetails.getCountryCode());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());
@@ -153,6 +154,7 @@ public class FabricEnquiryController {
 			fabricData.setCustomerId(customer.get(0).getCustomerId());
 			fabricData.setCompanyName(EnquiryTable.get(0).getCompanyName());
 			fabricData.setContactPersonName(EnquiryTable.get(0).getContactPersonName());
+			fabricData.setBrand(EnquiryTable.get(0).getBrand());
 			fabricData.setProductDescription(EnquiryTable.get(0).getProductDescription());
 			fabricData.setCountryCode(customer.get(0).getCountryCode());
 			fabricData.setContactNo(customer.get(0).getMobileNo());

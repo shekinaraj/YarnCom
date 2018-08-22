@@ -35,6 +35,9 @@ public class EnquiryTable {
 	@Column(name = "contactPersonName")
 	private String contactPersonName;
 	
+	@Column(name = "contactPersonEmail")
+	private String contactPersonEmail;
+	
 	@Column(name = "countryCode")
 	private String countryCode;
 
@@ -132,6 +135,14 @@ public class EnquiryTable {
 
 	public void setContactPersonName(String contactPersonName) {
 		this.contactPersonName = contactPersonName;
+	}
+
+	public String getContactPersonEmail() {
+		return contactPersonEmail;
+	}
+
+	public void setContactPersonEmail(String contactPersonEmail) {
+		this.contactPersonEmail = contactPersonEmail;
 	}
 
 	public String getTechnicalPerson() {

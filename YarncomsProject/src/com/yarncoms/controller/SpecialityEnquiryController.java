@@ -71,6 +71,7 @@ public class SpecialityEnquiryController {
 		enquiry.setEnquiryFor(spclEnquiry.getEnquiryFor());
 		enquiry.setCompanyName(spclEnquiry.getCompanyName());
 		enquiry.setContactPersonName(specialityEnquiry.getContactPersonName());
+		enquiry.setContactPersonEmail(specialityEnquiry.getContactPersonEmail());
 		enquiry.setCountryCode(spclEnquiry.getCountryCode());
 		enquiry.setContactNo(spclEnquiry.getContactNo());
 		enquiry.setEnqDate(spclEnquiry.getEnquiryDate());
