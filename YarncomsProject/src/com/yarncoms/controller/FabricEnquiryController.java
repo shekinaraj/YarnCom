@@ -91,6 +91,8 @@ public class FabricEnquiryController {
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(fabric.getTechnicalPerson());
 		enquiry.setBrand(fabric.getBrand());
+		enquiry.setWarpCount(fabricDetails.getWarpCount());
+		enquiry.setWeftCount(fabricDetails.getWeftCount());
 		enquiry.setProductDescription(fabricDetails.getConstruction());
 
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);

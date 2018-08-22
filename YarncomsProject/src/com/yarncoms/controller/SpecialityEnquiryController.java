@@ -79,6 +79,7 @@ public class SpecialityEnquiryController {
 		enquiry.setEnqLevel(2);
 		enquiry.setTechnicalPerson(specialityEnquiry.getTechnicalPerson());
 		enquiry.setBrand(specialityEnquiry.getBrand());
+		enquiry.setCount(spclEnquiry.getCount());
 		enquiry.setProductDescription(spclEnquiry.getProductDescription());
 
 		EnquiryTable enquiryTable = EnquiryTableServiceImpl.save(enquiry);

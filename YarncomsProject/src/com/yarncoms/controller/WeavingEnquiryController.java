@@ -76,6 +76,7 @@ public class WeavingEnquiryController {
 		enquiry.setEnqStatus("Open");
 		enquiry.setEnqLevel(2);
 		enquiry.setBrand(weaving.getBrand());
+		enquiry.setCount(weaving.getCount());
 		enquiry.setProductDescription(weaving.getProductDescription());
 		
 		

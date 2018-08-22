@@ -59,6 +59,15 @@ public class EnquiryTable {
 	@Column(name = "reasonforClosing")
 	private String reasonforClosing;
 	
+	@Column(name = "count")
+	private String count;
+	
+	@Column(name = "warpCount")
+	private Long warpCount;
+	
+	@Column(name = "weftCount")
+	private Long weftCount;
+	
 	@Column(name = "productDescription")
 	private String productDescription;
 
@@ -183,6 +192,30 @@ public class EnquiryTable {
 
 	public void setReasonforClosing(String reasonforClosing) {
 		this.reasonforClosing = reasonforClosing;
+	}
+
+	public String getCount() {
+		return count;
+	}
+
+	public void setCount(String count) {
+		this.count = count;
+	}
+
+	public Long getWarpCount() {
+		return warpCount;
+	}
+
+	public void setWarpCount(Long warpCount) {
+		this.warpCount = warpCount;
+	}
+
+	public Long getWeftCount() {
+		return weftCount;
+	}
+
+	public void setWeftCount(Long weftCount) {
+		this.weftCount = weftCount;
 	}
 
 	public String getProductDescription() {
