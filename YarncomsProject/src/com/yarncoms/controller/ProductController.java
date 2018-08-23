@@ -105,6 +105,12 @@ public class ProductController {
 		Cproduct.setCustomerId(product.getCustomerId());
 		Cproduct.setCustomerName(product.getContactPersonName());
 		Cproduct.setCompanyName(product.getCompanyName());
+		Cproduct.setBrand(product.getBrand());
+		Cproduct.setContactNo(product.getContactNo());
+		Cproduct.setCountryCode(product.getCountryCode());
+		Cproduct.setContactPersonEmail(product.getContactPersonEmail());
+		Cproduct.setCount(product.getCount());
+		Cproduct.setEnquiryFor(product.getEnquiryFor());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(Cproduct);
 
 		json.put("CustomerProduct", customerProduct.getYarnProductId());

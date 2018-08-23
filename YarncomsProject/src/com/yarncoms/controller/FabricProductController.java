@@ -78,6 +78,14 @@ public class FabricProductController {
 		product.setCustomerId(fabricProduct.getCustomerId());
 		product.setCompanyName(fabricProduct.getCompanyName());
 		product.setCustomerName(fabricProduct.getContactPersonName());
+		product.setBrand(fabricProduct.getBrand());
+		product.setContactNo(fabricProduct.getContactNo());
+		product.setCountryCode(fabricProduct.getCountryCode());
+		product.setContactPersonEmail(fabricProduct.getContactPersonEmail());
+		product.setWarpCount(fabricProduct.getWarpCount());
+		product.setWeftCount(fabricProduct.getWeftCount());
+		product.setEnquiryFor(fabricProduct.getEnquiryFor());
+		
 		CustomerProduct customerProduct = customerProductServiceImpl.save(product);
 
 		json.put("CustomerProduct", customerProduct.getFabricProductId());

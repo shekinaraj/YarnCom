@@ -16,4 +16,6 @@ public interface CustomerProductService {
 	
 	public boolean delete(Long customerProductId);
 	
+	List<CustomerProduct> getYarnOrFabric(String enquiryFor);
+	
 }

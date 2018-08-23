@@ -28,6 +28,15 @@ public class Product {
 	@Column(name = "contactPersonName")
 	private String contactPersonName;
 	
+	@Column(name = "countryCode")
+	private String countryCode;
+
+	@Column(name = "contactNo")
+	private String contactNo;
+	
+	@Column(name = "contactPersonEmail")
+	private String contactPersonEmail;
+	
 	@Column(name = "supplierRating")
 	private String supplierRating;
 
@@ -188,6 +197,30 @@ public class Product {
 
 	public void setContactPersonName(String contactPersonName) {
 		this.contactPersonName = contactPersonName;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public String getContactPersonEmail() {
+		return contactPersonEmail;
+	}
+
+	public void setContactPersonEmail(String contactPersonEmail) {
+		this.contactPersonEmail = contactPersonEmail;
 	}
 
 	public String getSupplierRating() {

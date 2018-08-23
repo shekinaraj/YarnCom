@@ -358,7 +358,7 @@ public class EnquiryTableController {
 		return json;
 	}
 	
-	@RequestMapping(value = "get-YarnOrFabric-report/{enquiryFor}", method = RequestMethod.GET)
+	@RequestMapping(value = "get-Buyer-YarnOrFabric-report/{enquiryFor}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getYarnOrFabric(@PathVariable("enquiryFor") String enquiryFor) {
 		HashMap json = new HashMap();
 		// json.put("enquiryType", enquiryType);

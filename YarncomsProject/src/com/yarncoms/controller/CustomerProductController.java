@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yarncoms.model.CustomerProduct;
+import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.service.CustomerProductService;
 
 @CrossOrigin(origins = "http:\\localhost:4200")
@@ -31,6 +32,7 @@ public class CustomerProductController {
 		List<CustomerProduct> fabricProduct = customerProductServiceImpl.list();
 		json.put("Entity", "CustomerProduct");
 		json.put("CustomerProduct", fabricProduct);
+		json.put("CustomerProduct Size", fabricProduct.size());
 
 		return json;
 	}
@@ -66,6 +68,18 @@ public class CustomerProductController {
 		}
 		boolean bankDetail = customerProductServiceImpl.delete(customerProductId);
 		json.put("Id deleted", custPro);
+		return json;
+	}
+	
+	@RequestMapping(value = "get-Seller-YarnOrFabric-report/{enquiryFor}", method = RequestMethod.GET)
+	public @ResponseBody HashMap getYarnOrFabric(@PathVariable("enquiryFor") String enquiryFor) {
+		HashMap json = new HashMap();
+		// json.put("enquiryType", enquiryType);
+
+		List<CustomerProduct> report = customerProductServiceImpl.getYarnOrFabric(enquiryFor);
+		json.put("CustomerProductTable", report);
+		json.put("CustomerProductTable Size", report.size());
+
 		return json;
 	}
 

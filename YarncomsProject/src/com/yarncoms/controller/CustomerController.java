@@ -203,34 +203,47 @@ public class CustomerController {
 		return json;	
 	}
 	
-//	@RequestMapping(value="get-All-Country", method=RequestMethod.GET)
-//	public @ResponseBody HashMap getAllCountry() {
-//		HashMap json = new HashMap();
-//		//json.put("enquiryType", enquiryType);
-//		json.put("entity", "Customer");
-//		
-//		
-//		List<Object> list = customerService.getAllCountry();
-//		list.add("India");
-//		list.add("Sri Lanka");
-//		list.add("China");
-//		list.add("Pakistan");
-//		list.add("Nepal");
-//		List<Object> country = list.stream().distinct().collect(Collectors.toList());
-//		
-//		List<Object> countrylist = new ArrayList<>(); 
-//		
-//		for(Object i : country) {
-//			if(i != null) {
-//				countrylist.add(i);
-//			}
-//		}
-//		
-//		json.put("AllCountry", countrylist);
-//		json.put("No of Country", countrylist.size());
-//		
-//		return json;	
-//	}
+	@RequestMapping(value="getCountryWiseAllCustomer/{Country}", method=RequestMethod.GET)
+	public @ResponseBody HashMap getByCountryWiseAllCustomer(@PathVariable String Country) {
+		
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		List<Customer> cust = customerService.getByCountryWiseAll(Country);
+		json.put("CountryWiseAllCustomer", cust);
+		json.put("No of Customer", cust.size());
+		
+		return json;	
+	}
+	
+	@RequestMapping(value="get-All-Country", method=RequestMethod.GET)
+	public @ResponseBody HashMap getAllCountry() {
+		HashMap json = new HashMap();
+		//json.put("enquiryType", enquiryType);
+		json.put("entity", "Customer");
+		
+		
+		List<Object> list = customerService.getAllForAllCountry();
+		list.add("India");
+		list.add("Sri Lanka");
+		list.add("China");
+		list.add("Pakistan");
+		list.add("Nepal");
+		List<Object> country = list.stream().distinct().collect(Collectors.toList());
+		
+		List<Object> countrylist = new ArrayList<>(); 
+		
+		for(Object i : country) {
+			if(i != null) {
+				countrylist.add(i);
+			}
+		}
+		
+		json.put("AllCountry", countrylist);
+		json.put("No of Country", countrylist.size());
+		
+		return json;	
+	}
 	
 	@RequestMapping(value="get-All-Country-CustomerType/{type}", method=RequestMethod.GET)
 	public @ResponseBody HashMap getAllCountryWithCustomerType(@PathVariable String type) {

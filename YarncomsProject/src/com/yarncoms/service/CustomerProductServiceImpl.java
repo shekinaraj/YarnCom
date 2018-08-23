@@ -53,4 +53,10 @@ public class CustomerProductServiceImpl implements CustomerProductService {
 		
 	}
 
+	@Override
+	public List<CustomerProduct> getYarnOrFabric(String enquiryFor) {
+		// TODO Auto-generated method stub
+		return customerProductRepository.getYarnOrFabric(enquiryFor);
+	}
+
 }
