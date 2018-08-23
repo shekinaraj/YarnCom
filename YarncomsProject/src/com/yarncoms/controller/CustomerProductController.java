@@ -44,7 +44,7 @@ public class CustomerProductController {
 		CustomerProduct customerProduct = customerProductServiceImpl.save(product);
 		json.put("CustomerProduct", customerProduct.getCustomerId());
 		return json;
-	}
+	} 
 
 	@RequestMapping(value = "get-Product/{customerId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap getProductDetails(@PathVariable String customerId) {
