@@ -53,7 +53,7 @@ public class CustomerProductController {
 		json.put("entity", "Formula");
 		json.put("Formula", yarnFabric);
 		return json;
-	}
+	} 
 
 	@RequestMapping(value = "delete-CustomerProduct/{customerProductId}", method = RequestMethod.GET)
 	public @ResponseBody HashMap deleteBankDetail(@PathVariable("customerProductId") long customerProductId) {
