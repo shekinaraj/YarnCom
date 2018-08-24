@@ -78,7 +78,7 @@ public class CustomerProductController {
 
 		List<CustomerProduct> report = customerProductServiceImpl.getYarnOrFabric(enquiryFor);
 		json.put("CustomerProductTable", report);
-		json.put("CustomerProductTable Size", report.size());
+		json.put("CustomerProductTable_Size", report.size());
 
 		return json;
 	}

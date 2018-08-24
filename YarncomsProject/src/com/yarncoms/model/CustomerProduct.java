@@ -28,14 +28,14 @@ public class CustomerProduct {
 	@Column(name = "brand")
 	private String brand;
 	
-	@Column(name = "construction")
-	private String construction;
+	@Column(name = "productDescription")
+	private String productDescription;
 	
 	@Column(name = "customerId")
 	private String customerId;
 	
-	@Column(name = "customerName")
-	private String customerName;
+	@Column(name = "contactPersonName")
+	private String contactPersonName;
 	
 	@Column(name = "companyName")
 	private String companyName;
@@ -93,20 +93,20 @@ public class CustomerProduct {
 		this.description = description;
 	}*/
 
-	public String getConstruction() {
-		return construction;
-	}
-
 	public String getBrand() {
 		return brand;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public String getProductDescription() {
+		return productDescription;
 	}
 
-	public void setConstruction(String construction) {
-		this.construction = construction;
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public String getCustomerId() {
@@ -117,12 +117,12 @@ public class CustomerProduct {
 		this.customerId = customerId;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getContactPersonName() {
+		return contactPersonName;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
 
 	public String getCompanyName() {

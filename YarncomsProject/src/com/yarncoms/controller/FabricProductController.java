@@ -74,10 +74,10 @@ public class FabricProductController {
 		CustomerProduct product = new CustomerProduct();
 		product.setFabricProductId(fabricProduct.getProductId());
 		product.setBrand(fabricProduct.getBrand());
-		product.setConstruction(fabricProduct.getConstruction());
+		product.setProductDescription(fabricProduct.getConstruction());
 		product.setCustomerId(fabricProduct.getCustomerId());
 		product.setCompanyName(fabricProduct.getCompanyName());
-		product.setCustomerName(fabricProduct.getContactPersonName());
+		product.setContactPersonName(fabricProduct.getContactPersonName());
 		product.setBrand(fabricProduct.getBrand());
 		product.setContactNo(fabricProduct.getContactNo());
 		product.setCountryCode(fabricProduct.getCountryCode());

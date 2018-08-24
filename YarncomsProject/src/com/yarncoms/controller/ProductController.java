@@ -101,9 +101,9 @@ public class ProductController {
 		CustomerProduct Cproduct = new CustomerProduct();
 		Cproduct.setYarnProductId(product.getProductId());
 		product.setBrand(product.getBrand());
-		Cproduct.setConstruction(product.getProductDescription());
+		Cproduct.setProductDescription(product.getProductDescription());
 		Cproduct.setCustomerId(product.getCustomerId());
-		Cproduct.setCustomerName(product.getContactPersonName());
+		Cproduct.setContactPersonName(product.getContactPersonName());
 		Cproduct.setCompanyName(product.getCompanyName());
 		Cproduct.setBrand(product.getBrand());
 		Cproduct.setContactNo(product.getContactNo());
