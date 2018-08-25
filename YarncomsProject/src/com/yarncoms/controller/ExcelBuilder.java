@@ -47,7 +47,7 @@ public class ExcelBuilder extends AbstractExcelView {
 		style.setFillPattern(CellStyle.SOLID_FOREGROUND);
 		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 		font.setColor(HSSFColor.WHITE.index);
-		style.setFont(font);
+		 style.setFont(font);
 
 		// create header row
 		HSSFRow header = sheet.createRow(0);
