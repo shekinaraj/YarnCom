@@ -11,19 +11,19 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "userid")
 	private Long userId;
-	
+
 	@Column(name = "username")
 	private String userName;
-	
+
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "enabled")
 	private int enabled;
-	
+
 	@Column(name = "role")
 	private String role;
 
@@ -33,18 +33,20 @@ public class User implements Serializable {
 	@Column(name = "ipNumber")
 	private String ipNumber;
 
-	public User() {
+	public User(long i, String string, String string2, String string3, int j, String string4, String string5,
+			String string6) {
+		this.userId = i;
+		this.userName = string;
+		this.email = string2;
+		this.password = string3;
+		this.phoneNumber = string4;
+		this.ipNumber = string5;
+		this.role = string6;
+		this.enabled = j;
 	}
 
 	public User(User user) {
-		this.userId = user.userId;
-		this.userName = user.userName;
-		this.email = user.email;
-		this.password = user.password;
-		this.phoneNumber = user.phoneNumber;
-		this.ipNumber = user.ipNumber;
-		this.role = user.role;
-		this.enabled = user.enabled;
+
 	}
 
 	public int getEnabled() {
@@ -122,6 +124,5 @@ public class User implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
+
 }
