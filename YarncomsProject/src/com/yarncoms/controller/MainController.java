@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yarncoms.model.EnquiryTable;
 import com.yarncoms.model.YarnBase;
+import com.yarncoms.service.CustomerService;
 import com.yarncoms.service.EnquiryTableService;
 
 /**
@@ -28,6 +29,9 @@ public class MainController {
 
 	@Autowired
 	private EnquiryTableService EnquiryTableServiceImpl;
+	
+	@Autowired
+	private CustomerService customerService;
 
 	@RequestMapping(value = "downloadExcell", method = RequestMethod.GET)
 	public ModelAndView downloadExcel() {
@@ -47,7 +51,7 @@ public class MainController {
 				+ EnquiryTable.get(0).getWeftCount() + " " + EnquiryTable.get(0).getProductDescription() + " "
 				+ EnquiryTable.get(0).getRemarks());
 
-		listBooks.add(new YarnBase(EnquiryTable.get(0).getEnquiryId(), EnquiryTable.get(0).getEnquiryFrom(),
+		/*listBooks.add(new YarnBase(EnquiryTable.get(0).getEnquiryId(), EnquiryTable.get(0).getEnquiryFrom(),
 				EnquiryTable.get(0).getEnquiryFor(), EnquiryTable.get(0).getBrand(),
 				EnquiryTable.get(0).getCompanyName(), EnquiryTable.get(0).getContactPersonName(),
 				EnquiryTable.get(0).getContactPersonEmail(), EnquiryTable.get(0).getCountryCode(),
@@ -55,7 +59,7 @@ public class MainController {
 				EnquiryTable.get(0).getEnqDate(), EnquiryTable.get(0).getEnqStatus(), EnquiryTable.get(0).getEnqLevel(),
 				EnquiryTable.get(0).getReasonforClosing(), EnquiryTable.get(0).getCount(),
 				EnquiryTable.get(0).getWarpCount(), EnquiryTable.get(0).getWeftCount(),
-				EnquiryTable.get(0).getProductDescription(), EnquiryTable.get(0).getRemarks()));
+				EnquiryTable.get(0).getProductDescription(), EnquiryTable.get(0).getRemarks()));*/
 
 		ExcelBuilder excel = new ExcelBuilder();
 

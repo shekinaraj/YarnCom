@@ -114,7 +114,7 @@ public class ExcelBuilder extends AbstractExcelView {
 
 		for (YarnBase aBook : listBooks) {
 			HSSFRow aRow = sheet.createRow(rowCount++);
-			aRow.createCell(0).setCellValue(aBook.getEnquiryId());
+			/*aRow.createCell(0).setCellValue(aBook.getEnquiryId());
 			aRow.createCell(1).setCellValue(aBook.getEnquiryFrom());
 			aRow.createCell(2).setCellValue(aBook.getEnquiryFor());
 			aRow.createCell(3).setCellValue(aBook.getBrand());
@@ -132,7 +132,7 @@ public class ExcelBuilder extends AbstractExcelView {
 			aRow.createCell(15).setCellValue(aBook.getWarpCount());
 			aRow.createCell(16).setCellValue(aBook.getWeftCount());
 			aRow.createCell(17).setCellValue(aBook.getProductDescription());
-			aRow.createCell(18).setCellValue(aBook.getRemarks());
+			aRow.createCell(18).setCellValue(aBook.getRemarks());*/
 		}
 	}
 

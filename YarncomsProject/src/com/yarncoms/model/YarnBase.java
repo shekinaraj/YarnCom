@@ -7,15 +7,27 @@ public class YarnBase {
 	@Column(name = "enquiryId")
 	private String enquiryId;
 
-	@Column(name = "enquiryFrom")
-	private String enquiryFrom;
-
 	@Column(name = "enquiryFor")
 	private String enquiryFor;
 
+	@Column(name = "enqDate")
+	private String enqDate;
+	
+	@Column(name = "enqStatus")
+	private String enqStatus;
+
+	@Column(name = "productDescription")
+	private String productDescription;
+	
 	@Column(name = "brand")
 	private String brand;
 
+	@Column(name = "customerType")
+	private String customerType;
+	
+	@Column(name = "customerCategory")
+	private String customerCategory;
+	
 	@Column(name = "companyName")
 	private String companyName;
 
@@ -30,60 +42,40 @@ public class YarnBase {
 
 	@Column(name = "contactNo")
 	private String contactNo;
+	
+	@Column(name = "viberNo")
+	private String viberNo;
+	
+	@Column(name = "country")
+	private String country;
+	
+	@Column(name = "otherCountry")
+	private String otherCountry;
+	
+	@Column(name = "website")
+	private String website;
 
-	@Column(name = "technicalPerson")
-	private String technicalPerson;
-
-	@Column(name = "enqDate")
-	private String enqDate;
-
-	@Column(name = "enqStatus")
-	private String enqStatus;
-
-	@Column(name = "enqLevel")
-	private int enqLevel;
-
-	@Column(name = "reasonforClosing")
-	private String reasonforClosing;
-
-	@Column(name = "count")
-	private String count;
-
-	@Column(name = "warpCount")
-	private Long warpCount;
-
-	@Column(name = "weftCount")
-	private Long weftCount;
-
-	@Column(name = "productDescription")
-	private String productDescription;
-
-	@Column(name = "remarks")
-	private String remarks;
-
-	public YarnBase(String enquiryId, String enquiryFrom, String enquiryFor, String brand, String companyName,
-			String contactPersonName, String contactPersonEmail, String countryCode, String contactNo,
-			String technicalPerson, String enqDate, String enqStatus, int enqLevel, String reasonforClosing,
-			String count, Long warpCount, Long weftCount, String productDescription, String remarks) {
+	public YarnBase(String enquiryId, String enquiryFor, String enqDate, String productDescription, String brand,
+			String customerType, String customerCategory, String companyName, String contactPersonName,
+			String contactPersonEmail, String countryCode, String contactNo, String viberNo, String country,
+			String otherCountry, String website) {
+		super();
 		this.enquiryId = enquiryId;
-		this.enquiryFrom = enquiryFrom;
 		this.enquiryFor = enquiryFor;
+		this.enqDate = enqDate;
+		this.productDescription = productDescription;
 		this.brand = brand;
+		this.customerType = customerType;
+		this.customerCategory = customerCategory;
 		this.companyName = companyName;
 		this.contactPersonName = contactPersonName;
 		this.contactPersonEmail = contactPersonEmail;
 		this.countryCode = countryCode;
 		this.contactNo = contactNo;
-		this.technicalPerson = technicalPerson;
-		this.enqDate = enqDate;
-		this.enqStatus = enqStatus;
-		this.enqLevel = enqLevel;
-		this.reasonforClosing = reasonforClosing;
-		this.count = count;
-		this.warpCount = warpCount;
-		this.weftCount = weftCount;
-		this.productDescription = productDescription;
-		this.remarks = remarks;
+		this.viberNo = viberNo;
+		this.country = country;
+		this.otherCountry = otherCountry;
+		this.website = website;
 	}
 
 	public String getEnquiryId() {
@@ -94,20 +86,28 @@ public class YarnBase {
 		this.enquiryId = enquiryId;
 	}
 
-	public String getEnquiryFrom() {
-		return enquiryFrom;
-	}
-
-	public void setEnquiryFrom(String enquiryFrom) {
-		this.enquiryFrom = enquiryFrom;
-	}
-
 	public String getEnquiryFor() {
 		return enquiryFor;
 	}
 
 	public void setEnquiryFor(String enquiryFor) {
 		this.enquiryFor = enquiryFor;
+	}
+
+	public String getEnqDate() {
+		return enqDate;
+	}
+
+	public void setEnqDate(String enqDate) {
+		this.enqDate = enqDate;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 
 	public String getBrand() {
@@ -118,20 +118,20 @@ public class YarnBase {
 		this.brand = brand;
 	}
 
-	public String getCountryCode() {
-		return countryCode;
+	public String getCustomerType() {
+		return customerType;
 	}
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setCustomerType(String customerType) {
+		this.customerType = customerType;
 	}
 
-	public String getContactNo() {
-		return contactNo;
+	public String getCustomerCategory() {
+		return customerCategory;
 	}
 
-	public void setContactNo(String contactNo) {
-		this.contactNo = contactNo;
+	public void setCustomerCategory(String customerCategory) {
+		this.customerCategory = customerCategory;
 	}
 
 	public String getCompanyName() {
@@ -158,84 +158,54 @@ public class YarnBase {
 		this.contactPersonEmail = contactPersonEmail;
 	}
 
-	public String getTechnicalPerson() {
-		return technicalPerson;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public void setTechnicalPerson(String technicalPerson) {
-		this.technicalPerson = technicalPerson;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
-	public String getEnqDate() {
-		return enqDate;
+	public String getContactNo() {
+		return contactNo;
 	}
 
-	public void setEnqDate(String enqDate) {
-		this.enqDate = enqDate;
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
 
-	public String getEnqStatus() {
-		return enqStatus;
+	public String getViberNo() {
+		return viberNo;
 	}
 
-	public void setEnqStatus(String enqStatus) {
-		this.enqStatus = enqStatus;
+	public void setViberNo(String viberNo) {
+		this.viberNo = viberNo;
 	}
 
-	public int getEnqLevel() {
-		return enqLevel;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setEnqLevel(int enqLevel) {
-		this.enqLevel = enqLevel;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
-	public String getReasonforClosing() {
-		return reasonforClosing;
+	public String getOtherCountry() {
+		return otherCountry;
 	}
 
-	public void setReasonforClosing(String reasonforClosing) {
-		this.reasonforClosing = reasonforClosing;
+	public void setOtherCountry(String otherCountry) {
+		this.otherCountry = otherCountry;
 	}
 
-	public String getCount() {
-		return count;
+	public String getWebsite() {
+		return website;
 	}
 
-	public void setCount(String count) {
-		this.count = count;
+	public void setWebsite(String website) {
+		this.website = website;
 	}
-
-	public Long getWarpCount() {
-		return warpCount;
-	}
-
-	public void setWarpCount(Long warpCount) {
-		this.warpCount = warpCount;
-	}
-
-	public Long getWeftCount() {
-		return weftCount;
-	}
-
-	public void setWeftCount(Long weftCount) {
-		this.weftCount = weftCount;
-	}
-
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
+	
+	
 
 }
