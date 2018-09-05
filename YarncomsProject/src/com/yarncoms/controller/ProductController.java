@@ -109,6 +109,10 @@ public class ProductController {
 		Cproduct.setContactNo(product.getContactNo());
 		Cproduct.setCountryCode(product.getCountryCode());
 		Cproduct.setContactPersonEmail(product.getContactPersonEmail());
+		Cproduct.setViberNo(product.getViberNo());
+		Cproduct.setWebsite(product.getWebsite());
+		Cproduct.setCountry(product.getCountry());
+		Cproduct.setOtherCountry(product.getOtherCountry());
 		Cproduct.setCount(product.getCount());
 		Cproduct.setEnquiryFor(product.getEnquiryFor());
 		CustomerProduct customerProduct = customerProductServiceImpl.save(Cproduct);

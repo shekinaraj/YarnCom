@@ -97,7 +97,7 @@ public class EnquiryTableController {
 		long number = new Long(parse).longValue();
 		System.out.println(number);
 		if (id.charAt(0) == 'Y') {
-			if (id.charAt(1) == '-') {
+			if (id.charAt(1) == 'S') {
 				List<SpecialityEnquiry> speciality = specialityEnquiryService.getBySpeciality(number);
 				Stack st = new Stack();
 				for (int i = 0; i < speciality.size(); i++) {

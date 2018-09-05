@@ -84,6 +84,10 @@ public class FabricEnquiryController {
 		enquiry.setCompanyName(fabricDetails.getCompanyName());
 		enquiry.setContactPersonName(fabricDetails.getContactPersonName());
 		enquiry.setContactPersonEmail(fabricDetails.getContactPersonEmail());
+		enquiry.setViberNo(fabricDetails.getViberNo());
+		enquiry.setWebsite(fabricDetails.getWebsite());
+		enquiry.setCountry(fabricDetails.getCountry());
+		enquiry.setOtherCountry(fabricDetails.getOtherCountry());
 		enquiry.setCountryCode(fabricDetails.getCountryCode());
 		enquiry.setContactNo(fabricDetails.getContactNo());
 		enquiry.setEnqDate(fabricDetails.getEnquiryDate());

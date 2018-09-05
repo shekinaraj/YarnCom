@@ -37,6 +37,18 @@ public class Product {
 	@Column(name = "contactPersonEmail")
 	private String contactPersonEmail;
 	
+	@Column(name = "viberNo")
+	private String viberNo;
+	
+	@Column(name = "website")
+	private String website;
+	
+	@Column(name = "country")
+	private String country;
+	
+	@Column(name = "otherCountry")
+	private String otherCountry;
+	
 	@Column(name = "supplierRating")
 	private String supplierRating;
 
@@ -221,6 +233,38 @@ public class Product {
 
 	public void setContactPersonEmail(String contactPersonEmail) {
 		this.contactPersonEmail = contactPersonEmail;
+	}
+
+	public String getViberNo() {
+		return viberNo;
+	}
+
+	public void setViberNo(String viberNo) {
+		this.viberNo = viberNo;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getOtherCountry() {
+		return otherCountry;
+	}
+
+	public void setOtherCountry(String otherCountry) {
+		this.otherCountry = otherCountry;
 	}
 
 	public String getSupplierRating() {

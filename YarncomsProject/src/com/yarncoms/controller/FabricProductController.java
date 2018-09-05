@@ -82,6 +82,10 @@ public class FabricProductController {
 		product.setContactNo(fabricProduct.getContactNo());
 		product.setCountryCode(fabricProduct.getCountryCode());
 		product.setContactPersonEmail(fabricProduct.getContactPersonEmail());
+		product.setViberNo(fabricProduct.getViberNo());
+		product.setWebsite(fabricProduct.getWebsite());
+		product.setCountry(fabricProduct.getCountry());
+		product.setOtherCountry(fabricProduct.getOtherCountry());
 		product.setWarpCount(fabricProduct.getWarpCount());
 		product.setWeftCount(fabricProduct.getWeftCount());
 		product.setEnquiryFor(fabricProduct.getEnquiryFor());

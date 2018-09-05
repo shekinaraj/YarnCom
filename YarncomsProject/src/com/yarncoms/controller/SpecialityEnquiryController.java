@@ -72,6 +72,10 @@ public class SpecialityEnquiryController {
 		enquiry.setCompanyName(spclEnquiry.getCompanyName());
 		enquiry.setContactPersonName(specialityEnquiry.getContactPersonName());
 		enquiry.setContactPersonEmail(specialityEnquiry.getContactPersonEmail());
+		enquiry.setViberNo(spclEnquiry.getViberNo());
+		enquiry.setWebsite(spclEnquiry.getWebsite());
+		enquiry.setCountry(spclEnquiry.getCountry());
+		enquiry.setOtherCountry(spclEnquiry.getOtherCountry());
 		enquiry.setCountryCode(spclEnquiry.getCountryCode());
 		enquiry.setContactNo(spclEnquiry.getContactNo());
 		enquiry.setEnqDate(spclEnquiry.getEnquiryDate());

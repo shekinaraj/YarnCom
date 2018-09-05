@@ -63,12 +63,16 @@ public class WeavingEnquiryController {
 		
 		EnquiryTable enquiry = new EnquiryTable();
 		enquiry.setCvEnquiryId(weaving.getCvId());
-		enquiry.setEnquiryId(weaving.getPrefix()+"_0000"+weaving.getEnquiryId().toString());
+		enquiry.setEnquiryId(weaving.getPrefix()+"-0000"+weaving.getEnquiryId().toString());
 		enquiry.setEnquiryFrom(weaving.getEnquiryFrom());
 		enquiry.setEnquiryFor(weaving.getEnquiryFor());
 		enquiry.setCompanyName(weaving.getCompanyName());
 		enquiry.setContactPersonName(weaving.getContactPersonName());
 		enquiry.setContactPersonEmail(weaving.getContactPersonEmail());
+		enquiry.setViberNo(weaving.getViberNo());
+		enquiry.setWebsite(weaving.getWebsite());
+		enquiry.setCountry(weaving.getCountry());
+		enquiry.setOtherCountry(weaving.getOtherCountry());
 		enquiry.setCountryCode(weaving.getCountryCode());
 		enquiry.setContactNo(weaving.getContactNo());
 		enquiry.setEnqDate(weaving.getEnquiryDate());

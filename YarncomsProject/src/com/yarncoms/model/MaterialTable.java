@@ -64,6 +64,12 @@ public class MaterialTable {
 	@Column(name = "wasteTypeViscose")
 	private String wasteTypeViscose;
 	
+	@Column(name = "blendVirginCotton")
+	private int blendVirginCotton;
+	
+	@Column(name = "blendWasteCotton")
+	private int blendWasteCotton;
+	
 	@Column(name = "otherMaterial")
 	private String otherMaterial;
 
@@ -204,6 +210,44 @@ public class MaterialTable {
 
 	public void setWasteTypeViscose(String wasteTypeViscose) {
 		this.wasteTypeViscose = wasteTypeViscose;
+	}
+
+	@Column(name = "wasteCottonPercentage")
+	private int wasteCottonPercentage;
+	
+	@Column(name = "virginCottonPercentage")
+	private int virginCottonPercentage;
+
+	public int getWasteCottonPercentage() {
+		return wasteCottonPercentage;
+	}
+
+	public void setWasteCottonPercentage(int wasteCottonPercentage) {
+		this.wasteCottonPercentage = wasteCottonPercentage;
+	}
+
+	public int getVirginCottonPercentage() {
+		return virginCottonPercentage;
+	}
+
+	public void setVirginCottonPercentage(int virginCottonPercentage) {
+		this.virginCottonPercentage = virginCottonPercentage;
+	}
+
+	public int getBlendVirginCotton() {
+		return blendVirginCotton;
+	}
+
+	public void setBlendVirginCotton(int blendVirginCotton) {
+		this.blendVirginCotton = blendVirginCotton;
+	}
+
+	public int getBlendWasteCotton() {
+		return blendWasteCotton;
+	}
+
+	public void setBlendWasteCotton(int blendWasteCotton) {
+		this.blendWasteCotton = blendWasteCotton;
 	}
 
 	public String getOtherMaterial() {

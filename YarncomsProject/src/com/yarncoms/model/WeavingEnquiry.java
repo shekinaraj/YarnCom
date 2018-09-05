@@ -49,6 +49,18 @@ public class WeavingEnquiry {
 	@Column(name = "contactNo")
 	private String contactNo;
 	
+	@Column(name = "viberNo")
+	private String viberNo;
+	
+	@Column(name = "website")
+	private String website;
+	
+	@Column(name = "country")
+	private String country;
+	
+	@Column(name = "otherCountry")
+	private String otherCountry;
+	
 	@Column(name = "technicalPerson")
 	private String technicalPerson;
 
@@ -162,6 +174,18 @@ public class WeavingEnquiry {
 	
 	@Column(name = "wasteTypeViscose")
 	private String wasteTypeViscose;
+	
+	@Column(name = "blendVirginCotton")
+	private int blendVirginCotton;
+	
+	@Column(name = "blendWasteCotton")
+	private int blendWasteCotton;
+	
+	@Column(name = "wasteCottonPercentage")
+	private int wasteCottonPercentage;
+	
+	@Column(name = "virginCottonPercentage")
+	private int virginCottonPercentage;
 
 	@Column(name = "processed")
 	private String processed;
@@ -254,6 +278,38 @@ public class WeavingEnquiry {
 
 	public void setContactPersonEmail(String contactPersonEmail) {
 		this.contactPersonEmail = contactPersonEmail;
+	}
+
+	public String getViberNo() {
+		return viberNo;
+	}
+
+	public void setViberNo(String viberNo) {
+		this.viberNo = viberNo;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getOtherCountry() {
+		return otherCountry;
+	}
+
+	public void setOtherCountry(String otherCountry) {
+		this.otherCountry = otherCountry;
 	}
 
 	public String getCountryCode() {
@@ -574,6 +630,38 @@ public class WeavingEnquiry {
 
 	public void setWasteTypeViscose(String wasteTypeViscose) {
 		this.wasteTypeViscose = wasteTypeViscose;
+	}	
+
+	public int getBlendVirginCotton() {
+		return blendVirginCotton;
+	}
+
+	public void setBlendVirginCotton(int blendVirginCotton) {
+		this.blendVirginCotton = blendVirginCotton;
+	}
+
+	public int getBlendWasteCotton() {
+		return blendWasteCotton;
+	}
+
+	public void setBlendWasteCotton(int blendWasteCotton) {
+		this.blendWasteCotton = blendWasteCotton;
+	}
+
+	public int getWasteCottonPercentage() {
+		return wasteCottonPercentage;
+	}
+
+	public void setWasteCottonPercentage(int wasteCottonPercentage) {
+		this.wasteCottonPercentage = wasteCottonPercentage;
+	}
+
+	public int getVirginCottonPercentage() {
+		return virginCottonPercentage;
+	}
+
+	public void setVirginCottonPercentage(int virginCottonPercentage) {
+		this.virginCottonPercentage = virginCottonPercentage;
 	}
 
 	public String getProcessed() {
